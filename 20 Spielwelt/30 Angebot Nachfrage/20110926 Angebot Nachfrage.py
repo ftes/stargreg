@@ -3,7 +3,7 @@ import math
 def absatz(eingabe):
     summe = 0
     for i in range(0, len(eingabe)):
-        eingabe[i] = 1 / (eingabe[i] ** 3)
+        eingabe[i] = 1. / (eingabe[i] ** 3.)
         summe += eingabe[i]
     for i in range(0, len(eingabe)):
         eingabe[i] = int(eingabe[i] / summe * 100)
