@@ -80,20 +80,5 @@
         <text>%C4nderungen%20best%E4tigen</text>
       </controlProperties>
     </control>
-    <control controlID="15" controlTypeID="com.balsamiq.mockups::TextInput" x="696" y="125" w="107" h="-1" measuredW="52" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Preis%3A%20</text>
-      </controlProperties>
-    </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextInput" x="696" y="148" w="107" h="-1" measuredW="52" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Preis%3A%20</text>
-      </controlProperties>
-    </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::TextInput" x="696" y="171" w="107" h="-1" measuredW="52" measuredH="27" zOrder="17" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Preis%3A%20</text>
-      </controlProperties>
-    </control>
   </controls>
 </mockup>
