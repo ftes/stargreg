@@ -9,7 +9,7 @@
       <controlProperties>
         <borderStyle>none</borderStyle>
         <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22%25C3%259Cbersicht.bmml%22%20alt%3D%22%DCbersicht%22%20id%3D%2222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%2222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%2222_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%2222_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2222_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%2222_5%22/%3E%0A</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%221_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%221_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%221_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%221_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%221_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%221_5%22/%3E%0A</map>
         <selectedIndex>1</selectedIndex>
         <text>%DCbersicht%0AEinkauf%0AProduktion%0AVerkauf%0APersonalwesen%0ABank</text>
       </controlProperties>
@@ -64,11 +64,7 @@
     </control>
     <control controlID="15" controlTypeID="com.balsamiq.mockups::HelpButton" x="431" y="236" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="11" locked="false" isInGroup="-1"/>
     <control controlID="16" controlTypeID="com.balsamiq.mockups::HelpButton" x="735" y="236" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="12" locked="false" isInGroup="-1"/>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::HelpButton" x="1046" y="236" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="13" locked="false" isInGroup="-1">
-      <controlProperties>
-        <href>EinkaufHilfe%26bm%3BEinkaufHilfe.bmml%26bm%3BEinkaufHilfe.bmml%26bm%3BEinkaufHilfe.bmml</href>
-      </controlProperties>
-    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::HelpButton" x="1046" y="236" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="13" locked="false" isInGroup="-1"/>
     <control controlID="18" controlTypeID="com.balsamiq.mockups::Button" x="216" y="213" w="124" h="28" measuredW="124" measuredH="28" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Preisentwicklung</text>
@@ -189,5 +185,18 @@
         <underline>true</underline>
       </controlProperties>
     </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::TitleWindow" x="372" y="184" w="-1" h="-1" measuredW="450" measuredH="400" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Preisentwicklung%3A%20Triebwerke</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Button" x="666" y="519" w="134" h="28" measuredW="67" measuredH="28" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Einkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml</href>
+        <text>Zur%FCck</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::LineChart" x="399" y="233" w="396" h="272" measuredW="187" measuredH="175" zOrder="37" locked="false" isInGroup="-1"/>
   </controls>
 </mockup>

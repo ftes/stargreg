@@ -1,3 +1,23 @@
-<mockup version="1.0" skin="sketch" measuredW="0" measuredH="0" mockupW="0" mockupH="0">
-  <controls/>
+<mockup version="1.0" skin="sketch" measuredW="1094" measuredH="768" mockupW="1024" mockupH="768">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="70" y="0" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>StarGreg</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="1" locked="true" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22%25C3%259Cbersicht.bmml%22%20alt%3D%22%DCbersicht%22%20id%3D%2222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%2222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%2222_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%2222_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2222_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%2222_5%22/%3E%0A</map>
+        <selectedIndex>5</selectedIndex>
+        <text>%DCbersicht%0AEinkauf%0AProduktion%0AVerkauf%0APersonalwesen%0ABank</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Title" x="169" y="35" w="919" h="-1" measuredW="346" measuredH="56" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%DCberblick%20Finanzen</text>
+      </controlProperties>
+    </control>
+  </controls>
 </mockup>
