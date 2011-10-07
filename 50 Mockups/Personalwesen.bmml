@@ -5,93 +5,63 @@
         <text>StarGreg</text>
       </controlProperties>
     </control>
-    <control controlID="2" controlTypeID="com.balsamiq.mockups::FieldSet" x="279" y="67" w="751" h="634" measuredW="200" measuredH="170" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::FieldSet" x="279" y="67" w="751" h="634" measuredW="200" measuredH="170" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Personalwesen</text>
       </controlProperties>
     </control>
-    <control controlID="3" controlTypeID="com.balsamiq.mockups::FieldSet" x="298" y="94" w="240" h="245" measuredW="200" measuredH="170" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::FieldSet" x="298" y="94" w="223" h="245" measuredW="200" measuredH="170" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Droide%20Stufe%201</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::NumericStepper" x="369" y="298" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>0</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::NumericStepper" x="606" y="298" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>0</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::NumericStepper" x="855" y="298" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>0</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Button" x="424" y="296" w="-1" h="-1" measuredW="82" measuredH="28" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Einstellen</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::FieldSet" x="298" y="370" w="240" h="245" measuredW="200" measuredH="170" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="390" y="602" w="-1" h="-1" measuredW="116" measuredH="28" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Schulen</text>
+        <text>Ausbau%20starten</text>
       </controlProperties>
     </control>
-    <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="325" y="135" w="105" h="-1" measuredW="93" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::TextInput" x="319" y="455" w="105" h="-1" measuredW="85" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Mitarbeiter%20*</text>
+        <text>zur%20Stufe%202</text>
       </controlProperties>
     </control>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::TextInput" x="325" y="162" w="105" h="-1" measuredW="99" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::TextInput" x="319" y="494" w="105" h="-1" measuredW="84" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Mitarbeiter%20**</text>
+        <text>zur%20Stufe%203</text>
       </controlProperties>
     </control>
-    <control controlID="7" controlTypeID="com.balsamiq.mockups::TextInput" x="325" y="189" w="-1" h="-1" measuredW="105" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Mitarbeiter%20***</text>
-      </controlProperties>
-    </control>
-    <control controlID="8" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="136" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="456" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <text>0</text>
       </controlProperties>
     </control>
-    <control controlID="9" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="163" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="495" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <text>0</text>
       </controlProperties>
     </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="190" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="10" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>0</text>
-      </controlProperties>
-    </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::Button" x="424" y="296" w="-1" h="-1" measuredW="82" measuredH="28" zOrder="11" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Einstellen</text>
-      </controlProperties>
-    </control>
-    <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="430" y="572" w="-1" h="-1" measuredW="70" measuredH="28" zOrder="12" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Schulen</text>
-      </controlProperties>
-    </control>
-    <control controlID="13" controlTypeID="com.balsamiq.mockups::TextInput" x="325" y="415" w="105" h="-1" measuredW="93" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Mitarbeiter%20*</text>
-      </controlProperties>
-    </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::TextInput" x="325" y="442" w="105" h="-1" measuredW="99" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Mitarbeiter%20**</text>
-      </controlProperties>
-    </control>
-    <control controlID="15" controlTypeID="com.balsamiq.mockups::TextInput" x="325" y="469" w="-1" h="-1" measuredW="105" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Mitarbeiter%20***</text>
-      </controlProperties>
-    </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="416" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="16" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>0</text>
-      </controlProperties>
-    </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="443" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="17" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>0</text>
-      </controlProperties>
-    </control>
-    <control controlID="18" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="470" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="18" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>0</text>
-      </controlProperties>
-    </control>
-    <control controlID="19" controlTypeID="com.balsamiq.mockups::LineChart" x="637" y="376" w="343" h="231" measuredW="187" measuredH="175" zOrder="19" locked="false" isInGroup="-1"/>
-    <control controlID="20" controlTypeID="com.balsamiq.mockups::TextInput" x="724" y="334" w="-1" h="-1" measuredW="188" measuredH="27" zOrder="20" locked="false" isInGroup="-1">
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::LineChart" x="612" y="416" w="343" h="231" measuredW="187" measuredH="175" zOrder="13" locked="false" isInGroup="-1"/>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::TextInput" x="689" y="370" w="-1" h="-1" measuredW="188" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Aktuelle%20Mitarbeiterstruktur</text>
       </controlProperties>
@@ -105,13 +75,73 @@
         <text>%DCbersicht%0AEinkauf%0AProduktion%0AVerkauf%0APersonalwesen%0ABank</text>
       </controlProperties>
     </control>
-    <control controlID="22" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="21" locked="false" isInGroup="-1">
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
-        <hrefs>%DCbersicht%26bm%3B%DCbersicht.bmml%26bm%3B%DCbersicht.bmml%26bm%3B%DCbersicht.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22%25C3%259Cbersicht.bmml%22%20alt%3D%22%DCbersicht%22%20id%3D%2222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%2222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%2222_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%2222_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2222_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%2222_5%22/%3E%0A</map>
+        <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%2222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%2222_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%2222_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2222_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%2222_5%22/%3E%0A</map>
         <selectedIndex>4</selectedIndex>
         <text>%DCbersicht%0AEinkauf%0AProduktion%0AVerkauf%0APersonalwesen%0ABank</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::FieldSet" x="536" y="93" w="223" h="245" measuredW="200" measuredH="170" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Droide%20Stufe%202</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::FieldSet" x="781" y="93" w="223" h="245" measuredW="200" measuredH="170" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Droide%20Stufe%203</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::FieldSet" x="298" y="400" w="223" h="245" measuredW="200" measuredH="170" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Ausbauen</text>
+      </controlProperties>
+    </control>
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::Button" x="662" y="296" w="-1" h="-1" measuredW="82" measuredH="28" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Einstellen</text>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Button" x="907" y="296" w="-1" h="-1" measuredW="82" measuredH="28" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Einstellen</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::HelpButton" x="329" y="301" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="21" locked="false" isInGroup="-1"/>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::HelpButton" x="573" y="301" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="22" locked="false" isInGroup="-1"/>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::HelpButton" x="822" y="301" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="23" locked="false" isInGroup="-1"/>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::HelpButton" x="351" y="607" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="24" locked="false" isInGroup="-1"/>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="319" y="123" w="107" h="145" measuredW="78" measuredH="111" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <src>./Mitarbeiter12.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="558" y="123" w="136" h="145" measuredW="111" measuredH="111" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <src>./Mitarbeiter22.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Image" x="807" y="124" w="133" h="144" measuredW="125" measuredH="142" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>square</borderStyle>
+        <src>./Mitarbeiter33.jpg</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="948" y="482" w="-1" h="-1" measuredW="73" measuredH="23" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Stufe%201%3A%2020</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Label" x="948" y="432" w="-1" h="-1" measuredW="74" measuredH="23" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Stufe%202%3A%2012</text>
       </controlProperties>
     </control>
   </controls>
