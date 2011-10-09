@@ -186,7 +186,7 @@
         <align>left</align>
         <color>0</color>
         <size>13</size>
-        <text>Der%20Droide%20Stufe%203%20bew%E4ltigt%20seine%20Arbeit%20zuverl%E4ssig%20und%20rasch.%0AEr%20ist%20ganz%20klar%20der%20Ferrari%20unter%20den%20Droiden.%0A%20%0ADer%20Anschaffungspreis%20liegt%20bei%20600%2C00%20KD.%0AUm%20den%20Droiden%20Stufe%203%20in%20Schuss%20zu%20halten%2C%20fallen%20monatlich%20Wartungskosten%20in%20H%F6he%20von%20200%2C00%20KD%20an.%20%0AEin%20Ausbau%20ist%20bei%20diesem%20Modell%20nicht%20mehr%20n%F6tig.</text>
+        <text>Der%20Droide%20Stufe%203%20bew%E4ltigt%20seine%20Arbeit%20pr%E4zise%20und%20schnell.%0AEr%20ist%20ganz%20klar%20der%20Ferrari%20unter%20den%20Droiden.%0A%20%0ADer%20Anschaffungspreis%20liegt%20bei%20600%2C00%20KD.%0AUm%20den%20Droiden%20Stufe%203%20in%20Schuss%20zu%20halten%2C%20fallen%20monatlich%20Wartungskosten%20in%20H%F6he%20von%20200%2C00%20KD%20an.%20%0AEin%20Ausbau%20ist%20bei%20diesem%20Modell%20nicht%20mehr%20n%F6tig.</text>
       </controlProperties>
     </control>
     <control controlID="74" controlTypeID="com.balsamiq.mockups::Button" x="744" y="473" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="36" locked="false" isInGroup="-1">
