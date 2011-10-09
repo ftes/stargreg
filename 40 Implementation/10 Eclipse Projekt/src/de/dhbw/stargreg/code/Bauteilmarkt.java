@@ -6,5 +6,6 @@ package de.dhbw.stargreg.code;
  *
  */
 public class Bauteilmarkt {
+	
 
 }
