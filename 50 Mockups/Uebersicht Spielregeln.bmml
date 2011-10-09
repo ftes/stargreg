@@ -105,26 +105,27 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="31" controlTypeID="com.balsamiq.mockups::Title" x="224" y="153" w="-1" h="-1" measuredW="352" measuredH="56" zOrder="12" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Unternehmensname</text>
-      </controlProperties>
-    </control>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::Paragraph" x="193" y="350" w="848" h="238" measuredW="200" measuredH="140" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Paragraph" x="193" y="350" w="848" h="238" measuredW="200" measuredH="140" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Anzahl%20Spieler%20+%20Startkapital%0AProduktion%20%28was%2C%20wie%2C%20Ausschuss%3F%29%0APersonal%0AInformationsphase%0ABewertungskriterien%0A...</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::Button" x="927" y="600" w="94" h="28" measuredW="81" measuredH="28" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Button" x="927" y="600" w="94" h="28" measuredW="81" measuredH="28" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <href>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml</href>
         <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22857%2C600%2C951%2C628%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2234%22/%3E</map>
         <text>Schlie%DFen</text>
       </controlProperties>
     </control>
-    <control controlID="35" controlTypeID="com.balsamiq.mockups::TitleWindow" x="184" y="316" w="857" h="346" measuredW="450" measuredH="400" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::TitleWindow" x="184" y="316" w="857" h="346" measuredW="450" measuredH="400" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Spielregeln</text>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextInput" x="344" y="86" w="-1" h="-1" measuredW="475" measuredH="50" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>32</size>
+        <text>Tantive%20Engineering%20Corporation</text>
       </controlProperties>
     </control>
   </controls>
