@@ -178,7 +178,7 @@
     </control>
     <control controlID="46" controlTypeID="com.balsamiq.mockups::Button" x="784" y="675" w="295" h="38" measuredW="136" measuredH="28" zOrder="33" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>13369344</color>
+        <color>9684093</color>
         <href>EinkaufBest%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml</href>
         <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22714%2C675%2C1009%2C713%22%20href%3D%22EinkaufBest.bmml%22%20alt%3D%22EinkaufBest%22%20id%3D%2246%22/%3E</map>
         <text>Einkauf%20Best%E4tigen</text>

@@ -82,19 +82,19 @@
     </control>
     <control controlID="18" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="163" w="211" h="-1" measuredW="208" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>15374745</color>
+        <color>16767334</color>
         <text>Verkaufspreis%3A%09%0912.000%2C00</text>
       </controlProperties>
     </control>
     <control controlID="19" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="389" w="211" h="-1" measuredW="190" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>15374745</color>
+        <color>16767334</color>
         <text>Verkaufspreis%3A%09%3C%3CEingabe%3E%3E</text>
       </controlProperties>
     </control>
     <control controlID="20" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="617" w="211" h="-1" measuredW="190" measuredH="27" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>15374745</color>
+        <color>16767334</color>
         <text>Verkaufspreis%3A%09%3C%3CEingabe%3E%3E</text>
       </controlProperties>
     </control>
@@ -115,14 +115,14 @@
     </control>
     <control controlID="25" controlTypeID="com.balsamiq.mockups::Button" x="796" y="626" w="256" h="66" measuredW="140" measuredH="28" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>13369344</color>
+        <color>9684093</color>
         <href>VerkaufBest%26bm%3BVerkaufBest.bmml%26bm%3BVerkaufBest.bmml%26bm%3BVerkaufBest.bmml</href>
         <text>Verkauf%20Best%E4tigen</text>
       </controlProperties>
     </control>
-    <control controlID="26" controlTypeID="com.balsamiq.mockups::TextInput" x="796" y="568" w="256" h="-1" measuredW="249" measuredH="27" zOrder="21" locked="false" isInGroup="-1">
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::TextInput" x="796" y="568" w="256" h="-1" measuredW="237" measuredH="27" zOrder="21" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>40463</color>
+        <color>11982760</color>
         <text>Gesamter%20Verkaufspreis%3A%09192.000%2C00</text>
       </controlProperties>
     </control>

@@ -36,12 +36,12 @@
         <text>Willkommen%20bei%20StrarGreg</text>
       </controlProperties>
     </control>
-    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="418" y="221" w="328" h="-1" measuredW="200" measuredH="27" zOrder="6" locked="true" isInGroup="-1">
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="418" y="221" w="328" h="-1" measuredW="202" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>false</bold>
         <color>16776960</color>
         <italic>true</italic>
-        <text>%3C%3CUnternehmensname%20w%E4hlen%3E%3E</text>
+        <text>Tantive%20Engineering%20Corporation</text>
       </controlProperties>
     </control>
   </controls>

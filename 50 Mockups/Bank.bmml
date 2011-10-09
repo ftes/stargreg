@@ -119,7 +119,7 @@
         <text>41.500%2C00%20</text>
       </controlProperties>
     </control>
-    <control controlID="23" controlTypeID="com.balsamiq.mockups::List" x="380" y="592" w="215" h="98" measuredW="100" measuredH="126" zOrder="17" locked="false" isInGroup="-1">
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::List" x="369" y="592" w="215" h="98" measuredW="100" measuredH="126" zOrder="17" locked="false" isInGroup="-1">
       <controlProperties>
         <alternateRowColor>12303802</alternateRowColor>
         <hasHeader>false</hasHeader>
@@ -134,7 +134,7 @@
         <hasHeader>false</hasHeader>
         <selectedIndex>-1</selectedIndex>
         <size>16</size>
-        <text>Altes%20Bankguthaben%0AEinnahmen%0AAusgaben%0AAktuelles%20Bankguthaben</text>
+        <text>3.402.125%2C00%0A%3F%3F%3F%3F%0A%3F%3F%3F%3F%0A%3F%3F%3F%3F</text>
       </controlProperties>
     </control>
   </controls>

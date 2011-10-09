@@ -112,7 +112,7 @@
     </control>
     <control controlID="25" controlTypeID="com.balsamiq.mockups::Button" x="796" y="626" w="256" h="66" measuredW="140" measuredH="28" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>13369344</color>
+        <color>9684093</color>
         <text>Verkauf%20Best%E4tigen</text>
       </controlProperties>
     </control>
@@ -132,6 +132,12 @@
         <href>Verkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml</href>
         <state>up</state>
         <text>Zur%FCck%20zum%20Verkauf</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::TextInput" x="796" y="568" w="256" h="-1" measuredW="237" measuredH="27" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>11982760</color>
+        <text>Gesamter%20Verkaufspreis%3A%09192.000%2C00</text>
       </controlProperties>
     </control>
   </controls>
