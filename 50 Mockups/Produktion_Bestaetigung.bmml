@@ -17,8 +17,6 @@
     <control controlID="14" controlTypeID="com.balsamiq.mockups::Button" x="878" y="473" w="187" h="50" measuredW="172" measuredH="28" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
-        <href>Produktion_Bestaetigung%26bm%3BProduktion_Bestaetigung.bmml%26bm%3BProduktion_Bestaetigung.bmml%26bm%3BProduktion_Bestaetigung.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22808%2C473%2C995%2C523%22%20href%3D%22Produktion_Bestaetigung.bmml%22%20alt%3D%22Produktion_Bestaetigung%22%20id%3D%2214%22/%3E</map>
         <text>Raumschiffe%20produzieren</text>
       </controlProperties>
     </control>
@@ -114,6 +112,27 @@
     <control controlID="45" controlTypeID="com.balsamiq.mockups::Label" x="256" y="486" w="-1" h="-1" measuredW="147" measuredH="23" zOrder="22" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Aktueller%20Lagerbestand</text>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::TitleWindow" x="450" y="275" w="345" h="230" measuredW="450" measuredH="400" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <dragger>false</dragger>
+        <text>Produktion</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Paragraph" x="532" y="342" w="200" h="96" measuredW="200" measuredH="140" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>18</size>
+        <text>Die%20ausgew%E4hlten%20Raumschiffe%20werden%20produziert%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Button" x="696" y="445" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Produktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22626%2C445%2C707%2C473%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%2248%22/%3E</map>
+        <text>Schlie%DFen</text>
       </controlProperties>
     </control>
   </controls>

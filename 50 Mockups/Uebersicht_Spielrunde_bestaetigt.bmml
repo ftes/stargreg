@@ -16,8 +16,6 @@
     <control controlID="7" controlTypeID="com.balsamiq.mockups::Button" x="859" y="677" w="184" h="47" measuredW="156" measuredH="28" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
-        <href>Uebersicht_Spielrunde_bestaetigt%26bm%3BUebersicht_Spielrunde_bestaetigt.bmml%26bm%3BUebersicht_Spielrunde_bestaetigt.bmml%26bm%3BUebersicht_Spielrunde_bestaetigt.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22789%2C677%2C973%2C724%22%20href%3D%22Uebersicht_Spielrunde_bestaetigt.bmml%22%20alt%3D%22Uebersicht_Spielrunde_bestaetigt%22%20id%3D%227%22/%3E</map>
         <text>Spielrunde%20einchecken</text>
       </controlProperties>
     </control>
@@ -108,6 +106,27 @@
         <borderStyle>none</borderStyle>
         <color>0</color>
         <icon>StarIcon%7Clarge</icon>
+      </controlProperties>
+    </control>
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::TitleWindow" x="450" y="275" w="345" h="230" measuredW="450" measuredH="400" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <dragger>false</dragger>
+        <text>Produktion</text>
+      </controlProperties>
+    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::Paragraph" x="492" y="308" w="260" h="128" measuredW="200" measuredH="140" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>18</size>
+        <text>Diese%20Spielrunde%20wurde%20erfolgreich%20best%E4tigt.%0A%20%0AEs%20startet%20nun%20die%20n%E4chste%20Spielrunde%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Button" x="696" y="445" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Information%26bm%3BInformation.bmml%26bm%3BInformation.bmml%26bm%3BInformation.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22626%2C445%2C707%2C473%22%20href%3D%22Information.bmml%22%20alt%3D%22Information%22%20id%3D%2231%22/%3E</map>
+        <text>Schlie%DFen</text>
       </controlProperties>
     </control>
   </controls>

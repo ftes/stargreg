@@ -30,29 +30,12 @@
     <control controlID="28" controlTypeID="com.balsamiq.mockups::Button" x="844" y="369" w="204" h="45" measuredW="209" measuredH="28" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
-        <href>Personalwesen_Bestaetigung%26bm%3BPersonalwesen_Bestaetigung.bmml%26bm%3BPersonalwesen_Bestaetigung.bmml%26bm%3BPersonalwesen_Bestaetigung.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22774%2C369%2C978%2C414%22%20href%3D%22Personalwesen_Bestaetigung.bmml%22%20alt%3D%22Personalwesen_Bestaetigung%22%20id%3D%2228%22/%3E</map>
         <text>Ausgew%E4hlte%20Droiden%20anheuern</text>
       </controlProperties>
     </control>
-    <control controlID="30" controlTypeID="com.balsamiq.mockups::HelpButton" x="214" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="7" locked="false" isInGroup="-1">
-      <controlProperties>
-        <href>Personalwesen_Info_Stufe1%26bm%3BPersonalwesen_Info_Stufe1.bmml%26bm%3BPersonalwesen_Info_Stufe1.bmml%26bm%3BPersonalwesen_Info_Stufe1.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22144%2C260%2C162%2C278%22%20href%3D%22Personalwesen_Info_Stufe1.bmml%22%20alt%3D%22Personalwesen_Info_Stufe1%22%20id%3D%2230%22/%3E</map>
-      </controlProperties>
-    </control>
-    <control controlID="31" controlTypeID="com.balsamiq.mockups::HelpButton" x="507" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="8" locked="false" isInGroup="-1">
-      <controlProperties>
-        <href>Personalwesen_Info_Stufe2%26bm%3BPersonalwesen_Info_Stufe2.bmml%26bm%3BPersonalwesen_Info_Stufe2.bmml%26bm%3BPersonalwesen_Info_Stufe2.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22437%2C260%2C455%2C278%22%20href%3D%22Personalwesen_Info_Stufe2.bmml%22%20alt%3D%22Personalwesen_Info_Stufe2%22%20id%3D%2231%22/%3E</map>
-      </controlProperties>
-    </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::HelpButton" x="796" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="9" locked="false" isInGroup="-1">
-      <controlProperties>
-        <href>Personalwesen_Info_Stufe3%26bm%3BPersonalwesen_Info_Stufe3.bmml%26bm%3BPersonalwesen_Info_Stufe3.bmml%26bm%3BPersonalwesen_Info_Stufe3.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22726%2C260%2C744%2C278%22%20href%3D%22Personalwesen_Info_Stufe3.bmml%22%20alt%3D%22Personalwesen_Info_Stufe3%22%20id%3D%2232%22/%3E</map>
-      </controlProperties>
-    </control>
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::HelpButton" x="214" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="7" locked="false" isInGroup="-1"/>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::HelpButton" x="507" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="8" locked="false" isInGroup="-1"/>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::HelpButton" x="796" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="9" locked="false" isInGroup="-1"/>
     <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="278" y="81" w="107" h="145" measuredW="78" measuredH="111" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
@@ -138,8 +121,6 @@
     <control controlID="56" controlTypeID="com.balsamiq.mockups::Button" x="369" y="681" w="-1" h="-1" measuredW="116" measuredH="28" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
-        <href>Personalwesen_Bestaetigung_Ausbau%26bm%3BPersonalwesen_Bestaetigung_Ausbau.bmml%26bm%3BPersonalwesen_Bestaetigung_Ausbau.bmml%26bm%3BPersonalwesen_Bestaetigung_Ausbau.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22299%2C681%2C415%2C709%22%20href%3D%22Personalwesen_Bestaetigung_Ausbau.bmml%22%20alt%3D%22Personalwesen_Bestaetigung_Ausbau%22%20id%3D%2256%22/%3E</map>
         <text>Ausbau%20starten</text>
       </controlProperties>
     </control>
@@ -163,12 +144,7 @@
         <text>5</text>
       </controlProperties>
     </control>
-    <control controlID="61" controlTypeID="com.balsamiq.mockups::HelpButton" x="332" y="686" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="23" locked="false" isInGroup="-1">
-      <controlProperties>
-        <href>Personalwesen_Info_Droiden%26bm%3BPersonalwesen_Info_Droiden.bmml%26bm%3BPersonalwesen_Info_Droiden.bmml%26bm%3BPersonalwesen_Info_Droiden.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22262%2C686%2C280%2C704%22%20href%3D%22Personalwesen_Info_Droiden.bmml%22%20alt%3D%22Personalwesen_Info_Droiden%22%20id%3D%2261%22/%3E</map>
-      </controlProperties>
-    </control>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::HelpButton" x="332" y="686" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="23" locked="false" isInGroup="-1"/>
     <control controlID="62" controlTypeID="com.balsamiq.mockups::TextInput" x="332" y="560" w="-1" h="-1" measuredW="90" measuredH="27" zOrder="24" locked="false" isInGroup="-1">
       <controlProperties>
         <color>15374745</color>
@@ -195,6 +171,27 @@
     <control controlID="67" controlTypeID="com.balsamiq.mockups::Label" x="946" y="546" w="-1" h="-1" measuredW="74" measuredH="23" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Stufe%202%3A%2012</text>
+      </controlProperties>
+    </control>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::TitleWindow" x="450" y="275" w="345" h="230" measuredW="450" measuredH="400" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <dragger>false</dragger>
+        <text>Personalwesen</text>
+      </controlProperties>
+    </control>
+    <control controlID="69" controlTypeID="com.balsamiq.mockups::Paragraph" x="532" y="342" w="200" h="96" measuredW="200" measuredH="140" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <color>0</color>
+        <size>18</size>
+        <text>Die%20ausgew%E4hlten%20Droiden%20werden%20angeheuert%21</text>
+      </controlProperties>
+    </control>
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::Button" x="696" y="445" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Personalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22626%2C445%2C707%2C473%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2270%22/%3E</map>
+        <text>Schlie%DFen</text>
       </controlProperties>
     </control>
   </controls>
