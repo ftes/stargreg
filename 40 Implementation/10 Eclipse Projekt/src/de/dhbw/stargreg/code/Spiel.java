@@ -17,7 +17,7 @@ public class Spiel {
 	
 	private Status status = Status.EINRICHTEN;
 	
-	private enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
+	private static enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
 	
 	/**
 	 * Konstruktor

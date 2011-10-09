@@ -7,11 +7,11 @@ package de.dhbw.stargreg.code;
  */
 public class Unternehmen {
 	private String name;
-	private Einkauf einkauf;
-	private Produktion produktion;
-	private Verkauf verkauf;
-	private Finanzen finanzen;
-	private Personal personal;
+	private EinkaufsAbteilung einkauf;
+	private ProduktionsAbteilung produktion;
+	private VerkaufsAbteilung verkauf;
+	private FinanzAbteilung finanzen;
+	private PersonalAbteilung personal;
 	
 	Unternehmen() {
 		
