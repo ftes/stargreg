@@ -17,10 +17,31 @@ import de.dhbw.stargreg.code.Verkauf;
 public class RaumschiffmarktTest {
 	
 	private static Raumschiffmarkt raumschiffmarkt;
+	private static Raumschifftyp xwing;
+	private static Raumschifftyp corvette;
+	private static int nachfrageXwing = 20;
+	private static int nachfrageCorvette = 10;
+	
+	private Vector<Angebot> angebote;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		raumschiffmarkt = new Raumschiffmarkt();
+		xwing = new Raumschifftyp("test", 10) {
+			public double getKosten() {
+				return 5;
+			}
+		};
+		corvette = new Raumschifftyp("Corvette", 20) {
+			public double getKosten() {
+				 return 12;
+			}
+		};
+		raumschiffmarkt = new Raumschiffmarkt();		
+		raumschiffmarkt.fuegeRaumschifftypHinzu(xwing);
+		raumschiffmarkt.fuegeRaumschifftypHinzu(corvette);
+		raumschiffmarkt.setNachfrage(xwing, nachfrageXwing);
+		raumschiffmarkt.setNachfrage(corvette, nachfrageCorvette);		
+
 	}
 
 	@AfterClass
@@ -29,6 +50,7 @@ public class RaumschiffmarktTest {
 
 	@Before
 	public void setUp() throws Exception {
+		angebote = new Vector<Angebot>();
 	}
 
 	@After
@@ -37,28 +59,34 @@ public class RaumschiffmarktTest {
 
 	@Test
 	public void testBerechneTypAbsatz() {
-		Raumschifftyp raumschifftyp = new Raumschifftyp("test", 10) {
-			public double getKosten() {
-				return 5;
-			}
-		};
-		int nachfrage = 20;
-		
-		raumschiffmarkt.setNachfrage(raumschifftyp, nachfrage);
-		Vector<Angebot> angebote = new Vector<Angebot>();
-		angebote.add(new Angebot(raumschifftyp, null, 10, 10.0));
-		angebote.add(new Angebot(raumschifftyp, null, 5, 15.0));
-		angebote.add(new Angebot(raumschifftyp, null, 10, 20.0));
+		angebote.add(new Angebot(xwing, null, 10, 10.0));
+		angebote.add(new Angebot(xwing, null, 5, 15.0));
+		angebote.add(new Angebot(xwing, null, 10, 20.0));
 		
 		int gesamtMenge = 0;
-		Vector<Verkauf> verkaeufe = raumschiffmarkt.berechneTypAbsatz(raumschifftyp, angebote);
+		Vector<Verkauf> verkaeufe = raumschiffmarkt.berechneTypAbsatz(xwing, angebote);
 		for (Verkauf verkauf : verkaeufe) {
 			int menge = verkauf.getMenge();
 			Assert.assertTrue(menge >= 0);
 			gesamtMenge += menge;
 		}
 		
-		Assert.assertTrue(gesamtMenge <= nachfrage);
+		Assert.assertTrue(gesamtMenge <= nachfrageXwing);
+	}
+	
+	@Test
+	public void testBerechneGesamtAbsatz() {
+		angebote.add(new Angebot(xwing, null, 10, 10.0));
+		angebote.add(new Angebot(xwing, null, 5, 15.0));
+		angebote.add(new Angebot(xwing, null, 10, 20.0));
+		angebote.add(new Angebot(corvette, null, 3, 20.0));
+		angebote.add(new Angebot(corvette, null, 5, 18.0));
+		angebote.add(new Angebot(corvette, null, 2, 27.0));
+		
+		Vector<Verkauf> verkaeufe = raumschiffmarkt.berechneGesamtAbsatz(angebote);
+		for (Verkauf verkauf : verkaeufe) {
+			System.out.printf("%d Stück von %s verkauft\n", verkauf.getMenge(), verkauf.getRaumschifftyp());
+		}
 	}
 
 }

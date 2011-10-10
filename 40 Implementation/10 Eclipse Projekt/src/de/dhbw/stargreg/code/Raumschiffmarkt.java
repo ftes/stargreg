@@ -18,11 +18,6 @@ public class Raumschiffmarkt {
 	private HashMap<Raumschifftyp, Integer> nachfragen = new HashMap<Raumschifftyp, Integer>();
 	private Vector<Raumschifftyp> raumschifftypen = new Vector<Raumschifftyp>();
 	
-	public Raumschiffmarkt() {
-		
-	}
-
-	
 	public void fuegeRaumschifftypHinzu(Raumschifftyp typ) {
 		this.raumschifftypen.add(typ);
 		System.out.printf("%s zum Raumschiffmarkt hinzugefügt\n", typ);
