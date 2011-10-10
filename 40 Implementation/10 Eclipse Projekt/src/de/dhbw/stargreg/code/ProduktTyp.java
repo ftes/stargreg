@@ -1,23 +1,24 @@
 package de.dhbw.stargreg.code;
 
+/**
+ * Abstrakte Klasse für Produkttypen, die den Namen und die benötigten Lagerplatzeinheiten speichert
+ * @author fredrik
+ *
+ */
 public abstract class ProduktTyp {
 	protected String name;
-	protected int lagerplatzeinheiten;
+	protected int lagerplatzEinheiten;
 	
-	public ProduktTyp(String name_c, int lagerplatzeinheiten_c){
-		this.name = name_c;
-		this.lagerplatzeinheiten = lagerplatzeinheiten_c;
+	public ProduktTyp(String name, int lagerplatzEinheiten){
+		this.name = name;
+		this.lagerplatzEinheiten = lagerplatzEinheiten;
 	}
 	
-	public String getName(){
+	public String toString(){
 		return this.name;
 	}
 	
-	public int getLagerplatzeinheiten(){
-		return this.lagerplatzeinheiten;
+	public int getLagerplatzEinheiten(){
+		return this.lagerplatzEinheiten;
 	}
-	
-	
-	
-
 }
