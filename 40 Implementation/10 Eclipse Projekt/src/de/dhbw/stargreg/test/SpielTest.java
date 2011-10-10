@@ -6,11 +6,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import de.dhbw.stargreg.code.Spiel;
-
 public class SpielTest {
-	
-	private Spiel spiel;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -22,7 +18,6 @@ public class SpielTest {
 
 	@Before
 	public void setUp() throws Exception {
-		spiel = new Spiel();
 	}
 
 	@After
