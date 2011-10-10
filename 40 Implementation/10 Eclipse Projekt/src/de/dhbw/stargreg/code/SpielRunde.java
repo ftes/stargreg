@@ -12,54 +12,55 @@ public class SpielRunde {
 	/**
 	 * Bauteilmarkt für diese Spielrunde
 	 */
-	private BauteilMarkt bauteilmarkt;
+	private BauteilMarkt bauteilMarkt = new BauteilMarkt();
 	
 	/**
 	 * Raumschiffmarkt für diese Spielrunde
 	 */
-	private RaumschiffMarkt raumschiffmarkt = new RaumschiffMarkt();
+	private RaumschiffMarkt raumschiffMarkt = new RaumschiffMarkt();
 	
 	/**
 	 * Personalmarkt für diese Spielrunde
 	 */
-	private PersonalMarkt personalmarkt = new PersonalMarkt();
+	private PersonalMarkt personalMarkt = new PersonalMarkt();
 	
 	/**
 	 * Konstruktor, der die vorher definierten Werte entgegenimmt
 	 */
-	public SpielRunde(HashMap<RaumschiffTyp, Integer> raumschiffNachfrage, HashMap<PersonalTyp, Double> personalLaufendeKosten, HashMap<BauteilTyp, Double> bauteilPreise) {
-		
+	public SpielRunde(HashMap<RaumschiffTyp, Integer> raumschiffNachfragen, HashMap<PersonalTyp, Double> personalLaufendeKosten) {
+		raumschiffMarkt.setNachfragen(raumschiffNachfragen);
+		personalMarkt.setLaufendeKosten(personalLaufendeKosten);
 	}
 	
 	/**
 	 * Führt die Simulationen auf allen Märkten aus
 	 */
 	public void simuliere() {
-		
+
 	}
 
-	public BauteilMarkt getBauteilmarkt() {
-		return bauteilmarkt;
+	public BauteilMarkt getBauteilMarkt() {
+		return bauteilMarkt;
 	}
 
-	public void setBauteilmarkt(BauteilMarkt bauteilmarkt) {
-		this.bauteilmarkt = bauteilmarkt;
+	public void setBauteilMarkt(BauteilMarkt bauteilMarkt) {
+		this.bauteilMarkt = bauteilMarkt;
 	}
 
-	public RaumschiffMarkt getRaumschiffmarkt() {
-		return raumschiffmarkt;
+	public RaumschiffMarkt getRaumschiffMarkt() {
+		return raumschiffMarkt;
 	}
 
-	public void setRaumschiffmarkt(RaumschiffMarkt raumschiffmarkt) {
-		this.raumschiffmarkt = raumschiffmarkt;
+	public void setRaumschiffMarkt(RaumschiffMarkt raumschiffMarkt) {
+		this.raumschiffMarkt = raumschiffMarkt;
 	}
 
-	public PersonalMarkt getPersonalmarkt() {
-		return personalmarkt;
+	public PersonalMarkt getPersonalMarkt() {
+		return personalMarkt;
 	}
 
-	public void setPersonalmarkt(PersonalMarkt personalmarkt) {
-		this.personalmarkt = personalmarkt;
+	public void setPersonalMarkt(PersonalMarkt personalMarkt) {
+		this.personalMarkt = personalMarkt;
 	}
 
 }
