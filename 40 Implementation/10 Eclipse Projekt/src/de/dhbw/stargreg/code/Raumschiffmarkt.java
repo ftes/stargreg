@@ -17,8 +17,8 @@ import de.dhbw.stargreg.util.Util;
  * @author fredrik
  *
  */
-public class Raumschiffmarkt {
-
+public class Raumschiffmarkt extends Markt {
+	
 	/**
 	 * Beschreibt die Grundnachfrage nach jedem Raumschifftyp in dieser Periode
 	 */
@@ -125,5 +125,11 @@ public class Raumschiffmarkt {
 		}
 		
 		return verkaeufe;
+	}
+
+	@Override
+	public Raumschiffmarkt kloneFuerNaechsteRunde() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
