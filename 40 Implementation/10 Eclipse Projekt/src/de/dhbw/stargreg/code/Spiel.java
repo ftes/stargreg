@@ -3,28 +3,38 @@ import java.util.Vector;
 
 
 /**
- * 
+ * Verwaltet den gesamten Spielablauf, darunter alle Unternehmen
  * @author fredrik
  * 
  */
 public class Spiel {
+	/**
+	 * Liste aller Unternehmen
+	 */
 	private Vector<Unternehmen> unternehmen = new Vector<Unternehmen>();
-	private Vector<Spielrunde> spielrunden = new Vector<Spielrunde>();
-	private Bauteilmarkt bauteilmarkt;
-	private Raumschiffmarkt raumschiffmarkt;
-	private Personalmarkt personalmarkt;
-	private Spielrunde aktuelleSpielrunde;
-	
-	private Status status = Status.EINRICHTEN;
-	
-	private static enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
 	
 	/**
-	 * Konstruktor
+	 * Liste aller Spielrunden
 	 */
-	public Spiel() {
-		
-	}
+	private Vector<Spielrunde> spielrunden = new Vector<Spielrunde>();
+	
+	/**
+	 * aktuelle Spielrunde
+	 */
+	private Spielrunde aktuelleSpielrunde;
+	
+	/**
+	 * aktueller Spielstatus
+	 */
+	private Status status = Status.EINRICHTEN;
+	
+	/**
+	 * Spiel kann sich in drei Zuständen befinden: Einrichten, Spielen oder Auswerten
+	 * Dies wird durch diese Enumeration dargestellt
+	 * @author fredrik
+	 *
+	 */
+	private static enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
 	
 	/**
 	 * Fügt die übergebene Spielrunde hinten an die Liste der Spielrunden an,
@@ -32,7 +42,7 @@ public class Spiel {
 	 * Nur möglich, wenn sich das Spiel in der Einrichtungsphase befindet.
 	 * @param spielrunde Die anzufügende Spielrunde
 	 */
-	public void erstelleSpielrunde(Spielrunde spielrunde) {
+	public void fuegeSpielrundeHinzu(Spielrunde spielrunde) {
 		if (status == Status.EINRICHTEN) {
 			this.spielrunden.add(spielrunde);
 			System.out.printf("Spielrunde %i hinzugefügt\n", this.spielrunden.size());
@@ -46,24 +56,31 @@ public class Spiel {
 	 * Nur möglich, wenn das Spiel sich in der Einrichtungsphase befindet.
 	 * @param unternehmen Das anzufügende Unternehmen
 	 */
-	public void erstelleUnternehmen(Unternehmen unternehmen) {
+	public void fuegeUnternehmenHinzu(Unternehmen unternehmen) {
 		if (status == Status.EINRICHTEN) {
 			this.unternehmen.add(unternehmen);
-			System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen.getName());
+			System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
 		} else {
 			System.err.println("Unternehmen nicht hinzugefügt: nur in der Phase 'Einrichten' möglich");
 		}
 	}
 	
+	/**
+	 * Startet das Spiel, nur möglich wenn in Einrichtungs-Phase
+	 */
 	public void starteSpiel() {
-		if (status == Status.EINRICHTEN) {
-			status = Status.SPIELEN;
-			System.out.println("Spiel gestartet");
-		} else {
+		if (status != Status.EINRICHTEN) {
 			System.err.println("Spiel nicht gestartet: wurde bereits gestartet");
+			return;
 		}
+		status = Status.SPIELEN;
+		aktuelleSpielrunde = spielrunden.firstElement();
+		System.out.println("Spiel gestartet");
 	}
 	
+	/**
+	 * Beendet das Spiel, nur möglich wenn in Spielen-Phase
+	 */
 	public void beendeSpiel() {
 		if (status == Status.SPIELEN) {
 			status = Status.AUSWERTEN;
@@ -73,7 +90,18 @@ public class Spiel {
 		}
 	}
 	
+	/**
+	 * Initialisierung des Spiels: Anlegen aller Daten
+	 */
 	public void initialisieren() {
 		
+	}
+
+	/**
+	 * Sobald alle Benutzer ihre Eingaben getätigt haben, kann die Spielrunde simuliert werden
+	 * Dies setzt die aktuelle Spielrunde um eins weiter und fügt die neuen Märkte in diese ein
+	 */
+	public void simuliere() {
+
 	}
 }
