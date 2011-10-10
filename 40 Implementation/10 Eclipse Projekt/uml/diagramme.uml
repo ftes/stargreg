@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_ktRJMPM_EeCgedBhj007tA" name="model">
+  <packagedElement xmi:type="uml:Class" xmi:id="_nVQfIPM_EeCgedBhj007tA" name="Spiel"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_rvOwEPM_EeCgedBhj007tA" name="BauteilMarkt">
+    <nestedClassifier xmi:type="uml:Class" xmi:id="_qq1T0PM_EeCgedBhj007tA" name="SpielRunde"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_sxh6kPM_EeCgedBhj007tA" name="BauteilTyp"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_uws9APM_EeCgedBhj007tA" name="RaumschiffMarkt"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_v8_J8PM_EeCgedBhj007tA" name="RaumschiffTyp"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xNnrYPM_EeCgedBhj007tA" name="PersonalMarkt"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_yUtPQPM_EeCgedBhj007tA" name="PersonalTyp"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_9YtvQPM_EeCgedBhj007tA" name="BauteilMarkt"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_-P5O4PM_EeCgedBhj007tA" name="Spielrunde"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_N9E5cPNAEeCgedBhj007tA" name="Unternehmen"/>
+</uml:Model>
