@@ -4,6 +4,7 @@ import java.util.Vector;
 
 /**
  * Verwaltet den gesamten Spielablauf, darunter alle Unternehmen
+ * Aufgebaut nach Singleton-Muster
  * @author fredrik
  * 
  */
@@ -34,7 +35,27 @@ public class Spiel {
 	 * @author fredrik
 	 *
 	 */
-	private static enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
+	private enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
+	
+	/**
+	 * Verwaltet Singleton-Objet von Spiel
+	 */
+	private static Spiel spiel = new Spiel();
+	
+	/**
+	 * Privater Konstruktor, um Singleton zu schützen
+	 */
+	private Spiel() {
+		
+	}
+	
+	/**
+	 * statische Methode, um Spiel-Singleton zu erhalten
+	 * @return
+	 */
+	public static Spiel getSpiel() {
+		return spiel;
+	}
 	
 	/**
 	 * Fügt die übergebene Spielrunde hinten an die Liste der Spielrunden an,
@@ -98,10 +119,35 @@ public class Spiel {
 	}
 
 	/**
-	 * Sobald alle Benutzer ihre Eingaben getätigt haben, kann die Spielrunde simuliert werden
-	 * Dies setzt die aktuelle Spielrunde um eins weiter und fügt die neuen Märkte in diese ein
+	 * Sobald alle Benutzer ihre Eingaben getätigt haben, kann die Spielrunde simuliert werden,
+	 * dies setzt die aktuelle Spielrunde um eins weiter.
+	 * Nur möglich im Status Spielen
 	 */
-	public void simuliere() {
-
+	public void naechsteRunde() {
+		if (status != Status.SPIELEN) {
+			System.out.println("Die nächste Runde kann nur im Modus Spielen erreicht werden");
+		}
+		aktuelleSpielrunde.simuliere();
+		SpielRunde vorherigeSpielrunde = aktuelleSpielrunde;
+		aktuelleSpielrunde = getNaechsteRunde();
+		if (aktuelleSpielrunde == null) {
+			beendeSpiel();
+			return;
+		}
+		// Preise in Bauteilmarkt neu berechnen
+		aktuelleSpielrunde.getBauteilMarkt().berechnePreise(vorherigeSpielrunde.getBauteilMarkt());
+	}
+	
+	/**
+	 * Gibt die nächste Spielrunde zurück, oder {@code null} falls dies bereits die Letzte war
+	 * @return
+	 */
+	private SpielRunde getNaechsteRunde() {
+		int index = spielrunden.indexOf(aktuelleSpielrunde) + 1;
+		if (index >= spielrunden.size()) {
+			System.out.println("Letzte Spielrunde abgeschlossen");
+			return null;
+		}
+		return spielrunden.get(index);
 	}
 }
