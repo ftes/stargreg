@@ -1,10 +1,10 @@
 package de.dhbw.stargreg.code;
 
-public final class Bauteiltyp extends Produkttyp {
+public final class BauteilTyp extends ProduktTyp {
 	private Double preis;
 	private Double startpreis;
 	
-	public Bauteiltyp(String name_c, int lagerplatzeinheiten_c, Double preis_c, Double startpreis_c ){
+	public BauteilTyp(String name_c, int lagerplatzeinheiten_c, Double preis_c, Double startpreis_c ){
 		super(name_c, lagerplatzeinheiten_c);
 		this.preis = preis_c;
 		this.startpreis = startpreis_c;

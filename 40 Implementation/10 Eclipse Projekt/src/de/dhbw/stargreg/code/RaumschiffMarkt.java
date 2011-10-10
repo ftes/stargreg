@@ -14,22 +14,22 @@ import java.util.Vector;
  * @author fredrik
  *
  */
-public class Raumschiffmarkt extends Markt {
-	
-	/**
-	 * Beschreibt die Grundnachfrage nach jedem Raumschifftyp in dieser Periode
-	 */
-	private HashMap<Raumschifftyp, Integer> nachfragen = new HashMap<Raumschifftyp, Integer>();
+public class RaumschiffMarkt extends Markt {
 	
 	/**
 	 * Liste mit allen Raumschifftypen
 	 */
-	private static final Vector<Raumschifftyp> raumschifftypen = new Vector<Raumschifftyp>();
+	private static final Vector<RaumschiffTyp> raumschifftypen = new Vector<RaumschiffTyp>();
 	
+	/**
+	 * Beschreibt die Grundnachfrage nach jedem Raumschifftyp in dieser Periode
+	 */
+	private HashMap<RaumschiffTyp, Integer> nachfragen = new HashMap<RaumschiffTyp, Integer>();
+
 	/**
 	 * Zuordnung aller Angebote zum entsprechenden Raumschifftyp
 	 */
-	private HashMap<Raumschifftyp, Vector<Angebot>> angebote = new HashMap<Raumschifftyp, Vector<Angebot>>();
+	private HashMap<RaumschiffTyp, Vector<Angebot>> angebote = new HashMap<RaumschiffTyp, Vector<Angebot>>();
 	
 	/**
 	 * Liste aller Verkäufe
@@ -40,7 +40,7 @@ public class Raumschiffmarkt extends Markt {
 	 * Fuegt einen Raumschifftyp zur Liste hinzu
 	 * @param typ Hinzuzufügender Raumschifftyp
 	 */
-	public static void fuegeRaumschifftypHinzu(Raumschifftyp typ) {
+	public static void fuegeRaumschifftypHinzu(RaumschiffTyp typ) {
 		raumschifftypen.add(typ);
 		System.out.printf("%s zum Raumschiffmarkt hinzugefügt\n", typ);
 	}
@@ -50,9 +50,17 @@ public class Raumschiffmarkt extends Markt {
 	 * @param typ Raumschifftyp
 	 * @param nachfrage Nachfragemenge für {@code typ}
 	 */
-	public void setNachfrage(Raumschifftyp typ, int nachfrage) {
+	public void setEinzelNachfrage(RaumschiffTyp typ, int nachfrage) {
 		this.nachfragen.put(typ, nachfrage);			//wenn bereits vorhanden, dann überschreibt dies den alten Wert
 		System.out.printf("Nachfrage nach %s zum Raumschiffmarkt hinzugefügt: %d Stück\n", typ, nachfrage);
+	}
+	
+	/**
+	 * Setzt die gesamte Nachfrage auf einmal
+	 * @param nachfragen {@code HashMap} mit der Zuordnung {@code Raumschifftyp} zu Nachfragemenge
+	 */
+	public void setNachfragen(HashMap<RaumschiffTyp, Integer> nachfragen) {
+		this.nachfragen = nachfragen;
 	}
 	
 	/**
@@ -60,7 +68,7 @@ public class Raumschiffmarkt extends Markt {
 	 * @param angebot Angebot, das eingetragen werden soll
 	 */
 	public void fuegeAngebotHinzu(Angebot angebot) {
-		Raumschifftyp raumschifftyp = angebot.getRaumschifftyp();
+		RaumschiffTyp raumschifftyp = angebot.getRaumschifftyp();
 		if (! angebote.containsKey(raumschifftyp)) {
 			angebote.put(raumschifftyp, new Vector<Angebot>());
 		}
@@ -74,7 +82,7 @@ public class Raumschiffmarkt extends Markt {
 	 * @param angebote {@code Vector} mit Angeboten der Unternehmen, die Menge und Preis beinhalten
 	 * @return Rückgabe eines {@code Vector} mit allen {@code Verkauf}-Objekten, die die jeweilige Absatzmenge enthalten
 	 */
-	public Vector<Verkauf> berechneTypAbsatz(Raumschifftyp raumschifftyp, Vector<Angebot> angebote) {
+	public Vector<Verkauf> berechneTypAbsatz(RaumschiffTyp raumschifftyp, Vector<Angebot> angebote) {
 		//To-Do: Was passiert bei gleichen Preisen
 		//To-Do: Beachten, dass maximal verfügbare Gesamtmenge auch verkauft wird
 		
@@ -131,16 +139,11 @@ public class Raumschiffmarkt extends Markt {
 	public Vector<Verkauf> berechneGesamtAbsatz() {
 		System.out.println("Absatzmengen im Raumschiffmarkt:");
 		//Absätze für Raumschifftypen berechnen
-		for (Raumschifftyp raumschifftyp : angebote.keySet()) {
+		for (RaumschiffTyp raumschifftyp : angebote.keySet()) {
 			Vector<Verkauf> typVerkaeufe = berechneTypAbsatz(raumschifftyp, angebote.get(raumschifftyp));
 			verkaeufe.addAll(typVerkaeufe);
 		}		
 		return verkaeufe;
 	}
 
-	@Override
-	public Raumschiffmarkt kloneFuerNaechsteRunde() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

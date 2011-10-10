@@ -1,10 +1,10 @@
 package de.dhbw.stargreg.code;
 
-public abstract class Produkttyp {
+public abstract class ProduktTyp {
 	protected String name;
 	protected int lagerplatzeinheiten;
 	
-	public Produkttyp(String name_c, int lagerplatzeinheiten_c){
+	public ProduktTyp(String name_c, int lagerplatzeinheiten_c){
 		this.name = name_c;
 		this.lagerplatzeinheiten = lagerplatzeinheiten_c;
 	}

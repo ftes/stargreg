@@ -3,12 +3,12 @@ package de.dhbw.stargreg.code;
 public class Angebot extends Transaktion {
 	private double anteil;					//für spätere Berechnungen
 	
-	public Angebot(Raumschifftyp raumschifftyp, Unternehmen unternehmen, int menge, double preis) {
+	public Angebot(RaumschiffTyp raumschifftyp, Unternehmen unternehmen, int menge, double preis) {
 		super(raumschifftyp, unternehmen, menge, preis);
 	}
 	
-	public Raumschifftyp getRaumschifftyp() {
-		return (Raumschifftyp) produkttyp;
+	public RaumschiffTyp getRaumschifftyp() {
+		return (RaumschiffTyp) produkttyp;
 	}
 	
 	public Verkauf kloneVerkauf(int menge) {

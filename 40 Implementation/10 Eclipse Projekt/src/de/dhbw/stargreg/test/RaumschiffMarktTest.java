@@ -11,34 +11,34 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.dhbw.stargreg.code.Angebot;
-import de.dhbw.stargreg.code.Raumschiffmarkt;
-import de.dhbw.stargreg.code.Raumschifftyp;
+import de.dhbw.stargreg.code.RaumschiffMarkt;
+import de.dhbw.stargreg.code.RaumschiffTyp;
 import de.dhbw.stargreg.code.Verkauf;
 import de.dhbw.stargreg.util.Gruppierung;
 import de.dhbw.stargreg.util.Util;
 
-public class RaumschiffmarktTest {
+public class RaumschiffMarktTest {
 	
-	private Raumschiffmarkt raumschiffmarkt;
-	private static Raumschifftyp xwing;
-	private static Raumschifftyp corvette;
+	private RaumschiffMarkt raumschiffmarkt;
+	private static RaumschiffTyp xwing;
+	private static RaumschiffTyp corvette;
 	private static int nachfrageXwing = 20;
 	private static int nachfrageCorvette = 10;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		xwing = new Raumschifftyp("test", 10) {
+		xwing = new RaumschiffTyp("test", 10) {
 			public double getKosten() {
 				return 5;
 			}
 		};
-		corvette = new Raumschifftyp("Corvette", 20) {
+		corvette = new RaumschiffTyp("Corvette", 20) {
 			public double getKosten() {
 				 return 12;
 			}
 		};		
-		Raumschiffmarkt.fuegeRaumschifftypHinzu(xwing);
-		Raumschiffmarkt.fuegeRaumschifftypHinzu(corvette);
+		RaumschiffMarkt.fuegeRaumschifftypHinzu(xwing);
+		RaumschiffMarkt.fuegeRaumschifftypHinzu(corvette);
 	}
 
 	@AfterClass
@@ -47,9 +47,9 @@ public class RaumschiffmarktTest {
 
 	@Before
 	public void setUp() throws Exception {
-		raumschiffmarkt = new Raumschiffmarkt();
-		raumschiffmarkt.setNachfrage(xwing, nachfrageXwing);
-		raumschiffmarkt.setNachfrage(corvette, nachfrageCorvette);		
+		raumschiffmarkt = new RaumschiffMarkt();
+		raumschiffmarkt.setEinzelNachfrage(xwing, nachfrageXwing);
+		raumschiffmarkt.setEinzelNachfrage(corvette, nachfrageCorvette);		
 	}
 
 	@After
@@ -84,9 +84,9 @@ public class RaumschiffmarktTest {
 		raumschiffmarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 2, 27.0));
 		
 		Vector<Verkauf> verkaeufe = raumschiffmarkt.berechneGesamtAbsatz();
-		HashMap<Raumschifftyp, Vector<Verkauf>> map = Util.gruppiereVector(verkaeufe, new Gruppierung<Raumschifftyp, Verkauf>() {
+		HashMap<RaumschiffTyp, Vector<Verkauf>> map = Util.gruppiereVector(verkaeufe, new Gruppierung<RaumschiffTyp, Verkauf>() {
 			@Override
-			public Raumschifftyp nach(Verkauf verkauf) {
+			public RaumschiffTyp nach(Verkauf verkauf) {
 				return verkauf.getRaumschifftyp();
 			}
 		});

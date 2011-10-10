@@ -1,8 +1,8 @@
 package de.dhbw.stargreg.code;
 
-public class Raumschifftyp extends Produkttyp {
+public class RaumschiffTyp extends ProduktTyp {
 
-		public Raumschifftyp(String name, int lagereinheiten) {
+		public RaumschiffTyp(String name, int lagereinheiten) {
 			super(name, lagereinheiten);
 		}
 		

@@ -16,12 +16,12 @@ public class Spiel {
 	/**
 	 * Liste aller Spielrunden
 	 */
-	private Vector<Spielrunde> spielrunden = new Vector<Spielrunde>();
+	private Vector<SpielRunde> spielrunden = new Vector<SpielRunde>();
 	
 	/**
 	 * aktuelle Spielrunde
 	 */
-	private Spielrunde aktuelleSpielrunde;
+	private SpielRunde aktuelleSpielrunde;
 	
 	/**
 	 * aktueller Spielstatus
@@ -42,7 +42,7 @@ public class Spiel {
 	 * Nur möglich, wenn sich das Spiel in der Einrichtungsphase befindet.
 	 * @param spielrunde Die anzufügende Spielrunde
 	 */
-	public void fuegeSpielrundeHinzu(Spielrunde spielrunde) {
+	public void fuegeSpielrundeHinzu(SpielRunde spielrunde) {
 		if (status == Status.EINRICHTEN) {
 			this.spielrunden.add(spielrunde);
 			System.out.printf("Spielrunde %i hinzugefügt\n", this.spielrunden.size());
