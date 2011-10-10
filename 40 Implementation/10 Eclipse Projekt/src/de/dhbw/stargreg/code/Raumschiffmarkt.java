@@ -5,9 +5,6 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Vector;
 
-import de.dhbw.stargreg.util.Gruppierung;
-import de.dhbw.stargreg.util.Util;
-
 /**
  * Beschreibt den Raumschiffmarkt, der für die Spieler den Absatzmarkt darstellt
  * Die Absatzmengen sind abhängig von den jeweiligen Angebots-Mengen und Preisen,
