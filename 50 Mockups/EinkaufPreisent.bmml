@@ -167,15 +167,7 @@
         <text>0</text>
       </controlProperties>
     </control>
-    <control controlID="46" controlTypeID="com.balsamiq.mockups::Button" x="784" y="675" w="295" h="38" measuredW="136" measuredH="28" zOrder="32" locked="false" isInGroup="-1">
-      <controlProperties>
-        <color>9684093</color>
-        <href>EinkaufBest%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22714%2C675%2C1009%2C713%22%20href%3D%22EinkaufBest.bmml%22%20alt%3D%22EinkaufBest%22%20id%3D%2246%22/%3E</map>
-        <text>Einkauf%20Best%E4tigen</text>
-      </controlProperties>
-    </control>
-    <control controlID="47" controlTypeID="com.balsamiq.mockups::Label" x="778" y="607" w="295" h="33" measuredW="293" measuredH="29" zOrder="33" locked="false" isInGroup="-1">
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Label" x="778" y="607" w="295" h="33" measuredW="293" measuredH="29" zOrder="32" locked="false" isInGroup="-1">
       <controlProperties>
         <align>left</align>
         <color>13576743</color>
@@ -184,29 +176,29 @@
         <underline>true</underline>
       </controlProperties>
     </control>
-    <control controlID="48" controlTypeID="com.balsamiq.mockups::FieldSet" x="520" y="531" w="233" h="171" measuredW="200" measuredH="170" zOrder="34" locked="false" isInGroup="-1">
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::FieldSet" x="520" y="531" w="233" h="171" measuredW="200" measuredH="170" zOrder="33" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Warp%20Antrieb</text>
       </controlProperties>
     </control>
-    <control controlID="49" controlTypeID="com.balsamiq.mockups::Image" x="535" y="546" w="200" h="99" measuredW="1000" measuredH="671" zOrder="35" locked="false" isInGroup="-1">
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Image" x="535" y="546" w="200" h="99" measuredW="1000" measuredH="671" zOrder="34" locked="false" isInGroup="-1">
       <controlProperties>
         <src>./Einkauf_Warp.jpg</src>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="50" controlTypeID="com.balsamiq.mockups::TextInput" x="535" y="654" w="125" h="-1" measuredW="102" measuredH="27" zOrder="36" locked="false" isInGroup="-1">
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::TextInput" x="535" y="654" w="125" h="-1" measuredW="102" measuredH="27" zOrder="35" locked="false" isInGroup="-1">
       <controlProperties>
         <color>15374745</color>
         <text>Preis%3A%202.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="51" controlTypeID="com.balsamiq.mockups::NumericStepper" x="665" y="656" w="72" h="-1" measuredW="40" measuredH="24" zOrder="37" locked="false" isInGroup="-1">
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::NumericStepper" x="665" y="656" w="72" h="-1" measuredW="40" measuredH="24" zOrder="36" locked="false" isInGroup="-1">
       <controlProperties>
         <text>0</text>
       </controlProperties>
     </control>
-    <control controlID="52" controlTypeID="com.balsamiq.mockups::Label" x="778" y="569" w="295" h="23" measuredW="268" measuredH="27" zOrder="38" locked="false" isInGroup="-1">
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::Label" x="778" y="569" w="295" h="23" measuredW="268" measuredH="27" zOrder="37" locked="false" isInGroup="-1">
       <controlProperties>
         <align>left</align>
         <color>40463</color>
@@ -215,7 +207,7 @@
         <underline>true</underline>
       </controlProperties>
     </control>
-    <control controlID="53" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="39" locked="true" isInGroup="-1">
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="38" locked="true" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml</hrefs>
@@ -224,39 +216,46 @@
         <text>%DCbersicht%0ABank%0APersonalwesen%0AEinkauf%0AProduktion%0AVerkauf</text>
       </controlProperties>
     </control>
-    <control controlID="56" controlTypeID="com.balsamiq.mockups::TextInput" x="216" y="256" w="232" h="-1" measuredW="133" measuredH="27" zOrder="40" locked="false" isInGroup="-1">
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::TextInput" x="216" y="256" w="232" h="-1" measuredW="133" measuredH="27" zOrder="39" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
         <color>15374745</color>
         <text>Insgesamt%3A%205.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="57" controlTypeID="com.balsamiq.mockups::TextInput" x="520" y="255" w="232" h="-1" measuredW="133" measuredH="27" zOrder="41" locked="false" isInGroup="-1">
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::TextInput" x="520" y="255" w="232" h="-1" measuredW="133" measuredH="27" zOrder="40" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
         <color>15374745</color>
         <text>Insgesamt%3A%208.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="58" controlTypeID="com.balsamiq.mockups::TextInput" x="831" y="255" w="232" h="-1" measuredW="138" measuredH="27" zOrder="42" locked="false" isInGroup="-1">
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::TextInput" x="831" y="255" w="232" h="-1" measuredW="138" measuredH="27" zOrder="41" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
         <color>15374745</color>
         <text>Insgesamt%3A%2010.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="59" controlTypeID="com.balsamiq.mockups::TitleWindow" x="372" y="184" w="-1" h="-1" measuredW="450" measuredH="400" zOrder="43" locked="false" isInGroup="-1">
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::TitleWindow" x="372" y="184" w="-1" h="-1" measuredW="450" measuredH="400" zOrder="42" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Preisentwicklung%3A%20Triebwerke</text>
         <verticalScrollbar>false</verticalScrollbar>
       </controlProperties>
     </control>
-    <control controlID="60" controlTypeID="com.balsamiq.mockups::Button" x="666" y="519" w="134" h="28" measuredW="67" measuredH="28" zOrder="44" locked="false" isInGroup="-1">
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Button" x="666" y="519" w="134" h="28" measuredW="67" measuredH="28" zOrder="43" locked="false" isInGroup="-1">
       <controlProperties>
         <href>Einkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml</href>
         <text>Zur%FCck</text>
       </controlProperties>
     </control>
-    <control controlID="61" controlTypeID="com.balsamiq.mockups::LineChart" x="399" y="233" w="396" h="272" measuredW="187" measuredH="175" zOrder="45" locked="false" isInGroup="-1"/>
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::LineChart" x="399" y="233" w="396" h="272" measuredW="187" measuredH="175" zOrder="44" locked="false" isInGroup="-1"/>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Button" x="778" y="655" w="295" h="58" measuredW="136" measuredH="28" zOrder="45" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>9684093</color>
+        <href>EinkaufBest%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml</href>
+        <text>Einkauf%20Best%E4tigen</text>
+      </controlProperties>
+    </control>
   </controls>
 </mockup>
