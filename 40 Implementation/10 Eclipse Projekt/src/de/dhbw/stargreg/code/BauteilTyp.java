@@ -1,26 +1,27 @@
 package de.dhbw.stargreg.code;
 
 public final class BauteilTyp extends ProduktTyp {
-	private Double preis;
-	private Double startpreis;
+	/**
+	 * Grundpreis, von dem der Marktpreis abhängt
+	 */
+	private Double grundPreis;
 	
-	public BauteilTyp(String name_c, int lagerplatzeinheiten_c, Double preis_c, Double startpreis_c ){
-		super(name_c, lagerplatzeinheiten_c);
-		this.preis = preis_c;
-		this.startpreis = startpreis_c;
+	/**
+	 * Betrag, um den der Marktpreis maximal vom Grundpreis abweichen darf
+	 */
+	private Double maxPreisDelta;
+	
+	public BauteilTyp(String name, int lagerplatzEinheiten, Double grundPreis, Double maxPreisDelta){
+		super(name, lagerplatzEinheiten);
+		this.grundPreis = grundPreis;
+		this.maxPreisDelta = maxPreisDelta;
 	}
 	
-	public Double getPreis(){
-		return this.preis;
+	public Double getGrundPreis(){
+		return grundPreis;
 	}
 	
-	public Double getStartpreis(){
-		return this.startpreis;
+	public Double getMaxPreisDelta() {
+		return maxPreisDelta;
 	}
-	
-	public void änderePreis(Double preis_l){
-		this.preis = preis_l;
-	}
-	
-	
 }
