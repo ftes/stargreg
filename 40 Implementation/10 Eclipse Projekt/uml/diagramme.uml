@@ -531,4 +531,18 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kj9ewvOYEeC6vY4rnGyctg" value="1"/>
     </ownedEnd>
   </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_XNleEPOZEeC6vY4rnGyctg" name="Menge">
+    <ownedAttribute xmi:id="_aavWkPOZEeC6vY4rnGyctg" name="raumschifftyp_bauteiltyp_0" type="_CCC0w_OWEeC6vY4rnGyctg" association="_aa5HkvOZEeC6vY4rnGyctg">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aa5HkfOZEeC6vY4rnGyctg" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aa5HkPOZEeC6vY4rnGyctg" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_aa5HkvOZEeC6vY4rnGyctg" name="AssociationClass0" memberEnd="_aa5Hk_OZEeC6vY4rnGyctg _aavWkPOZEeC6vY4rnGyctg">
+    <ownedEnd xmi:id="_aa5Hk_OZEeC6vY4rnGyctg" name="menge" type="_XNleEPOZEeC6vY4rnGyctg" association="_aa5HkvOZEeC6vY4rnGyctg">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aa5HlPOZEeC6vY4rnGyctg" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aa5HlfOZEeC6vY4rnGyctg" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_h6r58POZEeC6vY4rnGyctg" name="Preis"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_n98c4POZEeC6vY4rnGyctg" name="Nachfrage"/>
 </uml:Model>
