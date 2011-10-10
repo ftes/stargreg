@@ -1,11 +1,12 @@
 package de.dhbw.stargreg.code;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Vector;
+
+import de.dhbw.stargreg.util.Gruppierung;
+import de.dhbw.stargreg.util.Util;
 
 /**
  * 
@@ -34,6 +35,7 @@ public class Raumschiffmarkt {
 	
 	public Vector<Verkauf> berechneTypAbsatz(Raumschifftyp raumschifftyp, Vector<Angebot> angebote) {
 		//To-Do: Was passiert bei gleichen Preisen
+		//To-Do: Beachten, dass maximal verfügbare Gesamtmenge auch verkauft wird
 		
 		//Angebote nach aufsteigendem Preis sortieren
 		Collections.sort(angebote, new Comparator<Angebot>() {
@@ -80,19 +82,16 @@ public class Raumschiffmarkt {
 
 	public Vector<Verkauf> berechneGesamtAbsatz(Vector<Angebot> angebote) {
 		Vector<Verkauf> verkaeufe = new Vector<Verkauf>();
-		HashMap<Raumschifftyp, Vector<Angebot>> map = new HashMap<Raumschifftyp, Vector<Angebot>>();
 		
-		//HashMap mit Raumschifftypen als Keys initialisieren
-		for (Raumschifftyp raumschifftyp : raumschifftypen) {
-			map.put(raumschifftyp, new Vector<Angebot>());
-		}
+		//Angebote nach Raumschifftyp gruppieren
+		HashMap<Raumschifftyp, Vector<Angebot>> map = Util.gruppiereVector(angebote, new Gruppierung<Raumschifftyp, Angebot>() {
+			@Override
+			public Raumschifftyp nach(Angebot angebot) {
+				return angebot.getRaumschifftyp();
+			}
+		});
 		
-		//Alle Angebote dem entsprechenden Raumschifftyp zuordnen
-		for (Angebot angebot : angebote) {
-			map.get(angebot.getRaumschifftyp()).add(angebot);
-		}
-		
-		//Absätze für Raumschifftypen berechnen
+		//Absätze für Raumschifftypen berechnen NEU MACHEN MIT KEYS AUS HASHMAP
 		for (Raumschifftyp raumschifftyp : raumschifftypen) {
 			Vector<Verkauf> typVerkaeufe = berechneTypAbsatz(raumschifftyp, map.get(raumschifftyp));
 			verkaeufe.addAll(typVerkaeufe);
