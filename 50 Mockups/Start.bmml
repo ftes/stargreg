@@ -39,7 +39,7 @@
     <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="418" y="221" w="328" h="-1" measuredW="202" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <bold>false</bold>
-        <color>16776960</color>
+        <color>16767334</color>
         <italic>true</italic>
         <text>Tantive%20Engineering%20Corporation</text>
       </controlProperties>
