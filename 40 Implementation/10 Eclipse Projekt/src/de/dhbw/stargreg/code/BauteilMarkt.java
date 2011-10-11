@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.Vector;
 
 /**
- * 
+ * Auf dem Bauteilmarkt kaufen die Unternehmen Bauteile für die Raumschiffe ein.
+ * Da die Preise für die Bauteile von Periode zu Periode schwanken, werden sie hier gespeichert.
+ * Zudem wird eine Liste mit allen Einkäufen der Unternehmen für diese Runde geführt, um anhand
+ * dieser die Bauteilpreise für die nächste Runde zu berechnen.
  * @author fredrik
  *
  */
@@ -87,5 +90,9 @@ public class BauteilMarkt extends Markt{
 	
 	public HashMap<BauteilTyp, Double> getPreise() {
 		return preise;
+	}
+
+	public double getPreis(BauteilTyp bauteilTyp) {
+		return preise.get(bauteilTyp);
 	}
 }
