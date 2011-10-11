@@ -5,17 +5,12 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public abstract class ProduktTyp {
-	protected String name;
+public abstract class ProduktTyp extends Typ {
 	protected int lagerplatzEinheiten;
 	
 	public ProduktTyp(String name, int lagerplatzEinheiten){
-		this.name = name;
+		super(name);
 		this.lagerplatzEinheiten = lagerplatzEinheiten;
-	}
-	
-	public String toString(){
-		return this.name;
 	}
 	
 	public int getLagerplatzEinheiten(){

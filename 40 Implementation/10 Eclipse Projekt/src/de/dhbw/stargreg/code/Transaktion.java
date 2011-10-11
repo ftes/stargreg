@@ -4,14 +4,14 @@ public abstract class Transaktion {
 	protected Unternehmen unternehmen;
 	protected int menge;
 	protected double preis;
-	protected ProduktTyp produkttyp;
+	protected Typ typ;
 	
 	
-	public Transaktion(ProduktTyp produkttyp, Unternehmen unternehmen, int menge, double preis) {
+	public Transaktion(Typ typ, Unternehmen unternehmen, int menge, double preis) {
 		this.unternehmen = unternehmen;
 		this.menge = menge;
 		this.preis = preis;
-		this.produkttyp = produkttyp;
+		this.typ = typ;
 	}
 	
 	public Unternehmen getUnternehmen() {
@@ -27,10 +27,14 @@ public abstract class Transaktion {
 	}
 	
 	public String toString() {
-		return String.format("%d Stück zu %f Credits", menge, preis);
+		return String.format("%d %s zu %f Credits", menge, typ, preis);
 	}
 	
-	public ProduktTyp getProdukttyp() {
-		return produkttyp;
+	public Typ getTyp() {
+		return typ;
+	}
+	
+	public double getKosten() {
+		return menge * preis;
 	}
 }
