@@ -22,7 +22,7 @@ public class Spiel {
 	/**
 	 * aktuelle Spielrunde
 	 */
-	private SpielRunde aktuelleSpielrunde;
+	private SpielRunde aktuelleSpielRunde;
 	
 	/**
 	 * aktueller Spielstatus
@@ -95,7 +95,7 @@ public class Spiel {
 			return;
 		}
 		status = Status.SPIELEN;
-		aktuelleSpielrunde = spielrunden.firstElement();
+		aktuelleSpielRunde = spielrunden.firstElement();
 		System.out.println("Spiel gestartet");
 	}
 	
@@ -123,31 +123,35 @@ public class Spiel {
 	 * dies setzt die aktuelle Spielrunde um eins weiter.
 	 * Nur möglich im Status Spielen
 	 */
-	public void naechsteRunde() {
+	public void naechsteSpielRunde() {
 		if (status != Status.SPIELEN) {
 			System.out.println("Die nächste Runde kann nur im Modus Spielen erreicht werden");
 		}
-		aktuelleSpielrunde.simuliere();
-		SpielRunde vorherigeSpielrunde = aktuelleSpielrunde;
-		aktuelleSpielrunde = getNaechsteRunde();
-		if (aktuelleSpielrunde == null) {
+		aktuelleSpielRunde.simuliere();
+		SpielRunde vorherigeSpielrunde = aktuelleSpielRunde;
+		aktuelleSpielRunde = getNaechsteSpielRunde();
+		if (aktuelleSpielRunde == null) {
 			beendeSpiel();
 			return;
 		}
 		// Preise in Bauteilmarkt neu berechnen
-		aktuelleSpielrunde.getBauteilMarkt().berechnePreise(vorherigeSpielrunde.getBauteilMarkt());
+		aktuelleSpielRunde.getBauteilMarkt().berechnePreise(vorherigeSpielrunde.getBauteilMarkt());
 	}
 	
 	/**
 	 * Gibt die nächste Spielrunde zurück, oder {@code null} falls dies bereits die Letzte war
 	 * @return
 	 */
-	private SpielRunde getNaechsteRunde() {
-		int index = spielrunden.indexOf(aktuelleSpielrunde) + 1;
+	private SpielRunde getNaechsteSpielRunde() {
+		int index = spielrunden.indexOf(aktuelleSpielRunde) + 1;
 		if (index >= spielrunden.size()) {
 			System.out.println("Letzte Spielrunde abgeschlossen");
 			return null;
 		}
 		return spielrunden.get(index);
+	}
+
+	public SpielRunde getAktuelleSpielRunde() {
+		return aktuelleSpielRunde;
 	}
 }
