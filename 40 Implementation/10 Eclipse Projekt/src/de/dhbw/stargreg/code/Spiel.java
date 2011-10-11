@@ -51,7 +51,7 @@ public class Spiel {
 	
 	/**
 	 * statische Methode, um Spiel-Singleton zu erhalten
-	 * @return
+	 * @return Spiel-Singleton
 	 */
 	public static Spiel getSpiel() {
 		return spiel;
@@ -140,7 +140,7 @@ public class Spiel {
 	
 	/**
 	 * Gibt die nächste Spielrunde zurück, oder {@code null} falls dies bereits die Letzte war
-	 * @return
+	 * @return Nächste Spielrunde
 	 */
 	private SpielRunde getNaechsteSpielRunde() {
 		int index = spielrunden.indexOf(aktuelleSpielRunde) + 1;

@@ -31,7 +31,7 @@ public class RaumschiffTyp extends ProduktTyp {
 	
 	/**
 	 * Berechnet die variablen Kosten für den Raumschifftyp, basierend auf den derzeitigen Marktpreisen der Bauteile
-	 * @return
+	 * @return variable Kosten für diesen Raumschifftyp
 	 */
 	public double getKosten() {
 		double kosten = 0;
