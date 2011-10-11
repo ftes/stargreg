@@ -7,8 +7,8 @@ package de.dhbw.stargreg.code;
  */
 public class Entlassung extends Transaktion {
 	
-	public Entlassung(PersonalTyp personaltyp, Unternehmen unternehmen, int menge) {
-		super(personaltyp, unternehmen, menge, 0);
+	public Entlassung(PersonalTyp personalTyp, Unternehmen unternehmen, int menge) {
+		super(personalTyp, unternehmen, menge, 0);
 	}
 	
 	public PersonalTyp getPersonalTyp() {

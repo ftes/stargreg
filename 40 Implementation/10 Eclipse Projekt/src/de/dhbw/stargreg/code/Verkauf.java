@@ -8,11 +8,11 @@ package de.dhbw.stargreg.code;
  */
 public class Verkauf extends Transaktion {
 	
-	public Verkauf(RaumschiffTyp raumschifftyp, Unternehmen unternehmen, int menge, double preis) {
-		super(raumschifftyp, unternehmen, menge, preis);
+	public Verkauf(RaumschiffTyp raumschiffTyp, Unternehmen unternehmen, int menge, double preis) {
+		super(raumschiffTyp, unternehmen, menge, preis);
 	}
 	
-	public RaumschiffTyp getRaumschifftyp() {
+	public RaumschiffTyp getRaumschiffTyp() {
 		return (RaumschiffTyp) typ;
 	}
 }

@@ -7,8 +7,8 @@ package de.dhbw.stargreg.code;
  */
 public class Einstellung extends Transaktion {
 	
-	public Einstellung(PersonalTyp personaltyp, Unternehmen unternehmen, int menge, double preis) {
-		super(personaltyp, unternehmen, menge, preis);
+	public Einstellung(PersonalTyp personalTyp, Unternehmen unternehmen, int menge, double preis) {
+		super(personalTyp, unternehmen, menge, preis);
 	}
 	
 	public PersonalTyp getPersonalTyp() {

@@ -19,7 +19,7 @@ public class RaumschiffMarkt extends Markt {
 	/**
 	 * Liste mit allen Raumschifftypen
 	 */
-	private static final Vector<RaumschiffTyp> raumschifftypen = new Vector<RaumschiffTyp>();
+	private static final Vector<RaumschiffTyp> raumschiffTypen = new Vector<RaumschiffTyp>();
 	
 	/**
 	 * Beschreibt die Grundnachfrage nach jedem Raumschifftyp in dieser Periode
@@ -40,8 +40,8 @@ public class RaumschiffMarkt extends Markt {
 	 * Fuegt einen Raumschifftyp zur Liste hinzu
 	 * @param typ Hinzuzufügender Raumschifftyp
 	 */
-	public static void fuegeRaumschifftypHinzu(RaumschiffTyp typ) {
-		raumschifftypen.add(typ);
+	public static void fuegeRaumschiffTypHinzu(RaumschiffTyp typ) {
+		raumschiffTypen.add(typ);
 		System.out.printf("%s zum Raumschiffmarkt hinzugefügt\n", typ);
 	}
 
@@ -68,21 +68,21 @@ public class RaumschiffMarkt extends Markt {
 	 * @param angebot Angebot, das eingetragen werden soll
 	 */
 	public void fuegeAngebotHinzu(Angebot angebot) {
-		RaumschiffTyp raumschifftyp = angebot.getRaumschifftyp();
-		if (! angebote.containsKey(raumschifftyp)) {
-			angebote.put(raumschifftyp, new Vector<Angebot>());
+		RaumschiffTyp raumschiffTyp = angebot.getRaumschiffTyp();
+		if (! angebote.containsKey(raumschiffTyp)) {
+			angebote.put(raumschiffTyp, new Vector<Angebot>());
 		}
-		angebote.get(raumschifftyp).add(angebot);
+		angebote.get(raumschiffTyp).add(angebot);
 		System.out.printf("%s zu Raumschiffmarkt hinzugefügt\n", angebot);
 	}
 	
 	/**
 	 * Berechnet die Absatzmengen für die jeweiligen Spieler (Angebote) für diese Periode
-	 * @param raumschifftyp Raumschifftyp, für den die Absatzmengen bestimmt werden sollen (wichtig wegen der Elementarkosten)
+	 * @param raumschiffTyp Raumschifftyp, für den die Absatzmengen bestimmt werden sollen (wichtig wegen der Elementarkosten)
 	 * @param angebote {@code Vector} mit Angeboten der Unternehmen, die Menge und Preis beinhalten
 	 * @return Rückgabe eines {@code Vector} mit allen {@code Verkauf}-Objekten, die die jeweilige Absatzmenge enthalten
 	 */
-	public Vector<Verkauf> berechneTypAbsatz(RaumschiffTyp raumschifftyp, Vector<Angebot> angebote) {
+	public Vector<Verkauf> berechneTypAbsatz(RaumschiffTyp raumschiffTyp, Vector<Angebot> angebote) {
 		//To-Do: Was passiert bei gleichen Preisen
 		//To-Do: Beachten, dass maximal verfügbare Gesamtmenge auch verkauft wird
 		
@@ -108,14 +108,14 @@ public class RaumschiffMarkt extends Markt {
 		}
 		
 		//Neue Nachfrage basierend auf niedrigstem Preis berechnen
-		int nachfrage = (int) Math.floor(nachfragen.get(raumschifftyp) * (1 - Math.pow(niedrigsterPreis / (raumschifftyp.getKosten() * 3.5), 4)));
+		int nachfrage = (int) Math.floor(nachfragen.get(raumschiffTyp) * (1 - Math.pow(niedrigsterPreis / (raumschiffTyp.getKosten() * 3.5), 4)));
 		if (nachfrage < 0) {
 			nachfrage = 0;
 		}
 		int uebertrag = 0;
 		
 		//Jeweilige Verkaufsmengen berechnen
-		System.out.printf("Typabsätze für %s:\n", raumschifftyp);
+		System.out.printf("Typabsätze für %s:\n", raumschiffTyp);
 		for (Angebot angebot : angebote) {
 			int menge = (int) Math.round(angebot.getAnteil() / anteilSumme * nachfrage) + uebertrag;
 			if (menge <= angebot.getMenge()) {
@@ -139,8 +139,8 @@ public class RaumschiffMarkt extends Markt {
 	public Vector<Verkauf> berechneGesamtAbsatz() {
 		System.out.println("Absatzmengen im Raumschiffmarkt:");
 		//Absätze für Raumschifftypen berechnen
-		for (RaumschiffTyp raumschifftyp : angebote.keySet()) {
-			Vector<Verkauf> typVerkaeufe = berechneTypAbsatz(raumschifftyp, angebote.get(raumschifftyp));
+		for (RaumschiffTyp raumschiffTyp : angebote.keySet()) {
+			Vector<Verkauf> typVerkaeufe = berechneTypAbsatz(raumschiffTyp, angebote.get(raumschiffTyp));
 			verkaeufe.addAll(typVerkaeufe);
 		}		
 		return verkaeufe;

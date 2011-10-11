@@ -12,11 +12,11 @@ public class Angebot extends Transaktion {
 	 */
 	private double anteil;
 	
-	public Angebot(RaumschiffTyp raumschifftyp, Unternehmen unternehmen, int menge, double preis) {
-		super(raumschifftyp, unternehmen, menge, preis);
+	public Angebot(RaumschiffTyp raumschiffTyp, Unternehmen unternehmen, int menge, double preis) {
+		super(raumschiffTyp, unternehmen, menge, preis);
 	}
 	
-	public RaumschiffTyp getRaumschifftyp() {
+	public RaumschiffTyp getRaumschiffTyp() {
 		return (RaumschiffTyp) typ;
 	}
 	
@@ -26,7 +26,7 @@ public class Angebot extends Transaktion {
 	 * @return Zum Angebot passender Verkauf
 	 */
 	public Verkauf kloneVerkauf(int menge) {
-		return new Verkauf(getRaumschifftyp(), this.unternehmen, menge, this.preis);
+		return new Verkauf(getRaumschiffTyp(), this.unternehmen, menge, this.preis);
 	}
 
 	public double getAnteil() {

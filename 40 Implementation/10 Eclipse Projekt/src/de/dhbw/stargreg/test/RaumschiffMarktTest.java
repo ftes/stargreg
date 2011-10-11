@@ -19,7 +19,7 @@ import de.dhbw.stargreg.util.Util;
 
 public class RaumschiffMarktTest {
 	
-	private RaumschiffMarkt raumschiffmarkt;
+	private RaumschiffMarkt raumschiffMarkt;
 	private static RaumschiffTyp xwing;
 	private static RaumschiffTyp corvette;
 	private static int nachfrageXwing = 20;
@@ -37,8 +37,8 @@ public class RaumschiffMarktTest {
 				 return 12;
 			}
 		};		
-		RaumschiffMarkt.fuegeRaumschifftypHinzu(xwing);
-		RaumschiffMarkt.fuegeRaumschifftypHinzu(corvette);
+		RaumschiffMarkt.fuegeRaumschiffTypHinzu(xwing);
+		RaumschiffMarkt.fuegeRaumschiffTypHinzu(corvette);
 	}
 
 	@AfterClass
@@ -47,9 +47,9 @@ public class RaumschiffMarktTest {
 
 	@Before
 	public void setUp() throws Exception {
-		raumschiffmarkt = new RaumschiffMarkt();
-		raumschiffmarkt.setEinzelNachfrage(xwing, nachfrageXwing);
-		raumschiffmarkt.setEinzelNachfrage(corvette, nachfrageCorvette);		
+		raumschiffMarkt = new RaumschiffMarkt();
+		raumschiffMarkt.setEinzelNachfrage(xwing, nachfrageXwing);
+		raumschiffMarkt.setEinzelNachfrage(corvette, nachfrageCorvette);		
 	}
 
 	@After
@@ -64,7 +64,7 @@ public class RaumschiffMarktTest {
 		angebote.add(new Angebot(xwing, null, 10, 20.0));
 		
 		int gesamtMenge = 0;
-		Vector<Verkauf> verkaeufe = raumschiffmarkt.berechneTypAbsatz(xwing, angebote);
+		Vector<Verkauf> verkaeufe = raumschiffMarkt.berechneTypAbsatz(xwing, angebote);
 		for (Verkauf verkauf : verkaeufe) {
 			int menge = verkauf.getMenge();
 			Assert.assertTrue(menge >= 0);
@@ -76,18 +76,18 @@ public class RaumschiffMarktTest {
 	
 	@Test
 	public void testBerechneGesamtAbsatz() {
-		raumschiffmarkt.fuegeAngebotHinzu(new Angebot(xwing, null, 10, 10.0));
-		raumschiffmarkt.fuegeAngebotHinzu(new Angebot(xwing, null, 5, 15.0));
-		raumschiffmarkt.fuegeAngebotHinzu(new Angebot(xwing, null, 10, 20.0));
-		raumschiffmarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 3, 20.0));
-		raumschiffmarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 5, 18.0));
-		raumschiffmarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 2, 27.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(xwing, null, 10, 10.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(xwing, null, 5, 15.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(xwing, null, 10, 20.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 3, 20.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 5, 18.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 2, 27.0));
 		
-		Vector<Verkauf> verkaeufe = raumschiffmarkt.berechneGesamtAbsatz();
+		Vector<Verkauf> verkaeufe = raumschiffMarkt.berechneGesamtAbsatz();
 		HashMap<RaumschiffTyp, Vector<Verkauf>> map = Util.gruppiereVector(verkaeufe, new Gruppierung<RaumschiffTyp, Verkauf>() {
 			@Override
 			public RaumschiffTyp nach(Verkauf verkauf) {
-				return verkauf.getRaumschifftyp();
+				return verkauf.getRaumschiffTyp();
 			}
 		});
 		Assert.assertTrue(map.containsKey(xwing));

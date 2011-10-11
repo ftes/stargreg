@@ -48,7 +48,7 @@ public class BauteilMarkt extends Markt{
 	 * @param einkauf Zu speichernder Einkauf
 	 */
 	public void fuegeEinkaufHinzu(Einkauf einkauf) {
-		BauteilTyp bauteilTyp = einkauf.getBauteiltyp();
+		BauteilTyp bauteilTyp = einkauf.getBauteilTyp();
 		if (! einkaeufe.containsKey(bauteilTyp)) {
 			einkaeufe.put(bauteilTyp, new Vector<Einkauf>());
 		}
