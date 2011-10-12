@@ -73,6 +73,13 @@ public class Spiel {
 	}
 	
 	/**
+	*Gibt die Anzahl der Unternehmen zurück
+	*/
+	public int getAnzahlUnternehmen() {
+		return unternehmen.size();
+	}
+	
+	/**
 	 * Fügt das übergebene Unternehmen hinten an die Liste der Unternehmen an.
 	 * Nur möglich, wenn das Spiel sich in der Einrichtungsphase befindet.
 	 * @param unternehmen Das anzufügende Unternehmen
