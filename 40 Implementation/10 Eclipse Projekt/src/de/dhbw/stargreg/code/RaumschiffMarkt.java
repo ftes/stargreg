@@ -50,17 +50,9 @@ public class RaumschiffMarkt extends Markt {
 	 * @param typ Raumschifftyp
 	 * @param nachfrage Nachfragemenge für {@code typ}
 	 */
-	public void setEinzelNachfrage(RaumschiffTyp typ, int nachfrage) {
+	public void setNachfrage(RaumschiffTyp typ, int nachfrage) {
 		this.nachfragen.put(typ, nachfrage);			//wenn bereits vorhanden, dann überschreibt dies den alten Wert
 		System.out.printf("Nachfrage nach %s zum Raumschiffmarkt hinzugefügt: %d Stück\n", typ, nachfrage);
-	}
-	
-	/**
-	 * Setzt die gesamte Nachfrage auf einmal
-	 * @param nachfragen {@code HashMap} mit der Zuordnung {@code Raumschifftyp} zu Nachfragemenge
-	 */
-	public void setNachfragen(HashMap<RaumschiffTyp, Integer> nachfragen) {
-		this.nachfragen = nachfragen;
 	}
 	
 	/**

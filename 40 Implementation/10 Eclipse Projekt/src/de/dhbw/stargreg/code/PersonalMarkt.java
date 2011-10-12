@@ -41,12 +41,22 @@ public class PersonalMarkt extends Markt {
 		personalTypen.add(personalTyp);
 	}
 
-	public void setLaufendeKosten(HashMap<PersonalTyp, Double> laufendeKosten) {
-		this.laufendeKosten = laufendeKosten;
+	/**
+	 * Speichert die zum PersonalTyp zugehörigen laufenden Kosten
+	 * @param personalTyp PersonalTyp
+	 * @param laufendeKosten Laufende Kosten
+	 */
+	public void setLaufendeKosten(PersonalTyp personalTyp, double laufendeKosten) {
+		this.laufendeKosten.put(personalTyp, laufendeKosten);
 	}
 	
-	public void setWerbungsKosten(HashMap<PersonalTyp, Double> werbungsKosten) {
-		this.werbungsKosten = werbungsKosten;
+	/**
+	 * Speichert die zum PersonlTyp zugehörigen Werbungskosten
+	 * @param personalTyp PersonalTyp
+	 * @param werbungsKosten Werbungskosten
+	 */
+	public void setWerbungsKosten(PersonalTyp personalTyp, double werbungsKosten) {
+		this.werbungsKosten.put(personalTyp, werbungsKosten);
 	}
 	
 	public double getLaufendeKosten(PersonalTyp personalTyp) {

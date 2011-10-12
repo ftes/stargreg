@@ -25,14 +25,6 @@ public class SpielRunde {
 	private PersonalMarkt personalMarkt = new PersonalMarkt();
 	
 	/**
-	 * Konstruktor, der die vorher definierten Werte entgegenimmt
-	 */
-	public SpielRunde(HashMap<RaumschiffTyp, Integer> raumschiffNachfragen, HashMap<PersonalTyp, Double> personalLaufendeKosten) {
-		raumschiffMarkt.setNachfragen(raumschiffNachfragen);
-		personalMarkt.setLaufendeKosten(personalLaufendeKosten);
-	}
-	
-	/**
 	 * Führt die Simulationen auf allen Märkten aus
 	 */
 	public void simuliere() {
