@@ -161,4 +161,11 @@ public class Spiel {
 	public SpielRunde getAktuelleSpielRunde() {
 		return aktuelleSpielRunde;
 	}
+
+	/**
+	* Löscht alle Unternehmen
+	*/
+	public void loescheUnternehmen() {
+		unternehmen.clear();
+	}
 }
