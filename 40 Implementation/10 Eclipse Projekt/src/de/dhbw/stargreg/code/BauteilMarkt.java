@@ -14,11 +14,6 @@ import java.util.Vector;
 public class BauteilMarkt extends Markt{
 	
 	/**
-	 * Zuordnung der Grundpreise zu den jeweiligen Bauteiltypen
-	 */
-	private static HashMap<BauteilTyp, Double> grundPreise;
-	
-	/**
 	 * Liste mit allen BauteilTypen
 	 */
 	private static Vector<BauteilTyp> bauteilTypen = new Vector<BauteilTyp>();
@@ -26,7 +21,7 @@ public class BauteilMarkt extends Markt{
 	/**
 	 * Zuordnung der aktuellen Preise zu den jeweiligen Bauteiltypen
 	 */
-	private HashMap<BauteilTyp, Double> preise = grundPreise;
+	private HashMap<BauteilTyp, Double> preise = new HashMap<BauteilTyp, Double>();
 	
 	/**
 	 * Zuordnung der Einkäufe zu den Bauteiltypen
@@ -34,12 +29,20 @@ public class BauteilMarkt extends Markt{
 	private HashMap<BauteilTyp, Vector<Einkauf>> einkaeufe = new HashMap<BauteilTyp, Vector<Einkauf>>();
 	
 	/**
-	 * Statische Methode, um zu Beginn einen Grundpreis festzulegen
-	 * @param typ Bauteiltyp
-	 * @param preis Preis
+	 * Konstruktor übernimmt als Preis zunächst automatisch Grundpreis
 	 */
-	public static void setGrundPreis(BauteilTyp typ, double preis) {
-		grundPreise.put(typ, preis);
+	public BauteilMarkt() {
+		for (BauteilTyp bauteilTyp : bauteilTypen) {
+			preise.put(bauteilTyp, bauteilTyp.getGrundPreis());
+		}
+	}
+	
+	/**
+	 * Fügt einen BauteilTypen an die Liste aller BauteilTypen an
+	 * @param bauteilTyp Anzufügender BauteilTyp
+	 */
+	public static void fuegeBauteilTypHinzu(BauteilTyp bauteilTyp) {
+		bauteilTypen.add(bauteilTyp);
 	}
 	
 	/**
@@ -78,7 +81,7 @@ public class BauteilMarkt extends Markt{
 		for(BauteilTyp bauteilTyp : bauteilTypen) {
 			double abweichung = (umsaetze.get(bauteilTyp) - durchschnittsUmsatz) / durchschnittsUmsatz;
 			double maxPreisDelta = bauteilTyp.getMaxPreisDelta();
-			double neuerPreis = grundPreise.get(bauteilTyp) - maxPreisDelta
+			double neuerPreis = bauteilTyp.getGrundPreis() - maxPreisDelta
 					+ 2 * Math.pow(maxPreisDelta, 2)
 					/ (maxPreisDelta
 							+ maxPreisDelta
