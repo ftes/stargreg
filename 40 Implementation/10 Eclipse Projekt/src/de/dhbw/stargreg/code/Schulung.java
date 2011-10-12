@@ -5,7 +5,7 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public class Schulung extends Transaktion {
+public class Schulung extends PersonalTransaktion {
 	private PersonalTyp personalTypZu;
 	
 	public Schulung(PersonalTyp von, PersonalTyp zu, Unternehmen unternehmen, int menge, double preis) {
