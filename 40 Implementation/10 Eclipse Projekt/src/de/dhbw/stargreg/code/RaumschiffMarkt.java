@@ -22,7 +22,8 @@ public class RaumschiffMarkt extends Markt {
 	private static final Vector<RaumschiffTyp> raumschiffTypen = new Vector<RaumschiffTyp>();
 	
 	/**
-	 * Beschreibt die Grundnachfrage nach jedem Raumschifftyp in dieser Periode
+	 * Beschreibt die Grundnachfrage nach jedem Raumschifftyp in dieser Periode.
+	 * Achtung: nur Nachfrage für einen Spieler, wird bei Absatzberechnung mit Anzahl der Unternehmen multipliziert.
 	 */
 	private HashMap<RaumschiffTyp, Integer> nachfragen = new HashMap<RaumschiffTyp, Integer>();
 
@@ -99,8 +100,9 @@ public class RaumschiffMarkt extends Markt {
 			}
 		}
 		
-		//Neue Nachfrage basierend auf niedrigstem Preis berechnen
-		int nachfrage = (int) Math.floor(nachfragen.get(raumschiffTyp) * (1 - Math.pow(niedrigsterPreis / (raumschiffTyp.getKosten() * 3.5), 4)));
+		//Neue Nachfrage basierend auf niedrigstem Preis berechnen, abhängig von Spielerzahl
+		int nachfrage = nachfragen.get(raumschiffTyp) * Spiel.getSpiel().getAnzahlUnternehmen();
+		nachfrage = (int) Math.floor(nachfrage * (1 - Math.pow(niedrigsterPreis / (raumschiffTyp.getKosten() * 3.5), 4)));
 		if (nachfrage < 0) {
 			nachfrage = 0;
 		}
