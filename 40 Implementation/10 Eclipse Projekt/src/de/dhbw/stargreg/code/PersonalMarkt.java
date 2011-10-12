@@ -21,12 +21,17 @@ public class PersonalMarkt extends Markt {
 	/**
 	 * laufende Kosten für das Personal, also Wartungskosten / Gehalt
 	 */
-	private HashMap<PersonalTyp, Double> laufendeKosten;
+	private HashMap<PersonalTyp, Double> laufendeKosten = new HashMap<PersonalTyp, Double>();
 	
 	/**
 	 * einmalige Werbungskosten für das Personal, also Einkauf / Bewerberauswahl
 	 */
-	private HashMap<PersonalTyp, Double> werbungsKosten;
+	private HashMap<PersonalTyp, Double> werbungsKosten = new HashMap<PersonalTyp, Double>();
+	
+	/**
+	 * Schulungskosten für das Personal
+	 */
+	private static HashMap<PersonalTyp, Double> schulungsKosten = new HashMap<PersonalTyp, Double>();
 	
 	/**
 	 * Liste mit allen Personal-Transaktionen dieser Runde
@@ -39,6 +44,23 @@ public class PersonalMarkt extends Markt {
 	 */
 	public static void fuegePersonalTypHinzu(PersonalTyp personalTyp) {
 		personalTypen.add(personalTyp);
+	}
+	
+	/**
+	 * Fügt die Schulungskosten zu der Liste hinzu
+	 * @param personalTyp PersonalTyp, der geschult werden soll
+	 * @param kosten Dabei anfallende Kosten
+	 */
+	public static void setSchulungsKosten(PersonalTyp personalTyp, double kosten) {
+		schulungsKosten.put(personalTyp, kosten);
+	}
+	
+	/**
+	 * gibt die durch eine Schulung anfallenden Kosten zurück
+	 * @param personalTyp
+	 */
+	public static double getSchulungsKosten(PersonalTyp personalTyp) {
+		return schulungsKosten.get(personalTyp);
 	}
 
 	/**
