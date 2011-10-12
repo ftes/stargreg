@@ -12,9 +12,12 @@ public class RaumschiffTyp extends ProduktTyp {
 	 * Mengen der Bauteile, die für die Produktion eines Raumschiffs diesen Typs benötigt werden
 	 */
 	private HashMap<BauteilTyp, Integer> bauteile = new HashMap<BauteilTyp, Integer>();
+	
+	private int benoetigtesPersonal;
 
-	public RaumschiffTyp(String name) {
+	public RaumschiffTyp(String name, int benoetigtesPersonal) {
 		super(name, 0);
+		this.benoetigtesPersonal = benoetigtesPersonal;
 	}
 	
 	/**
@@ -40,5 +43,9 @@ public class RaumschiffTyp extends ProduktTyp {
 			kosten += bauteile.get(bauteilTyp) * Spiel.getSpiel().getAktuelleSpielRunde().getBauteilMarkt().getPreis(bauteilTyp);
 		}
 		return kosten;
+	}
+	
+	public int getBenoetigtesPersonal() {
+		return benoetigtesPersonal;
 	}
 }
