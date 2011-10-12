@@ -63,9 +63,9 @@ public class Spiel {
 	 * Nur möglich, wenn sich das Spiel in der Einrichtungsphase befindet.
 	 * @param spielrunde Die anzufügende Spielrunde
 	 */
-	public void fuegeSpielrundeHinzu(SpielRunde spielrunde) {
+	public void fuegeSpielRundeHinzu(SpielRunde spielRunde) {
 		if (status == Status.EINRICHTEN) {
-			this.spielrunden.add(spielrunde);
+			this.spielrunden.add(spielRunde);
 			System.out.printf("Spielrunde %i hinzugefügt\n", this.spielrunden.size());
 		} else {
 			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Einrichten' möglich");
