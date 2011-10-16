@@ -1,6 +1,5 @@
 package de.dhbw.stargreg.code;
 
-import java.util.HashMap;
 
 /**
  * Eine Spielrunde verwaltet die Märkte im aktuellen Zustand, und somit indirekt alle
@@ -53,6 +52,27 @@ public class SpielRunde {
 
 	public void setPersonalMarkt(PersonalMarkt personalMarkt) {
 		this.personalMarkt = personalMarkt;
+	}
+	
+	/**
+	 * Erzeugt eine Kopie der Spielrunde mit gleicher Nachfrage auf dem Raumschiffmarkt und gleichen
+	 * laufenden und Werbungskosten für das Personal.
+	 * Es wurde bewusst auf die Verwednung des {@code Clonable} Interfaces verzichtet, da dies lediglich
+	 * ein Shallow-Copy durchführt und einige Probleme mit sich bringt.
+	 */
+	public SpielRunde clone() {
+		SpielRunde spielRunde = new SpielRunde();
+		for (RaumschiffTyp raumschiffTyp : RaumschiffMarkt.getRaumschiffTypen()) {
+			int nachfrage = getRaumschiffMarkt().getNachfrage(raumschiffTyp);
+			spielRunde.getRaumschiffMarkt().setNachfrage(raumschiffTyp, nachfrage);
+		}
+		for (PersonalTyp personalTyp : PersonalMarkt.getPersonalTypen()) {
+			double laufendeKosten = getPersonalMarkt().getLaufendeKosten(personalTyp);
+			double werbungsKosten = getPersonalMarkt().getWerbungsKosten(personalTyp);
+			spielRunde.getPersonalMarkt().setLaufendeKosten(personalTyp, laufendeKosten);
+			spielRunde.getPersonalMarkt().setWerbungsKosten(personalTyp, werbungsKosten);
+		}
+		return spielRunde;
 	}
 
 }
