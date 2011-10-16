@@ -66,7 +66,7 @@ public class Spiel {
 	public void fuegeSpielRundeHinzu(SpielRunde spielRunde) {
 		if (status == Status.EINRICHTEN) {
 			this.spielrunden.add(spielRunde);
-			System.out.printf("Spielrunde %i hinzugefügt\n", this.spielrunden.size());
+			System.out.printf("Spielrunde %d hinzugefügt\n", this.spielrunden.size());
 		} else {
 			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Einrichten' möglich");
 		}
@@ -167,12 +167,14 @@ public class Spiel {
 	*/
 	public void loescheUnternehmen() {
 		unternehmen.clear();
+		System.out.println("Alle Unternehmen gelöscht");
 	}
 	
 	/**
 	 * Löscht alle Daten, darunter Unternehmen und alle Typen aus allen Märkten.
 	 */
 	public void loescheAlles() {
+		System.out.println("Lösche alle Daten:");
 		loescheUnternehmen();
 		BauteilMarkt.loescheBauteilTypen();
 		RaumschiffMarkt.loescheRaumschiffTypen();

@@ -100,9 +100,6 @@ public class PersonalMarkt extends Markt {
 	public static void loeschePersonalTypen() {
 		personalTypen.clear();
 		schulungsKosten.clear();
-	}
-	
-	public static void fuegeTypHinzu(Typ typ) {
-		
+		System.out.println("Alle PersonalTypen gelöscht");
 	}
 }

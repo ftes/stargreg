@@ -105,5 +105,6 @@ public class BauteilMarkt extends Markt{
 	
 	public static void loescheBauteilTypen() {
 		bauteilTypen.clear();
+		System.out.println("Alle BauteilTypen gelöscht");
 	}
 }

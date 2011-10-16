@@ -149,8 +149,8 @@ public class RaumschiffMarkt extends Markt {
 	}
 	
 	public static void loescheRaumschiffTypen() {
-		System.out.println("RaumschiffTypen gelöscht");
 		raumschiffTypen.clear();
+		System.out.println("Alle RaumschiffTypen gelöscht");
 	}
 
 }
