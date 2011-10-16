@@ -14,6 +14,8 @@ public class RaumschiffTyp extends ProduktTyp {
 	private HashMap<BauteilTyp, Integer> bauteile = new HashMap<BauteilTyp, Integer>();
 	
 	private int benoetigtesPersonal;
+	
+	private int nachfrage;
 
 	public RaumschiffTyp(String name, int benoetigtesPersonal) {
 		super(name, 0);
@@ -40,12 +42,20 @@ public class RaumschiffTyp extends ProduktTyp {
 		double kosten = 0;
 		for (BauteilTyp bauteilTyp : bauteile.keySet()) {
 			// Menge * Preis
-			kosten += bauteile.get(bauteilTyp) * Spiel.getSpiel().getAktuelleSpielRunde().getBauteilMarkt().getPreis(bauteilTyp);
+			kosten += bauteile.get(bauteilTyp) * bauteilTyp.getPreis();
 		}
 		return kosten;
 	}
 	
 	public int getBenoetigtesPersonal() {
 		return benoetigtesPersonal;
+	}
+	
+	public void setNachfrage(int nachfrage) {
+		this.nachfrage = nachfrage;
+	}
+	
+	public int getNachfrage() {
+		return nachfrage;
 	}
 }

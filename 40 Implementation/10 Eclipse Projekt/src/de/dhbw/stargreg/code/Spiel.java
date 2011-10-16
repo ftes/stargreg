@@ -8,7 +8,10 @@ import java.util.Vector;
  * @author fredrik
  * 
  */
-public class Spiel {
+public enum Spiel {
+	
+	INSTANCE;
+	
 	/**
 	 * Liste aller Unternehmen
 	 */
@@ -38,23 +41,10 @@ public class Spiel {
 	private enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
 	
 	/**
-	 * Verwaltet Singleton-Objet von Spiel
-	 */
-	private static Spiel spiel = new Spiel();
-	
-	/**
 	 * Privater Konstruktor, um Singleton zu schützen
 	 */
 	private Spiel() {
 		
-	}
-	
-	/**
-	 * statische Methode, um Spiel-Singleton zu erhalten
-	 * @return Spiel-Singleton
-	 */
-	public static Spiel getSpiel() {
-		return spiel;
 	}
 	
 	/**
