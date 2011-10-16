@@ -1,6 +1,6 @@
 package de.dhbw.stargreg.code;
 
-public class Typ {
+public abstract class Typ {
 	protected String name;
 	
 	public Typ(String name){
