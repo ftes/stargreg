@@ -61,7 +61,7 @@ public class Spiel {
 	 * Fügt die übergebene Spielrunde hinten an die Liste der Spielrunden an,
 	 * somit zwingend in richtiger Reihenfolge einzufügen.
 	 * Nur möglich, wenn sich das Spiel in der Einrichtungsphase befindet.
-	 * @param spielrunde Die anzufügende Spielrunde
+	 * @param spielRunde Die anzufügende Spielrunde
 	 */
 	public void fuegeSpielRundeHinzu(SpielRunde spielRunde) {
 		if (status == Status.EINRICHTEN) {
