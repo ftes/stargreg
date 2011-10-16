@@ -98,4 +98,12 @@ public class BauteilMarkt extends Markt{
 	public double getPreis(BauteilTyp bauteilTyp) {
 		return preise.get(bauteilTyp);
 	}
+	
+	public static Vector<BauteilTyp> getBauteilTypen() {
+		return bauteilTypen;
+	}
+	
+	public static void loescheBauteilTypen() {
+		bauteilTypen.clear();
+	}
 }

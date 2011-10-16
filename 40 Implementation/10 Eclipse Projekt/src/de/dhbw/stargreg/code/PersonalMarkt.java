@@ -92,4 +92,17 @@ public class PersonalMarkt extends Markt {
 	public void fuegeTransaktionHinzu(PersonalTransaktion transaktion) {
 		transaktionen.add(transaktion);
 	}
+	
+	public static Vector<PersonalTyp> getPersonalTypen() {
+		return personalTypen;
+	}
+	
+	public static void loeschePersonalTypen() {
+		personalTypen.clear();
+		schulungsKosten.clear();
+	}
+	
+	public static void fuegeTypHinzu(Typ typ) {
+		
+	}
 }

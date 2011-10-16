@@ -139,5 +139,18 @@ public class RaumschiffMarkt extends Markt {
 		}		
 		return verkaeufe;
 	}
+	
+	public int getNachfrage(RaumschiffTyp raumschiffTyp) {
+		return nachfragen.get(raumschiffTyp);
+	}
+	
+	public static Vector<RaumschiffTyp> getRaumschiffTypen() {
+		return raumschiffTypen;
+	}
+	
+	public static void loescheRaumschiffTypen() {
+		System.out.println("RaumschiffTypen gelöscht");
+		raumschiffTypen.clear();
+	}
 
 }
