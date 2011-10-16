@@ -168,4 +168,14 @@ public class Spiel {
 	public void loescheUnternehmen() {
 		unternehmen.clear();
 	}
+	
+	/**
+	 * Löscht alle Daten, darunter Unternehmen und alle Typen aus allen Märkten.
+	 */
+	public void loescheAlles() {
+		loescheUnternehmen();
+		BauteilMarkt.loescheBauteilTypen();
+		RaumschiffMarkt.loescheRaumschiffTypen();
+		PersonalMarkt.loeschePersonalTypen();
+	}
 }

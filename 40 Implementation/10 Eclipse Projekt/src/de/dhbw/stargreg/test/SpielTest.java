@@ -66,16 +66,18 @@ public class SpielTest {
 		BauteilMarkt.fuegeBauteilTypHinzu(transport);
 		BauteilMarkt.fuegeBauteilTypHinzu(forschung);
 		
-		SpielRunde spielRunde = new SpielRunde();
-		spielRunde.getPersonalMarkt().setLaufendeKosten(r2d2, 50);
-		spielRunde.getPersonalMarkt().setLaufendeKosten(kampfDroide, 100);
-		spielRunde.getPersonalMarkt().setLaufendeKosten(droideka, 200);
-		spielRunde.getPersonalMarkt().setWerbungsKosten(r2d2, 200);
-		spielRunde.getPersonalMarkt().setWerbungsKosten(kampfDroide, 400);
-		spielRunde.getPersonalMarkt().setWerbungsKosten(droideka, 600);
-		spielRunde.getRaumschiffMarkt().setNachfrage(xwing, 60);
-		spielRunde.getRaumschiffMarkt().setNachfrage(corvette, 30);
-		spielRunde.getRaumschiffMarkt().setNachfrage(falke, 20);
+		SpielRunde spielRunde1 = new SpielRunde();
+		spielRunde1.getPersonalMarkt().setLaufendeKosten(r2d2, 50);
+		spielRunde1.getPersonalMarkt().setLaufendeKosten(kampfDroide, 100);
+		spielRunde1.getPersonalMarkt().setLaufendeKosten(droideka, 200);
+		spielRunde1.getPersonalMarkt().setWerbungsKosten(r2d2, 200);
+		spielRunde1.getPersonalMarkt().setWerbungsKosten(kampfDroide, 400);
+		spielRunde1.getPersonalMarkt().setWerbungsKosten(droideka, 600);
+		spielRunde1.getRaumschiffMarkt().setNachfrage(xwing, 60);
+		spielRunde1.getRaumschiffMarkt().setNachfrage(corvette, 30);
+		spielRunde1.getRaumschiffMarkt().setNachfrage(falke, 20);
+		
+		SpielRunde spielRunde2 = spielRunde1.clone();
 		
 		//Werte in weiteren Runden anpassen
 		//evtl. istBereit-Methode in Märkten, vor der Runde nicht simuliert werden kann
@@ -83,6 +85,7 @@ public class SpielTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		Spiel.getSpiel().loescheAlles();
 	}
 
 	@Before

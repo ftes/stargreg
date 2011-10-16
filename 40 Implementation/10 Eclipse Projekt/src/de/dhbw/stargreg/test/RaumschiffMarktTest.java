@@ -11,6 +11,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.dhbw.stargreg.code.Angebot;
+import de.dhbw.stargreg.code.BauteilMarkt;
+import de.dhbw.stargreg.code.PersonalMarkt;
 import de.dhbw.stargreg.code.RaumschiffMarkt;
 import de.dhbw.stargreg.code.RaumschiffTyp;
 import de.dhbw.stargreg.code.Spiel;
@@ -47,7 +49,7 @@ public class RaumschiffMarktTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		Spiel.getSpiel().loescheUnternehmen();
+		Spiel.getSpiel().loescheAlles();
 	}
 
 	@Before
