@@ -37,9 +37,18 @@ public class PersonalAbteilung extends Abteilung {
 		return summeMit;
 	}//getMitAnzahl
 
+<<<<<<< HEAD
 
 	
 	public double getPersonalkosten (){
 		return this.personalkosten;
 	}//getPersonalkosten
 }//PersonalAbteilung
+=======
+	public void simuliere() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+>>>>>>> branch 'master' of git@github.com:ch3ck3r/Fallstudie.git
