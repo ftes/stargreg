@@ -12,6 +12,7 @@ public class Unternehmen {
 	private VerkaufsAbteilung verkauf = new VerkaufsAbteilung();
 	private FinanzAbteilung finanzen = new FinanzAbteilung();
 	private PersonalAbteilung personal = new PersonalAbteilung();
+	private LagerAbteilung lager = new LagerAbteilung();
 	
 	public Unternehmen(String name) {
 		this.name = name;
