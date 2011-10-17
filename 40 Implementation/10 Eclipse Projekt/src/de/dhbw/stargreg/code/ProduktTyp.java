@@ -6,7 +6,7 @@ package de.dhbw.stargreg.code;
  *
  */
 public abstract class ProduktTyp extends Typ {
-	protected int lagerplatzEinheiten;
+	protected final int lagerplatzEinheiten;
 	
 	public ProduktTyp(String name, int lagerplatzEinheiten){
 		super(name);

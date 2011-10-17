@@ -11,8 +11,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.dhbw.stargreg.code.Angebot;
-import de.dhbw.stargreg.code.BauteilMarkt;
-import de.dhbw.stargreg.code.PersonalMarkt;
 import de.dhbw.stargreg.code.RaumschiffMarkt;
 import de.dhbw.stargreg.code.RaumschiffTyp;
 import de.dhbw.stargreg.code.Spiel;
@@ -22,7 +20,7 @@ import de.dhbw.stargreg.util.Util;
 
 public class RaumschiffMarktTest {
 	
-	private RaumschiffMarkt raumschiffMarkt;
+	private static RaumschiffMarkt raumschiffMarkt = new RaumschiffMarkt();
 	private static RaumschiffTyp xwing;
 	private static RaumschiffTyp corvette;
 	private static int nachfrageXwing = 5;
@@ -40,27 +38,26 @@ public class RaumschiffMarktTest {
 				 return 12;
 			}
 		};		
-		RaumschiffMarkt.fuegeRaumschiffTypHinzu(xwing);
-		RaumschiffMarkt.fuegeRaumschiffTypHinzu(corvette);
-		Spiel.getSpiel().fuegeUnternehmenHinzu(null);
-		Spiel.getSpiel().fuegeUnternehmenHinzu(null);
-		Spiel.getSpiel().fuegeUnternehmenHinzu(null);
+		raumschiffMarkt.fuegeTypHinzu(xwing);
+		raumschiffMarkt.fuegeTypHinzu(corvette);
+		Spiel.INSTANCE.fuegeUnternehmenHinzu(null);
+		Spiel.INSTANCE.fuegeUnternehmenHinzu(null);
+		Spiel.INSTANCE.fuegeUnternehmenHinzu(null);
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		Spiel.getSpiel().loescheAlles();
 	}
 
 	@Before
 	public void setUp() throws Exception {
-		raumschiffMarkt = new RaumschiffMarkt();
-		raumschiffMarkt.setNachfrage(xwing, nachfrageXwing);
-		raumschiffMarkt.setNachfrage(corvette, nachfrageCorvette);		
+		xwing.setNachfrage(nachfrageXwing);
+		corvette.setNachfrage(nachfrageCorvette);		
 	}
 
 	@After
 	public void tearDown() throws Exception {
+		raumschiffMarkt.simuliere();
 	}
 
 	@Test
@@ -78,7 +75,7 @@ public class RaumschiffMarktTest {
 			gesamtMenge += menge;
 		}
 		
-		Assert.assertTrue(gesamtMenge <= nachfrageXwing * Spiel.getSpiel().getAnzahlUnternehmen());
+		Assert.assertTrue(gesamtMenge <= nachfrageXwing * Spiel.INSTANCE.getAnzahlUnternehmen());
 	}
 	
 	@Test

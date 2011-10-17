@@ -8,21 +8,29 @@ import java.util.Vector;
  * @author fredrik
  * 
  */
-public class Spiel {
+public enum Spiel {
+	INSTANCE;
+	
 	/**
 	 * Liste aller Unternehmen
 	 */
-	private Vector<Unternehmen> unternehmen = new Vector<Unternehmen>();
+	private final Vector<Unternehmen> unternehmen = new Vector<Unternehmen>();
 	
 	/**
 	 * Liste aller Spielrunden
 	 */
-	private Vector<SpielRunde> spielrunden = new Vector<SpielRunde>();
+	private final Vector<SpielRunde> spielrunden = new Vector<SpielRunde>();
 	
 	/**
 	 * aktuelle Spielrunde
 	 */
 	private SpielRunde aktuelleSpielRunde;
+	
+	private RaumschiffMarkt raumschiffMarkt = new RaumschiffMarkt();
+	
+	private PersonalMarkt personalMarkt = new PersonalMarkt();
+	
+	private BauteilMarkt bauteilMarkt = new BauteilMarkt();
 	
 	/**
 	 * aktueller Spielstatus
@@ -38,23 +46,10 @@ public class Spiel {
 	private enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
 	
 	/**
-	 * Verwaltet Singleton-Objet von Spiel
-	 */
-	private static Spiel spiel = new Spiel();
-	
-	/**
 	 * Privater Konstruktor, um Singleton zu schützen
 	 */
 	private Spiel() {
 		
-	}
-	
-	/**
-	 * statische Methode, um Spiel-Singleton zu erhalten
-	 * @return Spiel-Singleton
-	 */
-	public static Spiel getSpiel() {
-		return spiel;
 	}
 	
 	/**
@@ -134,15 +129,13 @@ public class Spiel {
 		if (status != Status.SPIELEN) {
 			System.out.println("Die nächste Runde kann nur im Modus Spielen erreicht werden");
 		}
-		aktuelleSpielRunde.simuliere();
 		SpielRunde vorherigeSpielrunde = aktuelleSpielRunde;
 		aktuelleSpielRunde = getNaechsteSpielRunde();
 		if (aktuelleSpielRunde == null) {
 			beendeSpiel();
 			return;
 		}
-		// Preise in Bauteilmarkt neu berechnen
-		aktuelleSpielRunde.getBauteilMarkt().berechnePreise(vorherigeSpielrunde.getBauteilMarkt());
+		// simulieren
 	}
 	
 	/**
@@ -161,23 +154,24 @@ public class Spiel {
 	public SpielRunde getAktuelleSpielRunde() {
 		return aktuelleSpielRunde;
 	}
-
-	/**
-	* Löscht alle Unternehmen
-	*/
-	public void loescheUnternehmen() {
-		unternehmen.clear();
-		System.out.println("Alle Unternehmen gelöscht");
+	
+	public RaumschiffMarkt getRaumschiffMarkt() {
+		return raumschiffMarkt;
 	}
 	
-	/**
-	 * Löscht alle Daten, darunter Unternehmen und alle Typen aus allen Märkten.
-	 */
-	public void loescheAlles() {
-		System.out.println("Lösche alle Daten:");
-		loescheUnternehmen();
-		BauteilMarkt.loescheBauteilTypen();
-		RaumschiffMarkt.loescheRaumschiffTypen();
-		PersonalMarkt.loeschePersonalTypen();
+	public BauteilMarkt getBauteilMarkt() {
+		return bauteilMarkt;
+	}
+	
+	public PersonalMarkt getPersonalMarkt() {
+		return personalMarkt;
+	}
+	
+	public void setzeZurueck() {
+		raumschiffMarkt = new RaumschiffMarkt();
+		bauteilMarkt = new BauteilMarkt();
+		personalMarkt = new PersonalMarkt();
+		unternehmen.clear();
+		spielrunden.clear();
 	}
 }

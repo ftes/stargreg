@@ -5,6 +5,9 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.Gruppierung;
+import de.dhbw.stargreg.util.Util;
+
 /**
  * Beschreibt den Raumschiffmarkt, der für die Spieler den Absatzmarkt darstellt
  * Die Absatzmengen sind abhängig von den jeweiligen Angebots-Mengen und Preisen,
@@ -14,59 +17,18 @@ import java.util.Vector;
  * @author fredrik
  *
  */
-public class RaumschiffMarkt extends Markt {
-	
-	/**
-	 * Liste mit allen Raumschifftypen
-	 */
-	private static final Vector<RaumschiffTyp> raumschiffTypen = new Vector<RaumschiffTyp>();
-	
-	/**
-	 * Beschreibt die Grundnachfrage nach jedem Raumschifftyp in dieser Periode.
-	 * Achtung: nur Nachfrage für einen Spieler, wird bei Absatzberechnung mit Anzahl der Unternehmen multipliziert.
-	 */
-	private HashMap<RaumschiffTyp, Integer> nachfragen = new HashMap<RaumschiffTyp, Integer>();
+public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 
-	/**
-	 * Zuordnung aller Angebote zum entsprechenden Raumschifftyp
-	 */
-	private HashMap<RaumschiffTyp, Vector<Angebot>> angebote = new HashMap<RaumschiffTyp, Vector<Angebot>>();
+	private final Vector<Angebot> angebote = new Vector<Angebot>();
 	
-	/**
-	 * Liste aller Verkäufe
-	 */
-	private Vector<Verkauf> verkaeufe = new Vector<Verkauf>();
+	private final Vector<Verkauf> verkaeufe = transaktionen;
 	
-	/**
-	 * Fuegt einen Raumschifftyp zur Liste hinzu
-	 * @param typ Hinzuzufügender Raumschifftyp
-	 */
-	public static void fuegeRaumschiffTypHinzu(RaumschiffTyp typ) {
-		raumschiffTypen.add(typ);
-		System.out.printf("%s zum Raumschiffmarkt hinzugefügt\n", typ);
-	}
-
-	/**
-	 * Setzt die Nachfrage für den gegebenen Raumschifftyp
-	 * @param typ Raumschifftyp
-	 * @param nachfrage Nachfragemenge für {@code typ}
-	 */
-	public void setNachfrage(RaumschiffTyp typ, int nachfrage) {
-		this.nachfragen.put(typ, nachfrage);			//wenn bereits vorhanden, dann überschreibt dies den alten Wert
-		System.out.printf("Nachfrage nach %s zum Raumschiffmarkt hinzugefügt: %d Stück\n", typ, nachfrage);
-	}
-	
-	/**
-	 * Fügt Angebot in HashMap dem entsprechenden Eintrag für den Raumschifftyp hinzu
-	 * @param angebot Angebot, das eingetragen werden soll
-	 */
 	public void fuegeAngebotHinzu(Angebot angebot) {
-		RaumschiffTyp raumschiffTyp = angebot.getRaumschiffTyp();
-		if (! angebote.containsKey(raumschiffTyp)) {
-			angebote.put(raumschiffTyp, new Vector<Angebot>());
-		}
-		angebote.get(raumschiffTyp).add(angebot);
-		System.out.printf("%s zu Raumschiffmarkt hinzugefügt\n", angebot);
+		angebote.add(angebot);
+	}
+	
+	public void fuegeVerkaufHinzu(Verkauf verkauf) {
+		fuegeTransaktionHinzu(verkauf);
 	}
 	
 	/**
@@ -101,7 +63,7 @@ public class RaumschiffMarkt extends Markt {
 		}
 		
 		//Neue Nachfrage basierend auf niedrigstem Preis berechnen, abhängig von Spielerzahl
-		int nachfrage = nachfragen.get(raumschiffTyp) * Spiel.getSpiel().getAnzahlUnternehmen();
+		int nachfrage = raumschiffTyp.getNachfrage() * Spiel.INSTANCE.getAnzahlUnternehmen();
 		nachfrage = (int) Math.floor(nachfrage * (1 - Math.pow(niedrigsterPreis / (raumschiffTyp.getKosten() * 3.5), 4)));
 		if (nachfrage < 0) {
 			nachfrage = 0;
@@ -131,6 +93,12 @@ public class RaumschiffMarkt extends Markt {
 	 * @return {@code Vector} mit allen Verkäufen
 	 */
 	public Vector<Verkauf> berechneGesamtAbsatz() {
+		HashMap<RaumschiffTyp, Vector<Angebot>> angebote = Util.gruppiereVector(this.angebote, new Gruppierung<RaumschiffTyp, Angebot>() {
+			public RaumschiffTyp nach(Angebot angebot) {
+				return angebot.getRaumschiffTyp();
+			}
+		});
+		
 		System.out.println("Absatzmengen im Raumschiffmarkt:");
 		//Absätze für Raumschifftypen berechnen
 		for (RaumschiffTyp raumschiffTyp : angebote.keySet()) {
@@ -140,17 +108,12 @@ public class RaumschiffMarkt extends Markt {
 		return verkaeufe;
 	}
 	
-	public int getNachfrage(RaumschiffTyp raumschiffTyp) {
-		return nachfragen.get(raumschiffTyp);
+	public Vector<Angebot> getAngebote() {
+		return angebote;
 	}
 	
-	public static Vector<RaumschiffTyp> getRaumschiffTypen() {
-		return raumschiffTypen;
+	public Vector<Verkauf> simuliere() {
+		angebote.clear();
+		return super.simuliere();
 	}
-	
-	public static void loescheRaumschiffTypen() {
-		raumschiffTypen.clear();
-		System.out.println("Alle RaumschiffTypen gelöscht");
-	}
-
 }

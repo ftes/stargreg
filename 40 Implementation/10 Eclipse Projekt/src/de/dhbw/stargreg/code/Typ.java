@@ -1,7 +1,7 @@
 package de.dhbw.stargreg.code;
 
 public abstract class Typ {
-	protected String name;
+	protected final String name;
 	
 	public Typ(String name){
 		this.name = name;

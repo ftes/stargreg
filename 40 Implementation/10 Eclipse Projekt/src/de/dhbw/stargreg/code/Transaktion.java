@@ -1,10 +1,10 @@
 package de.dhbw.stargreg.code;
 
 public abstract class Transaktion {
-	protected Unternehmen unternehmen;
-	protected int menge;
-	protected double preis;
-	protected Typ typ;
+	protected final Unternehmen unternehmen;
+	protected final int menge;
+	protected final double preis;
+	protected final Typ typ;
 	
 	
 	public Transaktion(Typ typ, Unternehmen unternehmen, int menge, double preis) {

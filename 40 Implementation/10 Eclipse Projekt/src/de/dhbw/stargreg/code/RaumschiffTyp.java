@@ -11,9 +11,11 @@ public class RaumschiffTyp extends ProduktTyp {
 	/**
 	 * Mengen der Bauteile, die für die Produktion eines Raumschiffs diesen Typs benötigt werden
 	 */
-	private HashMap<BauteilTyp, Integer> bauteile = new HashMap<BauteilTyp, Integer>();
+	private final HashMap<BauteilTyp, Integer> bauteile = new HashMap<BauteilTyp, Integer>();
 	
-	private int benoetigtesPersonal;
+	private final int benoetigtesPersonal;
+	
+	private int nachfrage;
 
 	public RaumschiffTyp(String name, int benoetigtesPersonal) {
 		super(name, 0);
@@ -28,7 +30,6 @@ public class RaumschiffTyp extends ProduktTyp {
 	 */
 	public void fuegeBauteilHinzu(BauteilTyp bauteilTyp, int menge) {
 		bauteile.put(bauteilTyp, menge);
-		lagerplatzEinheiten += bauteilTyp.getLagerplatzEinheiten() * menge;
 		System.out.printf("%d %s als Bauteil zu %s hinzugefügt\n", menge, bauteilTyp, this);
 	}
 	
@@ -40,12 +41,29 @@ public class RaumschiffTyp extends ProduktTyp {
 		double kosten = 0;
 		for (BauteilTyp bauteilTyp : bauteile.keySet()) {
 			// Menge * Preis
-			kosten += bauteile.get(bauteilTyp) * Spiel.getSpiel().getAktuelleSpielRunde().getBauteilMarkt().getPreis(bauteilTyp);
+			kosten += bauteile.get(bauteilTyp) * bauteilTyp.getPreis();
 		}
 		return kosten;
 	}
 	
 	public int getBenoetigtesPersonal() {
 		return benoetigtesPersonal;
+	}
+	
+	public void setNachfrage(int nachfrage) {
+		this.nachfrage = nachfrage;
+	}
+	
+	public int getNachfrage() {
+		return nachfrage;
+	}
+	
+	public int getLagerplatzEinheiten(){
+		int lagerplatzEinheiten = 0;
+		for (BauteilTyp bauteilTyp : bauteile.keySet()) {
+			// Lagerplatzeinheiten * Menge
+			lagerplatzEinheiten += bauteilTyp.getLagerplatzEinheiten() * bauteile.get(bauteilTyp);
+		}
+		return lagerplatzEinheiten;
 	}
 }
