@@ -19,9 +19,9 @@ import de.dhbw.stargreg.util.Util;
  */
 public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 
-	private Vector<Angebot> angebote = new Vector<Angebot>();
+	private final Vector<Angebot> angebote = new Vector<Angebot>();
 	
-	private Vector<Verkauf> verkaeufe = transaktionen;
+	private final Vector<Verkauf> verkaeufe = transaktionen;
 	
 	public void fuegeAngebotHinzu(Angebot angebot) {
 		angebote.add(angebot);

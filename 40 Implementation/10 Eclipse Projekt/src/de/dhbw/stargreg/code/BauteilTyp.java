@@ -4,12 +4,12 @@ public final class BauteilTyp extends ProduktTyp {
 	/**
 	 * Grundpreis, von dem der Marktpreis abhängt
 	 */
-	private double grundPreis;
+	private final double grundPreis;
 	
 	/**
 	 * Betrag, um den der Marktpreis maximal vom Grundpreis abweichen darf
 	 */
-	private double maxPreisDelta;
+	private final double maxPreisDelta;
 	
 	private double preis;
 	

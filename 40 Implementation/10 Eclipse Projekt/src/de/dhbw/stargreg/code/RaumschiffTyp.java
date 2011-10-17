@@ -11,9 +11,9 @@ public class RaumschiffTyp extends ProduktTyp {
 	/**
 	 * Mengen der Bauteile, die für die Produktion eines Raumschiffs diesen Typs benötigt werden
 	 */
-	private HashMap<BauteilTyp, Integer> bauteile = new HashMap<BauteilTyp, Integer>();
+	private final HashMap<BauteilTyp, Integer> bauteile = new HashMap<BauteilTyp, Integer>();
 	
-	private int benoetigtesPersonal;
+	private final int benoetigtesPersonal;
 	
 	private int nachfrage;
 
@@ -30,7 +30,6 @@ public class RaumschiffTyp extends ProduktTyp {
 	 */
 	public void fuegeBauteilHinzu(BauteilTyp bauteilTyp, int menge) {
 		bauteile.put(bauteilTyp, menge);
-		lagerplatzEinheiten += bauteilTyp.getLagerplatzEinheiten() * menge;
 		System.out.printf("%d %s als Bauteil zu %s hinzugefügt\n", menge, bauteilTyp, this);
 	}
 	
@@ -57,5 +56,14 @@ public class RaumschiffTyp extends ProduktTyp {
 	
 	public int getNachfrage() {
 		return nachfrage;
+	}
+	
+	public int getLagerplatzEinheiten(){
+		int lagerplatzEinheiten = 0;
+		for (BauteilTyp bauteilTyp : bauteile.keySet()) {
+			// Lagerplatzeinheiten * Menge
+			lagerplatzEinheiten += bauteilTyp.getLagerplatzEinheiten() * bauteile.get(bauteilTyp);
+		}
+		return lagerplatzEinheiten;
 	}
 }

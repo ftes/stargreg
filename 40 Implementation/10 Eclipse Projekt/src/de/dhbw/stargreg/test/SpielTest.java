@@ -18,7 +18,10 @@ import de.dhbw.stargreg.code.Unternehmen;
 
 public class SpielTest {
 	
-	private static Spiel spiel = Spiel.getSpiel();
+	private static Spiel spiel = Spiel.INSTANCE;
+	private static BauteilMarkt bauteilMarkt = spiel.getBauteilMarkt();
+	private static PersonalMarkt personalMarkt = spiel.getPersonalMarkt();
+	private static RaumschiffMarkt raumschiffMarkt = spiel.getRaumschiffMarkt();
 	
 	private static BauteilTyp rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0);
 	private static BauteilTyp hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0);
@@ -31,9 +34,9 @@ public class SpielTest {
 	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10);
 	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15);
 	
-	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 90);
-	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 95);
-	private static PersonalTyp droideka = new PersonalTyp("Droideka", 99);
+	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 90, 300.0);
+	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 95, 300.0);
+	private static PersonalTyp droideka = new PersonalTyp("Droideka", 99, -1.0);
 	
 	private static Unternehmen galactic = new Unternehmen("Galactic");
 	private static Unternehmen foederation = new Unternehmen("Föderation");
@@ -56,22 +59,20 @@ public class SpielTest {
 		falke.fuegeBauteilHinzu(triebwerk, 10);
 		falke.fuegeBauteilHinzu(forschung, 1);
 		
-		PersonalMarkt.fuegePersonalTypHinzu(r2d2);
-		PersonalMarkt.fuegePersonalTypHinzu(kampfDroide);
-		PersonalMarkt.fuegePersonalTypHinzu(droideka);
-		PersonalMarkt.setSchulungsKosten(r2d2, 300.0);
-		PersonalMarkt.setSchulungsKosten(kampfDroide, 400.0);
+		personalMarkt.fuegeTypHinzu(r2d2);
+		personalMarkt.fuegeTypHinzu(kampfDroide);
+		personalMarkt.fuegeTypHinzu(droideka);
 		
-		RaumschiffMarkt.fuegeRaumschiffTypHinzu(xwing);
-		RaumschiffMarkt.fuegeRaumschiffTypHinzu(corvette);
-		RaumschiffMarkt.fuegeRaumschiffTypHinzu(falke);
+		raumschiffMarkt.fuegeTypHinzu(xwing);
+		raumschiffMarkt.fuegeTypHinzu(corvette);
+		raumschiffMarkt.fuegeTypHinzu(falke);
 		
-		BauteilMarkt.fuegeBauteilTypHinzu(rumpf);
-		BauteilMarkt.fuegeBauteilTypHinzu(hitzeschild);
-		BauteilMarkt.fuegeBauteilTypHinzu(triebwerk);
-		BauteilMarkt.fuegeBauteilTypHinzu(geschuetz);
-		BauteilMarkt.fuegeBauteilTypHinzu(transport);
-		BauteilMarkt.fuegeBauteilTypHinzu(forschung);
+		bauteilMarkt.fuegeTypHinzu(rumpf);
+		bauteilMarkt.fuegeTypHinzu(hitzeschild);
+		bauteilMarkt.fuegeTypHinzu(triebwerk);
+		bauteilMarkt.fuegeTypHinzu(geschuetz);
+		bauteilMarkt.fuegeTypHinzu(transport);
+		bauteilMarkt.fuegeTypHinzu(forschung);
 		
 		// Laufende Kosten und Werbekosten für die drei Personaltypen
 		PersonalTyp[] personalTypen = {r2d2, kampfDroide, droideka};
@@ -88,22 +89,12 @@ public class SpielTest {
 						 {96, 39, 22, 12},  // 9
 						 {90, 39, 24, 10}}; // 10
 		
-		for (int[] i : daten) {
-			SpielRunde spielRunde = new SpielRunde();
-			spielRunde.getRaumschiffMarkt().setNachfrage(xwing, i[0]);
-			spielRunde.getRaumschiffMarkt().setNachfrage(corvette, i[1]);
-			spielRunde.getRaumschiffMarkt().setNachfrage(falke, i[2]);
-			for (int j=0; j<personalTypen.length; j++) {
-				spielRunde.getPersonalMarkt().setLaufendeKosten(personalTypen[j], personalKosten[j][0]);
-				spielRunde.getPersonalMarkt().setWerbungsKosten(personalTypen[j], personalKosten[j][1]);
-			}
-			spiel.fuegeSpielRundeHinzu(spielRunde);
-		}
+		
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		Spiel.getSpiel().loescheAlles();
+		spiel.setzeZurueck();
 	}
 
 	@Before

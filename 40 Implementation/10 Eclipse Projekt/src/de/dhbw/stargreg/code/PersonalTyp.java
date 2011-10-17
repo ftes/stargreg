@@ -7,13 +7,22 @@ package de.dhbw.stargreg.code;
  *
  */
 public class PersonalTyp extends Typ {
-	private int qualitaet;
+	private final int qualitaet;
 	private double laufendeKosten;
 	private double werbungsKosten;
+	private final double schulungsKosten;
+	private final boolean schulbar;
 	
-	public PersonalTyp(String name, int qualitaet) {
+	public PersonalTyp(String name, int qualitaet, double schulungsKosten) {
 		super(name);
 		this.qualitaet = qualitaet;
+		if (schulungsKosten <= 0.0) {
+			this.schulbar = false;
+			this.schulungsKosten = 0.0;
+		} else {
+			this.schulbar = true;
+			this.schulungsKosten = schulungsKosten;
+		}
 	}
 	
 	public int getQualitaet() {
@@ -22,6 +31,13 @@ public class PersonalTyp extends Typ {
 	
 	public double getLaufendeKosten() {
 		return laufendeKosten;
+	}
+	
+	public double getSchulungsKosten() {
+		if (! schulbar) {
+			System.err.printf("%s ist nicht weiter schulbar\n", this);
+		}
+		return schulungsKosten;
 	}
 
 	public void setLaufendeKosten(double laufendeKosten) {

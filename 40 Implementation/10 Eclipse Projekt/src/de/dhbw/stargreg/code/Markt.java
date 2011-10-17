@@ -34,6 +34,11 @@ public abstract class Markt<T extends Typ, A extends Transaktion> {
 		transaktionen.clear();
 	}
 	
+	/**
+	 * Führt alle nötigen Simulationen auf dem Markt durch und liefert zur weiteren Verarbeitung
+	 * den {@code Vector} mit den Transaktionen zurück.
+	 * @return
+	 */
 	public Vector<A> simuliere() {
 		Vector<A> transaktionen = new Vector<A>();
 		transaktionen.addAll(this.transaktionen);
