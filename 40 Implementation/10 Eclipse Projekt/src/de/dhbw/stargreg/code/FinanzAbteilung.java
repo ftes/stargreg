@@ -5,6 +5,6 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public class Personal {
+public class FinanzAbteilung extends Abteilung {
 
 }

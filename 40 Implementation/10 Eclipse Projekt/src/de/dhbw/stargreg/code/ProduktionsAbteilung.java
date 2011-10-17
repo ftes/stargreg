@@ -1,10 +1,11 @@
 package de.dhbw.stargreg.code;
 
+
 /**
  * 
  * @author fredrik
  *
  */
-public class Personalmarkt {
+public class ProduktionsAbteilung extends Abteilung {
 
 }

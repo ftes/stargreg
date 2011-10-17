@@ -7,21 +7,17 @@ package de.dhbw.stargreg.code;
  */
 public class Unternehmen {
 	private String name;
-	private Einkauf einkauf;
-	private Produktion produktion;
-	private Verkauf verkauf;
-	private Finanzen finanzen;
-	private Personal personal;
+	private EinkaufsAbteilung einkauf = new EinkaufsAbteilung();
+	private ProduktionsAbteilung produktion = new ProduktionsAbteilung();
+	private VerkaufsAbteilung verkauf = new VerkaufsAbteilung();
+	private FinanzAbteilung finanzen = new FinanzAbteilung();
+	private PersonalAbteilung personal = new PersonalAbteilung();
 	
-	Unternehmen() {
-		
+	public Unternehmen(String name) {
+		this.name = name;
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
-	public String getName() {
+	public String toString() {
 		return name;
 	}
 }

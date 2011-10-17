@@ -1,200 +1,305 @@
 <mockup version="1.0" skin="sketch" measuredW="1094" measuredH="768" mockupW="1024" mockupH="768">
   <controls>
-    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="70" y="0" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+    <control controlID="77" controlTypeID="__group__" x="427" y="256" w="413" h="289" measuredW="413" measuredH="289" zOrder="36" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="0" y="0" w="413" h="289" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="77">
+          <controlProperties>
+            <dragger>false</dragger>
+            <text>Info%20-%20Droide%20Stufe%203</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Paragraph" x="6" y="27" w="399" h="194" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="77">
+          <controlProperties>
+            <align>left</align>
+            <color>0</color>
+            <size>13</size>
+            <text>Der%20Droide%20Stufe%203%20bew%E4ltigt%20seine%20Arbeit%20pr%E4zise%20und%20schnell.%0AEr%20ist%20ganz%20klar%20der%20Ferrari%20unter%20den%20Droiden.%0A%20%0ADer%20Anschaffungspreis%20liegt%20bei%20600%2C00%20KD.%0AUm%20den%20Droiden%20Stufe%203%20in%20Schuss%20zu%20halten%2C%20fallen%20monatlich%20Wartungskosten%20in%20H%F6he%20von%20200%2C00%20KD%20an.%20%0AEin%20Ausbau%20ist%20bei%20diesem%20Modell%20nicht%20mehr%20n%F6tig.</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="317" y="227" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="2" locked="false" isInGroup="77">
+          <controlProperties>
+            <href>Personalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22674%2C483%2C755%2C511%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%222%22/%3E</map>
+            <text>Schlie%DFen</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="78" controlTypeID="com.balsamiq.mockups::TitleWindow" x="70" y="0" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
         <text>StarGreg</text>
       </controlProperties>
     </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::NumericStepper" x="957" y="257" w="72" h="-1" measuredW="40" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>0</text>
-      </controlProperties>
-    </control>
-    <control controlID="22" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="1" locked="true" isInGroup="-1">
+    <control controlID="79" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="1" locked="true" isInGroup="-1">
       <controlProperties>
         <backgroundAlpha>1</backgroundAlpha>
         <borderStyle>none</borderStyle>
         <color>16777215</color>
-        <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2222_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%2222_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%2222_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%2222_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2222_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%2222_5%22/%3E%0A</map>
-        <selectedIndex>4</selectedIndex>
-        <text>%DCbersicht%0AEinkauf%0AProduktion%0AVerkauf%0APersonalwesen%0ABank</text>
+        <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2279_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%2279_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2279_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%2279_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%2279_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%2279_5%22/%3E%0A</map>
+        <selectedIndex>2</selectedIndex>
+        <text>%DCbersicht%0ABank%0APersonalwesen%0AEinkauf%0AProduktion%0AVerkauf</text>
         <verticalScrollbar>false</verticalScrollbar>
       </controlProperties>
     </control>
-    <control controlID="26" controlTypeID="com.balsamiq.mockups::FieldSet" x="781" y="51" w="267" h="295" measuredW="200" measuredH="170" zOrder="4" locked="true" isInGroup="-1">
+    <control controlID="80" controlTypeID="com.balsamiq.mockups::FieldSet" x="199" y="51" w="267" h="322" measuredW="200" measuredH="170" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Droide%20Stufe%201</text>
+      </controlProperties>
+    </control>
+    <control controlID="81" controlTypeID="com.balsamiq.mockups::FieldSet" x="492" y="52" w="267" h="321" measuredW="200" measuredH="170" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Droide%20Stufe%202</text>
+      </controlProperties>
+    </control>
+    <control controlID="82" controlTypeID="com.balsamiq.mockups::FieldSet" x="781" y="51" w="267" h="322" measuredW="200" measuredH="170" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Droide%20Stufe%203</text>
       </controlProperties>
     </control>
-    <control controlID="28" controlTypeID="com.balsamiq.mockups::Button" x="844" y="369" w="204" h="45" measuredW="209" measuredH="28" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::Button" x="840" y="430" w="204" h="45" measuredW="209" measuredH="28" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
         <href>Personalwesen_Bestaetigung%26bm%3BPersonalwesen_Bestaetigung.bmml%26bm%3BPersonalwesen_Bestaetigung.bmml%26bm%3BPersonalwesen_Bestaetigung.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22774%2C369%2C978%2C414%22%20href%3D%22Personalwesen_Bestaetigung.bmml%22%20alt%3D%22Personalwesen_Bestaetigung%22%20id%3D%2228%22/%3E</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22770%2C430%2C974%2C475%22%20href%3D%22Personalwesen_Bestaetigung.bmml%22%20alt%3D%22Personalwesen_Bestaetigung%22%20id%3D%2283%22/%3E</map>
         <text>Ausgew%E4hlte%20Droiden%20anheuern</text>
       </controlProperties>
     </control>
-    <control controlID="30" controlTypeID="com.balsamiq.mockups::HelpButton" x="214" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="7" locked="false" isInGroup="-1"/>
-    <control controlID="31" controlTypeID="com.balsamiq.mockups::HelpButton" x="507" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="8" locked="false" isInGroup="-1"/>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::HelpButton" x="796" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="9" locked="false" isInGroup="-1"/>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="278" y="81" w="107" h="145" measuredW="78" measuredH="111" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="84" controlTypeID="com.balsamiq.mockups::NumericStepper" x="957" y="257" w="72" h="-1" measuredW="40" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>0</text>
+      </controlProperties>
+    </control>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::HelpButton" x="214" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Personalwesen_Info_Stufe1%26bm%3BPersonalwesen_Info_Stufe1.bmml%26bm%3BPersonalwesen_Info_Stufe1.bmml%26bm%3BPersonalwesen_Info_Stufe1.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22144%2C260%2C162%2C278%22%20href%3D%22Personalwesen_Info_Stufe1.bmml%22%20alt%3D%22Personalwesen_Info_Stufe1%22%20id%3D%2285%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="com.balsamiq.mockups::HelpButton" x="507" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Personalwesen_Info_Stufe2%26bm%3BPersonalwesen_Info_Stufe2.bmml%26bm%3BPersonalwesen_Info_Stufe2.bmml%26bm%3BPersonalwesen_Info_Stufe2.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22437%2C260%2C455%2C278%22%20href%3D%22Personalwesen_Info_Stufe2.bmml%22%20alt%3D%22Personalwesen_Info_Stufe2%22%20id%3D%2286%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="87" controlTypeID="com.balsamiq.mockups::HelpButton" x="796" y="260" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <href>Personalwesen_Info_Stufe3%26bm%3BPersonalwesen_Info_Stufe3.bmml%26bm%3BPersonalwesen_Info_Stufe3.bmml%26bm%3BPersonalwesen_Info_Stufe3.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22726%2C260%2C744%2C278%22%20href%3D%22Personalwesen_Info_Stufe3.bmml%22%20alt%3D%22Personalwesen_Info_Stufe3%22%20id%3D%2287%22/%3E</map>
+      </controlProperties>
+    </control>
+    <control controlID="88" controlTypeID="com.balsamiq.mockups::Image" x="278" y="81" w="107" h="145" measuredW="78" measuredH="111" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <src>./Mitarbeiter12.jpg</src>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="35" controlTypeID="com.balsamiq.mockups::Image" x="557" y="80" w="136" h="145" measuredW="111" measuredH="111" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::Image" x="857" y="80" w="136" h="145" measuredW="111" measuredH="111" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <src>./Mitarbeiter22.jpg</src>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::Image" x="837" y="81" w="129" h="144" measuredW="125" measuredH="142" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="90" controlTypeID="com.balsamiq.mockups::Image" x="560" y="81" w="129" h="144" measuredW="125" measuredH="142" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <src>./Mitarbeiter33.jpg</src>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::TextInput" x="240" y="255" w="113" h="-1" measuredW="91" measuredH="27" zOrder="26" locked="false" isInGroup="-1">
+    <control controlID="91" controlTypeID="com.balsamiq.mockups::LineChart" x="603" y="554" w="343" h="170" measuredW="187" measuredH="175" zOrder="13" locked="false" isInGroup="-1"/>
+    <control controlID="92" controlTypeID="com.balsamiq.mockups::TextInput" x="708" y="524" w="-1" h="-1" measuredW="132" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>15374745</color>
-        <text>Preis%3A%20200%2C00</text>
+        <text>Verf%FCgbare%20Droiden</text>
       </controlProperties>
     </control>
-    <control controlID="40" controlTypeID="com.balsamiq.mockups::TextInput" x="532" y="255" w="100" h="-1" measuredW="90" measuredH="27" zOrder="27" locked="false" isInGroup="-1">
+    <control controlID="93" controlTypeID="com.balsamiq.mockups::Label" x="946" y="600" w="-1" h="-1" measuredW="73" measuredH="23" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>15374745</color>
-        <text>Preis%3A%20400%2C00</text>
+        <text>Stufe%201%3A%2020</text>
       </controlProperties>
     </control>
-    <control controlID="41" controlTypeID="com.balsamiq.mockups::TextInput" x="821" y="255" w="101" h="-1" measuredW="91" measuredH="27" zOrder="28" locked="false" isInGroup="-1">
+    <control controlID="94" controlTypeID="com.balsamiq.mockups::Label" x="946" y="560" w="-1" h="-1" measuredW="74" measuredH="23" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
-        <color>15374745</color>
-        <text>Preis%3A%20600%2C00</text>
+        <text>Stufe%202%3A%2012</text>
       </controlProperties>
     </control>
-    <control controlID="42" controlTypeID="com.balsamiq.mockups::FieldSet" x="492" y="52" w="267" h="294" measuredW="200" measuredH="170" zOrder="3" locked="true" isInGroup="-1">
-      <controlProperties>
-        <text>Droide%20Stufe%202</text>
-      </controlProperties>
-    </control>
-    <control controlID="43" controlTypeID="com.balsamiq.mockups::FieldSet" x="199" y="51" w="267" h="295" measuredW="200" measuredH="170" zOrder="2" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Droide%20Stufe%201</text>
-      </controlProperties>
-    </control>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::NumericStepper" x="669" y="257" w="68" h="-1" measuredW="46" measuredH="24" zOrder="29" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>12</text>
-      </controlProperties>
-    </control>
-    <control controlID="46" controlTypeID="com.balsamiq.mockups::NumericStepper" x="377" y="257" w="68" h="-1" measuredW="48" measuredH="24" zOrder="30" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>20</text>
-      </controlProperties>
-    </control>
-    <control controlID="52" controlTypeID="com.balsamiq.mockups::TextInput" x="821" y="294" w="-1" h="-1" measuredW="208" measuredH="27" zOrder="31" locked="false" isInGroup="-1">
-      <controlProperties>
-        <color>16777215</color>
-        <text>monatl.%20Wartungskosten%3A%20200%2C00</text>
-      </controlProperties>
-    </control>
-    <control controlID="53" controlTypeID="com.balsamiq.mockups::TextInput" x="240" y="295" w="209" h="-1" measuredW="200" measuredH="27" zOrder="32" locked="false" isInGroup="-1">
-      <controlProperties>
-        <color>16777215</color>
-        <text>monatl.%20Wartungskosten%3A%2050%2C00</text>
-      </controlProperties>
-    </control>
-    <control controlID="54" controlTypeID="com.balsamiq.mockups::TextInput" x="532" y="295" w="-1" h="-1" measuredW="205" measuredH="27" zOrder="33" locked="false" isInGroup="-1">
-      <controlProperties>
-        <color>16777215</color>
-        <text>monatl.%20Wartungskosten%3A%20100%2C00</text>
-      </controlProperties>
-    </control>
-    <control controlID="55" controlTypeID="com.balsamiq.mockups::FieldSet" x="192" y="523" w="315" h="201" measuredW="200" measuredH="170" zOrder="17" locked="false" isInGroup="-1">
+    <control controlID="95" controlTypeID="com.balsamiq.mockups::FieldSet" x="199" y="388" w="315" h="150" measuredW="200" measuredH="170" zOrder="17" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Ausbauen</text>
       </controlProperties>
     </control>
-    <control controlID="56" controlTypeID="com.balsamiq.mockups::Button" x="369" y="681" w="-1" h="-1" measuredW="116" measuredH="28" zOrder="18" locked="false" isInGroup="-1">
+    <control controlID="96" controlTypeID="com.balsamiq.mockups::Button" x="369" y="496" w="-1" h="-1" measuredW="116" measuredH="28" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
+        <href>Personalwesen_Bestaetigung_Ausbau%26bm%3BPersonalwesen_Bestaetigung_Ausbau.bmml%26bm%3BPersonalwesen_Bestaetigung_Ausbau.bmml%26bm%3BPersonalwesen_Bestaetigung_Ausbau.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22299%2C496%2C415%2C524%22%20href%3D%22Personalwesen_Bestaetigung_Ausbau.bmml%22%20alt%3D%22Personalwesen_Bestaetigung_Ausbau%22%20id%3D%2296%22/%3E</map>
         <text>Ausbau%20starten</text>
       </controlProperties>
     </control>
-    <control controlID="57" controlTypeID="com.balsamiq.mockups::TextInput" x="214" y="561" w="105" h="-1" measuredW="85" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="97" controlTypeID="com.balsamiq.mockups::TextInput" x="214" y="414" w="105" h="-1" measuredW="85" measuredH="27" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
         <text>zur%20Stufe%202</text>
       </controlProperties>
     </control>
-    <control controlID="58" controlTypeID="com.balsamiq.mockups::TextInput" x="214" y="610" w="105" h="-1" measuredW="84" measuredH="27" zOrder="20" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>zur%20Stufe%203</text>
-      </controlProperties>
-    </control>
-    <control controlID="59" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="562" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="21" locked="false" isInGroup="-1">
+    <control controlID="98" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="415" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
         <text>5</text>
       </controlProperties>
     </control>
-    <control controlID="60" controlTypeID="com.balsamiq.mockups::NumericStepper" x="445" y="611" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="22" locked="false" isInGroup="-1">
+    <control controlID="99" controlTypeID="com.balsamiq.mockups::HelpButton" x="332" y="501" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="21" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>5</text>
+        <href>Personalwesen_Info_Droiden%26bm%3BPersonalwesen_Info_Droiden.bmml%26bm%3BPersonalwesen_Info_Droiden.bmml%26bm%3BPersonalwesen_Info_Droiden.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22262%2C501%2C280%2C519%22%20href%3D%22Personalwesen_Info_Droiden.bmml%22%20alt%3D%22Personalwesen_Info_Droiden%22%20id%3D%2299%22/%3E</map>
       </controlProperties>
     </control>
-    <control controlID="61" controlTypeID="com.balsamiq.mockups::HelpButton" x="332" y="686" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="23" locked="false" isInGroup="-1"/>
-    <control controlID="62" controlTypeID="com.balsamiq.mockups::TextInput" x="332" y="560" w="-1" h="-1" measuredW="90" measuredH="27" zOrder="24" locked="false" isInGroup="-1">
+    <control controlID="100" controlTypeID="com.balsamiq.mockups::TextInput" x="332" y="413" w="-1" h="-1" measuredW="90" measuredH="27" zOrder="22" locked="false" isInGroup="-1">
       <controlProperties>
         <color>15374745</color>
         <text>Preis%3A%20300%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="63" controlTypeID="com.balsamiq.mockups::TextInput" x="332" y="609" w="-1" h="-1" measuredW="90" measuredH="27" zOrder="25" locked="false" isInGroup="-1">
+    <control controlID="101" controlTypeID="__group__" x="214" y="450" w="271" h="28" measuredW="271" measuredH="28" zOrder="23" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TextInput" x="0" y="1" w="105" h="-1" measuredW="84" measuredH="27" zOrder="0" locked="false" isInGroup="101">
+          <controlProperties>
+            <text>zur%20Stufe%203</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::NumericStepper" x="231" y="2" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="1" locked="false" isInGroup="101">
+          <controlProperties>
+            <text>5</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::TextInput" x="118" y="0" w="-1" h="-1" measuredW="90" measuredH="27" zOrder="2" locked="false" isInGroup="101">
+          <controlProperties>
+            <color>15374745</color>
+            <text>Preis%3A%20400%2C00</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="102" controlTypeID="com.balsamiq.mockups::TextInput" x="240" y="255" w="113" h="-1" measuredW="91" measuredH="27" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>15374745</color>
+        <text>Preis%3A%20200%2C00</text>
+      </controlProperties>
+    </control>
+    <control controlID="103" controlTypeID="com.balsamiq.mockups::TextInput" x="532" y="255" w="100" h="-1" measuredW="90" measuredH="27" zOrder="25" locked="false" isInGroup="-1">
       <controlProperties>
         <color>15374745</color>
         <text>Preis%3A%20400%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="64" controlTypeID="com.balsamiq.mockups::LineChart" x="603" y="538" w="343" h="186" measuredW="187" measuredH="175" zOrder="13" locked="false" isInGroup="-1"/>
-    <control controlID="65" controlTypeID="com.balsamiq.mockups::TextInput" x="708" y="497" w="-1" h="-1" measuredW="132" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="104" controlTypeID="com.balsamiq.mockups::TextInput" x="821" y="255" w="101" h="-1" measuredW="91" measuredH="27" zOrder="26" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Verf%FCgbare%20Droiden</text>
+        <color>15374745</color>
+        <text>Preis%3A%20600%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="66" controlTypeID="com.balsamiq.mockups::Label" x="946" y="588" w="-1" h="-1" measuredW="73" measuredH="23" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="105" controlTypeID="com.balsamiq.mockups::NumericStepper" x="669" y="257" w="68" h="-1" measuredW="46" measuredH="24" zOrder="27" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Stufe%201%3A%2020</text>
+        <text>12</text>
       </controlProperties>
     </control>
-    <control controlID="67" controlTypeID="com.balsamiq.mockups::Label" x="946" y="546" w="-1" h="-1" measuredW="74" measuredH="23" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="106" controlTypeID="com.balsamiq.mockups::NumericStepper" x="377" y="257" w="68" h="-1" measuredW="48" measuredH="24" zOrder="28" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Stufe%202%3A%2012</text>
+        <text>20</text>
       </controlProperties>
     </control>
-    <control controlID="72" controlTypeID="com.balsamiq.mockups::TitleWindow" x="427" y="246" w="413" h="289" measuredW="450" measuredH="400" zOrder="34" locked="false" isInGroup="-1">
+    <control controlID="107" controlTypeID="com.balsamiq.mockups::TextInput" x="821" y="330" w="-1" h="-1" measuredW="208" measuredH="27" zOrder="29" locked="false" isInGroup="-1">
       <controlProperties>
-        <dragger>false</dragger>
-        <text>Info%20-%20Droide%20Stufe%203</text>
+        <color>16777215</color>
+        <text>monatl.%20Wartungskosten%3A%20200%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="73" controlTypeID="com.balsamiq.mockups::Paragraph" x="433" y="273" w="399" h="194" measuredW="200" measuredH="140" zOrder="35" locked="false" isInGroup="-1">
+    <control controlID="108" controlTypeID="com.balsamiq.mockups::TextInput" x="240" y="331" w="209" h="-1" measuredW="200" measuredH="27" zOrder="30" locked="false" isInGroup="-1">
       <controlProperties>
-        <align>left</align>
-        <color>0</color>
-        <size>13</size>
-        <text>Der%20Droide%20Stufe%203%20bew%E4ltigt%20seine%20Arbeit%20pr%E4zise%20und%20schnell.%0AEr%20ist%20ganz%20klar%20der%20Ferrari%20unter%20den%20Droiden.%0A%20%0ADer%20Anschaffungspreis%20liegt%20bei%20600%2C00%20KD.%0AUm%20den%20Droiden%20Stufe%203%20in%20Schuss%20zu%20halten%2C%20fallen%20monatlich%20Wartungskosten%20in%20H%F6he%20von%20200%2C00%20KD%20an.%20%0AEin%20Ausbau%20ist%20bei%20diesem%20Modell%20nicht%20mehr%20n%F6tig.</text>
+        <color>16777215</color>
+        <text>monatl.%20Wartungskosten%3A%2050%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="74" controlTypeID="com.balsamiq.mockups::Button" x="744" y="473" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="36" locked="false" isInGroup="-1">
+    <control controlID="109" controlTypeID="com.balsamiq.mockups::TextInput" x="532" y="330" w="-1" h="-1" measuredW="205" measuredH="27" zOrder="31" locked="false" isInGroup="-1">
       <controlProperties>
-        <href>Personalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22674%2C473%2C755%2C501%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2274%22/%3E</map>
-        <text>Schlie%DFen</text>
+        <color>16777215</color>
+        <text>monatl.%20Wartungskosten%3A%20100%2C00</text>
       </controlProperties>
+    </control>
+    <control controlID="110" controlTypeID="com.balsamiq.mockups::TextInput" x="240" y="293" w="-1" h="-1" measuredW="155" measuredH="27" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>15374745</color>
+        <text>Gesamtkosten%3A%204.000%2C00</text>
+      </controlProperties>
+    </control>
+    <control controlID="111" controlTypeID="com.balsamiq.mockups::TextInput" x="532" y="292" w="-1" h="-1" measuredW="155" measuredH="27" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>15374745</color>
+        <text>Gesamtkosten%3A%204.800%2C00</text>
+      </controlProperties>
+    </control>
+    <control controlID="112" controlTypeID="com.balsamiq.mockups::TextInput" x="821" y="292" w="136" h="-1" measuredW="130" measuredH="27" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>15374745</color>
+        <text>Gesamtkosten%3A%200%2C00</text>
+      </controlProperties>
+    </control>
+    <control controlID="113" controlTypeID="com.balsamiq.mockups::TextInput" x="840" y="388" w="208" h="-1" measuredW="159" measuredH="27" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>15374745</color>
+        <text>Anheuerkosten%3A%208.800%2C00</text>
+      </controlProperties>
+    </control>
+    <control controlID="120" controlTypeID="__group__" x="199" y="554" w="211" h="170" measuredW="211" measuredH="170" zOrder="37" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::FieldSet" x="0" y="0" w="211" h="170" measuredW="200" measuredH="170" zOrder="0" locked="false" isInGroup="120">
+          <controlProperties>
+            <text>Entlassen</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="30" w="105" h="-1" measuredW="85" measuredH="27" zOrder="1" locked="false" isInGroup="120">
+          <controlProperties>
+            <text>zur%20Stufe%202</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::NumericStepper" x="143" y="31" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="2" locked="false" isInGroup="120">
+          <controlProperties>
+            <text>5</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="62" w="105" h="-1" measuredW="85" measuredH="27" zOrder="3" locked="false" isInGroup="120">
+          <controlProperties>
+            <text>zur%20Stufe%202</text>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::NumericStepper" x="143" y="63" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="4" locked="false" isInGroup="120">
+          <controlProperties>
+            <text>5</text>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::TextInput" x="15" y="96" w="105" h="-1" measuredW="85" measuredH="27" zOrder="5" locked="false" isInGroup="120">
+          <controlProperties>
+            <text>zur%20Stufe%202</text>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::NumericStepper" x="143" y="97" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="6" locked="false" isInGroup="120">
+          <controlProperties>
+            <text>5</text>
+          </controlProperties>
+        </control>
+        <control controlID="7" controlTypeID="com.balsamiq.mockups::Button" x="52" y="131" w="-1" h="-1" measuredW="131" measuredH="28" zOrder="7" locked="false" isInGroup="120">
+          <controlProperties>
+            <color>9684093</color>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22299%2C681%2C415%2C709%22%20href%3D%22Personalwesen_Bestaetigung_Ausbau.bmml%22%20alt%3D%22Personalwesen_Bestaetigung_Ausbau%22%20id%3D%2256%22/%3E</map>
+            <text>Droiden%20entlassen</text>
+          </controlProperties>
+        </control>
+        <control controlID="8" controlTypeID="com.balsamiq.mockups::HelpButton" x="15" y="136" w="-1" h="-1" measuredW="18" measuredH="18" zOrder="8" locked="false" isInGroup="120">
+          <controlProperties>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22262%2C686%2C280%2C704%22%20href%3D%22Personalwesen_Info_Droiden.bmml%22%20alt%3D%22Personalwesen_Info_Droiden%22%20id%3D%2261%22/%3E</map>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
     </control>
   </controls>
 </mockup>

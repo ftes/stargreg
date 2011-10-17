@@ -99,33 +99,39 @@
     <control controlID="13" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="12" locked="true" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
-        <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2213_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%2213_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%2213_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%2213_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2213_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%2213_5%22/%3E%0A</map>
+        <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2213_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%2213_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%2213_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%2213_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%2213_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%2213_5%22/%3E%0A</map>
         <selectedIndex>0</selectedIndex>
-        <text>%DCbersicht%0AEinkauf%0AProduktion%0AVerkauf%0APersonalwesen%0ABank</text>
+        <text>%DCbersicht%0ABank%0APersonalwesen%0AEinkauf%0AProduktion%0AVerkauf</text>
       </controlProperties>
     </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::TitleWindow" x="184" y="316" w="857" h="417" measuredW="450" measuredH="400" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::TitleWindow" x="184" y="316" w="857" h="417" measuredW="450" measuredH="400" zOrder="13" locked="true" isInGroup="-1">
       <controlProperties>
         <text>Informationen%20zur%20aktuellen%20Spielrunde</text>
       </controlProperties>
     </control>
-    <control controlID="15" controlTypeID="com.balsamiq.mockups::Button" x="947" y="668" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Button" x="947" y="668" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="14" locked="true" isInGroup="-1">
       <controlProperties>
         <href>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml</href>
         <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22877%2C668%2C958%2C696%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2215%22/%3E</map>
         <text>Schlie%DFen</text>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::Paragraph" x="199" y="357" w="820" h="289" measuredW="200" measuredH="140" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Paragraph" x="199" y="357" w="820" h="289" measuredW="200" measuredH="140" zOrder="15" locked="true" isInGroup="-1">
       <controlProperties>
         <text>Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information.%0AInformation%2C%20Information%2C%20Information%2C%20Information.%0AInformation%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information.%0AInformation%2C%20Information%2C%20Information%2C%20Information.%0A%20%0AInformation%2C%20Information%2C%20Information%2C%20Information.%0AInformation%2C%20Information%2C%20Information.%0AInformation%2C%20Information%2C%20Information%2C%20Information%2C%20Information.%0A%20%0AInformation%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information.%0AInformation%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information.%0AInformation%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information.%0AInformation%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information%2C%20Information.%0A%20%0AInformation%2C%20Information.</text>
       </controlProperties>
     </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::TextInput" x="344" y="86" w="-1" h="-1" measuredW="475" measuredH="50" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::TextInput" x="344" y="86" w="-1" h="-1" measuredW="475" measuredH="50" zOrder="16" locked="true" isInGroup="-1">
       <controlProperties>
         <size>32</size>
         <text>Tantive%20Engineering%20Corporation</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::MultilineButton" x="447" y="166" w="153" h="71" measuredW="113" measuredH="58" zOrder="17" locked="true" isInGroup="-1">
+      <controlProperties>
+        <color>15843890</color>
+        <text>Runde%202/10</text>
       </controlProperties>
     </control>
   </controls>

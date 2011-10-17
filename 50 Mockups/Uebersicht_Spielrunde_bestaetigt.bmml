@@ -1,11 +1,11 @@
 <mockup version="1.0" skin="sketch" measuredW="1094" measuredH="768" mockupW="1024" mockupH="768">
   <controls>
-    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="70" y="0" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="70" y="0" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
       <controlProperties>
         <text>StarGreg</text>
       </controlProperties>
     </control>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::Button" x="193" y="696" w="-1" h="-1" measuredW="91" measuredH="28" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Button" x="193" y="696" w="-1" h="-1" measuredW="91" measuredH="28" zOrder="3" locked="true" isInGroup="-1">
       <controlProperties>
         <color>16767334</color>
         <href>Uebersicht%20Spielregeln%26bm%3BUebersicht%20Spielregeln.bmml%26bm%3BUebersicht%20Spielregeln.bmml%26bm%3BUebersicht%20Spielregeln.bmml</href>
@@ -13,28 +13,22 @@
         <text>Spielregeln</text>
       </controlProperties>
     </control>
-    <control controlID="7" controlTypeID="com.balsamiq.mockups::Button" x="859" y="677" w="184" h="47" measuredW="156" measuredH="28" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Button" x="859" y="677" w="184" h="47" measuredW="156" measuredH="28" zOrder="4" locked="true" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
         <text>Spielrunde%20einchecken</text>
       </controlProperties>
     </control>
-    <control controlID="9" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="3" locked="true" isInGroup="-1">
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="2" locked="true" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
-        <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%229_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%229_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%229_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%229_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%229_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%229_5%22/%3E%0A</map>
+        <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml</hrefs>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%229_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%229_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%229_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%229_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%229_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%229_5%22/%3E%0A</map>
         <selectedIndex>0</selectedIndex>
-        <text>%DCbersicht%0AEinkauf%0AProduktion%0AVerkauf%0APersonalwesen%0ABank</text>
+        <text>%DCbersicht%0ABank%0APersonalwesen%0AEinkauf%0AProduktion%0AVerkauf</text>
       </controlProperties>
     </control>
-    <control controlID="13" controlTypeID="com.balsamiq.mockups::Label" x="565" y="401" w="-1" h="-1" measuredW="88" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
-      <controlProperties>
-        <size>16</size>
-        <text>Marktanteil</text>
-      </controlProperties>
-    </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="309" y="696" w="-1" h="-1" measuredW="235" measuredH="28" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="309" y="696" w="-1" h="-1" measuredW="235" measuredH="28" zOrder="5" locked="true" isInGroup="-1">
       <controlProperties>
         <color>16767334</color>
         <href>Information%26bm%3BInformation.bmml%26bm%3BInformation.bmml%26bm%3BInformation.bmml</href>
@@ -42,130 +36,142 @@
         <text>Informationen%20zur%20aktuellen%20Runde</text>
       </controlProperties>
     </control>
-    <control controlID="25" controlTypeID="com.balsamiq.mockups::Image" x="641" y="58" w="402" h="247" measuredW="1351" measuredH="897" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Image" x="641" y="58" w="402" h="247" measuredW="1351" measuredH="897" zOrder="6" locked="true" isInGroup="-1">
       <controlProperties>
         <borderStyle>square</borderStyle>
         <src>./Startseite_Podracer.jpg</src>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="29" controlTypeID="com.balsamiq.mockups::TitleWindow" x="450" y="275" w="345" h="230" measuredW="450" measuredH="400" zOrder="10" locked="false" isInGroup="-1">
-      <controlProperties>
-        <dragger>false</dragger>
-        <text>Produktion</text>
-      </controlProperties>
-    </control>
-    <control controlID="30" controlTypeID="com.balsamiq.mockups::Paragraph" x="492" y="308" w="260" h="128" measuredW="200" measuredH="140" zOrder="11" locked="false" isInGroup="-1">
-      <controlProperties>
-        <align>center</align>
-        <color>0</color>
-        <size>18</size>
-        <text>Diese%20Spielrunde%20wurde%20erfolgreich%20best%E4tigt.%0A%20%0AEs%20startet%20nun%20die%20n%E4chste%20Spielrunde%21</text>
-      </controlProperties>
-    </control>
-    <control controlID="31" controlTypeID="com.balsamiq.mockups::Button" x="696" y="445" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="12" locked="false" isInGroup="-1">
-      <controlProperties>
-        <href>Information%26bm%3BInformation.bmml%26bm%3BInformation.bmml%26bm%3BInformation.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22626%2C445%2C707%2C473%22%20href%3D%22Information.bmml%22%20alt%3D%22Information%22%20id%3D%2231%22/%3E</map>
-        <text>Schlie%DFen</text>
-      </controlProperties>
-    </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::TextInput" x="344" y="86" w="-1" h="-1" measuredW="475" measuredH="50" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::TextInput" x="344" y="86" w="-1" h="-1" measuredW="475" measuredH="50" zOrder="7" locked="true" isInGroup="-1">
       <controlProperties>
         <size>32</size>
         <text>Tantive%20Engineering%20Corporation</text>
       </controlProperties>
     </control>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::TitleWindow" x="70" y="0" w="1024" h="768" measuredW="450" measuredH="400" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::TitleWindow" x="70" y="0" w="1024" h="768" measuredW="450" measuredH="400" zOrder="1" locked="true" isInGroup="-1">
       <controlProperties>
         <text>StarGreg</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="__group__" x="527" y="358" w="197" h="269" measuredW="197" measuredH="269" zOrder="9" locked="false" isInGroup="-1">
-      <groupChildrenDescriptors>
-        <control controlID="0" controlTypeID="com.balsamiq.mockups::Label" x="54" y="0" w="-1" h="-1" measuredW="88" measuredH="27" zOrder="0" locked="false" isInGroup="34">
-          <controlProperties>
-            <size>16</size>
-            <text>Marktanteil</text>
-          </controlProperties>
-        </control>
-        <control controlID="1" controlTypeID="__group__" x="0" y="64" w="197" h="205" measuredW="197" measuredH="205" zOrder="1" locked="false" isInGroup="34">
-          <groupChildrenDescriptors>
-            <control controlID="0" controlTypeID="com.balsamiq.mockups::PieChart" x="0" y="0" w="197" h="205" measuredW="180" measuredH="180" zOrder="0" locked="false" isInGroup="1"/>
-            <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="32" y="75" w="37" h="21" measuredW="34" measuredH="23" zOrder="1" locked="false" isInGroup="1">
-              <controlProperties>
-                <text>XX%25</text>
-              </controlProperties>
-            </control>
-          </groupChildrenDescriptors>
-        </control>
-      </groupChildrenDescriptors>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::MultilineButton" x="447" y="166" w="153" h="71" measuredW="113" measuredH="58" zOrder="8" locked="true" isInGroup="-1">
+      <controlProperties>
+        <color>15843890</color>
+        <text>Runde%202/10</text>
+      </controlProperties>
     </control>
-    <control controlID="35" controlTypeID="__group__" x="189" y="359" w="258" h="303" measuredW="258" measuredH="303" zOrder="2" locked="false" isInGroup="-1">
-      <groupChildrenDescriptors>
-        <control controlID="0" controlTypeID="__group__" x="0" y="0" w="258" h="303" measuredW="258" measuredH="303" zOrder="0" locked="false" isInGroup="35">
-          <groupChildrenDescriptors>
-            <control controlID="0" controlTypeID="com.balsamiq.mockups::ColumnChart" x="4" y="30" w="250" h="273" measuredW="187" measuredH="175" zOrder="0" locked="false" isInGroup="0"/>
-            <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="0" y="0" w="-1" h="-1" measuredW="258" measuredH="27" zOrder="1" locked="false" isInGroup="0">
-              <controlProperties>
-                <size>16</size>
-                <text>Anzahl%20der%20verkauften%20Raumschiffe</text>
-              </controlProperties>
-            </control>
-            <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="51" y="225" w="27" h="69" measuredW="23" measuredH="52" zOrder="2" locked="false" isInGroup="0">
-              <controlProperties>
-                <size>13</size>
-                <text>Branche</text>
-                <textOrientation>up</textOrientation>
-              </controlProperties>
-            </control>
-            <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="151" y="224" w="27" h="69" measuredW="23" measuredH="52" zOrder="3" locked="false" isInGroup="0">
-              <controlProperties>
-                <size>13</size>
-                <text>Branche</text>
-                <textOrientation>up</textOrientation>
-              </controlProperties>
-            </control>
-          </groupChildrenDescriptors>
-        </control>
-        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="87" y="100" w="-1" h="-1" measuredW="23" measuredH="194" zOrder="1" locked="false" isInGroup="35">
-          <controlProperties>
-            <size>13</size>
-            <text>Tantive%20Engineering%20Corporation</text>
-            <textOrientation>up</textOrientation>
-          </controlProperties>
-        </control>
-        <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="187" y="100" w="-1" h="-1" measuredW="23" measuredH="194" zOrder="2" locked="false" isInGroup="35">
-          <controlProperties>
-            <size>13</size>
-            <text>Tantive%20Engineering%20Corporation</text>
-            <textOrientation>up</textOrientation>
-          </controlProperties>
-        </control>
-      </groupChildrenDescriptors>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::MultilineButton" x="904" y="396" w="139" h="62" measuredW="145" measuredH="58" zOrder="9" locked="true" isInGroup="-1">
+      <controlProperties>
+        <color>15843890</color>
+        <text>Millenium-Falke</text>
+      </controlProperties>
     </control>
-    <control controlID="36" controlTypeID="__group__" x="819" y="357" w="201" h="220" measuredW="201" measuredH="220" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Icon" x="848" y="403" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="10" locked="true" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <color>0</color>
+        <icon>StarIcon%7Clarge</icon>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::MultilineButton" x="866" y="561" w="170" h="58" measuredW="86" measuredH="58" zOrder="11" locked="true" isInGroup="-1">
+      <controlProperties>
+        <color>15843890</color>
+        <text>20%2C83%25</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Label" x="866" y="358" w="-1" h="-1" measuredW="170" measuredH="27" zOrder="12" locked="true" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>Star%20der%20letzten%20Runde</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::Label" x="866" y="529" w="-1" h="-1" measuredW="167" measuredH="27" zOrder="13" locked="true" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>ROI%20der%20letzten%20Runde</text>
+      </controlProperties>
+    </control>
+    <control controlID="43" controlTypeID="__group__" x="429" y="269" w="345" h="230" measuredW="345" measuredH="230" zOrder="20" locked="true" isInGroup="-1">
       <groupChildrenDescriptors>
-        <control controlID="0" controlTypeID="com.balsamiq.mockups::MultilineButton" x="62" y="116" w="139" h="104" measuredW="145" measuredH="58" zOrder="0" locked="false" isInGroup="36">
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="0" y="0" w="345" h="230" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="43">
           <controlProperties>
-            <color>15843890</color>
-            <text>Millenium-Falke</text>
+            <dragger>false</dragger>
+            <text>Produktion</text>
           </controlProperties>
         </control>
-        <control controlID="1" controlTypeID="com.balsamiq.mockups::Icon" x="0" y="144" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="1" locked="false" isInGroup="36">
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Paragraph" x="42" y="33" w="260" h="128" measuredW="200" measuredH="140" zOrder="1" locked="false" isInGroup="43">
           <controlProperties>
-            <borderStyle>none</borderStyle>
+            <align>center</align>
             <color>0</color>
-            <icon>StarIcon%7Clarge</icon>
+            <size>18</size>
+            <text>Diese%20Spielrunde%20wurde%20erfolgreich%20best%E4tigt.%0A%20%0AEs%20startet%20nun%20die%20n%E4chste%20Spielrunde%21</text>
           </controlProperties>
         </control>
-        <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="24" y="0" w="-1" h="-1" measuredW="170" measuredH="27" zOrder="2" locked="false" isInGroup="36">
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="246" y="170" w="-1" h="-1" measuredW="81" measuredH="28" zOrder="2" locked="false" isInGroup="43">
           <controlProperties>
-            <size>16</size>
-            <text>Star%20der%20letzten%20Runde</text>
+            <href>Information%26bm%3BInformation.bmml%26bm%3BInformation.bmml%26bm%3BInformation.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22605%2C439%2C686%2C467%22%20href%3D%22Information.bmml%22%20alt%3D%22Information%22%20id%3D%222%22/%3E</map>
+            <text>Schlie%DFen</text>
           </controlProperties>
         </control>
       </groupChildrenDescriptors>
+    </control>
+    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="615" y="357" w="-1" h="-1" measuredW="88" measuredH="27" zOrder="14" locked="true" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>Marktanteil</text>
+      </controlProperties>
+    </control>
+    <control controlID="45" controlTypeID="com.balsamiq.mockups::PieChart" x="544" y="424" w="230" h="218" measuredW="180" measuredH="180" zOrder="15" locked="true" isInGroup="-1"/>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Paragraph" x="557" y="473" w="90" h="140" measuredW="200" measuredH="140" zOrder="16" locked="true" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <text>XX%25%0ATantive%20%0AEngineering%0ACorporation</text>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Label" x="189" y="359" w="-1" h="-1" measuredW="258" measuredH="27" zOrder="17" locked="true" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>Anzahl%20der%20verkauften%20Raumschiffe</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="__group__" x="193" y="386" w="250" h="276" measuredW="250" measuredH="276" zOrder="18" locked="true" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::ColumnChart" x="0" y="0" w="250" h="276" measuredW="187" measuredH="175" zOrder="0" locked="false" isInGroup="48"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="47" y="111" w="27" h="152" measuredW="23" measuredH="133" zOrder="1" locked="false" isInGroup="48">
+          <controlProperties>
+            <size>13</size>
+            <text>Branchendurchschnitt</text>
+            <textOrientation>up</textOrientation>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="147" y="111" w="27" h="151" measuredW="23" measuredH="133" zOrder="2" locked="false" isInGroup="48">
+          <controlProperties>
+            <size>13</size>
+            <text>Branchendurchschnitt</text>
+            <textOrientation>up</textOrientation>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="83" y="69" w="-1" h="-1" measuredW="23" measuredH="194" zOrder="3" locked="false" isInGroup="48">
+          <controlProperties>
+            <size>13</size>
+            <text>Tantive%20Engineering%20Corporation</text>
+            <textOrientation>up</textOrientation>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="183" y="69" w="-1" h="-1" measuredW="23" measuredH="194" zOrder="4" locked="false" isInGroup="48">
+          <controlProperties>
+            <size>13</size>
+            <text>Tantive%20Engineering%20Corporation</text>
+            <textOrientation>up</textOrientation>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Label" x="647" y="556" w="105" h="21" measuredW="86" measuredH="23" zOrder="19" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>XX%25%20Branche</text>
+      </controlProperties>
     </control>
   </controls>
 </mockup>
