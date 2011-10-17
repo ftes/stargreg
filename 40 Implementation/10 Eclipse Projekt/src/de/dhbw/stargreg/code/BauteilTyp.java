@@ -24,6 +24,10 @@ public final class BauteilTyp extends ProduktTyp {
 		return preis;
 	}
 	
+	/**
+	 * Berechnet den neuen Preis des jeweiligen Bauteils
+	 * @param abweichung
+	 */
 	public void berechnePreis(double abweichung) {
 		preis = grundPreis - maxPreisDelta
 				+ 2 * Math.pow(maxPreisDelta, 2)
