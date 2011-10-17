@@ -9,6 +9,7 @@ public class FinanzAbteilung extends Abteilung {
 	public class Finanzen {
 		private Double kapital;
 		
+		
 /*		public Finanzen eroeffnen () {
 			return new Finanzen();
 		}//eroeffnen

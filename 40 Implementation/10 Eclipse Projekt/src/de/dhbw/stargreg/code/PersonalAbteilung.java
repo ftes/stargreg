@@ -1,5 +1,7 @@
 package de.dhbw.stargreg.code;
 
+import java.util.HashMap;
+
 /**
  * 
  * @author fredrik
@@ -11,18 +13,15 @@ public class PersonalAbteilung extends Abteilung {
 	private double kosten_Mit3 = 200.0;
 	
 	private int summeMit = 0;
+	double werbKosten = 0.0;
+
 	private double personalkosten = 0.0;
-	/*
-	public static PersonalAbteilung einrichten () {
-		return new PersonalAbteilung();
-	}//einrichten
 	
-	private PersonalAbteilung () {
-	}//Konstruktor
-	*/
-	public double erwerbenMit (PersonalTyp kategorie, int anzahlMit ){
-		double erwerbKosten = 0.0;
-		return erwerbKosten;
+	private HashMap<PersonalTyp, Integer> allePersonaltypen = new HashMap<PersonalTyp, Integer>();	
+
+	public double erwerbenMit (PersonalTyp p, int anzahlMit ){
+		//Erwerbskosten berrechnen
+		return werbKosten;
 	}//erwerbenMit
 	
 	public void wegnehmenMit (int anzahlMit){
@@ -36,19 +35,13 @@ public class PersonalAbteilung extends Abteilung {
 	public int getMitAnzahl (){
 		return summeMit;
 	}//getMitAnzahl
-
-<<<<<<< HEAD
-
 	
 	public double getPersonalkosten (){
 		return this.personalkosten;
 	}//getPersonalkosten
-}//PersonalAbteilung
-=======
+	
 	public void simuliere() {
 		// TODO Auto-generated method stub
 		
 	}
-
 }
->>>>>>> branch 'master' of git@github.com:ch3ck3r/Fallstudie.git

@@ -8,15 +8,7 @@ public class LagerAbteilung {
 	private double lagerkosten = 0.0;
 	//HashMap
 	private HashMap<ProduktTyp, Integer> alleProdukttypen = new HashMap<ProduktTyp, Integer>();	
-	/*
-	public static LagerAbteilung einrichtenLager(){
-		return new LagerAbteilung;
-	}//einrichtenLager
 	
-	private LagerAbteilung (){
-
-	}//Lager
-	*/
 	public String leeren (ProduktTyp p, int anzahl){
 		Integer istAnzahl = alleProdukttypen.get(p); 		
 		if (istAnzahl < anzahl){

@@ -8,15 +8,6 @@ import java.util.Vector;
  *
  */
 public class Unternehmen {
-<<<<<<< HEAD
-	private String name;
-	private EinkaufsAbteilung einkauf = new EinkaufsAbteilung();
-	private ProduktionsAbteilung produktion = new ProduktionsAbteilung();
-	private VerkaufsAbteilung verkauf = new VerkaufsAbteilung();
-	private FinanzAbteilung finanzen = new FinanzAbteilung();
-	private PersonalAbteilung personal = new PersonalAbteilung();
-	private LagerAbteilung lager = new LagerAbteilung();
-=======
 	private final String name;
 	private final EinkaufsAbteilung einkauf = new EinkaufsAbteilung();
 	private final ProduktionsAbteilung produktion = new ProduktionsAbteilung();
@@ -25,7 +16,6 @@ public class Unternehmen {
 	private final PersonalAbteilung personal = new PersonalAbteilung();
 	
 	private boolean rundeEingecheckt = false;
->>>>>>> branch 'master' of git@github.com:ch3ck3r/Fallstudie.git
 	
 	public Unternehmen(String name) {
 		this.name = name;
