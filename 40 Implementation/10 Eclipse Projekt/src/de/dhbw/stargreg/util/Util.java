@@ -3,6 +3,9 @@ package de.dhbw.stargreg.util;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.code.Unternehmen;
+import de.dhbw.stargreg.code.Verkauf;
+
 
 /**
  * Hilfsfunktionen, die inhaltlich keiner anderen Klasse zugeordnet werden können
@@ -28,6 +31,24 @@ public class Util {
 			ergebnis.get(gruppe).add(object);
 		}
 		
+		return ergebnis;
+	}
+	
+	public static HashMap<Unternehmen, Vector<Verkauf>> gruppiereVerkaeufeNachUnternehmen(Vector<Verkauf> verkaeufe) {
+		return gruppiereVector(verkaeufe, new Gruppierung<Unternehmen, Verkauf>() {
+			public Unternehmen nach(Verkauf verkauf) {
+				return verkauf.getUnternehmen();
+			}
+		});
+	}
+	
+	public static <T> Vector<T> filtereVector(Vector<T> vector, Filter<T> filter) {
+		Vector<T> ergebnis = new Vector<T>();
+		for (T object : vector) {
+			if (filter.nach(object)) {
+				ergebnis.add(object);
+			}
+		}
 		return ergebnis;
 	}
 }

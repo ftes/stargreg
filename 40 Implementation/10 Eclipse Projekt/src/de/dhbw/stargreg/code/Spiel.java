@@ -1,5 +1,8 @@
 package de.dhbw.stargreg.code;
+import java.util.HashMap;
 import java.util.Vector;
+
+import de.dhbw.stargreg.util.Util;
 
 
 /**
@@ -125,30 +128,35 @@ public enum Spiel {
 	 * dies setzt die aktuelle Spielrunde um eins weiter.
 	 * Nur möglich im Status Spielen
 	 */
-	public void naechsteSpielRunde() {
+	public void simuliere() {
 		if (status != Status.SPIELEN) {
 			System.out.println("Die nächste Runde kann nur im Modus Spielen erreicht werden");
-		}
-		SpielRunde vorherigeSpielrunde = aktuelleSpielRunde;
-		aktuelleSpielRunde = getNaechsteSpielRunde();
-		if (aktuelleSpielRunde == null) {
-			beendeSpiel();
 			return;
 		}
-		// simulieren
-	}
-	
-	/**
-	 * Gibt die nächste Spielrunde zurück, oder {@code null} falls dies bereits die Letzte war
-	 * @return Nächste Spielrunde
-	 */
-	private SpielRunde getNaechsteSpielRunde() {
-		int index = spielrunden.indexOf(aktuelleSpielRunde) + 1;
-		if (index >= spielrunden.size()) {
-			System.out.println("Letzte Spielrunde abgeschlossen");
-			return null;
+		
+		for (Unternehmen unternehmen : this.unternehmen) {
+			if (! unternehmen.getRundeEingecheckt()) {
+				System.out.printf("%s hat die Runde noch nicht eingecheckt\n", unternehmen);
+				return;
+			}
 		}
-		return spielrunden.get(index);
+		
+		
+		HashMap<Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(
+				raumschiffMarkt.berechneGesamtAbsatz());
+		
+		for (Unternehmen unternehmen : this.unternehmen) {
+			unternehmen.simuliere(verkaeufe.get(unternehmen));
+		}
+		
+		aktuelleSpielRunde.fuegeTransaktionenHinzu(bauteilMarkt.simuliere());
+		aktuelleSpielRunde.fuegeTransaktionenHinzu(personalMarkt.simuliere());
+		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.getAngebote());
+		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.simuliere());
+		
+		aktuelleSpielRunde = new SpielRunde();
+		fuegeSpielRundeHinzu(aktuelleSpielRunde);
+		// simulieren
 	}
 
 	public SpielRunde getAktuelleSpielRunde() {
@@ -167,6 +175,10 @@ public enum Spiel {
 		return personalMarkt;
 	}
 	
+	/**
+	 * Setzt das Spiel zurück. Es werden alle Unternehmen gelöscht und die Märkte
+	 * zurückgesetzt.
+	 */
 	public void setzeZurueck() {
 		raumschiffMarkt = new RaumschiffMarkt();
 		bauteilMarkt = new BauteilMarkt();

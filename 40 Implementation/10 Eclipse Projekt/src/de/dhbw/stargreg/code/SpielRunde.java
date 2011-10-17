@@ -16,6 +16,10 @@ public class SpielRunde {
 		transaktionen.add(transaktion);
 	}
 	
+	public void fuegeTransaktionenHinzu(Vector<? extends Transaktion> transaktionen) {
+		this.transaktionen.addAll(transaktionen);
+	}
+	
 	@SuppressWarnings("unchecked")
 	public <T> Vector<T> get(Class<T> clazz) {
 		Vector<T> transaktionen = new Vector<T>();

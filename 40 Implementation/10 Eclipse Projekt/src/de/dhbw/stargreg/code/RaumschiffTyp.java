@@ -13,6 +13,9 @@ public class RaumschiffTyp extends ProduktTyp {
 	 */
 	private final HashMap<BauteilTyp, Integer> bauteile = new HashMap<BauteilTyp, Integer>();
 	
+	/**
+	 * Gibt das benötigte Personal für diesen Raumschifftyp zurück.
+	 */
 	private final int benoetigtesPersonal;
 	
 	private int nachfrage;
