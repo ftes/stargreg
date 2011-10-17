@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.Filter;
 import de.dhbw.stargreg.util.Gruppierung;
 import de.dhbw.stargreg.util.Util;
 
@@ -115,5 +116,16 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 	public Vector<Verkauf> simuliere() {
 		angebote.clear();
 		return super.simuliere();
+	}
+	
+	public Vector<Verkauf> getVerkaeufe(final Unternehmen unternehmen) {
+		return Util.filtereVector(verkaeufe, new Filter<Verkauf>() {
+			public boolean nach(Verkauf verkauf) {
+				if (verkauf.getUnternehmen() == unternehmen) {
+					return true;
+				}
+				return false;
+			}
+		});
 	}
 }

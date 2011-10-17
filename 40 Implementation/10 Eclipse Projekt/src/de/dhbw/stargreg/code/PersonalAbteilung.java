@@ -7,4 +7,9 @@ package de.dhbw.stargreg.code;
  */
 public class PersonalAbteilung extends Abteilung {
 
+	public void simuliere() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

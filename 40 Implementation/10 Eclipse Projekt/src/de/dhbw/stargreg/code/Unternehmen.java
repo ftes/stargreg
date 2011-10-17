@@ -1,5 +1,7 @@
 package de.dhbw.stargreg.code;
 
+import java.util.Vector;
+
 /**
  * 
  * @author fredrik
@@ -32,7 +34,16 @@ public class Unternehmen {
 		rundeEingecheckt = true;
 	}
 	
-	public void simuliere() {
+	public void simuliere(Vector<Verkauf> verkaeufe) {
+		if (! rundeEingecheckt) {
+			System.out.printf("In %s wurde Runde noch nicht ausgecheckt\n", this);
+		}
+		
+		personal.simuliere();
+		produktion.produziere();
+		verkauf.verkaufe(verkaeufe);
+		
 		rundeEingecheckt = false;
+		System.out.printf("%s hat Runde simuliert\n", this);
 	}
 }

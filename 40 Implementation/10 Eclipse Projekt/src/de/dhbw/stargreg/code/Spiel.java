@@ -1,5 +1,8 @@
 package de.dhbw.stargreg.code;
+import java.util.HashMap;
 import java.util.Vector;
+
+import de.dhbw.stargreg.util.Util;
 
 
 /**
@@ -137,8 +140,13 @@ public enum Spiel {
 				return;
 			}
 		}
+		
+		
+		HashMap<Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(
+				raumschiffMarkt.berechneGesamtAbsatz());
+		
 		for (Unternehmen unternehmen : this.unternehmen) {
-			unternehmen.simuliere();
+			unternehmen.simuliere(verkaeufe.get(unternehmen));
 		}
 		
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(bauteilMarkt.simuliere());
