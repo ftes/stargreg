@@ -20,7 +20,7 @@ public class LagerAbteilung {
 	public String leeren (ProduktTyp p, int anzahl){
 		Integer istAnzahl = alleProdukttypen.get(p); 		
 		if (istAnzahl < anzahl){
-			return "Lagerbestand zu gering!";
+			return "Lagerbestand zu gering!!!";
 		}
 		alleProdukttypen.put(p, anzahl);
 		this.lagerstand -= p.getLagerplatzEinheiten();
