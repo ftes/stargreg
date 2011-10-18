@@ -6,7 +6,7 @@ import de.dhbw.stargreg.code.FinanzAbteilung.Finanzen;
 
 /**
  * 
- * @author fredrik
+ * @author Britta
  *
  */
 public class PersonalAbteilung extends Abteilung {

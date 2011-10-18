@@ -2,17 +2,17 @@ package de.dhbw.stargreg.code;
 
 /**
  * 
- * @author fredrik
+ * @author Britta
  *
  */
 public class FinanzAbteilung extends Abteilung {
 	public class Finanzen {
 		private Double kapital;
-		
+/*		
 		public Finanzen eroeffnen () {
 			return new Finanzen();
 		}//eroeffnen
-		
+*/		
 		private Finanzen () {
 			this.kapital = 1500000.0;
 		}//Konstruktor
