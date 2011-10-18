@@ -73,7 +73,7 @@ public class PersonalAbteilung extends Abteilung {
 		return anzahlPersonal;
 	}//getMitAnzahl
 	
-	public int getAnzahlPersonalTyp (PersonalTyp personalTyp){
+	public int getAnzahl(PersonalTyp personalTyp){
 		return personal.get(personalTyp);
 	}//getTypMitAnzahl
 	
@@ -81,9 +81,18 @@ public class PersonalAbteilung extends Abteilung {
 		return this.laufendeKosten;
 	}//getPersonalkosten
 	
-	public double getLaufendeKostenPersonalTyp (PersonalTyp personalTyp) {
+	public double getLaufendeKosten (PersonalTyp personalTyp) {
 		return personalTyp.getLaufendeKosten()*personal.get(personalTyp);
 	}//getTypPerosnalkosten
+	
+	public double getDurchschnittlicheQualitaet() {
+		double qualitaet = 0;
+		for (PersonalTyp personalTyp : personal.keySet()) {
+			qualitaet += personalTyp.getQualitaet() * personal.get(personalTyp);
+		}
+		qualitaet = qualitaet / getAnzahlPersonal();
+		return qualitaet;
+	}
 	
 	public void simuliere() {
 		// TODO Auto-generated method stub
