@@ -9,15 +9,15 @@ public class FinanzAbteilung extends Abteilung {
 	public class Finanzen {
 		private Double kapital;
 		
-		
-/*		public Finanzen eroeffnen () {
+		public Finanzen eroeffnen () {
 			return new Finanzen();
 		}//eroeffnen
 		
 		private Finanzen () {
 			this.kapital = 1500000.0;
 		}//Konstruktor
-*/		
+
+	
 		public void einzahlen (double betrag){
 	        if (betrag < 0) {
 	            return;
