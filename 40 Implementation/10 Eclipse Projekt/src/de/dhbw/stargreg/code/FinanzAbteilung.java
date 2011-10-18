@@ -6,35 +6,32 @@ package de.dhbw.stargreg.code;
  *
  */
 public class FinanzAbteilung extends Abteilung {
-	public class Finanzen {
-		private Double kapital;
+		private Double kontostand= 0.0;
 /*		
 		public Finanzen eroeffnen () {
 			return new Finanzen();
 		}//eroeffnen
 */		
-		private Finanzen () {
-			this.kapital = 1500000.0;
+		public FinanzAbteilung () {
+			this.kontostand = 1500000.0;
 		}//Konstruktor
 
-	
 		public void einzahlen (double betrag){
 	        if (betrag < 0) {
 	            return;
 	        }
-			this.kapital += betrag;
+			this.kontostand += betrag;
 		}//einzahlen
 		
-		public String abbuchen (double betrag){
-			if (betrag > this.kapital) {
+		public String abbuchen (double betrag){ // Rückgabewert String ???
+			if (betrag > this.kontostand) {
 				return ("Eigenkapital zu niedrig!");
 			}
-			this.kapital -= betrag;
+			this.kontostand -= betrag;
 			return null;
 		}//abbuchen
 		
 		public double getKontostand(){
-			return this.kapital;
+			return this.kontostand;
 		}//getKontostand
-	}
-}
+}//FinanzAbteilung

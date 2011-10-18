@@ -10,6 +10,9 @@ import java.util.HashMap;
  *
  */
 
+// Frage: Werden ProduktTypen direkt nach der Produktion eingelagert und fallen dann die Lagerkosten an,
+// auch wenn sie noch in der selben Periode wieder ausgelagert werden (durch Verkauf)?
+
 public class LagerAbteilung {
 	
 	private static double speKosten; // spe = Stellplatzeinheiten
