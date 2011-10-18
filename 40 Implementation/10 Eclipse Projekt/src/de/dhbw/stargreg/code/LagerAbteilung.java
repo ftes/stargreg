@@ -74,4 +74,12 @@ public class LagerAbteilung extends Abteilung {
 	public int getAnzahl(ProduktTyp produktTyp) {
 		return bestand.get(produktTyp);
 	}
+
+	/**
+	 * Kosten für belegte LpE abziehen!
+	 */
+	public void simuliere() {
+
+		
+	}
 }

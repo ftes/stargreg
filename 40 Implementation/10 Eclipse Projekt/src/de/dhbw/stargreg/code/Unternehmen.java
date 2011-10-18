@@ -43,6 +43,8 @@ public class Unternehmen {
 		personal.simuliere();
 		produktion.produziere();
 		verkauf.verkaufe(verkaeufe);
+		lager.simuliere();
+		finanzen.simuliere();
 		
 		rundeEingecheckt = false;
 		System.out.printf("%s hat Runde simuliert\n", this);

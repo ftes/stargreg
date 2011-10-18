@@ -32,5 +32,14 @@ public class FinanzAbteilung extends Abteilung {
 	public double getKontostand(){
 		return this.kapital;
 	}//getKontostand
+	
+	/**
+	 * Kosten bei Überziehung berechnen. Dies ist nötig, weil beispielsweise unklar
+	 * ist, wie viele Raumschiffe gelagert werden, da dies von der absetzbaren menge
+	 * abhängig ist.
+	 */
+	public void simuliere() {
+		
+	}
 
 }
