@@ -9,6 +9,10 @@ import java.util.Vector;
  */
 public class VerkaufsAbteilung extends Abteilung {
 
+	public VerkaufsAbteilung(Unternehmen unternehmen) {
+		super(unternehmen);
+	}
+
 	public void verkaufe(Vector<Verkauf> verkaeufe) {
 		// TODO Auto-generated method stub
 		

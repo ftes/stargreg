@@ -2,59 +2,65 @@ package de.dhbw.stargreg.code;
 
 import java.util.HashMap;
 /**
- * Im Lager können beliebig viele Bauteile und fertige Raumschiffe aufgenommen werden, eine obere
- * Kapazitätsschranke gibt es nicht. Verwaltet werden sie über die gemeinsame Oberklasse 'ProduktTyp'. 
- * Dabei setzten sich die belegten Stellplatzeinheiten (SPEs) aus den jeweiligen benötigten SPEs der 
+ * Im Lager koennen beliebig viele Bauteile und fertige Raumschiffe aufgenommen werden, eine obere
+ * Kapazitaetsschranke gibt es nicht. Verwaltet werden sie ueberber die gemeinsame Oberklasse 'ProduktTyp'. 
+ * Dabei setzten sich die belegten Stellplatzeinheiten aus den jeweiligen benoetigten SPEs der 
  * Bautteiltypen (vgl. Datenbasis) zusammen. 
  * @author Britta
  *
  */
 
+
 // Frage: Werden ProduktTypen direkt nach der Produktion eingelagert und fallen dann die Lagerkosten an,
 // auch wenn sie noch in der selben Periode wieder ausgelagert werden (durch Verkauf)?
 
-public class LagerAbteilung {
+public class LagerAbteilung extends Abteilung {
+	public LagerAbteilung(Unternehmen unternehmen) {
+		super(unternehmen);
+	}
+
+	/**
+	 * Kosten pro LagerplatzEinheit
+	 */
+	private static double lagerPlatzEinheitKosten;
 	
-	private static double speKosten; // spe = Stellplatzeinheiten
-	private int lagerstand = 0; //zählt die belegten Stellplatzeinheiten
-	private double lagerkosten = 0.0;
-	private HashMap<ProduktTyp, Integer> alleProdukttypen = new HashMap<ProduktTyp, Integer>();	
+	/**
+	 * zaehlt die belegten LagerplatzEinheiten
+	 */
+	private int lagerstand = 0;
+	private final HashMap<ProduktTyp, Integer> bestand = new HashMap<ProduktTyp, Integer>();	
 	
-	public LagerAbteilung (HashMap<ProduktTyp, Integer> hm, double speKosten) {
-		this.alleProdukttypen = hm;
-		for( ProduktTyp p : alleProdukttypen.keySet()) {
-			this.lagerstand += p.getLagerplatzEinheiten()*alleProdukttypen.get(p);
-			this.lagerkosten += lagerstand*speKosten;
-			// personalkosten_1/2/3 für jeden Typ
-		}//for
-	}//Konstruktor
 	/**
 	 * Entnimmt eine Anzahl an Bauteilen und Raumschiffen aus dem Lager, sofern der Lagerbestand dies 
-	 * erlaubt. Die Änderungen des Lagerbestands werden gespeichert.
-	 * @param p Referenz auf ein Objekt des Typs ProduktTyp
+	 * erlaubt. Die ï¿½nderungen des Lagerbestands werden gespeichert.
+	 * @param produktTyp Referenz auf ein Objekt des Typs ProduktTyp
 	 * @param anzahl Anzahl der zu entnehmenden Teile dieses Typs
 	 * @return Meldung ???
 	 */
-	public String leeren (ProduktTyp p, int anzahl){
-		Integer istAnzahl = alleProdukttypen.get(p); 		
+	public boolean entnehmen (ProduktTyp produktTyp, int anzahl){
+		int istAnzahl = bestand.get(produktTyp); 		
 		if (anzahl > istAnzahl){
-			return "Lagerbestand zu gering! Es können nur " + istAnzahl + " Teile entnommen werden.";
+			System.err.println("Lagerbestand zu gering! Es kÃ¶nnen nur " + istAnzahl + " Teile entnommen werden.");
+			return false;
 		}
-		alleProdukttypen.put(p, anzahl);
-		this.lagerstand -= p.getLagerplatzEinheiten()*anzahl;
-		return null; // "positive" Meldung??? 
+		//Achtung: Differenz bilden!
+		bestand.put(produktTyp, istAnzahl - anzahl);
+		this.lagerstand -= produktTyp.getLagerplatzEinheiten() * anzahl;
+		return true;
 	}//leeren
 	
 	/**
 	 * Lagert neue Bauteile und Raumschiffe in das Lager ein. Da das Lager beliebig groß ist, muss keine 
-	 * Prüfung auf ausreichend freie Kapazität durchgeführt werden. Die Änderungen des Lagerbestands 
+	 * Pruefung auf ausreichend freie Kapazitaet durchgefuehrt werden. Die ï¿½nderungen des Lagerbestands 
 	 * werden gespeichert.
-	 * @param p Referenz auf ein Objekt des Typs ProduktTyp
+	 * @param produktTyp Referenz auf ein Objekt des Typs ProduktTyp
 	 * @param anzahl Anzahl der einzulagernden Teile dieses Typs
 	 */
-	public void einlagern (ProduktTyp p, int anzahl){
-	    alleProdukttypen.put(p ,anzahl);
-	    this.lagerstand += p.getLagerplatzEinheiten()*anzahl;
+	public void einlagern (ProduktTyp produktTyp, int anzahl){
+		//Achtung: Summe bilden!
+		int istAnzahl = bestand.get(produktTyp);
+	    bestand.put(produktTyp, anzahl + istAnzahl);
+	    this.lagerstand += produktTyp.getLagerplatzEinheiten() * anzahl;
 	}//einlagern
 	
 	public int getLagerstand () {		
@@ -62,7 +68,10 @@ public class LagerAbteilung {
 	}//getLagerstand
 	
 	public double getLagerkosten() {
-		this.lagerkosten = speKosten * lagerstand;
-		return this.lagerkosten;
+		return lagerPlatzEinheitKosten * lagerstand;
 	}//getLagerkosten
+	
+	public static void setLagerPlatzEinheitKosten(double lagerPlatzEinheitKosten) {
+		LagerAbteilung.lagerPlatzEinheitKosten = lagerPlatzEinheitKosten;
+	}
 }
