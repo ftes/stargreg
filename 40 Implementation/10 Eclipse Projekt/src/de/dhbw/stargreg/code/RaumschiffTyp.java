@@ -9,12 +9,12 @@ import java.util.HashMap;
  */
 public class RaumschiffTyp extends ProduktTyp {
 	/**
-	 * Mengen der Bauteile, die für die Produktion eines Raumschiffs diesen Typs benötigt werden
+	 * Mengen der Bauteile, die fï¿½r die Produktion eines Raumschiffs diesen Typs benï¿½tigt werden
 	 */
 	private final HashMap<BauteilTyp, Integer> bauteile = new HashMap<BauteilTyp, Integer>();
 	
 	/**
-	 * Gibt das benötigte Personal für diesen Raumschifftyp zurück.
+	 * Gibt das benï¿½tigte Personal fï¿½r diesen Raumschifftyp zurï¿½ck.
 	 */
 	private final int benoetigtesPersonal;
 	
@@ -26,19 +26,19 @@ public class RaumschiffTyp extends ProduktTyp {
 	}
 	
 	/**
-	 * Fügt ein Bauteil mit der zugehörigen Menge an die BauteilListe an
-	 * Erhöht auch die benötigten LagerplatzEinheiten um den entsprechenden Wert
+	 * Fï¿½gt ein Bauteil mit der zugehï¿½rigen Menge an die BauteilListe an
+	 * Erhï¿½ht auch die benï¿½tigten LagerplatzEinheiten um den entsprechenden Wert
 	 * @param bauteilTyp BauteilTyp
 	 * @param menge Menge
 	 */
 	public void fuegeBauteilHinzu(BauteilTyp bauteilTyp, int menge) {
 		bauteile.put(bauteilTyp, menge);
-		System.out.printf("%d %s als Bauteil zu %s hinzugefügt\n", menge, bauteilTyp, this);
+		System.out.printf("%d %s als Bauteil zu %s hinzugefï¿½gt\n", menge, bauteilTyp, this);
 	}
 	
 	/**
-	 * Berechnet die variablen Kosten für den Raumschifftyp, basierend auf den derzeitigen Marktpreisen der Bauteile
-	 * @return variable Kosten für diesen Raumschifftyp
+	 * Berechnet die variablen Kosten fï¿½r den Raumschifftyp, basierend auf den derzeitigen Marktpreisen der Bauteile
+	 * @return variable Kosten fï¿½r diesen Raumschifftyp
 	 */
 	public double getKosten() {
 		double kosten = 0;
@@ -68,5 +68,9 @@ public class RaumschiffTyp extends ProduktTyp {
 			lagerplatzEinheiten += bauteilTyp.getLagerplatzEinheiten() * bauteile.get(bauteilTyp);
 		}
 		return lagerplatzEinheiten;
+	}
+	
+	public HashMap<BauteilTyp, Integer> getBauteile() {
+		return bauteile;
 	}
 }

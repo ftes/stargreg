@@ -70,4 +70,8 @@ public class LagerAbteilung extends Abteilung {
 	public static void setLagerPlatzEinheitKosten(double lagerPlatzEinheitKosten) {
 		LagerAbteilung.lagerPlatzEinheitKosten = lagerPlatzEinheitKosten;
 	}
+	
+	public int getAnzahl(ProduktTyp produktTyp) {
+		return bestand.get(produktTyp);
+	}
 }

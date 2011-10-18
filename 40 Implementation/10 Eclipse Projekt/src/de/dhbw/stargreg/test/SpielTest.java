@@ -13,7 +13,6 @@ import de.dhbw.stargreg.code.PersonalTyp;
 import de.dhbw.stargreg.code.RaumschiffMarkt;
 import de.dhbw.stargreg.code.RaumschiffTyp;
 import de.dhbw.stargreg.code.Spiel;
-import de.dhbw.stargreg.code.SpielRunde;
 import de.dhbw.stargreg.code.Unternehmen;
 
 public class SpielTest {
