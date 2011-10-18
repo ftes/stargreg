@@ -15,35 +15,29 @@ public class PersonalAbteilung extends Abteilung {
 		
 	private final HashMap<PersonalTyp, Integer> personal = new HashMap<PersonalTyp, Integer>();	
 
-	/**
-	 * Erzeugt eine Personalabteilung. Eine Anfangsmenge Personal ist war angedacht, sollte aber nicht √ºber
-	 * den Konstruktor eingepflegt werden, da dieser Parameter dann √ºber Unternehmen() weitergereicht werden
-	 * m√ºsste. Stattdessen wird nach Erzeugung eines Unternehmens die Personal-Menge per {@code einstellen()}
-	 * erweitert.
-	 */
 	public PersonalAbteilung(Unternehmen unternehmen) {
 		super(unternehmen);
 	}//Konstruktor
 	
 	/**
-	 * Erwirbt und stellt eine Anzahl an Personaln in einer bestimmten Qualit‰tsstufe ein. 
-	 * Die Anzahl aller Personal und die neuen laufendeKosten werden gespeichert; die 
-	 * Werbungskosten werden abgebucht.
-	 * @param p Qualit‰tsstufe der einzustellenden Personal
-	 * @param anzahlPers Anzahl der einzustellenden Personal 
+	 * 
+	 * @param personalTyp
+	 * @param anzahlPers
+	 * @param konto
 	 */
-	public void erwerbenMit (PersonalTyp p, int anzahlPers, FinanzAbteilung konto){
-		double neuePersKosten = laufendeKosten += (p.getLaufendeKosten()+ p.getWerbungsKosten() )*anzahlPers;
+
+	public void erwerbenMit (PersonalTyp personalTyp, int anzahl, FinanzAbteilung konto){
+		double neuePersKosten = laufendeKosten += (personalTyp.getLaufendeKosten()+ personalTyp.getWerbungsKosten() )*anzahl;
 		if (konto.getKontostand() < neuePersKosten ){
 			// Kapital zu gering!
 			return;
 		}
-		int anzahlPers_p = personal.get(p);
-		personal.put (p, (anzahlPers_p + anzahlPers));
-		konto.abbuchen(p.getWerbungsKosten()*anzahlPers);
+		int anzahlPers = personal.get(personalTyp);
+		personal.put (personalTyp, (anzahlPers + anzahl));
+		konto.abbuchen(personalTyp.getWerbungsKosten()*anzahl);
 
-		laufendeKosten += p.getLaufendeKosten() * anzahlPers;
-		anzahlPersonal += anzahlPers;
+		laufendeKosten += personalTyp.getLaufendeKosten() * anzahl;
+		anzahlPersonal += anzahl;
 	}//erwerbenMit
 	
 	/**
