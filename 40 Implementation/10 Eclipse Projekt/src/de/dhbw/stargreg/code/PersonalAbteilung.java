@@ -23,8 +23,8 @@ public class PersonalAbteilung extends Abteilung {
 	 * müsste. Stattdessen wird nach Erzeugung eines Unternehmens die Mitarbeiter-Menge per {@code einstellen()}
 	 * erweitert.
 	 */
-	public PersonalAbteilung () {
-
+	public PersonalAbteilung(Unternehmen unternehmen) {
+		super(unternehmen);
 	}//Konstruktor
 
 

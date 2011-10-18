@@ -9,11 +9,12 @@ import java.util.Vector;
  */
 public class Unternehmen {
 	private final String name;
-	private final EinkaufsAbteilung einkauf = new EinkaufsAbteilung();
-	private final ProduktionsAbteilung produktion = new ProduktionsAbteilung();
-	private final VerkaufsAbteilung verkauf = new VerkaufsAbteilung();
-	private final FinanzAbteilung finanzen = new FinanzAbteilung();
-	private final PersonalAbteilung personal = new PersonalAbteilung();
+	private final EinkaufsAbteilung einkauf = new EinkaufsAbteilung(this);
+	private final ProduktionsAbteilung produktion = new ProduktionsAbteilung(this);
+	private final VerkaufsAbteilung verkauf = new VerkaufsAbteilung(this);
+	private final FinanzAbteilung finanzen = new FinanzAbteilung(this);
+	private final PersonalAbteilung personal = new PersonalAbteilung(this);
+	private final LagerAbteilung lager = new LagerAbteilung(this);
 	
 	private boolean rundeEingecheckt = false;
 	
@@ -45,5 +46,29 @@ public class Unternehmen {
 		
 		rundeEingecheckt = false;
 		System.out.printf("%s hat Runde simuliert\n", this);
+	}
+
+	public EinkaufsAbteilung getEinkauf() {
+		return einkauf;
+	}
+
+	public ProduktionsAbteilung getProduktion() {
+		return produktion;
+	}
+
+	public VerkaufsAbteilung getVerkauf() {
+		return verkauf;
+	}
+
+	public FinanzAbteilung getFinanzen() {
+		return finanzen;
+	}
+
+	public PersonalAbteilung getPersonal() {
+		return personal;
+	}
+	
+	public LagerAbteilung getLager() {
+		return lager;
 	}
 }

@@ -10,7 +10,11 @@ import java.util.HashMap;
  *
  */
 
-public class LagerAbteilung {
+public class LagerAbteilung extends Abteilung {
+	public LagerAbteilung(Unternehmen unternehmen) {
+		super(unternehmen);
+	}
+
 	/**
 	 * Kosten pro LagerplatzEinheit
 	 */
