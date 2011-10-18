@@ -3,16 +3,25 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 
 public class LagerAbteilung {
-	private double speKosten = 1;
+	private static double speKosten; // spe = Stellplatzeinheit
 	private int lagerstand = 0; //zählt die belegten Stellplatzeinheiten
 	private double lagerkosten = 0.0;
 	//HashMap
 	private HashMap<ProduktTyp, Integer> alleProdukttypen = new HashMap<ProduktTyp, Integer>();	
 	
+	public LagerAbteilung (HashMap<ProduktTyp, Integer> hm, double speKosten) {
+		this.alleProdukttypen = hm;
+		for( ProduktTyp p : alleProdukttypen.keySet()) {
+			this.lagerstand += p.getLagerplatzEinheiten()*alleProdukttypen.get(p);
+			this.lagerkosten += lagerstand*speKosten;
+			// personalkosten_1/2/3 für jeden Typ
+		}//for
+	}//Konstruktor
+	
 	public String leeren (ProduktTyp p, int anzahl){
 		Integer istAnzahl = alleProdukttypen.get(p); 		
 		if (istAnzahl < anzahl){
-			return "Lagerbestand zu gering!!!";
+			return "Lagerbestand zu gering!";
 		}
 		alleProdukttypen.put(p, anzahl);
 		this.lagerstand -= p.getLagerplatzEinheiten();
