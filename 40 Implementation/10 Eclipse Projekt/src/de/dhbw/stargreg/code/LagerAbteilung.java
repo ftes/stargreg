@@ -2,13 +2,17 @@ package de.dhbw.stargreg.code;
 
 import java.util.HashMap;
 /**
- * Im Lager kï¿½nnen beliebig viele Bauteile und fertige Raumschiffe aufgenommen werden, eine obere
- * Kapazitï¿½tsschranke gibt es nicht. Verwaltet werden sie ï¿½ber die gemeinsame Oberklasse 'ProduktTyp'. 
- * Dabei setzten sich die belegten Stellplatzeinheiten (SPEs) aus den jeweiligen benï¿½tigten SPEs der 
+ * Im Lager koennen beliebig viele Bauteile und fertige Raumschiffe aufgenommen werden, eine obere
+ * Kapazitaetsschranke gibt es nicht. Verwaltet werden sie ueberber die gemeinsame Oberklasse 'ProduktTyp'. 
+ * Dabei setzten sich die belegten Stellplatzeinheiten aus den jeweiligen benoetigten SPEs der 
  * Bautteiltypen (vgl. Datenbasis) zusammen. 
  * @author Britta
  *
  */
+
+
+// Frage: Werden ProduktTypen direkt nach der Produktion eingelagert und fallen dann die Lagerkosten an,
+// auch wenn sie noch in der selben Periode wieder ausgelagert werden (durch Verkauf)?
 
 public class LagerAbteilung extends Abteilung {
 	public LagerAbteilung(Unternehmen unternehmen) {
@@ -21,7 +25,7 @@ public class LagerAbteilung extends Abteilung {
 	private static double lagerPlatzEinheitKosten;
 	
 	/**
-	 * zÃ¤hlt die belegten LagerplatzEinheiten
+	 * zaehlt die belegten LagerplatzEinheiten
 	 */
 	private int lagerstand = 0;
 	private final HashMap<ProduktTyp, Integer> bestand = new HashMap<ProduktTyp, Integer>();	
@@ -46,8 +50,8 @@ public class LagerAbteilung extends Abteilung {
 	}//leeren
 	
 	/**
-	 * Lagert neue Bauteile und Raumschiffe in das Lager ein. Da das Lager beliebig groï¿½ ist, muss keine 
-	 * Prï¿½fung auf ausreichend freie Kapazitï¿½t durchgefï¿½hrt werden. Die ï¿½nderungen des Lagerbestands 
+	 * Lagert neue Bauteile und Raumschiffe in das Lager ein. Da das Lager beliebig groß ist, muss keine 
+	 * Pruefung auf ausreichend freie Kapazitaet durchgefuehrt werden. Die ï¿½nderungen des Lagerbestands 
 	 * werden gespeichert.
 	 * @param produktTyp Referenz auf ein Objekt des Typs ProduktTyp
 	 * @param anzahl Anzahl der einzulagernden Teile dieses Typs

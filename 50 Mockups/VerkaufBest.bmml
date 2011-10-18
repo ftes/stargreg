@@ -26,62 +26,62 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="39" w="185" h="-1" measuredW="166" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="39" w="185" h="-1" measuredW="162" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Verf%FCgbare%20Menge%3A%0916</text>
       </controlProperties>
     </control>
-    <control controlID="9" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="263" w="185" h="-1" measuredW="160" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="263" w="185" h="-1" measuredW="156" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Verf%FCgbare%20Menge%3A%099</text>
       </controlProperties>
     </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="491" w="185" h="-1" measuredW="160" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="491" w="185" h="-1" measuredW="156" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Verf%FCgbare%20Menge%3A%093</text>
       </controlProperties>
     </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="81" w="185" h="-1" measuredW="171" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="81" w="185" h="-1" measuredW="167" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Herstellkosten%3A%096.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="12" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="305" w="185" h="-1" measuredW="176" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="305" w="185" h="-1" measuredW="172" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Herstellkosten%3A%0912.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="13" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="533" w="185" h="-1" measuredW="175" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="533" w="185" h="-1" measuredW="171" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Herstellkosten%3A%0918.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="121" w="211" h="-1" measuredW="203" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="121" w="211" h="-1" measuredW="199" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Deckungsbeitrag%3A%09%096.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="347" w="211" h="-1" measuredW="189" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="347" w="211" h="-1" measuredW="185" measuredH="27" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Deckungsbeitrag%3A%09%09%3F%3F%3F%3F%3F%3F</text>
       </controlProperties>
     </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="575" w="211" h="-1" measuredW="189" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="575" w="211" h="-1" measuredW="185" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Deckungsbeitrag%3A%09%09%3F%3F%3F%3F%3F%3F</text>
       </controlProperties>
     </control>
-    <control controlID="18" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="163" w="211" h="-1" measuredW="208" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="163" w="211" h="-1" measuredW="204" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Verkaufspreis%3A%09%0912.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="19" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="389" w="211" h="-1" measuredW="190" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="389" w="211" h="-1" measuredW="186" measuredH="27" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Verkaufspreis%3A%09%3C%3CEingabe%3E%3E</text>
       </controlProperties>
     </control>
-    <control controlID="20" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="617" w="211" h="-1" measuredW="190" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::TextInput" x="498" y="617" w="211" h="-1" measuredW="186" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Verkaufspreis%3A%09%3C%3CEingabe%3E%3E</text>
       </controlProperties>
@@ -96,29 +96,24 @@
         <text>0</text>
       </controlProperties>
     </control>
-    <control controlID="24" controlTypeID="com.balsamiq.mockups::NumericStepper" x="498" y="659" w="-1" h="-1" measuredW="40" measuredH="24" zOrder="18" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>0</text>
-      </controlProperties>
-    </control>
-    <control controlID="28" controlTypeID="com.balsamiq.mockups::TitleWindow" x="413" y="160" w="461" h="319" measuredW="450" measuredH="400" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="28" controlTypeID="com.balsamiq.mockups::TitleWindow" x="413" y="160" w="461" h="319" measuredW="450" measuredH="400" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Verkauf</text>
       </controlProperties>
     </control>
-    <control controlID="29" controlTypeID="com.balsamiq.mockups::SubTitle" x="442" y="229" w="-1" h="-1" measuredW="398" measuredH="37" zOrder="20" locked="false" isInGroup="-1">
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::SubTitle" x="442" y="229" w="-1" h="-1" measuredW="398" measuredH="37" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
         <color>40463</color>
         <text>Raumschiffe%20erfolgreich%20verkauft%20%21%21%21</text>
       </controlProperties>
     </control>
-    <control controlID="31" controlTypeID="com.balsamiq.mockups::TextInput" x="796" y="568" w="256" h="-1" measuredW="237" measuredH="27" zOrder="21" locked="false" isInGroup="-1">
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::TextInput" x="796" y="568" w="256" h="-1" measuredW="233" measuredH="27" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
         <color>11982760</color>
         <text>Gesamter%20Verkaufspreis%3A%09192.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="22" locked="true" isInGroup="-1">
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::VerticalTabBar" x="70" y="20" w="1019" h="728" measuredW="200" measuredH="232" zOrder="21" locked="true" isInGroup="-1">
       <controlProperties>
         <borderStyle>none</borderStyle>
         <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml</hrefs>
@@ -127,14 +122,14 @@
         <text>%DCbersicht%0ABank%0APersonalwesen%0AEinkauf%0AProduktion%0AVerkauf</text>
       </controlProperties>
     </control>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::Button" x="797" y="632" w="255" h="60" measuredW="140" measuredH="28" zOrder="23" locked="false" isInGroup="-1">
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::Button" x="797" y="632" w="255" h="60" measuredW="140" measuredH="28" zOrder="22" locked="false" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
         <href>VerkaufBest%26bm%3BVerkaufBest.bmml%26bm%3BVerkaufBest.bmml%26bm%3BVerkaufBest.bmml</href>
         <text>Verkauf%20Best%E4tigen</text>
       </controlProperties>
     </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::Button" x="516" y="357" w="254" h="53" measuredW="149" measuredH="28" zOrder="24" locked="false" isInGroup="-1">
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Button" x="516" y="357" w="254" h="53" measuredW="149" measuredH="28" zOrder="23" locked="false" isInGroup="-1">
       <controlProperties>
         <href>Verkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml</href>
         <text>Zur%FCck%20zum%20Verkauf</text>

@@ -2,11 +2,9 @@ package de.dhbw.stargreg.code;
 
 import java.util.HashMap;
 
-//Hey, wichtig wäre noch eine einheitlich Gesamt-Terminologie. Mitarbeiter heißen Personal, weil es Roboter
-//sind. Außerdem sind wirklich sprechende Namen wichtig für die anderen, die dran programmieren. [Fredrik]
-
 /**
- * 
+ * Hier werden die Personal der drei Qualit�tsstufen �ber den gemeinsamen Obertyp 'Personaltyp' 
+ * verwaltet. Das Personal kann erworben bzw. eingestellt, entlassen und geschult werden.  
  * @author Britta
  *
  */
@@ -14,25 +12,28 @@ public class PersonalAbteilung extends Abteilung {
 
 	private int anzahlPersonal = 0;
 	private double laufendeKosten = 0.0;
-	
+		
 	private final HashMap<PersonalTyp, Integer> personal = new HashMap<PersonalTyp, Integer>();	
 
 	/**
 	 * Erzeugt eine Personalabteilung. Eine Anfangsmenge Personal ist war angedacht, sollte aber nicht über
 	 * den Konstruktor eingepflegt werden, da dieser Parameter dann über Unternehmen() weitergereicht werden
-	 * müsste. Stattdessen wird nach Erzeugung eines Unternehmens die Mitarbeiter-Menge per {@code einstellen()}
+	 * müsste. Stattdessen wird nach Erzeugung eines Unternehmens die Personal-Menge per {@code einstellen()}
 	 * erweitert.
 	 */
 	public PersonalAbteilung(Unternehmen unternehmen) {
 		super(unternehmen);
 	}//Konstruktor
-
+	
 
 	/**
-	 * Schult Mitarbeiter, d.h. entnimmt Mitarbieter aus der aktuellen Kategorie und f�gt sie in die h�here Kategorie ein. Die Personalkosten werden neu berrechnet.
-	 * @param von aktuelle Kategorie
-	 * @param nach n�chste h�here Kategorie
-	 * @param anzahl Anzahl der zu schulenden Mitarbeiter
+	 * Schult Personal, d.h. eine Anzahl an Personal wird aus ihrer aktuellen Qualit�tsstufe
+	 * entnommen und der n�chsten Stufe hinzugef�gt. Dabei kann die Qualit�t immer nur um eine 
+	 * Stufe erh�ht werden. Die �nderungen der laufenden Kosten durch die neuen Kosten werden 
+	 * gespeichert; Schulungskosten werden abgebucht.
+	 * @param von Ist-Qualit�tsstufe
+	 * @param nach Soll-Qualit�tsstufe 
+	 * @param anzahlPers Anzahl der zu schulenden Personal
 	 */
 	public boolean schulen (PersonalTyp von, int anzahl) {
 		if (personal.get(von) < anzahl) {
@@ -81,6 +82,7 @@ public class PersonalAbteilung extends Abteilung {
 		return true;
 	}//wegnehmenMit
 	
+
 	//nicht auf einmal Parameter umdrehen!
 	public boolean einstellen (PersonalTyp personalTyp, int anzahl){
 		Einstellung einstellung = new Einstellung(personalTyp, unternehmen, anzahl, personalTyp.getWerbungsKosten());
@@ -93,6 +95,7 @@ public class PersonalAbteilung extends Abteilung {
 		int vorhanden = personal.get(personalTyp);
 		personal.put (personalTyp, (vorhanden + anzahl));
 		anzahlPersonal += anzahl;
+
 		laufendeKosten += personalTyp.getLaufendeKosten()* anzahl;
 		
 		Spiel.INSTANCE.getPersonalMarkt().fuegeTransaktionHinzu(einstellung);
@@ -109,7 +112,7 @@ public class PersonalAbteilung extends Abteilung {
 	
 	public double getLaufendeKosten (){
 		return this.laufendeKosten;
-	}//getPersonalkosten
+	}//getlaufendeKosten
 	
 	public double getLaufendeKosten (PersonalTyp personalTyp) {
 		return personalTyp.getLaufendeKosten() * personal.get(personalTyp);
@@ -126,6 +129,6 @@ public class PersonalAbteilung extends Abteilung {
 	
 	public void simuliere() {
 		// TODO Auto-generated method stub
-		
+	
 	}
 }
