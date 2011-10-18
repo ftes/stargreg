@@ -33,9 +33,9 @@ public class SpielTest {
 	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10);
 	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15);
 	
-	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.9, 300.0);
-	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.95, 300.0);
-	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, -1.0);
+	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, -1.0, null);
+	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.95, 300.0, droideka);
+	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.9, 300.0, kampfDroide);
 	
 	private static Unternehmen galactic = new Unternehmen("Galactic");
 	private static Unternehmen foederation = new Unternehmen("F�deration");
