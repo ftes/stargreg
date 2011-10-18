@@ -1,19 +1,19 @@
 package de.dhbw.stargreg.code;
 
 /**
- * Ein PersonalTyp wird durch seine Bezeichnung und eine Qualitätsstufe beschrieben,
+ * Ein PersonalTyp wird durch seine Bezeichnung und eine Qualitï¿½tsstufe beschrieben,
  * die den Ausschuss steuert
  * @author fredrik
  *
  */
 public class PersonalTyp extends Typ {
-	private final int qualitaet;
+	private final double qualitaet;
 	private double laufendeKosten;
 	private double werbungsKosten;
 	private final double schulungsKosten;
 	private final boolean schulbar;
 	
-	public PersonalTyp(String name, int qualitaet, double schulungsKosten) {
+	public PersonalTyp(String name, double qualitaet, double schulungsKosten) {
 		super(name);
 		this.qualitaet = qualitaet;
 		if (schulungsKosten <= 0.0) {
@@ -25,7 +25,7 @@ public class PersonalTyp extends Typ {
 		}
 	}
 	
-	public int getQualitaet() {
+	public double getQualitaet() {
 		return qualitaet;
 	}
 	
