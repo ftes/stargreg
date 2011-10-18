@@ -6,12 +6,11 @@ package de.dhbw.stargreg.code;
  *
  */
 public class FinanzAbteilung extends Abteilung {
+	private double kapital = 0;
+
 	public FinanzAbteilung(Unternehmen unternehmen) {
 		super(unternehmen);
 	}
-	private double kapital = 0;
-
-	//kein fest gecodetes Startguthaben!!!
 
 	public void einzahlen (double betrag){
 		if (betrag < 0) {
