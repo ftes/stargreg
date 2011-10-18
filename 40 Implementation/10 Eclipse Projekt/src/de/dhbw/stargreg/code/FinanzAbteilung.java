@@ -7,17 +7,10 @@ package de.dhbw.stargreg.code;
  */
 public class FinanzAbteilung extends Abteilung {
 	public class Finanzen {
-		private Double kapital;
-/*		
-		public Finanzen eroeffnen () {
-			return new Finanzen();
-		}//eroeffnen
-*/		
-		private Finanzen () {
-			this.kapital = 1500000.0;
-		}//Konstruktor
+		private double kapital = 0;
 
-	
+		//kein fest gecodetes Startguthaben!!!
+
 		public void einzahlen (double betrag){
 	        if (betrag < 0) {
 	            return;
@@ -25,12 +18,13 @@ public class FinanzAbteilung extends Abteilung {
 			this.kapital += betrag;
 		}//einzahlen
 		
-		public String abbuchen (double betrag){
+		public boolean abbuchen (double betrag){
 			if (betrag > this.kapital) {
-				return ("Eigenkapital zu niedrig!");
+				System.err.println("Kapital zu niedrig");
+				return false;
 			}
 			this.kapital -= betrag;
-			return null;
+			return true;
 		}//abbuchen
 		
 		public double getKontostand(){
