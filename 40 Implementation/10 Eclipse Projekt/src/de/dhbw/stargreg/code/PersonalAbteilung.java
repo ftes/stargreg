@@ -2,7 +2,8 @@ package de.dhbw.stargreg.code;
 
 import java.util.HashMap;
 
-import de.dhbw.stargreg.code.FinanzAbteilung.Finanzen;
+//Hey, wichtig wÃ¤re noch eine einheitlich Gesamt-Terminologie. Mitarbeiter heiÃŸen Personal, weil es Roboter
+//sind. AuÃŸerdem sind wirklich sprechende Namen wichtig fÃ¼r die anderen, die dran programmieren. [Fredrik]
 
 /**
  * 
@@ -11,75 +12,77 @@ import de.dhbw.stargreg.code.FinanzAbteilung.Finanzen;
  */
 public class PersonalAbteilung extends Abteilung {
 
-	private int summeMit = 0;
-	private double personalkosten = 0.0;
+	private int anzahlPersonal = 0;
+	private double laufendeKosten = 0.0;
 	
-	private HashMap<PersonalTyp, Integer> allePersonaltypen = new HashMap<PersonalTyp, Integer>();	
+	private final HashMap<PersonalTyp, Integer> personal = new HashMap<PersonalTyp, Integer>();	
 
-/*	public PersonalAbteilung einrichten () {
-		return new PersonalAbteilung();
-	}//eroeffnen
-*/	
-	public PersonalAbteilung (HashMap<PersonalTyp, Integer> hm) {
-		
-		this.allePersonaltypen = hm;
-		for( PersonalTyp p : allePersonaltypen.keySet()) {
-			this.summeMit += allePersonaltypen.get(p);
-			this.personalkosten += p.getLaufendeKosten()*allePersonaltypen.get(p);
-			// personalkosten_1/2/3 für jeden Typ
-		}
+	/**
+	 * Erzeugt eine Personalabteilung. Eine Anfangsmenge Personal ist war angedacht, sollte aber nicht Ã¼ber
+	 * den Konstruktor eingepflegt werden, da dieser Parameter dann Ã¼ber Unternehmen() weitergereicht werden
+	 * mÃ¼sste. Stattdessen wird nach Erzeugung eines Unternehmens die Mitarbeiter-Menge per {@code einstellen()}
+	 * erweitert.
+	 */
+	public PersonalAbteilung () {
 
 	}//Konstruktor
 
 
 	/**
-	 * Schult Mitarbeiter, d.h. entnimmt Mitarbieter aus der aktuellen Kategorie und fügt sie in die höhere Kategorie ein. Die Personalkosten werden neu berrechnet.
-	 * @param p aktuelle Kategorie
-	 * @param q nächste höhere Kategorie
-	 * @param anzahlMit Anzahl der zu schulenden Mitarbeiter
+	 * Schult Mitarbeiter, d.h. entnimmt Mitarbieter aus der aktuellen Kategorie und fï¿½gt sie in die hï¿½here Kategorie ein. Die Personalkosten werden neu berrechnet.
+	 * @param von aktuelle Kategorie
+	 * @param nach nï¿½chste hï¿½here Kategorie
+	 * @param anzahl Anzahl der zu schulenden Mitarbeiter
 	 */
-	public void schulenMit (PersonalTyp p, PersonalTyp q, int anzahlMit ){
+	public void schulen (PersonalTyp von, PersonalTyp nach, int anzahl){
+		//Was ist mit den Schulungskosten?!
+		int anzahlVonAlt = personal.get(von);
+		int anzahlNachAlt = personal.get(nach);
+		anzahlNachAlt = anzahlNachAlt + anzahl;
+		anzahlVonAlt = anzahlVonAlt - anzahl;
 		
-		int anzahlMit_p = allePersonaltypen.get(p);
-		int anzahlMit_q = allePersonaltypen.get(q);
-		anzahlMit_q = anzahlMit_q + anzahlMit;
-		anzahlMit_p = anzahlMit_p - anzahlMit;
-		
-		allePersonaltypen.put(p, anzahlMit_p);
-		allePersonaltypen.put(q, anzahlMit_q);
+		personal.put(von, anzahlVonAlt);
+		personal.put(nach, anzahlNachAlt);
 		//Personalkosten neu berechnen
-		personalkosten -= p.getLaufendeKosten()* anzahlMit;
-		personalkosten += q.getLaufendeKosten()* anzahlMit;
+		laufendeKosten -= von.getLaufendeKosten()* anzahl;
+		laufendeKosten += nach.getLaufendeKosten()* anzahl;
 	}//erwerbenMit
 	
-	public void wegnehmenMit (PersonalTyp p, int anzahlMit){
-		int anzahlMit_p = allePersonaltypen.get(p);
-		allePersonaltypen.put(p, (anzahlMit_p - anzahlMit));
-		summeMit -= anzahlMit;
-		personalkosten -= p.getLaufendeKosten()* anzahlMit;
+	/**
+	 * EntlÃ¤sst Mitarbeiter (Name angepasst an Gesamt-Terminologie)
+	 * @param personalTyp PersonalTyp
+	 * @param anzahl Anzahl der Mitarbeiter
+	 */
+	public void entlassen (PersonalTyp personalTyp, int anzahl){
+		int anzahlMit_p = personal.get(personalTyp);
+		personal.put(personalTyp, (anzahlMit_p - anzahl));
+		anzahlPersonal -= anzahl;
+		laufendeKosten -= personalTyp.getLaufendeKosten()* anzahl;
 	}//wegnehmenMit
 	
-	public void erwerbenMit (int anzahlMit, PersonalTyp p){
-		int anzahlMit_p = allePersonaltypen.get(p);
-		allePersonaltypen.put (p, (anzahlMit_p + anzahlMit));
-		summeMit += anzahlMit;
-		personalkosten += p.getLaufendeKosten()* anzahlMit;
+	//nicht auf einmal Parameter umdrehen!
+	public void einstellen (PersonalTyp personalTyp, int anzahl){
+		//Werbungskosten?!
+		int anzahlAlt = personal.get(personalTyp);
+		personal.put (personalTyp, (anzahlAlt + anzahl));
+		anzahlPersonal += anzahl;
+		laufendeKosten += personalTyp.getLaufendeKosten()* anzahl;
 	}//schulenMit
 	
-	public int getMitAnzahl (){
-		return summeMit;
+	public int getAnzahlPersonal (){
+		return anzahlPersonal;
 	}//getMitAnzahl
 	
-	public int getTypMitAnzahl (PersonalTyp p){
-		return allePersonaltypen.get(p);
+	public int getAnzahlPersonalTyp (PersonalTyp personalTyp){
+		return personal.get(personalTyp);
 	}//getTypMitAnzahl
 	
-	public double getPersonalkosten (){
-		return this.personalkosten;
+	public double getLaufendeKosten (){
+		return this.laufendeKosten;
 	}//getPersonalkosten
 	
-	public double getTypPersonalkosten (PersonalTyp p) {
-		return p.getLaufendeKosten()*allePersonaltypen.get(p);
+	public double getLaufendeKostenPersonalTyp (PersonalTyp personalTyp) {
+		return personalTyp.getLaufendeKosten()*personal.get(personalTyp);
 	}//getTypPerosnalkosten
 	
 	public void simuliere() {
