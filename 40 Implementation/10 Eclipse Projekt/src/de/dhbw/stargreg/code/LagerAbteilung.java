@@ -10,7 +10,6 @@ import java.util.HashMap;
  *
  */
 
-
 // Frage: Werden ProduktTypen direkt nach der Produktion eingelagert und fallen dann die Lagerkosten an,
 // auch wenn sie noch in der selben Periode wieder ausgelagert werden (durch Verkauf)?
 
@@ -33,14 +32,14 @@ public class LagerAbteilung extends Abteilung {
 	/**
 	 * Entnimmt eine Anzahl an Bauteilen und Raumschiffen aus dem Lager, sofern der Lagerbestand dies 
 	 * erlaubt. Die ÔøΩnderungen des Lagerbestands werden gespeichert.
-	 * @param produktTyp Referenz auf ein Objekt des Typs ProduktTyp
+	 * @param produktTyp produktTyp von ProduktTyp
 	 * @param anzahl Anzahl der zu entnehmenden Teile dieses Typs
 	 * @return Meldung ???
 	 */
 	public boolean entnehmen (ProduktTyp produktTyp, int anzahl){
 		int istAnzahl = bestand.get(produktTyp); 		
 		if (anzahl > istAnzahl){
-			System.err.println("Lagerbestand zu gering! Es k√∂nnen nur " + istAnzahl + " Teile entnommen werden.");
+			System.err.println("Lagerbestand zu gering! Es koennen nur " + istAnzahl + " Teile entnommen werden.");
 			return false;
 		}
 		//Achtung: Differenz bilden!
@@ -53,7 +52,7 @@ public class LagerAbteilung extends Abteilung {
 	 * Lagert neue Bauteile und Raumschiffe in das Lager ein. Da das Lager beliebig groﬂ ist, muss keine 
 	 * Pruefung auf ausreichend freie Kapazitaet durchgefuehrt werden. Die ÔøΩnderungen des Lagerbestands 
 	 * werden gespeichert.
-	 * @param produktTyp Referenz auf ein Objekt des Typs ProduktTyp
+	 * @param produktTyp produktTyp von ProduktTyp
 	 * @param anzahl Anzahl der einzulagernden Teile dieses Typs
 	 */
 	public void einlagern (ProduktTyp produktTyp, int anzahl){

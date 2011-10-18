@@ -15,17 +15,10 @@ public class PersonalAbteilung extends Abteilung {
 		
 	private final HashMap<PersonalTyp, Integer> personal = new HashMap<PersonalTyp, Integer>();	
 
-	/**
-	 * Erzeugt eine Personalabteilung. Eine Anfangsmenge Personal ist war angedacht, sollte aber nicht über
-	 * den Konstruktor eingepflegt werden, da dieser Parameter dann über Unternehmen() weitergereicht werden
-	 * müsste. Stattdessen wird nach Erzeugung eines Unternehmens die Personal-Menge per {@code einstellen()}
-	 * erweitert.
-	 */
 	public PersonalAbteilung(Unternehmen unternehmen) {
 		super(unternehmen);
 	}//Konstruktor
 	
-
 	/**
 	 * Schult Personal, d.h. eine Anzahl an Personal wird aus ihrer aktuellen Qualit�tsstufe
 	 * entnommen und der n�chsten Stufe hinzugef�gt. Dabei kann die Qualit�t immer nur um eine 
