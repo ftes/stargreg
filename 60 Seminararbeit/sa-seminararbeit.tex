@@ -1,0 +1,182 @@
+%
+% Einlesen der .sty-Dateien
+%
+\input{sa-input-styles}
+
+%
+% Individuelle Konfiguration des Dokumentes
+%
+\input{sa-konfiguration}
+
+%
+% Definition von Abk\"urzungen, Symbolen und eventuell Glossareintr\"agen
+%
+\input{sa-abkuerzungen} 
+
+\begin{document}
+
+% Erzeugung des Titelblatts
+%
+%
+%
+\seTitelblattErsteProjektarbeit[
+%hilfslinien=ja,
+%dhbwlogoSkalierung=0.5,
+%dhbwlogoDeltaX=2.4,
+%dhbwlogoDeltaY=-10,
+firmenlogo=firmenlogo,
+firmenlogoSkalierung=0.5,
+firmenlogoDeltaX=0,
+firmenlogoDeltaY=0,
+thema=\LaTeX-Layoutvorlage zur Anfertigung der ersten Projektarbeit\\Version 0.9,
+verfasser=J\"org Baumgart,
+%verfasserin=,
+matrikelnummer=9999999,
+kurs=WWI\,10\,SWM\,A,
+firma=Ausbildungsfirma,
+abteilung=Wirtschafsinformatik/Softwaremethodik,
+%studiengangsleiterin=,
+studiengangsleiter=Prof. Dr.-Ing. J\"org Baumgart,
+wissenschaftlicheBetreuerinName=Dr. Melanie Mustermann,
+wissenschaftlicheBetreuerinEmail=melanie.mustermann@musterfirma.de,
+wissenschaftlicheBetreuerinTelefon=0621/999999,
+%wissenschaftlicherBetreuerName=,
+%wissenschaftlicherBetreuerEmail=,
+%wissenschaftlicherBetreuerTelefon=,
+firmenbetreuerinName=Dipl.-Ing. Ariane Meistermann,
+firmenbetreuerinEmail=a.meistermann@andere-musterfirma.de,
+firmenbetreuerinTelefon=06151/88888,
+%firmenbetreuerName=,
+%firmenbetreuerEmail=,
+%firmenbetreuerTelefon=,
+bearbeitungszeitraumVon=22. Juli 2011,
+bearbeitungszeitraumBis=4. August 2011,
+sperrvermerk=ja
+]
+
+
+
+% Erzeugung der Kurzfassung; Verfasser, Firma und Thema werden automatisch \"ubernommen
+\seKurzfassung
+
+
+% Beispiel f\"ur ein Kapitel, dass vor dem Einleitungskapitel kommt, z. B. ein Vorwort oder eine Danksagung
+\seKapitelVorEinleitung{Vorwort}
+
+
+
+% Ausgabe der verschiedenen Verzeichnisse
+% abk: Abk\"urzungsverzeichnis
+% sym: Symbolverzeichnis
+% abb: Abbildungsverzeichnis
+% tab: Tabellenverzeichnis
+% prg: Listingverzeichnis
+%
+%
+% Achtung: Abk\"urzungs- und Symbolverzeichnis werden nur ausgegeben, wenn mindest ein Symbol bzw. 
+%                mindestens eine Abk\"urzung in der Arbeit verwendet wurden
+%
+%
+% gliederungsebene:
+% -- section: die Verzeichnisse werden einem Kapitel "Verzeichnisse" untergliedert
+% -- chapter: die Verzeichnisse sind jeweils eigene Kapitel
+% imInhaltsverzeichnis: ja/nein -- Sollen die Verzeichnisse im Inhaltsverzeichnis enthalten sein?
+\seVerzeichnisse[gliederungsebene=section,imInhaltsverzeichnis=ja]{abk}{sym}{abb}{tab}{prg}
+
+
+% Ausgabe des Inhaltsverzeichnisses
+%
+%
+\seInhaltsverzeichnis[%
+einrueckung=ja,
+gliederungsebenen=4
+]
+
+
+
+
+% Erstes eigentliches Kapitel der Arbeit; typischerweise das Einleitungskapitel;
+% hier muss wieder auf die Nummierung mit arabischen Seitenzahlen umgestellt werden
+%
+\chapter{Einleitung}\pagenumbering{arabic}
+
+
+% Erstes Hauptkapitel der Arbeit 
+%
+%
+%
+\chapter{Der formale Aufbau einer Projektarbeit}
+% Mit markright kann eine verk\"urzte Version der \"Uberschrift f\"ur den Seitenkopf generiert werden
+%
+%
+%\markright{Formaler Aufbau}
+
+
+
+
+% Anhang der Arbeit
+% 
+%
+\seAppendix{}
+\chapter{Einige wichtige \LaTeX{}-Kommandos}
+
+
+
+%\input{se-test-zitieren}
+
+
+
+%
+%  Erzeugung eines Glossars
+%
+% Achtung: Das Glossar wird nur ausgegeben, wenn mindestens ein Eintrag in der Arbeit 
+%                definiert wurde
+%
+%
+\newpage
+\sePrintGlossary{}
+
+
+%
+% Literaturverzeichnisses
+%
+%\newpage
+\sePrintBibliography{}
+
+%\input{se-test-literaturverzeichnis}
+
+
+%
+% Festlegung des grundlegenden Formatierungsstils des Literaturverzeichnis
+%
+\bibliographystyle{jurabib}
+
+% Eigentliche Ausgabe der in der Arbeit verwendeten Quellen
+%
+%
+% Angabe der bib-Dateien, in denen die Quellen beschrieben sind;
+% die Angabe geht davon aus, dass eine wa.bib-Datei in demselben 
+% Verzeichnis liegt, wie se-pa1-vorlage.tex
+%
+\seBibliography{wa}
+
+
+%
+% Erzeugung der ehrenw\"ortlichen Erkl\"arung
+%
+%
+\seEhrenwoertlicheErklaerung{}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

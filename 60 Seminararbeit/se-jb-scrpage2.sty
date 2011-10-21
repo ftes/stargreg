@@ -1,0 +1,37 @@
+% J\"org Baumgart  
+% 2011-04-17
+%
+% Konfiguration der Seitenk\"opfe und -f\"u{\ss}e
+% 
+% 
+%
+\RequirePackage[automark,headsepline,footsepline]{scrpage2}
+
+\pagestyle{scrheadings}
+
+
+
+\renewcommand{\chaptermarkformat}{}
+
+% vgl KOMA-Script S. 270
+\renewcommand*{\pnumfont}{\upshape\sffamily}
+\renewcommand*{\headfont}{\upshape\sffamily}
+\renewcommand*{\footfont}{\upshape\sffamily}
+
+\clearscrheadfoot
+\ihead{\ifthenelse{\value{chapter}>0}{\chaptername~\thechapter}{}}
+
+% Achtung: headmark scheint rechts einen Leerraum zu erzeugen; Korrektur \"uber \hspace*{-x mm}
+%
+%
+\ohead{\ifthenelse{\value{chapter}>0}{\headmark\hspace*{-0.9mm}}%
+{\ifthenelse{\equal{\seUseVerzeichnis}{ja}}{Verzeichnise}{\headmark\hspace*{-0.9mm}}}
+}
+\ifoot[DHBW Mannheim]{DHBW Mannheim}
+\ofoot[\pagemark]{\pagemark}
+
+\defpagestyle{sechapter}%
+{(0pt,0pt){}{}{}(0pt,0pt)}
+{(\textwidth,0.4pt){}{}{DHBW Mannheim\hfill\pagemark}(0pt,0pt)}
+
+\renewcommand*{\chapterpagestyle}{sechapter} 

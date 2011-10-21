@@ -1,0 +1,41 @@
+%  se-pa1-input-styles.tex
+%
+%  Joerg Baumgart 01.08.2011
+%
+%  Zusammenfassung und Konfiguration wichtiger Styles f\"ur die 
+%  Erzeugung von Seminar-, Projekt- und Bachelorarbeiten
+%
+%
+\documentclass[12pt,BCOR=10mm,headinclude=on,footinclude=off,bibliography=totoc]{scrreprt}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[ngerman]{babel} % Deutsche Einstellungen
+\usepackage{lmodern}
+
+\usepackage{tikz} % Graphikpaket, das zu pdfLaTeX kompatibel ist
+\usepackage{xkeyval} % Definition von Kommandos mit mehreren optionalen Argumenten
+\usepackage{listings} % Formatierung von Programmlistings
+\usepackage{graphicx} % Einbinden von Graphiken
+\usepackage{ifthen}
+\usepackage{color}
+\usepackage{slashbox} % Diagonalen in Tabellenfeldern
+\usepackage{framed} % Erzeugung schwarzer Linien am linken Rand zur Hervorhebung von Textteilen
+\usepackage{caption} % Korrektes Setzen einer mehrzeiligen float-Unterschrift bei neu definierten float-Umgebungen
+\usepackage{floatrow}
+
+% Es wird jeweils die sty-Datei importiert und entsprechende Konfigurationseinstellungen werden vorgenommen
+
+\usepackage{se-jb-scrpage2} % Formatierung der Kopf- und Fu{\ss}zeilen
+\usepackage{se-jb-footmisc}    % Fussnoten besser formatieren
+
+\usepackage{se-jb-glossaries} % Abk\"urzungsverzeichnis, Symbolverzeichnis, Glossar
+   
+\usepackage{se-jb-floatrow}    % Definition und Konfiguration von float-Umgebungen (figure, table, die neue programm-Umgebung)
+% Achtung: se-jb-varioref muss nach se-jb-floatrow importiert werden; 
+% andernfalls ist der counter programm f\"ur die labelformat-Anweisung noch nicht definiert   
+\usepackage{se-jb-varioref}   % Definition von Querverweisen
+\usepackage{se-jb-chngcntr}   % Kapitelweise oder globale Nummerierung von Abbildungen etc.
+   
+\usepackage{se-jb-listen} % Definition neuer, besser formatierter Listen
+%\usepackage{pdf-kommandos} 
+\usepackage{se-jb-kommandos-v01} % neue Kommandos f\"ur Seminar-, Projekt- und Bachelorarbeiten

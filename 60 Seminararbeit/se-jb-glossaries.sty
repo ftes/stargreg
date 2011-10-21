@@ -1,0 +1,76 @@
+% J\"org Baumgart  
+% 2011-04-17
+%
+% Konfiguration glossaries.sty, um ein gutes Layout f\"ur die Ausgabe von Abk\"urzungsverzeichnis, 
+% Symbolverzeichnis und Glossar zu erreichen
+%
+%
+%  Einstellungen f\"ur das Abk\"urzungsverzeichnis
+%
+% translator.sty ist notwendig f\"ur die Umbennenung des Abk\"urzungsverzeichnisses bei Verwendung von glossaries.sty
+\RequirePackage[ngerman]{translator}
+%
+\RequirePackage[%
+nonumberlist, %keine Seitenzahlen anzeigen
+acronym,      %ein Abkürzungsverzeichnis erstellen; keine Angabe => das Glossar wird ausgegeben
+%%toc,          %Einträge im Inhaltsverzeichnis
+]      %im Inhaltsverzeichnis auf section-Ebene erscheinen
+{glossaries}
+%Ein eigenes Symbolverzeichnis erstellen
+\newcommand{\seSymboleVerzeichnisname}{Symbolverzeichnis}
+\newglossary[slg]{symbolslist}{syi}{syg}{\seSymboleVerzeichnisname}
+
+%Den Punkt am Ende jeder Beschreibung deaktivieren
+\renewcommand*{\glspostdescription}{}
+
+%Glossar-Befehle anschalten
+\makeglossaries
+
+\newcommand{\seGlossaryItemsep}{0mm}
+\newcommand{\seGlossaryTitlesep}{0mm}
+%\newcommand{\seAbkuerzungsverzeichnisLabelwidth}{5cm}
+%\newcommand{\seSymbolverzeichnisLabelwidth}{1cm}
+\newcommand{\seGloLabelwidth}{4em}
+\newcommand{\seGloLeftmargin}{0cm}
+\newenvironment{seGloDescription}%
+  %  {\vspace*{0mm}\vspace*{\seGlossaryTitlesep}\begin{list}{}{\setlength{\leftmargin}{\seGloLabelwidth}%
+    {\vspace*{0mm}\vspace*{\seGlossaryTitlesep}\begin{list}{}{\setlength{\leftmargin}{\seGloLeftmargin}%
+\addtolength{\leftmargin}{\seGloLabelwidth}%    
+                          \setlength\labelwidth{\seGloLabelwidth}\setlength{\listparindent}{0pt}\setlength{\labelsep}{0pt}%
+                          \setlength\itemindent{0pt}%
+                          \setlength{\parsep}{0pt}%
+                          \setlength{\itemsep}{\seGlossaryItemsep}
+                          \setlength{\topsep}{0pt}
+                          \setlength{\parskip}{0pt}
+                          \let\makelabel\seGloDescriptionlabel}}%
+    {\end{list}}
+
+
+%\newcommand*\seGloDescriptionlabel[1]
+%    {\hspace{\labelsep}\sffamily\textbf{#1}}    
+
+\newcommand*\seGloDescriptionlabel[1] {#1}    
+
+\newglossarystyle{seGloList}{%
+%% Use description environment:
+\renewenvironment{theglossary}%
+{\begin{seGloDescription}}{\end{seGloDescription}}%
+%% No header at the start of the environment:
+\renewcommand*{\glossaryheader}{}%
+%% No group headings:
+\renewcommand*{\glsgroupheading}[1]{}%
+%% Main (level 0) entries start a new item in the list:
+\renewcommand*{\glossaryentryfield}[5]{%
+\item[\glstarget{##1}{##2}] ##3\glspostdescription\space ##5}%
+
+%% Sub-entries continue on the same line:
+\renewcommand*{\glossarysubentryfield}[6]{%
+\glstarget{##2}{\strut}##4\glspostdescription\space ##6.}%
+% \end{macrocode}
+% Add vertical space between groups:
+% \begin{macrocode}
+\renewcommand*{\glsgroupskip}{\indexspace}%
+% JB kleinerer Zwischenraum zwischen den Eintr\"agen
+%      Was \indexspace genau ist, ist leider unklar
+\renewcommand*{\glsgroupskip}{}%
+}

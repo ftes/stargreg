@@ -1,0 +1,156 @@
+%  Individuelle Konfiguration einer Projektarbeit
+%
+%
+%
+%
+
+%
+% Literaturverzeichnis
+% 
+\usepackage{se-jb-jurabib-theisen} % Literaturverzeichnis gem\"ass den Vorgaben von Theisen aufbauen
+
+
+
+% Weitere Optionseinstellungen f\"ur das Koma-Script
+%
+% Zwischen Abs\"atzen einen Abstand von 0.5 \baselineskip erzeugen
+\KOMAoption{parskip}{full}
+%
+% Vergleiche Duden "Gliederung von Nummern, S.111" 
+% DIN 5008 anschauen, wenn sie neu ver\"offentlicht wurde
+\KOMAoption{numbers}{noendperiod}
+%
+%
+
+
+
+%  Voreinstellungen f\"ur floats
+%  Durch die verwendeten Parameter wird die Wahrscheinlichkeit deutlich kleiner, 
+%  dass Gleitobjekte (z. B. Abbildungen) ans Ende des Dokumentes verschoben 
+%  werden; 
+%  Achtung: clearpage erzwingt die Ausgabe von Gleitobjekten
+%
+\renewcommand{\topfraction}{1}  % Gleitobjekte d\"urfen eine Seite zu 100% belegen 
+\renewcommand{\bottomfraction}{1} % Entsprechender Wert f\"ur den unteren Teil der Seite
+\renewcommand{\textfraction}{0} % Eine Seite darf auch ohne Fliesstext existieren
+%%%\renewcommand{\floatpagefraction}{1} % Bedeutung unklar, daher keine Ver\"anderung des Vorgabewertes 
+                                                                        % von 0.5; eventuell bringt ein \"Anderung auf 1 etwas, wenn 
+                                                                         % Probleme mit floats auftreten
+                                                                         
+                                                                         
+                                                                         
+% Konfiguration von Programm-Listings
+% 
+% Achtung: hier gibt es nahezu beliebig viele weitere Konfigurationm\"oglichkeiten; vgl. Paketdokumentation
+%
+\lstset{language=Java,basicstyle=\ttfamily,keywordstyle=\color{blue},captionpos=b,aboveskip=0mm,belowskip=0mm,
+          xleftmargin=0em}               
+          
+%
+% Grundkonfiguration der Abs\"ande zwischen den Items der maximal f\"unf Verschachtelungsebenen der 
+% neuen Listenumgebungen
+%                                                                             
+% Initialisierung der Abst\"ande zwischen den items f\"ur seList; Grundeinheit: 0.5\baselineskip; siehe se-jb-listen
+\seSetlistbaselineskip{1}{0.75}{0.75}{0.75}{0.75}
+% Initialisierung der Abst\"ande zwischen den items f\"ur seToplist; Grundeinheit: 0.5\baselineskip; siehe se-jb-listen
+\seSettoplistbaselineskip{1}{0.75}{0.75}{0.75}{0.75}     
+
+
+%
+%  Konfiguration der verschiedenen Verzeichnisse
+%
+%
+%
+\seKonfigurationAbb[
+%verzeichnisname=Abbildungsverzeichnis,
+labeltextLinks=, % kein Text links;
+%labeltextRechts=:,
+labelbreite=1cm,
+%labeleinzug=1cm,
+%abstandEintrag=1,
+%newpage=ja,
+%pnumwidth=20mm,
+%dotsep=1000,
+%tocrmarg=4.5cm,
+%abstandVerzeichnis=-1mm
+]
+
+\seKonfigurationPrg[
+%verzeichnisname=Listing-Verzeichnis,
+labeltextLinks=,
+%labeltextRechts=:,
+labelbreite=1cm,
+%labeleinzug=2cm,
+%abstandEintrag=1,
+%newpage=ja,
+%%pnumwidth=20mm,
+%dotsep=1000,
+%tocrmarg=4.5cm,
+%abstandVerzeichnis=-10mm
+]
+
+\seKonfigurationTab[
+%verzeichnisname=Liste der Tabellen,
+labeltextLinks=,
+%labeltextRechts=:,
+labelbreite=1cm,
+%labeleinzug=0.5cm,
+%abstandEintrag=1,
+%newpage=ja,
+%pnumwidth=20mm,
+%dotsep=1000,
+%tocrmarg=4.5cm,
+%abstandVerzeichnis=-10mm
+]
+
+\seKonfigurationAbk[
+%verzeichnisname=Liste der Abk\"urzungen,
+%labelbreite=3cm,
+%labeleinzug=0.5cm,
+%abstandEintrag=1,
+%newpage=ja,
+%abstandVerzeichnis=-10mm
+]
+
+\seKonfigurationSym[
+%verzeichnisname=Liste der Symbole,
+%labelbreite=4cm,
+%labeleinzug=3.5cm,
+%abstandEintrag=1,
+%newpage=ja,
+%abstandVerzeichnis=-10mm
+]
+
+
+% (eventuelle) Neudefinition f\"ur die Unter-/\"Uberschriften von Abbildungen, Tabellen und Listings
+%
+%
+%\renewcommand{\seCaptionNameAbbildung}{Abb.}
+%\renewcommand{\seCaptionNameTabelle}{Tab.}
+%\renewcommand{\seCaptionNameProgramm}{Prg.}
+
+
+% % (eventuelle) Neudefinition f\"ur Querverweise innerhalb des Textes
+%
+%
+%
+%\renewcommand{\seQuerverweisSeite}{Seite}
+%\renewcommand{\seQuerverweisAbbildung}{Abb.}
+%\renewcommand{\seQuerverweisTabelle}{Tab.}
+%\renewcommand{\seQuerverweisProgramm}{Prg.}
+%\renewcommand{\seQuerverweisKapitel}{Kap.}
+%\renewcommand{\seQuerverweisGleichung}{Gl.}
+
+% Kommandos, die direkt nach \begin{document} ausgef\"uhrt werden m\"ussen
+%
+%
+%
+\AtBeginDocument{%
+\renewcommand{\listfigurename}{\seAbbildungenVerzeichnisname}
+\renewcommand{\listtablename}{\seTabellenVerzeichnisname}
+\renewcommand{\figurename}{\seCaptionNameAbbildung}
+\renewcommand{\tablename}{\seCaptionNameTabelle}
+\pagenumbering{roman}
+}
+                                                              
+                                                                         

@@ -1,0 +1,911 @@
+% J\"org Baumgart
+% 2011-04-17
+%\define@key{seKonfigurationAbk}{abstandEintrag}{\renewcommand{\seAbkAbstandEintrag}{#1}}
+% Kommandos f\"ur das Schreiben von Seminar-, Projekt- und Bachelorarbeiten
+%
+% 2011-05-06 Anpassung an floatrow.sty
+
+% Kommandos f\"ur die Erzeugung von Hilfslinien
+
+\newcommand{\sePdfHline}[3][\pdfLineWidth]{%
+\put(#2){%
+\begin{tikzpicture}[scale=0.1,line width=#1mm]%
+\draw (0,0) -- (#3,0);%
+\end{tikzpicture}%
+}}
+
+\newcommand{\sePdfVline}[3][\pdfLineWidth]{%
+\put(#2){%
+\begin{tikzpicture}[scale=0.1,line width=#1mm]%
+\draw (0,0) -- (0,#3);%
+\end{tikzpicture}%
+}}
+
+
+\newcommand{\seItemtext}{}
+\newcommand{\seIt}[3][xxjbyy]{%
+\ifthenelse{\equal{#1}{xxjbyy}}{}{\renewcommand{\seItemtext}{#1}}
+\begin{seToplist}{\seItemtext}
+\item[#2]#3
+\end{seToplist}
+}
+
+
+
+\newcommand{\seVsa}{\vspace{0.25\baselineskip}}
+\newcommand{\seVsb}{\vspace{0.5\baselineskip}}
+\newcommand{\seVsc}{\vspace{0.75\baselineskip}}
+\newcommand{\seVsd}{\vspace{1\baselineskip}}
+\newcommand{\seVs}[1]{\vspace{#1\baselineskip}}
+
+\newcommand{\zB}{z.\,B.}
+\newcommand{\ZB}{Z.\,B.}
+\newcommand{\dasheisst}{d.\,h.}
+\newcommand{\Dasheisst}{D.\,h.}
+
+\newcommand{\Svonbis}[2]{S. #1--#2}
+\newcommand{\Sf}[1]{S. #1\,f}
+\newcommand{\Sfp}[1]{S. #1\,f.}
+\newcommand{\Sff}[1]{S. #1\,ff}
+\newcommand{\Sffp}[1]{S. #1\,ff.}
+\newcommand{\Seite}[1]{S. #1}
+
+\newcommand{\seArbeit}[1]{}
+
+\newcommand{\seDEL}[1]{}
+
+
+\newcommand{\seTextUmgebung}{}
+\newcommand{\seEmpfehlungStart}[1][]{%
+\setlength{\unitlength}{1mm}
+\begin{picture}(150,6)
+\pdfRectangle{0,0}{150}{6}{ggray}
+\put(0,0){\makebox(150,6){\ifthenelse{\equal{#1}{}}{\textsf{\seTextUmgebung{}}}{\textsf{\seTextUmgebung{} -- #1}}}}
+\end{picture}
+\seVs{-0.25}
+}%
+
+\newcommand{\seEmpfehlungEnde}{%
+\setlength{\unitlength}{1mm}
+\begin{picture}(150,6)
+\pdfRectangle{0,0}{150}{6}{ggray}
+%\put(0,0){\makebox(150,6){\textsf{Empfehlung}}}
+\end{picture}
+}%
+
+\newenvironment{seEmpfehlung}{\renewcommand{\seTextUmgebung}{Empfehlung}\seEmpfehlungStart}{\seEmpfehlungEnde}
+
+\newenvironment{seVorgaben}{\renewcommand{\seTextUmgebung}{Vorgaben}\seEmpfehlungStart}{\seEmpfehlungEnde}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Erzeugung einer Ehrenw\"ortlichen Erkl\"arung
+%
+%
+\newcommand{\seEhrenwoertlicheErklaerung}{
+\chapter*{Ehrenw\"ortliche Erkl\"arung}\thispagestyle{empty}
+
+\seSettoplistbaselineskip{1}{0.75}{0.75}{0.75}{0.75}
+
+\glqq{}Ich erkl\"are hiermit ehrenw\"ortlich:
+
+\begin{seToplist}{1.}
+\item[1.] dass ich meine \seTypDerArbeit{} mit dem Thema 
+\begin{center}
+\textbf{\seThemaDerArbeit{}}
+\end{center}
+ohne fremde Hilfe angefertigt habe;
+\item[2.] dass ich die \"Ubernahme w\"ortlicher Zitate aus der Literatur sowie die Verwendung der Gedanken
+anderer Autoren an den entsprechenden Stellen innerhalb der \seTypDerArbeit{} gekennzeichnet habe;
+\item[3.] dass ich meine \seTypDerArbeit{} bei keiner anderen Pr\"ufung vorgelegt habe;
+\item[4.] dass die eingereichte elektronische Fassung exakt mit der eingereichten schriftlichen Fassung 
+\"ubereinstimmt.
+\end{seToplist}
+
+Ich bin mir bewusst, dass eine falsche Erkl\"arung rechtliche Folgen haben wird.\grqq{}
+
+\seVs{2.5}
+Ort, Datum \hspace*{\fill} Unterschrift\newline
+\seResettoplistbaselineskip{}
+}
+%
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ende \seEhrenwoertlicheErklaerung
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% Allgemeine Definitionen f\"ur ein Titelblatt
+%
+%
+\newcommand{\seThemaDerArbeit}{???}
+\newcommand{\seTypDerArbeit}{}
+\newcommand{\seVerfasser}{???}
+\newcommand{\seDozent}{}
+\newcommand{\seStudiengangsleiter}{???}
+\newcommand{\seMatrikelnummer}{???}
+\newcommand{\seKurs}{???}
+\newcommand{\seModul}{}
+\newcommand{\seLehrveranstaltung}{}
+\newcommand{\seItemVerfasser}{Verfasser:}
+\newcommand{\seItemSGL}{Studiengangsleiter:}
+\newcommand{\seItemDozent}{Dozent:}
+\newcommand{\seItemWissBetreuer}{Wissenschaftlicher Betreuer:}
+\newcommand{\seItemFirmenbetreuer}{Firmenbetreuer:}
+%
+% Weitere Kommandos f\"ur eine Projektarbeit
+\newcommand{\seBearbeitungszeitraumVon}{???}
+\newcommand{\seBearbeitungszeitraumBis}{???}
+\newcommand{\seFirma}{???}
+\newcommand{\seAbteilung}{}
+\newcommand{\seWissenschaftlicherBetreuerName}{???}
+\newcommand{\seWissenschaftlicherBetreuerEmail}{}
+\newcommand{\seWissenschaftlicherBetreuerTelefon}{}
+\newcommand{\seFirmenbetreuerName}{???}
+\newcommand{\seFirmenbetreuerEmail}{}
+\newcommand{\seFirmenbetreuerTelefon}{}
+\newcommand{\seSperrvermerk}{nein}
+\newcommand{\seSperrvermerkText}{}
+\newcommand{\seFirmenlogo}{}
+\newcommand{\seFirmenlogoDx}{0}
+\newcommand{\seFirmenlogoDy}{0}
+\newcommand{\seFirmenlogoScale}{1}
+\newcommand{\seHilfslinien}{}
+\newcommand{\seDhbwLogoScale}{1.2}
+% 2011-08-04 Werte angepasst
+\newcommand{\seDhbwLogoX}{96.05}
+\newcommand{\seDhbwLogoY}{3.5}
+%\newcommand{\seDhbwLogoX}{93.65}
+%\newcommand{\seDhbwLogoY}{1.9}
+\newcommand{\seDhbwLogoDx}{0}
+\newcommand{\seDhbwLogoDy}{0}
+\newcommand{\seDhbwLogoSkalierung}{}
+
+%
+\newcommand{\seIstVerfasserin}[1]{%
+\ifthenelse{\equal{#1}{ja}{}}{\renewcommand{\seItemVerfasser}{Verfasserin:}}{}
+}
+%
+\newcommand{\seIstDozentin}[1]{%
+\ifthenelse{\equal{#1}{ja}{}}{\renewcommand{\seItemDozent}{Dozentin:}}{}
+}
+%
+\newcommand{\seIstStudiengangsleiterin}[1]{%
+\ifthenelse{\equal{#1}{ja}{}}{\renewcommand{\seItemSGL}{Studiengangsleiterin:}}{}
+}
+%
+\newcommand{\seIstWissBetreuerin}[1]{%
+\ifthenelse{\equal{#1}{ja}{}}{\renewcommand{\seItemWissBetreuer}{Wissenschaftliche Betreuerin:}}{}
+}
+%
+\newcommand{\seIstFirmenbetreuerin}[1]{%
+\ifthenelse{\equal{#1}{ja}{}}{\renewcommand{\seItemFirmenbetreuer}{Firmenbetreuerin:}}{}
+}
+
+
+
+\define@key{seTitelblattErsteProjektarbeit}{hilfslinien}{\renewcommand{\seHilfslinien}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{thema}{\renewcommand{\seThemaDerArbeit}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenlogo}{\renewcommand{\seFirmenlogo}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenlogoSkalierung}{\renewcommand{\seFirmenlogoScale}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenlogoDeltaX}{\renewcommand{\seFirmenlogoDx}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenlogoDeltaY}{\renewcommand{\seFirmenlogoDy}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{dhbwlogoSkalierung}{\renewcommand{\seDhbwLogoSkalierung}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{dhbwlogoDeltaX}{\renewcommand{\seDhbwLogoDx}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{dhbwlogoDeltaY}{\renewcommand{\seDhbwLogoDy}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{verfasser}{\renewcommand{\seVerfasser}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{verfasserin}{\seIstVerfasserin{ja}\renewcommand{\seVerfasser}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{matrikelnummer}{\renewcommand{\seMatrikelnummer}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{kurs}{\renewcommand{\seKurs}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{studiengangsleiter}{\renewcommand{\seStudiengangsleiter}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{studiengangsleiterin}{\seIstStudiengangsleiterin{ja}\renewcommand{\seStudiengangsleiter}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firma}{\renewcommand{\seFirma}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{abteilung}{\renewcommand{\seAbteilung}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{wissenschaftlicherBetreuerName}{\renewcommand{\seWissenschaftlicherBetreuerName}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{wissenschaftlicheBetreuerinName}{\seIstWissBetreuerin{ja}\renewcommand{\seWissenschaftlicherBetreuerName}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{wissenschaftlicherBetreuerEmail}{\renewcommand{\seWissenschaftlicherBetreuerEmail}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{wissenschaftlicheBetreuerinEmail}{\renewcommand{\seWissenschaftlicherBetreuerEmail}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{wissenschaftlicherBetreuerTelefon}{\renewcommand{\seWissenschaftlicherBetreuerTelefon}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{wissenschaftlicheBetreuerinTelefon}{\renewcommand{\seWissenschaftlicherBetreuerTelefon}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenbetreuerName}{\renewcommand{\seFirmenbetreuerName}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenbetreuerinName}{\seIstFirmenbetreuerin{ja}\renewcommand{\seFirmenbetreuerName}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenbetreuerEmail}{\renewcommand{\seFirmenbetreuerEmail}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenbetreuerinEmail}{\renewcommand{\seFirmenbetreuerEmail}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenbetreuerTelefon}{\renewcommand{\seFirmenbetreuerTelefon}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{firmenbetreuerinTelefon}{\renewcommand{\seFirmenbetreuerTelefon}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{bearbeitungszeitraumVon}{\renewcommand{\seBearbeitungszeitraumVon}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{bearbeitungszeitraumBis}{\renewcommand{\seBearbeitungszeitraumBis}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{sperrvermerk}{\renewcommand{\seSperrvermerk}{#1}}
+%
+\newcommand{\seTitelblatt}{%
+\renewcommand{\seTypDerArbeit}{Projektarbeit}
+\ifthenelse{\equal{\seFirmenlogo}{}}{%
+% 2011-08-04 bereits global definiert!!!
+%\renewcommand{\seDhbwLogoX}{93.65}%
+%\renewcommand{\seDhbwLogoY}{1.9}%
+%\renewcommand{\seDhbwLogoScale}{1.2}%
+}% 
+{% Firmenlogo liegt vor => Breite des DHBW-Logos = 50mm
+% 2011-08-04 Werte angepasst
+\renewcommand{\seDhbwLogoX}{101.8}%
+\renewcommand{\seDhbwLogoY}{6.05}%
+\renewcommand{\seDhbwLogoScale}{1.092}%
+%\renewcommand{\seDhbwLogoX}{99.5}%
+%\renewcommand{\seDhbwLogoY}{4.45}%
+%\renewcommand{\seDhbwLogoScale}{1.092}%
+}% ifthenelse
+\thispagestyle{empty}
+\ifthenelse{\equal{\seDhbwLogoSkalierung}{}}{}{\renewcommand{\seDhbwLogoScale}{\seDhbwLogoSkalierung}}
+
+\setlength{\unitlength}{1mm}
+\begin{picture}(0,0)%
+\put(\seDhbwLogoDx,\seDhbwLogoDy){\put(\seDhbwLogoX,\seDhbwLogoY){\includegraphics[scale=\seDhbwLogoScale]{DHBW_d_MA_46mm_RGB_300dpi}}}
+\ifthenelse{\equal{\seFirmenlogo}{}}{}{%
+% 2011-08-04 Anpassung der Werte
+\put(\seFirmenlogoDx,\seFirmenlogoDy){\put(-0.05,15.9){\includegraphics[scale=\seFirmenlogoScale]{\seFirmenlogo}}}%
+%\put(\seFirmenlogoDx,\seFirmenlogoDy){\put(-7.9,14.3){\includegraphics[scale=\seFirmenlogoScale]{\seFirmenlogo}}}%
+}%
+%
+\ifthenelse{\equal{\seHilfslinien}{}}{}{%
+\ifthenelse{\equal{\seFirmenlogo}{}}
+{% kein Firmenlogo
+% 2011-08-04 Werte angepasst
+\sePdfHline[0.1]{-30,32.0}{200}
+\sePdfVline[0.1]{0,-250}{285}
+\sePdfVline[0.1]{150,-250}{285}
+\sePdfVline[0.1]{160.3,-250}{285}
+\sePdfVline[0.1]{105.3,-250}{285}
+%\sePdfHline[0.1]{-30,30.4}{200}
+%\sePdfVline[0.1]{0,-250}{285}
+%\sePdfVline[0.1]{150,-250}{285}
+%\sePdfVline[0.1]{157.9,-250}{285}
+%\sePdfVline[0.1]{102.9,-250}{285}
+}%
+{%
+% 2011-08-04 Werte angepasst
+\sePdfHline[0.1]{-30,32}{200}
+\sePdfVline[0.1]{0,-250}{285}
+\sePdfVline[0.1]{-10.2,-250}{285}
+\sePdfVline[0.1]{150,-250}{285}
+\sePdfVline[0.1]{160.2,-250}{285}
+\sePdfVline[0.1]{110.2,-250}{285}
+%\sePdfHline[0.1]{-30,30.4}{200}
+%\sePdfVline[0.1]{0,-250}{285}
+%\sePdfVline[0.1]{-7.9,-250}{285}
+%\sePdfVline[0.1]{150,-250}{285}
+%\sePdfVline[0.1]{157.9,-250}{285}
+%\sePdfVline[0.1]{107.9,-250}{285}
+} % ifthenelse
+} % ifthenelse
+%
+\end{picture}
+
+\begin{center}
+\textsf{\large{}Duale Hochschule Baden-W\"urttemberg\\[1.5mm] Mannheim} \\[20mm]
+\textsf{\textbf{\Large{}Erste \seTypDerArbeit}}\\[5mm]
+\textsf{\textbf{\seThemaDerArbeit}} \\[1.5cm]
+\textsf{\textbf{\Large{}Studiengang Wirtschaftsinformatik}\\[3mm] \textsf{Vertiefungsrichtung Softwaremethodik}}
+\end{center}
+
+\ifthenelse{\equal{\seSperrvermerk}{nein}}{}{\vfill\begin{center}{\textsf{\Large\textbf{Sperrvermerk}}}\end{center}}
+
+\vfill
+\seSettoplistbaselineskip{-0.25}{0.75}{0.75}{0.75}{0.75}
+\textsf{
+\seIt[\seItemWissBetreuer]{\seItemVerfasser}{\seVerfasser}
+\seIt{Matrikelnummer:}{\seMatrikelnummer}
+\seIt{Firma:}{\seFirma}
+\ifthenelse{\equal{\seAbteilung}{}}{}{\seIt{Abteilung:}{\seAbteilung}}
+\seVsd
+\seIt{Kurs:}{\seKurs}
+\seIt{\seItemSGL}{\seStudiengangsleiter}
+\seVsd
+\seIt{\seItemWissBetreuer}{\seWissenschaftlicherBetreuerName}
+\ifthenelse{\equal{\seWissenschaftlicherBetreuerEmail}{}}{}{\seIt{}{\seWissenschaftlicherBetreuerEmail}}
+\ifthenelse{\equal{\seWissenschaftlicherBetreuerTelefon}{}}{}{\seIt{}{\seWissenschaftlicherBetreuerTelefon}}
+\seVsd
+\seIt{\seItemFirmenbetreuer}{\seFirmenbetreuerName}
+\ifthenelse{\equal{\seFirmenbetreuerEmail}{}}{}{\seIt{}{\seFirmenbetreuerEmail}}
+\ifthenelse{\equal{\seFirmenbetreuerTelefon}{}}{}{\seIt{}{\seFirmenbetreuerTelefon}}
+\seVsd
+\seIt{Bearbeitungszeitraum:}{\seBearbeitungszeitraumVon{} bis \seBearbeitungszeitraumBis}
+}
+\seResettoplistbaselineskip{}
+}
+
+
+\renewcommand{\seSperrvermerkText}{%
+Diese \seTypDerArbeit{} enth\"alt vertrauliche Daten der \emph{\seFirma}. Eine Ver\"offentlichung 
+oder Vervielf\"altigung dieser Arbeit, auch auszugsweise, ist ohne ausdr\"uckliche Genehmigung 
+der \emph{\seFirma} nicht zul\"assig. Diese Arbeit darf nur den Korrektoren, der Studiengangsleitung und dem Pr\"ufungsausschuss 
+zug\"anglich gemacht werden.
+}
+
+\newcommand{\sePrintSperrvermerk}{%
+\ifthenelse{\equal{\seSperrvermerk}{nein}}{}%
+{%
+\chapter*{Sperrvermerk}\thispagestyle{empty}
+
+\seSperrvermerkText{}
+}
+} % seSperrvermerk
+
+\newcommand{\seKurzfassung}{
+\chapter*{Kurzfassung}\thispagestyle{empty}\markboth{Kurzfassung}{Kurzfassung}
+\seSettoplistbaselineskip{-0.25}{0.75}{0.75}{0.75}{0.75}
+\textsf{
+\seIt[\seItemVerfasser]{\seItemVerfasser}{\seVerfasser}
+\seIt{Firma:}{\seFirma}
+\seIt{Thema:}{\seThemaDerArbeit}
+%\seResettoplistbaselineskip{}
+} % textsf
+\vspace*{\baselineskip}
+\seResettoplistbaselineskip{}
+}
+
+
+\newcommand{\seKapitelVorEinleitung}[1]{%
+\chapter*{#1}\thispagestyle{empty}\markboth{#1}{#1}
+}
+
+
+\newcommand{\seTitelblattErsteProjektarbeit}[1][]{%
+\setkeys{seTitelblattErsteProjektarbeit}{#1}%
+\seTitelblatt{}
+\sePrintSperrvermerk{}
+} % \seTitelblattErsteProjektarbeit
+
+
+% Inhaltsverzeichnis
+%
+%
+%
+\newcommand{\seTocEinrueckung}{}
+\newcommand{\seTocGliederungsebenen}{}
+
+\define@key{seInhaltsverzeichnis}{einrueckung}{\renewcommand{\seTocEinrueckung}{#1}}
+\define@key{seInhaltsverzeichnis}{gliederungsebenen}{\renewcommand{\seTocGliederungsebenen}{#1}}
+
+\newcommand{\seInhaltsverzeichnis}[1][]{%
+\setkeys{seInhaltsverzeichnis}{#1}%
+% Einrueckung ja/nein
+\ifthenelse{\equal{\seTocEinrueckung}{nein}}{\KOMAoption{toc}{flat}}{}
+% Gliederungsebenen
+\ifthenelse{\equal{\seTocGliederungsebenen}{}}{%
+% Nummern werden f\"ur Kapitel bis zur vierten Gliederungsebene vergeben
+\setcounter{secnumdepth}{3}
+% Das Inhaltsverzeichnis enth\"alt die ersten vier Gliederungsebenen
+\setcounter{tocdepth}{3}
+}
+{
+\setcounter{secnumdepth}{\seTocGliederungsebenen}\addtocounter{secnumdepth}{-1}
+\setcounter{tocdepth}{\seTocGliederungsebenen}\addtocounter{tocdepth}{-1}
+} % ifthenelse Gliederungsebenen
+\ifthenelse{\value{tocdepth}>3}{\KOMAoption{toc}{flat}}{}
+%\markboth{Inhaltsverzeichnis}{Inhaltsverzeichnis}
+\tableofcontents
+} % \seInhaltsverzeichnis
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Erzeugung Titelblatt Seminararbeit
+%
+%
+%
+%
+%
+%
+%
+%
+\newcommand{\seTitelblattSeminararbeit}{%
+\renewcommand{\seTypDerArbeit}{Seminararbeit}
+\thispagestyle{empty}
+
+\setlength{\unitlength}{1mm}
+\begin{picture}(0,0)
+\put(96.9,-1.3){\includegraphics[scale=1.2]{DHBW_d_MA_46mm_RGB_300dpi}}
+\put(0,0){\includegraphics[scale=\seFirmenlogoScale]{firmenlogo}}
+\end{picture}
+
+
+
+\begin{center}
+\textsf{\large{}Duale Hochschule Baden-W\"urttemberg\\[1.5mm] Mannheim} \\[20mm]
+\textsf{\textbf{\Large{}Seminarbeit}}\\[5mm]
+\textsf{\textbf{\seThemaDerArbeit}} \\[1.5cm]
+\textsf{\textbf{\Large{}Studiengang Wirtschaftsinformatik}\\[3mm] \textsf{Vertiefungsrichtung Softwaremethodik}}
+\end{center}
+
+\vfill
+\seSettoplistbaselineskip{0.5}{0.75}{0.75}{0.75}{0.75}
+\textsf{
+\seIt[\seItemSGL]{\seItemVerfasser}{\seVerfasser}
+\seIt{Matrikelnummer:}{\seMatrikelnummer}
+\seVsd
+\seIt{Kurs:}{\seKurs}
+\seIt{\seItemSGL}{\seStudiengangsleiter}
+\seVsd
+\seIt{Modul:}{\seModul}
+\seIt{Lehrveranstaltung:}{\seLehrveranstaltung}
+\seIt{\seItemDozent}{\seDozent}
+}
+\seResettoplistbaselineskip{}
+%
+%
+}
+%
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ende \seTitelblattSeminararbeit
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Ausgabe von Abk\"urzungs- und Symbolverzeichnis
+%
+%  mit \renewcommand{\seAbkuerzungsverzeichnisLabelwidth}{5cm}
+%  kann im LaTeX-Dokument die Breite des Labels f\"ur das 
+%  Abk\"urzungsverzeichnis auf (z. B.) 5cm ver\"andert werden
+%
+%%\newcommand{\sePrintAcronyms}{%
+%%\deftranslation[to=German]{Acronyms}{Abk\"urzungsverzeichnis}
+%%\renewcommand{\seGloLabelwidth}{\seAbkuerzungsverzeichnisLabelwidth}
+%%%
+%%\printglossary[type=\acronymtype,style=seGloList]
+%%%Symbole ausgeben
+%%\renewcommand{\seGloLabelwidth}{\seSymbolverzeichnisLabelwidth}
+%%\printglossary[type=symbolslist,style=seGloList]
+%%}
+
+
+% Ausgabe des Glossars
+\newcommand{\sePrintGlossary}{%
+% 2011-08-01 clearpage bereitet Probleme mit miktex
+%\clearpage%
+\setglossarysection{chapter}
+\renewcommand{\chaptername}{}\renewcommand{\thechapter}{}
+\printglossary[style=altlist,nonumberlist=false,title=Glossar]
+}
+
+% Umschalten auf den Anhang
+% Achtung: ohne dieses clearpage fehlt dubioserweise bei den vorherigen Seiten im Seitenkopf die Kapitelangabe
+\newcommand{\seAppendix}{%
+\clearpage
+\appendix{}\renewcommand{\chaptername}{Anhang}
+}
+
+
+%
+% Vorbereitung der Ausgabe des Literaturverzeichnisses
+%
+% ohne die Umdefinition von ihead gibt es merkw\"urdige Effekte bei der Ausgabe des Literaturverzeichnisses
+\newcommand{\istLiteraturverzeichnis}{nein}
+%
+\newcommand{\sePrintBibliography}{%
+\newpage
+\ihead{}
+}
+
+
+\newcommand{\seBibliography}[2][]{%
+\bibliography{#2}
+#1
+\newpage
+\ihead{\ifthenelse{\value{chapter}>0}{\chaptername~\thechapter}{}}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  neue Kommandos f\"ur eine komfortablere Ausgabe von Verzeichnissen
+%
+%
+%
+
+
+% Definition von Kommandos f\"ur die interne Konfiguration von 
+% Verzeichnissen
+%
+%
+%
+\newcommand{\seAbbildungenVerzeichnisname}{Abbildungsverzeichnis}
+\newcommand{\seAbbEinzugLabel}{0mm}
+\newcommand{\seAbbBreiteLabel}{4em}
+\newcommand{\seAbbLabelTextLinks}{Abb.\ }
+\newcommand{\seAbbLabelTextRechts}{:}
+\newcommand{\seAbbPnumwidth}{xxx}
+\newcommand{\seAbbTocrmarg}{xxx}
+\newcommand{\seAbbDotsep}{xxx}
+\newcommand{\seAbbAbstandEintrag}{0.25}
+\newcommand{\seAbbNewpage}{}
+\newcommand{\seAbbAbstandVerzeichnis}{}
+
+\define@key{seKonfigurationAbb}{labeleinzug}{\renewcommand{\seAbbEinzugLabel}{#1}}
+\define@key{seKonfigurationAbb}{labelbreite}{\renewcommand{\seAbbBreiteLabel}{#1}}
+\define@key{seKonfigurationAbb}{labeltextLinks}{\renewcommand{\seAbbLabelTextLinks}{#1}}
+\define@key{seKonfigurationAbb}{labeltextRechts}{\renewcommand{\seAbbLabelTextRechts}{#1}}
+\define@key{seKonfigurationAbb}{abstandEintrag}{\renewcommand{\seAbbAbstandEintrag}{#1}}
+\define@key{seKonfigurationAbb}{abstandVerzeichnis}{\renewcommand{\seAbbAbstandVerzeichnis}{#1}}
+\define@key{seKonfigurationAbb}{newpage}{\renewcommand{\seAbbNewpage}{#1}}
+\define@key{seKonfigurationAbb}{pnumwidth}{\renewcommand{\seAbbPnumwidth}{#1}}
+\define@key{seKonfigurationAbb}{dotsep}{\renewcommand{\seAbbDotsep}{#1}}
+\define@key{seKonfigurationAbb}{tocrmarg}{\renewcommand{\seAbbTocrmarg}{#1}}
+\define@key{seKonfigurationAbb}{verzeichnisname}{\renewcommand{\seAbbildungenVerzeichnisname}{#1}}
+
+\newcommand{\seKonfigurationAbb}[1][]{\setkeys{seKonfigurationAbb}{#1}}
+
+% Anpassung der Verzeichnisse f\"ur Abbildungen (figure), Tabellen (table) und das neue Porgrammverzeichnis 
+% (programm)
+% Der zweite Paramerter (0em) gibt definiert den linken Einzug eines Listenelements
+% Der dritte Parameter (2cm) definiert die Breite des Listenlabels
+%
+%
+\renewcommand{\l@figure}{\@dottedtocline{1}{\seAbbEinzugLabel}{\seAbbBreiteLabel}}
+\renewcommand{\l@table}{\@dottedtocline{1}{\seTabEinzugLabel}{\seTabBreiteLabel}}
+\renewcommand{\l@programm}{\@dottedtocline{1}{\sePrgEinzugLabel}{\sePrgBreiteLabel}}
+
+
+\newcommand{\sePrintAbbildungsverzeichnis}{%
+\ifthenelse{\equal{\seAbbNewpage}{ja}}{\newpage}{}%
+\ifthenelse{\equal{\seAbbAbstandVerzeichnis}{}}{}{\vspace{\seAbbAbstandVerzeichnis}}%
+\begingroup
+\ifthenelse{\equal{\seAbbPnumwidth}{xxx}}{}{\renewcommand{\@pnumwidth}{\seAbbPnumwidth}}
+\ifthenelse{\equal{\seAbbTocrmarg}{xxx}}{}{\renewcommand{\@tocrmarg}{\seAbbTocrmarg}}
+\ifthenelse{\equal{\seAbbDotsep}{xxx}}{}{\renewcommand{\@dotsep}{\seAbbDotsep}}
+\let\jbcontentsline\contentsline
+\renewcommand{\contentsline}[3]{\jbcontentsline{##1}{##2}{##3}\vspace{\seAbbAbstandEintrag\baselineskip}}
+\let\jbnumberline=\numberline%
+\renewcommand{\numberline}[2]{\jbnumberline{\seAbbLabelTextLinks{}##1\seAbbLabelTextRechts}{##2}}
+\listoffigures
+\endgroup
+}
+
+
+\newcommand{\seTabellenVerzeichnisname}{Tabellenverzeichnis}
+\newcommand{\seTabEinzugLabel}{0mm}
+\newcommand{\seTabBreiteLabel}{4em}
+\newcommand{\seTabLabelTextLinks}{Tab.\ }
+\newcommand{\seTabLabelTextRechts}{:}
+\newcommand{\seTabPnumwidth}{xxx}
+\newcommand{\seTabTocrmarg}{xxx}
+\newcommand{\seTabDotsep}{xxx}
+\newcommand{\seTabAbstandEintrag}{0.25}
+\newcommand{\seTabNewpage}{}
+\newcommand{\seTabAbstandVerzeichnis}{}
+
+\define@key{seKonfigurationTab}{labeleinzug}{\renewcommand{\seTabEinzugLabel}{#1}}
+\define@key{seKonfigurationTab}{labelbreite}{\renewcommand{\seTabBreiteLabel}{#1}}
+\define@key{seKonfigurationTab}{labeltextLinks}{\renewcommand{\seTabLabelTextLinks}{#1}}
+\define@key{seKonfigurationTab}{labeltextRechts}{\renewcommand{\seTabLabelTextRechts}{#1}}
+\define@key{seKonfigurationTab}{abstandEintrag}{\renewcommand{\seTabAbstandEintrag}{#1}}
+\define@key{seKonfigurationTab}{abstandVerzeichnis}{\renewcommand{\seTabAbstandVerzeichnis}{#1}}
+\define@key{seKonfigurationTab}{newpage}{\renewcommand{\seTabNewpage}{#1}}
+\define@key{seKonfigurationTab}{pnumwidth}{\renewcommand{\seTabPnumwidth}{#1}}
+\define@key{seKonfigurationTab}{dotsep}{\renewcommand{\seTabDotsep}{#1}}
+\define@key{seKonfigurationTab}{tocrmarg}{\renewcommand{\seTabTocrmarg}{#1}}
+\define@key{seKonfigurationTab}{verzeichnisname}{\renewcommand{\seTabellenVerzeichnisname}{#1}}
+
+\newcommand{\seKonfigurationTab}[1][]{\setkeys{seKonfigurationTab}{#1}}
+
+
+
+\newcommand{\sePrintTabellenverzeichnis}{%
+\ifthenelse{\equal{\seTabNewpage}{ja}}{\newpage}{}%
+\ifthenelse{\equal{\seTabAbstandVerzeichnis}{}}{}{\vspace{\seTabAbstandVerzeichnis}}%
+\begingroup
+\ifthenelse{\equal{\seTabPnumwidth}{xxx}}{}{\renewcommand{\@pnumwidth}{\seTabPnumwidth}}
+\ifthenelse{\equal{\seTabTocrmarg}{xxx}}{}{\renewcommand{\@tocrmarg}{\seTabTocrmarg}}
+\ifthenelse{\equal{\seTabDotsep}{xxx}}{}{\renewcommand{\@dotsep}{\seTabDotsep}}
+\let\jbcontentsline\contentsline
+\renewcommand{\contentsline}[3]{\jbcontentsline{##1}{##2}{##3}\vspace{\seTabAbstandEintrag\baselineskip}}
+\let\jbnumberline=\numberline
+\renewcommand{\numberline}[2]{\jbnumberline{\seTabLabelTextLinks{}##1\seTabLabelTextRechts}{##2}}
+\listoftables
+\endgroup
+}
+
+
+% Achtung: ein addcontentsline innerhalb des Kommandos gibt bei sections die falsche Seitennummer aus 
+%                => die Seitenummer wurde in das angepasste listof-Kommando \"ubernommen
+%
+%  ???? gilt das noch ???
+
+\newcommand{\seProgrammeVerzeichnisname}{Listingverzeichnis}
+\newcommand{\sePrgEinzugLabel}{0mm}
+\newcommand{\sePrgBreiteLabel}{4em}
+\newcommand{\sePrgLabelTextLinks}{Prg.\ }
+\newcommand{\sePrgLabelTextRechts}{:}
+\newcommand{\sePrgPnumwidth}{xxx}
+\newcommand{\sePrgTocrmarg}{xxx}
+\newcommand{\sePrgDotsep}{xxx}
+\newcommand{\sePrgAbstandEintrag}{0.25}
+\newcommand{\sePrgNewpage}{}
+\newcommand{\sePrgAbstandVerzeichnis}{}
+
+\define@key{seKonfigurationPrg}{labeleinzug}{\renewcommand{\sePrgEinzugLabel}{#1}}
+\define@key{seKonfigurationPrg}{labelbreite}{\renewcommand{\sePrgBreiteLabel}{#1}}
+\define@key{seKonfigurationPrg}{labeltextLinks}{\renewcommand{\sePrgLabelTextLinks}{#1}}
+\define@key{seKonfigurationPrg}{labeltextRechts}{\renewcommand{\sePrgLabelTextRechts}{#1}}
+\define@key{seKonfigurationPrg}{abstandEintrag}{\renewcommand{\sePrgAbstandEintrag}{#1}}
+\define@key{seKonfigurationPrg}{abstandVerzeichnis}{\renewcommand{\sePrgAbstandVerzeichnis}{#1}}
+\define@key{seKonfigurationPrg}{newpage}{\renewcommand{\sePrgNewpage}{#1}}
+\define@key{seKonfigurationPrg}{pnumwidth}{\renewcommand{\sePrgPnumwidth}{#1}}
+\define@key{seKonfigurationPrg}{dotsep}{\renewcommand{\sePrgDotsep}{#1}}
+\define@key{seKonfigurationPrg}{tocrmarg}{\renewcommand{\sePrgTocrmarg}{#1}}
+\define@key{seKonfigurationPrg}{verzeichnisname}{\renewcommand{\seProgrammeVerzeichnisname}{#1}}
+
+\newcommand{\seKonfigurationPrg}[1][]{\setkeys{seKonfigurationPrg}{#1}}
+
+%
+\newcommand{\sePrintProgrammverzeichnis}{%
+\ifthenelse{\equal{\seVerzeichnisseToc}{ja}}{%
+\ifthenelse{\equal{\seVerzeichnisebene}{section}}{\addcontentsline{toc}{section}{\seProgrammeVerzeichnisname}}{}%
+}{}%
+\ifthenelse{\equal{\sePrgNewpage}{ja}}{\newpage}{}%
+\ifthenelse{\equal{\sePrgAbstandVerzeichnis}{}}{}{\vspace{\sePrgAbstandVerzeichnis}}%
+\begingroup
+\ifthenelse{\equal{\sePrgPnumwidth}{xxx}}{}{\renewcommand{\@pnumwidth}{\sePrgPnumwidth}}
+\ifthenelse{\equal{\sePrgTocrmarg}{xxx}}{}{\renewcommand{\@tocrmarg}{\sePrgTocrmarg}}
+\ifthenelse{\equal{\sePrgDotsep}{xxx}}{}{\renewcommand{\@dotsep}{\sePrgDotsep}}
+\let\jbcontentsline\contentsline
+\renewcommand{\contentsline}[3]{\jbcontentsline{##1}{##2}{##3}\vspace{\sePrgAbstandEintrag\baselineskip}}
+\let\jbnumberline=\numberline
+\renewcommand{\numberline}[2]{\jbnumberline{\sePrgLabelTextLinks{}##1\sePrgLabelTextRechts}{##2}}
+\listof{programm}{\seProgrammeVerzeichnisname}
+\endgroup
+}
+
+
+\newcommand{\seAbkuerzungenVerzeichnisname}{Abk\"urzungsverzeichnis}
+\newcommand{\seAbkEinzugLabel}{0mm}
+\newcommand{\seAbkBreiteLabel}{4em}
+\newcommand{\seAbkAbstandEintrag}{0.25}
+\newcommand{\seAbkNewpage}{}
+\newcommand{\seAbkAbstandVerzeichnis}{}
+
+
+\define@key{seKonfigurationAbk}{verzeichnisname}{\renewcommand{\seAbkuerzungenVerzeichnisname}{#1}}
+\define@key{seKonfigurationAbk}{labeleinzug}{\renewcommand{\seAbkEinzugLabel}{#1}}
+\define@key{seKonfigurationAbk}{labelbreite}{\renewcommand{\seAbkBreiteLabel}{#1}}
+\define@key{seKonfigurationAbk}{abstandEintrag}{\renewcommand{\seAbkAbstandEintrag}{#1}}
+\define@key{seKonfigurationAbk}{abstandVerzeichnis}{\renewcommand{\seAbkAbstandVerzeichnis}{#1}}
+\define@key{seKonfigurationAbk}{newpage}{\renewcommand{\seAbkNewpage}{#1}}
+
+
+\newcommand{\seKonfigurationAbk}[1][]{\setkeys{seKonfigurationAbk}{#1}}
+
+\newcommand{\sePrintAbkuerzungsverzeichnis}{%
+\deftranslation[to=German]{Acronyms}{\seAbkuerzungenVerzeichnisname}%
+\renewcommand{\seGloLabelwidth}{\seAbkBreiteLabel}%
+\renewcommand{\seGloLeftmargin}{\seAbkEinzugLabel}%
+\renewcommand{\seGlossaryItemsep}{\seAbkAbstandEintrag\baselineskip}%
+\ifthenelse{\equal{\seAbkNewpage}{ja}}{\newpage}{}%
+\ifthenelse{\equal{\seAbkAbstandVerzeichnis}{}}{}{\vspace{\seAbkAbstandVerzeichnis}}%
+\printglossary[type=\acronymtype,style=seGloList]%
+\vspace{0mm}%
+}
+
+
+\newcommand{\seSymbolverzeichnisLabelwidth}{1cm}
+
+% \seSymbolverzeichnisname ist in se-jb-glossaries.sty definiert
+\newcommand{\seSymEinzugLabel}{0mm}
+\newcommand{\seSymBreiteLabel}{4em}
+\newcommand{\seSymAbstandEintrag}{0.25}
+\newcommand{\seSymNewpage}{}
+\newcommand{\seSymAbstandVerzeichnis}{}
+
+
+\define@key{seKonfigurationSym}{verzeichnisname}{\renewcommand{\seSymboleVerzeichnisname}{#1}}
+\define@key{seKonfigurationSym}{labeleinzug}{\renewcommand{\seSymEinzugLabel}{#1}}
+\define@key{seKonfigurationSym}{labelbreite}{\renewcommand{\seSymBreiteLabel}{#1}}
+\define@key{seKonfigurationSym}{abstandEintrag}{\renewcommand{\seSymAbstandEintrag}{#1}}
+\define@key{seKonfigurationSym}{abstandVerzeichnis}{\renewcommand{\seSymAbstandVerzeichnis}{#1}}
+\define@key{seKonfigurationSym}{newpage}{\renewcommand{\seSymNewpage}{#1}}
+
+
+\newcommand{\seKonfigurationSym}[1][]{\setkeys{seKonfigurationSym}{#1}}
+
+\newcommand{\sePrintSymbolverzeichnis}{%
+\renewcommand{\seGloLabelwidth}{\seSymBreiteLabel}%
+\renewcommand{\seGloLeftmargin}{\seSymEinzugLabel}%
+\renewcommand{\seGlossaryItemsep}{\seSymAbstandEintrag\baselineskip}%
+\ifthenelse{\equal{\seSymNewpage}{ja}}{\newpage}{}%
+\ifthenelse{\equal{\seSymAbstandVerzeichnis}{}}{}{\vspace{\seSymAbstandVerzeichnis}}%
+\printglossary[type=symbolslist,style=seGloList]%
+\vspace{1.25mm}%
+}
+
+
+% Wird von se-jb-scrpage2.sty ben\"otigt, um die Kopfzeile korrekt zu setzen
+\newcommand{\seUseVerzeichnis}{}
+\newcommand{\seVerzeichnisebene}{section}
+\newcommand{\seVerzeichnisseToc}{ja}
+
+\define@key{seVerzeichnisse}{gliederungsebene}{\renewcommand{\seVerzeichnisebene}{#1}}
+\define@key{seVerzeichnisse}{imInhaltsverzeichnis}{\renewcommand{\seVerzeichnisseToc}{#1}}
+
+%
+% F\"ur Eintr\"age eines neuen Kapitels soll kein zus\"atzlicher vertikaler Abstand erzeugt werden
+%
+\KOMAoption{listof}{ignorechapter}
+
+\newcommand{\seVerzeichnisse}[6][]{%
+\setkeys{seVerzeichnisse}{#1}
+%
+% Damit wird verhindert, dass zwischen dem letzten Eintrag eines Kapitels und dem 
+% ersten Eintrag des n\"achsten Kapitels ein Extrazwischenraum erzeugt wird
+%%\let\seAddvspace\addvspace\renewcommand{\addvspace}[1]{}
+\ifthenelse{\equal{\seVerzeichnisseToc}{ja}}{%
+% Aufnahme von Abbildungs- und Tabellenverzeichnis in das Inhaltsverzeichnis, wobei diese Verzeichnisse 
+% keine Nummer erhalten
+\KOMAoption{listof}{notnumbered}
+\glstoctrue%
+}{%
+%\renewcommand{\seVerzeichnisseToc}{nein}%
+\glstocfalse%
+}
+\ifthenelse{\equal{\seVerzeichnisebene}{section}}{%
+%
+%  Redefinition gilt nur f\"ur Vereichnisse, die mit \DeclareNewFloatType 
+%  aus dem floatrow-Paket definiert wurden
+%
+\makeatletter%
+\renewcommand*{\float@listhead}[1]{%
+  \@ifundefined{chapter}{\def\@tempa{\section*}}%
+      {\def\@tempa{\section*}}%  
+% 2011-08-03  \@tempa{##1\@mkboth{\MakeUppercase{Verzeichnisse}}{\MakeUppercase{Verzeichnisse}}}}%      
+  \@tempa{##1\@mkboth{Verzeichnisse}{Verzeichnisse}}}%
+\makeatother%
+%
+\chapter*{Verzeichnisse}%
+\ifthenelse{\equal{\seVerzeichnisseToc}{ja}}{\addcontentsline{toc}{chapter}{Verzeichnisse}}{}%
+\renewcommand{\seUseVerzeichnis}{ja}%
+\setglossarysection{section}%
+\KOMAoption{listof}{leveldown}%
+%\renewcommand{\seVerzeichnisebene}{#1}%
+}{}
+\ifthenelse{\equal{#2}{abk}}{\sePrintAbkuerzungsverzeichnis{}}{}
+\ifthenelse{\equal{#2}{sym}}{\sePrintSymbolverzeichnis{}}{}
+\ifthenelse{\equal{#2}{abb}}{\sePrintAbbildungsverzeichnis{}}{}
+\ifthenelse{\equal{#2}{tab}}{\sePrintTabellenverzeichnis{}}{}
+\ifthenelse{\equal{#2}{prg}}{\sePrintProgrammverzeichnis{}}{}
+%
+\ifthenelse{\equal{#3}{abk}}{\sePrintAbkuerzungsverzeichnis{}}{}
+\ifthenelse{\equal{#3}{sym}}{\sePrintSymbolverzeichnis{}}{}
+\ifthenelse{\equal{#3}{abb}}{\sePrintAbbildungsverzeichnis{}}{}
+\ifthenelse{\equal{#3}{tab}}{\sePrintTabellenverzeichnis{}}{}
+\ifthenelse{\equal{#3}{prg}}{\sePrintProgrammverzeichnis{}}{}
+%
+\ifthenelse{\equal{#4}{abk}}{\sePrintAbkuerzungsverzeichnis{}}{}
+\ifthenelse{\equal{#4}{sym}}{\sePrintSymbolverzeichnis{}}{}
+\ifthenelse{\equal{#4}{abb}}{\sePrintAbbildungsverzeichnis{}}{}
+\ifthenelse{\equal{#4}{tab}}{\sePrintTabellenverzeichnis{}}{}
+\ifthenelse{\equal{#4}{prg}}{\sePrintProgrammverzeichnis{}}{}  
+%
+\ifthenelse{\equal{#5}{abk}}{\sePrintAbkuerzungsverzeichnis{}}{}
+\ifthenelse{\equal{#5}{sym}}{\sePrintSymbolverzeichnis{}}{}
+\ifthenelse{\equal{#5}{abb}}{\sePrintAbbildungsverzeichnis{}}{}
+\ifthenelse{\equal{#5}{tab}}{\sePrintTabellenverzeichnis{}}{}
+\ifthenelse{\equal{#5}{prg}}{\sePrintProgrammverzeichnis{}}{}    
+%
+\ifthenelse{\equal{#6}{abk}}{\sePrintAbkuerzungsverzeichnis{}}{}
+\ifthenelse{\equal{#6}{sym}}{\sePrintSymbolverzeichnis{}}{}
+\ifthenelse{\equal{#6}{abb}}{\sePrintAbbildungsverzeichnis{}}{}
+\ifthenelse{\equal{#6}{tab}}{\sePrintTabellenverzeichnis{}}{}
+\ifthenelse{\equal{#6}{prg}}{\sePrintProgrammverzeichnis{}}{} 
+%
+\renewcommand{\seUseVerzeichnis}{nein}%
+% alte Definition addvspace wiederherstellen
+%%%\let\addvspace\seAddvspace%
+}
+
+
+
+
+
+
+%
+% Definition von globalen Konfigurationskommandos
+%
+%
+%
+
+
+
+
+
+
+%
+% Definition einer speziellen Programmumgebung
+%
+%
+%
+%
+%
+
+\newcommand{\seIstProgramm}{nein}
+\newcommand{\seIstAbbildung}{nein}
+\newcommand{\seIstTabelle}{nein}
+
+\newcommand{\seQuelleAbbSkip}{0mm}
+\newcommand{\seQuellePrgSkip}{0mm}
+\newcommand{\seQuelleTabSkip}{0mm}
+
+\newcommand{\seFloatstyleAbbildung}{plain}
+\newcommand{\seFloatstyleProgramm}{plain}
+\newcommand{\seFloatstyleTabelle}{plain}
+
+\newenvironment{seProgramm}%
+{\renewcommand{\seIstProgramm}{ja}\begin{programm}\centering%
+}{%
+\end{programm}\renewcommand{\seIstProgramm}{nein}%
+}
+
+\newenvironment{seAbbildung}%
+{\renewcommand{\seIstAbbildung}{ja}%
+\begin{figure}[htbp]\centering%
+}{%
+\end{figure}\renewcommand{\seIstAbbildung}{nein}%
+}
+
+
+\newenvironment{seTabelle}%
+{\renewcommand{\seIstTabelle}{ja}\begin{table}[htbp]\centering%
+}{%
+\end{table}\renewcommand{\seIstTabelle}{nein}%
+}
+
+%
+% Formatierung von Quellenangaben in Floats
+% optionaler Parameter: c zentrierte Ausgabe (eigentlich nur sinnvoll f\"ur einzeilige
+%                                     Quellenangabe
+%                                     L\"angenangabe (z. B. 5mm): Nur f\"ur dieses Float zu 
+%                                     verwendender Einzug links und rechts;
+%                                     \"uberschreibt lokal die global gesetzten Werte
+%                                     
+\def\sesaveToplistLeftmargin{}
+\def\sesaveToplistRightmargin{}
+
+
+\newcommand{\seFloatQuelle}[2][xxx]{%
+\xdef\saveToplistLeftmargin{\seToplistLeftmargin}%
+\xdef\saveToplistRightmargin{\seToplistRightmargin}%
+\ifthenelse{\equal{#1}{xxx}}{%
+\setlength{\seToplistLeftmargin}{\seFloatQuelleLeftmargin}%
+\setlength{\seToplistRightmargin}{\seFloatQuelleRightmargin}%
+}%
+{%
+\ifthenelse{\equal{#1}{c}}{}{%
+\setlength{\seToplistLeftmargin}{#1}%
+\setlength{\seToplistRightmargin}{#1}%
+}%
+}%
+%
+%
+%
+%
+
+\vspace*{0.5\baselineskip}%
+\ifthenelse{\equal{\seIstProgramm}{ja}}{\vspace*{-0.75mm}\vspace*{\seQuellePrgSkip}}{}%
+\ifthenelse{\equal{\seIstAbbildung}{ja}}{\vspace*{-1.75mm}\vspace*{\seQuelleAbbSkip}}{}%
+\ifthenelse{\equal{\seIstTabelle}{ja}}{\vspace*{0mm}\vspace*{\seQuelleTabSkip}}{}%
+\ifthenelse{\equal{#1}{c}}%
+{Quelle:\seL{}~#2}
+{%
+\ifthenelse{\equal{\seIstProgramm}{ja}}{\vspace*{-0.5\baselineskip}}{}%
+\seIt[Quelle:]{Quelle:\seL{}}{#2}%
+\renewcommand{\seToplistLeftmargin}{\sesaveToplistLeftmargin}%
+\renewcommand{\seToplistRightmargin}{\sesaveToplistRightmargin}%
+}%
+}
+
+% Testkommando, um den Abstand einer Float-Quelle zu visualisieren
+% Anwendung: \seIt[Quelle:]{Quelle:\seL{}}{#2}% 
+% bzw: Quelle:\seL{}~#2
+\newcommand{\seL}{%
+\setlength{\unitlength}{1mm}\begin{picture}(0,0)\put(0,0){\rule{5mm}{5.75mm}}\end{picture}
+}
+
+
+

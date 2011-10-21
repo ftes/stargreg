@@ -1,0 +1,41 @@
+% J\"org Baumgart  
+% 2011-04-17
+%
+% Konfiguration von varioref, um eine komfortable Erzeugung von Querverweisen zu erreichen
+%
+% Achtung: \usepackage[ngerman]{varioref} funktioniert nicht
+\RequirePackage{varioref}
+
+\newcommand{\seQuerverweisSeite}{S.}
+\newcommand{\seQuerverweisAbbildung}{Abbildung}
+\newcommand{\seQuerverweisTabelle}{Tabelle}
+\newcommand{\seQuerverweisProgramm}{Listing}
+\newcommand{\seQuerverweisKapitel}{Kapitel}
+\newcommand{\seQuerverweisGleichung}{Gleichung}
+
+%  Achtung: \vref f\"ugt als Pr\"afix ein Leerzeichen ein; vref* verhindert dieses Leerzeichen
+%
+%
+\labelformat{table}{\seQuerverweisTabelle{} #1}
+\labelformat{figure}{\seQuerverweisAbbildung{} #1}
+\labelformat{chapter}{\seQuerverweisKapitel{} #1}
+\labelformat{section}{\seQuerverweisKapitel{} #1}
+\labelformat{subsection}{\seQuerverweisKapitel{} #1}
+\labelformat{subsubsection}{\seQuerverweisKapitel{} #1}
+\labelformat{paragraph}{\seQuerverweisKapitel{} #1}
+\labelformat{equation}{\seQuerverweisGleichung{} #1}
+\labelformat{programm}{\seQuerverweisProgramm{} #1}
+\renewcommand{\reftextfaceafter}{auf \seQuerverweisSeite{} \thevpagerefnum}
+\renewcommand{\reftextfacebefore}{auf \seQuerverweisSeite{} \thevpagerefnum}
+\renewcommand{\reftextbefore}{auf \seQuerverweisSeite{} \thevpagerefnum}
+\renewcommand{\reftextafter}{auf \seQuerverweisSeite{} \thevpagerefnum}
+\renewcommand{\reftextfaraway}[1]{auf \seQuerverweisSeite{} \thevpagerefnum}
+%
+% Redefinition von pageref, um einfach einheitliche Querverweise auf Seiten erzeugen zu k\"onnen
+% Hier ist zu beachten, dass auch ein Querverweis auf diesselbe Seite m\"oglich ist; dieser Fall ist bei 
+% Querverweisen, die nur Seitenzahlen enthalten, kaum sinnvoll zu behandeln. 
+% Eine Unterdr\"uckung der Seitennummer reicht nicht aus, da man in der Regel noch einen Begleittext wie "vgl." hat
+%
+\let\savepageref=\pageref%
+\renewcommand{\pageref}[1]{\seQuerverweisSeite{} \savepageref{#1}}
+

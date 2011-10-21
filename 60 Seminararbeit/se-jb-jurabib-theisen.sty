@@ -1,0 +1,57 @@
+% J\"org Baumgart  
+% 2011-04-17
+%
+% Konfiguration von jurabib, um eine Kurzzitierweise nach Theisen zu erreichen
+% 
+% Definition neuer Kommandos, um halbwegs komfortabel nach Theisen zitieren zu k\"onnen, sowohl 
+% im Text als auch in Fu{\ss}noten
+\RequirePackage[%
+authorformat={italic},%
+annotatorformat=italic,
+titleformat=all,%
+titleformat={all,commasep},%
+bibformat={shorttitle},%
+see,%
+commabeforerest,%
+]{jurabib}   
+
+\renewcommand*{\jbauthorfont}{\textit}
+\renewcommand*{\biblnfont}{\scshape\textit}
+\renewcommand*{\bibfnfont}{\normalfont\textit}
+\renewcommand*{\bibelnfont}{\normalfont\textit}
+\renewcommand*{\bibefnfont}{\normalfont\textit}
+\renewcommand*{\jbcitationyearformat}[1]{#1}
+   
+%
+% Achtung: diese Definition ist notwendig, um in den Eintr\"agen des Literaturverzeichnisses
+%                die Angabe des Kurztitels zu integrieren
+%   
+\makeatletter   
+\renewcommand*{\bibansep}{\bibfnfont{\normalfont~[\jb@@shorttitle, \jb@@year]: }}% Mod für Theisen
+\makeatother   
+      
+% Setzen einer Literaturreferenz in einer Fu{\ss}note
+% #1: Text vor der eigentlichen Literaturreferenz, typischerweise "Vgl." oder "v
+% #2: Text nach der eigentlichen Literaturreferenz, typischerweise die Angabe eines Seitenbereichs
+% #3: Angabe des Referenzk\"urzels aus der bibtex-Datei
+\providecommand{\seFootcite}[3]{%
+\ifthenelse{\equal{#2}{}}{%
+\footcitetitle[#1][\citefield{year}{#3}]{#3}%
+}{%else
+\footcitetitle[#1][\citefield{year}{#3}, #2]{#3}%
+}}
+
+% Setzen einer Literaturreferenz im Text
+% #1: Text vor der eigentlichen Literaturreferenz, typischerweise "Vgl." oder "v
+% #2: Text nach der eigentlichen Literaturreferenz, typischerweise die Angabe eines Seitenbereichs
+% #3: Angabe des Referenzk\"urzels aus der bibtex-Datei
+\providecommand{\seCite}[3]{%
+\ifthenelse{\equal{#2}{}}{%
+\citetitle[#1][\citefield{year}{#3}]{#3}%
+}{%else
+\citetitle[#1][\citefield{year}{#3}, #2]{#3}%
+}}   
+%
+%
+%
+%
