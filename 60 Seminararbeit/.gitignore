@@ -3,5 +3,6 @@ sa-seminararbeit.*
 .log
 jurabib.*
 *.aux
+*/*.aux
 
 !sa-seminararbeit.tex
