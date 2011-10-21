@@ -19,7 +19,7 @@
 %
 %
 %
-\seTitelblattErsteProjektarbeit[
+\seTitelblattSeminararbeit[
 %hilfslinien=ja,
 %dhbwlogoSkalierung=0.5,
 %dhbwlogoDeltaX=2.4,
@@ -28,40 +28,28 @@ firmenlogo=firmenlogo,
 firmenlogoSkalierung=0.5,
 firmenlogoDeltaX=0,
 firmenlogoDeltaY=0,
-thema=\LaTeX-Layoutvorlage zur Anfertigung der ersten Projektarbeit\\Version 0.9,
-verfasser=Jörg Baumgart,
+thema=Star Greg - Das Unternehmensplanspiel,
+verfasser=Marcel Steinleitner Fredrik Teschke,
 %verfasserin=,
-matrikelnummer=9999999,
 kurs=WWI\,10\,SWM\,A,
-firma=Ausbildungsfirma,
-abteilung=Wirtschafsinformatik/Softwaremethodik,
 %studiengangsleiterin=,
 studiengangsleiter=Prof. Dr.-Ing. Jörg Baumgart,
 wissenschaftlicheBetreuerinName=Dr. Melanie Mustermann,
 wissenschaftlicheBetreuerinEmail=melanie.mustermann@musterfirma.de,
 wissenschaftlicheBetreuerinTelefon=0621/999999,
-%wissenschaftlicherBetreuerName=,
-%wissenschaftlicherBetreuerEmail=,
-%wissenschaftlicherBetreuerTelefon=,
-firmenbetreuerinName=Dipl.-Ing. Ariane Meistermann,
-firmenbetreuerinEmail=a.meistermann@andere-musterfirma.de,
-firmenbetreuerinTelefon=06151/88888,
-%firmenbetreuerName=,
-%firmenbetreuerEmail=,
-%firmenbetreuerTelefon=,
-bearbeitungszeitraumVon=22. Juli 2011,
-bearbeitungszeitraumBis=4. August 2011,
-sperrvermerk=ja
+bearbeitungszeitraumVon=5. September 2011,
+bearbeitungszeitraumBis=14. November 2011,
+sperrvermerk=nein
 ]
 
 
 
 % Erzeugung der Kurzfassung; Verfasser, Firma und Thema werden automatisch \"ubernommen
-\seKurzfassung
+% \seKurzfassung
 
 
 % Beispiel f\"ur ein Kapitel, dass vor dem Einleitungskapitel kommt, z. B. ein Vorwort oder eine Danksagung
-\seKapitelVorEinleitung{Vorwort}
+% \seKapitelVorEinleitung{Vorwort}
 
 
 
@@ -95,23 +83,36 @@ gliederungsebenen=4
 
 
 
-% Erstes eigentliches Kapitel der Arbeit; typischerweise das Einleitungskapitel;
-% hier muss wieder auf die Nummierung mit arabischen Seitenzahlen umgestellt werden
-%
 \chapter{Einleitung}\pagenumbering{arabic}
+\include{10 Einleitung/kapitel.tex}
 
-öblöäß
 
-
-% Erstes Hauptkapitel der Arbeit 
-%
-%
-%
-\chapter{Der formale Aufbau einer Projektarbeit}
+\chapter{Die Spielwelt}
 % Mit markright kann eine verk\"urzte Version der \"Uberschrift f\"ur den Seitenkopf generiert werden
 %
 %
 %\markright{Formaler Aufbau}
+\include{20 Spielwelt/kapitel.tex}
+
+
+\chapter{Fachkonzept}
+\include{30 Fachkonzept/kapitel.tex}
+
+
+\chapter{UI Mockups}
+\include{40 UI/kapitel.tex}
+
+
+\chapter{Implementierung}
+\include{50 Implementierung/kapitel.tex}
+
+
+\chapter{jUnit-Tests}
+\include{60 jUnit/kapitel.tex}
+
+
+\chapter{Resümee, Fazit und Ausblick}
+\include{70 Fazit/kapitel.tex}
 
 
 
@@ -119,8 +120,8 @@ gliederungsebenen=4
 % Anhang der Arbeit
 % 
 %
-\seAppendix{}
-\chapter{Einige wichtige \LaTeX{}-Kommandos}
+% \seAppendix{}
+% \chapter{Einige wichtige \LaTeX{}-Kommandos}
 
 
 
@@ -143,7 +144,7 @@ gliederungsebenen=4
 % Literaturverzeichnisses
 %
 %\newpage
-\sePrintBibliography{}
+% \sePrintBibliography{}
 
 %\input{se-test-literaturverzeichnis}
 
@@ -151,7 +152,7 @@ gliederungsebenen=4
 %
 % Festlegung des grundlegenden Formatierungsstils des Literaturverzeichnis
 %
-\bibliographystyle{jurabib}
+% \bibliographystyle{jurabib}
 
 % Eigentliche Ausgabe der in der Arbeit verwendeten Quellen
 %
@@ -160,7 +161,7 @@ gliederungsebenen=4
 % die Angabe geht davon aus, dass eine wa.bib-Datei in demselben 
 % Verzeichnis liegt, wie se-pa1-vorlage.tex
 %
-\seBibliography{wa}
+% \seBibliography{wa}
 
 
 %
