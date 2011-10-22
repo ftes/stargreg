@@ -1,0 +1,8 @@
+sa-seminararbeit.*
+.DS_Store
+.log
+jurabib.*
+*.aux
+*/*.aux
+
+!sa-seminararbeit.tex

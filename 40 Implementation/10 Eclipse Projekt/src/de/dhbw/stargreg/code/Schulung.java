@@ -6,11 +6,9 @@ package de.dhbw.stargreg.code;
  *
  */
 public class Schulung extends PersonalTransaktion {
-	private PersonalTyp personalTypZu;
 	
-	public Schulung(PersonalTyp von, PersonalTyp zu, Unternehmen unternehmen, int menge, double preis) {
+	public Schulung(PersonalTyp von, Unternehmen unternehmen, int menge, double preis) {
 		super(von, unternehmen, menge, preis);
-		personalTypZu = zu;
 	}
 	
 	public PersonalTyp getPersonalTypVon() {
@@ -18,6 +16,6 @@ public class Schulung extends PersonalTransaktion {
 	}
 	
 	public PersonalTyp getPersonalTypZu() {
-		return personalTypZu;
+		return getPersonalTypVon().getNaechsterPersonalTyp();
 	}
 }

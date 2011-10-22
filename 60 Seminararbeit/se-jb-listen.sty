@@ -1,0 +1,300 @@
+%   J\"org Baumgart
+%   DHBW Mannheim   Wirtschaftsinformatik   Software Engineering
+%   2011-04-03
+%
+%   se-listen-jb-sty enth\"alt neue Kommandos f\"ur die Erzeugung  von Listen
+%   
+%   -- seList definiert eine bez\"uglich des Layouts komplett konfiguriebare itemize
+%      Umgebung, die als Grundlage f\"ur die Definition einfacher Aufz\"ahlungslisten 
+%      dienen sollte; insbesondere wird der im Deutschen un\"ubliche Einzug von 
+%      Listenelementen der ersten Stufe konfigurierbar gemacht
+%
+%   -- seToplist erzeugt eine Liste, f\"ur die die Breite des Labelfeldes \"uber ein Referenzitem definiert wird
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \seList
+%
+%
+% Definition einer Itemliste, die bis zu f\"unf Ebenen tief verschachtelt werden kann
+% #1 (optional):  Skalierungsfaktor f\"ur \topsep und \parsep, wobei die Grundeinheit 0.5\baselineskip ist 
+%
+% Au{\ss}erdem k\"onnen die Skalierungsfaktoren global f\"ur alle Listen mit dem Kommando 
+% \seSetlistbaselineskip gesetzt und mit \seResetlistbaselineskip zur\"uckgesetzt werden
+%
+%
+
+\newcounter{sedepthitem}
+\setcounter{sedepthitem}{0}
+
+\newlength{\selistfactor}
+\newlength{\sebaselineskip}
+
+\newlength{\selistskipA}
+\newlength{\selistskipB}
+\newlength{\selistskipC}
+\newlength{\selistskipD}
+\newlength{\selistskipE}
+
+\newcommand{\selistfactorA}{1}
+\newcommand{\selistfactorB}{1}
+\newcommand{\selistfactorC}{1}
+\newcommand{\selistfactorD}{1}
+\newcommand{\selistfactorE}{1}
+
+\def\sesavelistfactorA{}
+\def\sesavelistfactorB{}
+\def\sesavelistfactorC{}
+\def\sesavelistfactorD{}
+\def\sesavelistfactorE{}
+
+%
+%  Achtung: Es m\"ussen alle Werte gesichert werden, da reset auch alle Werte zur\"uckl\"adt
+%
+\newcommand{\seSetlistbaselineskip}[5]{%
+\setlength{\sebaselineskip}{0.5\baselineskip}%
+\xdef\sesavelistfactorA{\selistfactorA}\ifthenelse{\equal{#1}{}}{}{\renewcommand{\selistfactorA}{#1}}%
+\xdef\sesavelistfactorB{\selistfactorB}\ifthenelse{\equal{#2}{}}{}{\renewcommand{\selistfactorB}{#2}}%
+\xdef\sesavelistfactorC{\selistfactorC}\ifthenelse{\equal{#3}{}}{}{\renewcommand{\selistfactorC}{#3}}%
+\xdef\sesavelistfactorD{\selistfactorD}\ifthenelse{\equal{#4}{}}{}{\renewcommand{\selistfactorD}{#4}}%
+\xdef\sesavelistfactorE{\selistfactorE}\ifthenelse{\equal{#5}{}}{}{\renewcommand{\selistfactorE}{#5}}%
+}
+
+
+\newcommand{\seResetlistbaselineskip}{%
+\renewcommand{\selistfactorA}{\sesavelistfactorA}%
+\renewcommand{\selistfactorB}{\sesavelistfactorB}%
+\renewcommand{\selistfactorC}{\sesavelistfactorC}%
+\renewcommand{\selistfactorD}{\sesavelistfactorD}%
+\renewcommand{\selistfactorE}{\sesavelistfactorE}%
+}
+
+\newcommand{\writeselistbaselineskip}{%
+\ifnum \thesedepthitem=1 \setlength{\selistfactor}{\selistfactorA\sebaselineskip}\fi%
+\ifnum \thesedepthitem=2 \setlength{\selistfactor}{\selistfactorB\sebaselineskip}\fi%
+\ifnum \thesedepthitem=3 \setlength{\selistfactor}{\selistfactorC\sebaselineskip}\fi%
+\ifnum \thesedepthitem=4 \setlength{\selistfactor}{\selistfactorD\sebaselineskip}\fi%
+\ifnum \thesedepthitem=5 \setlength{\selistfactor}{\selistfactorE\sebaselineskip}\fi%
+}
+
+\newlength{\setemp}
+\newcommand{\selistbaselineskipfactor}[1]{%
+\setlength{\setemp}{0.5\baselineskip}
+\setlength{\selistfactor}{#1\setemp}}
+
+%
+% Achtung: aus unerfindlichen Gr\"unden darf \baselineskip nicht zum Rechnen in seItemize verwendet werden
+%
+\newenvironment{seList}[1][-1]%
+%begin-Teil env
+{% Deklarationen vor Beginn der Liste
+% Definition eigener Lables
+\addtocounter{sedepthitem}{1}%
+\ifthenelse{\equal{#1}{-1}}{\writeselistbaselineskip{}}{\setlength{\selistfactor}{#1\sebaselineskip}}%
+%
+\ifnum \thesedepthitem=1%
+\def\bsitem{\hspace{.05em}\raisebox{.1ex}{$\bullet$}} \fi%
+\ifnum \thesedepthitem=2 \def\bsitem{\hspace{0.1em}\rule[.5 ex]{.5 em}{0.1 em}} \fi%
+\ifnum \thesedepthitem=3%
+\def\bsitem{\hspace{.1em}\raisebox{.1ex}{$\diamond$}} \fi%
+\ifnum \thesedepthitem=5%
+\def\bsitem{\hspace{.05em}\raisebox{.1ex}{$\circ$}} \fi%
+\ifnum \thesedepthitem=4% 
+\def\bsitem{\hspace{.05em}\raisebox{.1ex}{$\triangleright$}} \fi%
+\def\seItemCenter{l}%
+% ist hier jetzt eigentlich \"uberfl\"ussig
+\if r\seItemCenter \def\bsitemlabel{\hspace*{\fill}\bsitem} \fi%
+\if l\seItemCenter \def\bsitemlabel{\bsitem\hspace*{\fill}} \fi%
+\if c\seItemCenter \def\bsitemlabel{\hspace*{\fill}\bsitem\hspace*{\fill}} \fi%
+% Passenden selistbaselineskip-Parameter setzen
+% Start der Listenumgebung
+\begin{list}%
+{% standardlabel der Liste
+\bsitemlabel%
+} % standardlabel der Liste
+{% Deklarationen der Liste
+\setlength{\listparindent}{0mm}%
+\setlength{\labelsep}{0mm}%
+%
+\setlength{\itemindent}{0mm}%
+%
+\setlength{\labelwidth}{1.3 em}%
+%
+\setlength{\leftmargin}{\labelwidth}%
+\addtolength{\leftmargin}{\labelsep}%
+\setlength{\rightmargin}{0mm}%
+%
+% Kommandos zur Steuerung des vertikalen spacings
+%     partosep wird nur bei einem Absatz (d.h. Einf\"ugen einer Leerzeile) verwendet
+%     es wirkt sich am Anfang und am Ende der Liste aus!!!
+\setlength{\topsep}{0mm}%
+\addtolength{\topsep}{-0.5\baselineskip}%
+\addtolength{\topsep}{\selistfactor}%
+\setlength{\partopsep}{0mm}%
+\setlength{\itemsep}{0mm}%
+\setlength{\parsep}{0mm}%
+\addtolength{\parsep}{\selistfactor}%
+% Testausgabe
+% topsep: \the\topsep -- selistfactor: \the\selistfactor -- parsep: \the\parsep
+%
+} % Ende der Listendeklarationen
+} % end start-Teil environment
+%end-Teil env
+{\end{list}%
+\addtocounter{sedepthitem}{-1}%
+}
+%
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ende \selist
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \seToplist
+%
+%
+% Definition einer Liste, f\"ur die die Breite des Labelfeldes \"uber ein Referenzitem definiert wird
+% #1 (optional):  Skalierungsfaktor f\"ur \topsep und \parsep, wobei die Grundeinheit 0.5\baselineskip ist 
+% #2: Referenzitem
+%
+% Au{\ss}erdem k\"onnen die Skalierungsfaktoren global f\"ur alle Listen mit dem Kommando 
+% \setsetoplistbaselineskip gesetzt und mit \resetsetoplist zur\"uckgesetzt werden
+%
+%
+
+\newcounter{setoplist}
+\setcounter{setoplist}{0}
+
+\newlength{\setoplistfactor}
+\newlength{\setopbaselineskip}
+
+\newlength{\setoplistskipA}
+\newlength{\setoplistskipB}
+\newlength{\setoplistskipC}
+\newlength{\setoplistskipD}
+\newlength{\setoplistskipE}
+
+
+\def\sesavetoplistfactorA{}
+\def\sesavetoplistfactorB{}
+\def\sesavetoplistfactorC{}
+\def\sesavetoplistfactorD{}
+\def\sesavetoplistfactorE{}
+
+\newcommand{\setoplistfactorA}{1}
+\newcommand{\setoplistfactorB}{1}
+\newcommand{\setoplistfactorC}{1}
+\newcommand{\setoplistfactorD}{1}
+\newcommand{\setoplistfactorE}{1}
+
+%
+%  Achtung: Es m\"ussen alle Werte gesichert werden, da reset auch alle Werte zur\"uckl\"adt
+%
+\newcommand{\seSettoplistbaselineskip}[5]{%
+\setlength{\setopbaselineskip}{0.5\baselineskip}%
+\xdef\sesavetoplistfactorA{\setoplistfactorA}\ifthenelse{\equal{#1}{}}{}{\renewcommand{\setoplistfactorA}{#1}}%
+\xdef\sesavetoplistfactorB{\setoplistfactorB}\ifthenelse{\equal{#2}{}}{}{\renewcommand{\setoplistfactorB}{#2}}%
+\xdef\sesavetoplistfactorC{\setoplistfactorC}\ifthenelse{\equal{#3}{}}{}{\renewcommand{\setoplistfactorC}{#3}}%
+\xdef\sesavetoplistfactorD{\setoplistfactorD}\ifthenelse{\equal{#4}{}}{}{\renewcommand{\setoplistfactorD}{#4}}%
+\xdef\sesavetoplistfactorE{\setoplistfactorE}\ifthenelse{\equal{#5}{}}{}{\renewcommand{\setoplistfactorE}{#5}}%
+}
+
+
+\newcommand{\seResettoplistbaselineskip}{%
+\renewcommand{\setoplistfactorA}{\sesavetoplistfactorA}%
+\renewcommand{\setoplistfactorB}{\sesavetoplistfactorB}%
+\renewcommand{\setoplistfactorC}{\sesavetoplistfactorC}%
+\renewcommand{\setoplistfactorD}{\sesavetoplistfactorD}%
+\renewcommand{\setoplistfactorE}{\sesavetoplistfactorE}%
+}
+
+\newcommand{\writesetoplistbaselineskip}{%
+\ifnum \thesetoplist=1 \setlength{\setoplistfactor}{\setoplistfactorA\setopbaselineskip}\fi%
+\ifnum \thesetoplist=2 \setlength{\setoplistfactor}{\setoplistfactorB\setopbaselineskip}\fi%
+\ifnum \thesetoplist=3 \setlength{\setoplistfactor}{\setoplistfactorC\setopbaselineskip}\fi%
+\ifnum \thesetoplist=4 \setlength{\setoplistfactor}{\setoplistfactorD\setopbaselineskip}\fi%
+\ifnum \thesetoplist=5 \setlength{\setoplistfactor}{\setoplistfactorE\setopbaselineskip}\fi%
+}
+
+\newlength{\sehelp}
+\newcommand{\setoplistbaselineskipfactor}[1]{%
+\setlength{\sehelp}{0.5\baselineskip}%
+\setlength{\setoplistfactor}{#1\sehelp}}
+
+\newcommand{\setoplistleftlabel}[1]{#1\hspace*{\fill}}
+
+%
+% Definition von L\"angenwerten, die von au{\ss}en f\"ur eine Toplist 
+% manipuliert werden k\"onnen
+
+\newlength{\seToplistLeftmargin}
+\newlength{\seToplistRightmargin}
+\setlength{\seToplistLeftmargin}{0mm}
+\setlength{\seToplistRightmargin}{0mm}
+
+%
+% Achtung: aus unerfindlichen Gr\"unden darf \baselineskip nicht zum Rechnen in seItemize verwendet werden
+%
+
+\newenvironment{seToplist}[2][-1]%
+%begin-Teil env
+{% Deklarationen vor Beginn der Liste
+% Ebenenweise Konfigurierbarkeit von \topsep und \parsep vorbereiten
+\addtocounter{setoplist}{1}%
+\ifthenelse{\equal{#1}{-1}}{\writesetoplistbaselineskip{}}{\setlength{\setoplistfactor}{#1\setopbaselineskip}}%
+%
+% Start der Listenumgebung
+\begin{list}%
+{% standardlabel der Liste; Achtung: ohne eine Angabe wird makelabel verwendet, dass unten redefiniert wird
+%
+} % standardlabel der Liste
+{% Deklarationen der Liste
+\setlength{\listparindent}{0mm}%
+%%\setlength{\labelsep}{0.7em}%
+\settowidth{\labelsep}{~}
+%
+\setlength{\itemindent}{0mm}%
+%
+\settowidth{\labelwidth}{#2}%
+%
+\setlength{\leftmargin}{\labelwidth}%
+\addtolength{\leftmargin}{\labelsep}%
+\addtolength{\leftmargin}{\seToplistLeftmargin}
+%
+\setlength{\rightmargin}{0mm}%
+\addtolength{\rightmargin}{\seToplistRightmargin}
+%
+% Kommandos zur Steuerung des vertikalen spacings
+%     partosep wird nur bei einem Absatz (d.h. Einf\"ugen einer Leerzeile) verwendet
+%     es wirkt sich am Anfang und am Ende der Liste aus!!!
+\setlength{\topsep}{0mm}%
+\addtolength{\topsep}{-0.5\baselineskip}%
+\addtolength{\topsep}{\setoplistfactor}%
+\setlength{\partopsep}{0mm}%
+\setlength{\itemsep}{0mm}%
+\setlength{\parsep}{0mm}%
+\addtolength{\parsep}{\setoplistfactor}%
+% makelabel redefinieren
+\renewcommand{\makelabel}{\setoplistleftlabel}
+% Testausgabe
+%\the\setoplistfactor{} %-- \thesetoplist{} -- %\setoplistfactorA{} -- \the\baselineskip{} -- \the\setopparskip
+% topsep: \the\topsep -- setoplistfactor: \the\setoplistfactor{} -- setoplistfactorA: \setoplistfactorA  {} -- setoplistfactorB: \setoplistfactorB
+%
+} % Ende der Listendeklarationen
+} % end start-Teil environment
+%end-Teil env
+{\end{list}%
+\addtocounter{setoplist}{-1}%
+} % \setoplist
+%
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ende \seToplist
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

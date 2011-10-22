@@ -13,7 +13,6 @@ import de.dhbw.stargreg.code.PersonalTyp;
 import de.dhbw.stargreg.code.RaumschiffMarkt;
 import de.dhbw.stargreg.code.RaumschiffTyp;
 import de.dhbw.stargreg.code.Spiel;
-import de.dhbw.stargreg.code.SpielRunde;
 import de.dhbw.stargreg.code.Unternehmen;
 
 public class SpielTest {
@@ -26,7 +25,7 @@ public class SpielTest {
 	private static BauteilTyp rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0);
 	private static BauteilTyp hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0);
 	private static BauteilTyp triebwerk = new BauteilTyp("Triebwerk", 5, 500.0, 200.0);
-	private static BauteilTyp geschuetz = new BauteilTyp("Geschütz", 10, 1000.0, 400.0);
+	private static BauteilTyp geschuetz = new BauteilTyp("Geschï¿½tz", 10, 1000.0, 400.0);
 	private static BauteilTyp transport = new BauteilTyp("Transportkapsel", 20, 2000.0, 800.0);
 	private static BauteilTyp forschung = new BauteilTyp("Forschungsausstattung", 30, 3000.0, 1200.0);
 	
@@ -34,12 +33,12 @@ public class SpielTest {
 	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10);
 	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15);
 	
-	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 90, 300.0);
-	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 95, 300.0);
-	private static PersonalTyp droideka = new PersonalTyp("Droideka", 99, -1.0);
+	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, -1.0, null);
+	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.95, 300.0, droideka);
+	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.9, 300.0, kampfDroide);
 	
 	private static Unternehmen galactic = new Unternehmen("Galactic");
-	private static Unternehmen foederation = new Unternehmen("Föderation");
+	private static Unternehmen foederation = new Unternehmen("Fï¿½deration");
 	private static Unternehmen rebellen = new Unternehmen("Rebellen");
 
 	@BeforeClass
@@ -74,7 +73,7 @@ public class SpielTest {
 		bauteilMarkt.fuegeTypHinzu(transport);
 		bauteilMarkt.fuegeTypHinzu(forschung);
 		
-		// Laufende Kosten und Werbekosten für die drei Personaltypen
+		// Laufende Kosten und Werbekosten fï¿½r die drei Personaltypen
 		PersonalTyp[] personalTypen = {r2d2, kampfDroide, droideka};
 		double[][] personalKosten = {{50, 200}, {100, 400}, {200, 600}};
 		// Daten zur Spielrunde: Nachfrage Xwing/Corvette/Falke, Entwicklung Personalkosten
