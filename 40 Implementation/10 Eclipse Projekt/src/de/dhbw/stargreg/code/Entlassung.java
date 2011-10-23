@@ -1,7 +1,7 @@
 package de.dhbw.stargreg.code;
 
 /**
- * Entlassung von Personal
+ * Entlassung von Personal.
  * @author fredrik
  *
  */

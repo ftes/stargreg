@@ -1,13 +1,21 @@
 package de.dhbw.stargreg.code;
 
+/**
+ * Raumschiffe setzen sich aus Bauteilen zusammen. Deren Preis ist variabel, dabei
+ * gibt es einen Basispreis und eine maximale Abweichung hiervon. Je nach verkaufter Menge
+ * in der Vorrunde und dem Verhältnis dieser Mengen untereinander errechnet sich dann der
+ * neue Bauteilpreis.
+ * @author fredrik
+ *
+ */
 public final class BauteilTyp extends ProduktTyp {
 	/**
-	 * Grundpreis, von dem der Marktpreis abhängt
+	 * Grundpreis, von dem der Marktpreis abhängt.
 	 */
 	private final double grundPreis;
 	
 	/**
-	 * Betrag, um den der Marktpreis maximal vom Grundpreis abweichen darf
+	 * Betrag, um den der Marktpreis maximal vom Grundpreis abweichen darf.
 	 */
 	private final double maxPreisDelta;
 	
@@ -25,8 +33,9 @@ public final class BauteilTyp extends ProduktTyp {
 	}
 	
 	/**
-	 * Berechnet den neuen Preis des jeweiligen Bauteils
-	 * @param abweichung
+	 * Berechnet den neuen Preis für die nächste Runde abhängig von der Abweichung.
+	 * @param abweichung Prozentuale Abweichung des Umsatzes mit diesem Bauteiltyp vom
+	 * durchschnittlichen Umsatz aller Bauteiltypen.
 	 */
 	public void berechnePreis(double abweichung) {
 		preis = grundPreis - maxPreisDelta

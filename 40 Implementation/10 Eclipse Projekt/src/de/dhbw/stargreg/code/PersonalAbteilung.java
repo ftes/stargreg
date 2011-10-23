@@ -9,10 +9,19 @@ import java.util.HashMap;
  *
  */
 public class PersonalAbteilung extends Abteilung {
-
+	/**
+	 * Anzahl des derzeit eingestellten Personals. Wichtig für Kapazität der Produktion!
+	 */
 	private int anzahlPersonal = 0;
+	
+	/**
+	 * Laufende Kosten für Personal.
+	 */
 	private double laufendeKosten = 0.0;
-		
+	
+	/**
+	 * Verwaltet die Anzahlen des eingestellten Personals für die jeweiligen Typen.
+	 */
 	private final HashMap<PersonalTyp, Integer> personal = new HashMap<PersonalTyp, Integer>();	
 
 	public PersonalAbteilung(Unternehmen unternehmen) {

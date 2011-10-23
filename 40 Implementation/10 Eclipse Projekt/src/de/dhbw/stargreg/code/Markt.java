@@ -9,11 +9,20 @@ import java.util.Vector;
  *
  */
 public abstract class Markt<T extends Typ, A extends Transaktion> {
-	
+	/**
+	 * Verwaltung der Typen dieses Marktes.
+	 */
 	protected final Vector<T> typen = new Vector<T>();
 	
+	/**
+	 * Verwaltung der Transaktionen dieser Runde dieses Marktes.
+	 */
 	protected final Vector<A> transaktionen = new Vector<A>();
 	
+	/**
+	 * Fügt den Typ zur Liste der Typen hinzu.
+	 * @param typ Anzufügender Typ.
+	 */
 	public void fuegeTypHinzu (T typ) {
 		typen.add(typ);
 	}
@@ -22,6 +31,10 @@ public abstract class Markt<T extends Typ, A extends Transaktion> {
 		return typen;
 	}
 	
+	/**
+	 * Fügt die Transaktion zur Liste der Transaktionen hinzu.
+	 * @param transaktion Anzufügende Transaktion.
+	 */
 	public void fuegeTransaktionHinzu(A transaktion) {
 		transaktionen.add(transaktion);
 	}

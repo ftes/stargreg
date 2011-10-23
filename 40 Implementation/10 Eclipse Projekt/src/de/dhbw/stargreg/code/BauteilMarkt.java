@@ -9,15 +9,14 @@ import de.dhbw.stargreg.util.Util;
 /**
  * Auf dem Bauteilmarkt kaufen die Unternehmen Bauteile für die Raumschiffe ein.
  * Da die Preise für die Bauteile von Periode zu Periode schwanken, werden sie hier gespeichert.
- * Zudem wird eine Liste mit allen Einkäufen der Unternehmen für diese Runde geührt, um anhand
+ * Zudem wird eine Liste mit allen Einkäufen der Unternehmen für diese Runde geführt, um anhand
  * dieser die Bauteilpreise für die nächste Runde zu berechnen.
  * @author fredrik
  *
  */
 public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 	/**
-	 * Berechnet die neuen Bauteilpreise abhänging von den Umsätzen in der letzten Spielrunde
-	 * @param alterMarkt Bauteilmarkt der letzten Spielrunde, aus dem die alten Umsätze ausgelesen werden
+	 * Berechnet die neuen Bauteilpreise abhänging von den Umsätzen in der letzten Spielrunde.
 	 */
 	private void berechnePreise() {
 		// Umsätze für Bauteiltypen und Gesamtumsatz berechnen
@@ -46,6 +45,10 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 		}
 	}
 	
+	/**
+	 * Simuliert den Markt, um ihn auf die nächste Runde vorzubereiten.
+	 * Dabei müssen die Bauteilpreise neu berechnet werden.
+	 */
 	public Vector<Einkauf> simuliere() {
 		berechnePreise();
 		return super.simuliere();
