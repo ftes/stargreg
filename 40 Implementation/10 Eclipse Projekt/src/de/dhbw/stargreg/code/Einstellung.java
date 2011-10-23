@@ -1,7 +1,7 @@
 package de.dhbw.stargreg.code;
 
 /**
- * Einstellung von Personal
+ * Einstellung von Personal.
  * @author fredrik
  *
  */

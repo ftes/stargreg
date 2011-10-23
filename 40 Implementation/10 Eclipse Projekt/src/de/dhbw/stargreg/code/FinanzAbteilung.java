@@ -1,7 +1,7 @@
 package de.dhbw.stargreg.code;
 
 /**
- * 
+ * Finanzabteilung eines Unternehmens.
  * @author Britta
  *
  */
@@ -17,7 +17,7 @@ public class FinanzAbteilung extends Abteilung {
 			return;
 		}
 		this.kapital += betrag;
-	}//einzahlen
+	}
 
 	public boolean abbuchen (double betrag){
 		if (betrag > this.kapital) {
@@ -26,11 +26,11 @@ public class FinanzAbteilung extends Abteilung {
 		}
 		this.kapital -= betrag;
 		return true;
-	}//abbuchen
+	}
 
 	public double getKontostand(){
 		return this.kapital;
-	}//getKontostand
+	}
 	
 	/**
 	 * Kosten bei Überziehung berechnen. Dies ist nötig, weil beispielsweise unklar

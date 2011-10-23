@@ -41,44 +41,40 @@ public enum Spiel {
 	private Status status = Status.EINRICHTEN;
 	
 	/**
-	 * Spiel kann sich in drei Zuständen befinden: Einrichten, Spielen oder Auswerten
-	 * Dies wird durch diese Enumeration dargestellt
+	 * Spiel kann sich in drei Zuständen befinden: Einrichten, Spielen oder Auswerten.
+	 * Dies wird durch diese Enumeration dargestellt.
 	 * @author fredrik
 	 *
 	 */
 	private enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
 	
 	/**
-	 * Privater Konstruktor, um Singleton zu schätzen
+	 * Privater Konstruktor, um Singleton zu schützen
 	 */
 	private Spiel() {
 		
 	}
 	
 	/**
-	 * Fügt die übergebene Spielrunde hinten an die Liste der Spielrunden an,
-	 * somit zwingend in richtiger Reihenfolge einzufügen.
-	 * Nur möglich, wenn sich das Spiel in der Einrichtungsphase befindet.
+	 * Fügt die übergebene Spielrunde hinten an die Liste der Spielrunden an.
+	 * Nur möglich in der Phase Spielen.
 	 * @param spielRunde Die anzufügende Spielrunde
 	 */
 	public void fuegeSpielRundeHinzu(SpielRunde spielRunde) {
-		if (status == Status.EINRICHTEN) {
+		if (status == Status.SPIELEN) {
 			this.spielrunden.add(spielRunde);
 			System.out.printf("Spielrunde %d hinzugefügt\n", this.spielrunden.size());
 		} else {
-			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Einrichten' möglich");
+			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Spielen' möglich");
 		}
 	}
 	
-	/**
-	*Gibt die Anzahl der Unternehmen zurück
-	*/
 	public int getAnzahlUnternehmen() {
 		return unternehmen.size();
 	}
 	
 	/**
-	 * Fägt das übergebene Unternehmen hinten an die Liste der Unternehmen an.
+	 * Fügt das übergebene Unternehmen hinten an die Liste der Unternehmen an.
 	 * Nur möglich, wenn das Spiel sich in der Einrichtungsphase befindet.
 	 * @param unternehmen Das anzufügende Unternehmen
 	 */
@@ -92,7 +88,7 @@ public enum Spiel {
 	}
 	
 	/**
-	 * Startet das Spiel, nur möglich wenn in Einrichtungs-Phase
+	 * Startet das Spiel, nur möglich in Einrichtungs-Phase.
 	 */
 	public void starteSpiel() {
 		if (status != Status.EINRICHTEN) {
@@ -105,7 +101,7 @@ public enum Spiel {
 	}
 	
 	/**
-	 * Beendet das Spiel, nur möglich wenn in Spielen-Phase
+	 * Beendet das Spiel, nur möglich wenn in Spielen-Phase.
 	 */
 	public void beendeSpiel() {
 		if (status == Status.SPIELEN) {
@@ -114,13 +110,6 @@ public enum Spiel {
 		} else {
 			System.out.println("Spiel nicht beendet: wurde noch nicht gestartet oder schon beendet");
 		}
-	}
-	
-	/**
-	 * Initialisierung des Spiels: Anlegen aller Daten
-	 */
-	public void initialisieren() {
-		
 	}
 
 	/**

@@ -1,6 +1,15 @@
 package de.dhbw.stargreg.code;
 
 import java.util.HashMap;
+
+//Frage: Werden ProduktTypen direkt nach der Produktion eingelagert und fallen dann die Lagerkosten an,
+//auch wenn sie noch in der selben Periode wieder ausgelagert werden (durch Verkauf)?
+
+//Antwort: Die Reihenfolge bei der Simulation sieht wie folgt aus: erst wird produziert, dann werden
+//Verkäufe getätigt und abschließend wird erst Lager.simulieren() aufgerufen. Zu diesem Zeitpunkt sind
+//also nur noch nicht-verkaufte Raumschiffe im Lager. Also: einfach Kosten berechnen und vom Konto abbuchen
+//für alles, was im Lager liegt (Freddy).
+
 /**
  * Im Lager koennen beliebig viele Bauteile und fertige Raumschiffe aufgenommen werden, eine obere
  * Kapazitaetsschranke gibt es nicht. Verwaltet werden sie ueberber die gemeinsame Oberklasse 'ProduktTyp'. 
@@ -9,22 +18,18 @@ import java.util.HashMap;
  * @author Britta
  *
  */
-
-// Frage: Werden ProduktTypen direkt nach der Produktion eingelagert und fallen dann die Lagerkosten an,
-// auch wenn sie noch in der selben Periode wieder ausgelagert werden (durch Verkauf)?
-
 public class LagerAbteilung extends Abteilung {
 	public LagerAbteilung(Unternehmen unternehmen) {
 		super(unternehmen);
 	}
 
 	/**
-	 * Kosten pro LagerplatzEinheit
+	 * Kosten pro LagerplatzEinheit.
 	 */
 	private static double lagerPlatzEinheitKosten;
 	
 	/**
-	 * zaehlt die belegten LagerplatzEinheiten
+	 * Zählt die belegten LagerplatzEinheiten.
 	 */
 	private int lagerstand = 0;
 	private final HashMap<ProduktTyp, Integer> bestand = new HashMap<ProduktTyp, Integer>();	
@@ -32,9 +37,9 @@ public class LagerAbteilung extends Abteilung {
 	/**
 	 * Entnimmt eine Anzahl an Bauteilen und Raumschiffen aus dem Lager, sofern der Lagerbestand dies 
 	 * erlaubt. Die Änderungen des Lagerbestands werden gespeichert.
-	 * @param produktTyp produktTyp von ProduktTyp
+	 * @param produktTyp Zu entnehmender Produkttyp.
 	 * @param anzahl Anzahl der zu entnehmenden Teile dieses Typs
-	 * @return Meldung ???
+	 * @return Rückmeldung, ob Entnahme erfolgreich war.
 	 */
 	public boolean entnehmen (ProduktTyp produktTyp, int anzahl){
 		int istAnzahl = bestand.get(produktTyp); 		
