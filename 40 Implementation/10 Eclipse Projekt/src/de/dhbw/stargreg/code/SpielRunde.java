@@ -4,8 +4,8 @@ import java.util.Vector;
 
 
 /**
- * Eine Spielrunde verwaltet die Märkte im aktuellen Zustand, und somit indirekt alle
- * für diese Runde wichtigen Daten.
+ * Eine Spielrunde verwaltet die MÃ¤rkte im aktuellen Zustand, und somit indirekt alle
+ * fÃ¼r diese Runde wichtigen Daten.
  * @author fredrik
  *
  */

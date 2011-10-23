@@ -7,20 +7,20 @@ import de.dhbw.stargreg.util.Gruppierung;
 import de.dhbw.stargreg.util.Util;
 
 /**
- * Auf dem Bauteilmarkt kaufen die Unternehmen Bauteile für die Raumschiffe ein.
- * Da die Preise für die Bauteile von Periode zu Periode schwanken, werden sie hier gespeichert.
- * Zudem wird eine Liste mit allen Einkäufen der Unternehmen für diese Runde geführt, um anhand
- * dieser die Bauteilpreise für die nächste Runde zu berechnen.
+ * Auf dem Bauteilmarkt kaufen die Unternehmen Bauteile fÃ¼r die Raumschiffe ein.
+ * Da die Preise fÃ¼r die Bauteile von Periode zu Periode schwanken, werden sie hier gespeichert.
+ * Zudem wird eine Liste mit allen EinkÃ¤ufen der Unternehmen fÃ¼r diese Runde geÃ¼hrt, um anhand
+ * dieser die Bauteilpreise fÃ¼r die nÃ¤chste Runde zu berechnen.
  * @author fredrik
  *
  */
 public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 	/**
-	 * Berechnet die neuen Bauteilpreise abhänging von den Umsätzen in der letzten Spielrunde
-	 * @param alterMarkt Bauteilmarkt der letzten Spielrunde, aus dem die alten Umsätze ausgelesen werden
+	 * Berechnet die neuen Bauteilpreise abhÃ¤nging von den UmsÃ¤tzen in der letzten Spielrunde
+	 * @param alterMarkt Bauteilmarkt der letzten Spielrunde, aus dem die alten UmsÃ¤tze ausgelesen werden
 	 */
 	private void berechnePreise() {
-		// Umsätze für Bauteiltypen und Gesamtumsatz berechnen
+		// UmsÃ¤tze fÃ¼r Bauteiltypen und Gesamtumsatz berechnen
 		HashMap<BauteilTyp, Double> umsaetze = new HashMap<BauteilTyp, Double>();
 		HashMap<BauteilTyp, Vector<Einkauf>> einkaeufe = Util.gruppiereVector(transaktionen, new Gruppierung<BauteilTyp, Einkauf>() {
 			public BauteilTyp nach(Einkauf einkauf) {

@@ -3,7 +3,7 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 
 /**
- * Hier werden die Personal der drei Qualit�tsstufen �ber den gemeinsamen Obertyp 'Personaltyp' 
+ * Hier werden die Personal der drei Qualitätsstufen über den gemeinsamen Obertyp 'Personaltyp' 
  * verwaltet. Das Personal kann erworben bzw. eingestellt, entlassen und geschult werden.  
  * @author Britta
  *
@@ -20,12 +20,12 @@ public class PersonalAbteilung extends Abteilung {
 	}//Konstruktor
 	
 	/**
-	 * Schult Personal, d.h. eine Anzahl an Personal wird aus ihrer aktuellen Qualit�tsstufe
-	 * entnommen und der n�chsten Stufe hinzugef�gt. Dabei kann die Qualit�t immer nur um eine 
-	 * Stufe erh�ht werden. Die �nderungen der laufenden Kosten durch die neuen Kosten werden 
+	 * Schult Personal, d.h. eine Anzahl an Personal wird aus ihrer aktuellen Qualitätsstufe
+	 * entnommen und der nächsten Stufe hinzugefügt. Dabei kann die Qualität immer nur um eine 
+	 * Stufe erhöht werden. Die Änderungen der laufenden Kosten durch die neuen Kosten werden 
 	 * gespeichert; Schulungskosten werden abgebucht.
-	 * @param von Ist-Qualit�tsstufe
-	 * @param nach Soll-Qualit�tsstufe 
+	 * @param von Ist-Qualitätsstufe
+	 * @param nach Soll-Qualitätsstufe 
 	 * @param anzahlPers Anzahl der zu schulenden Personal
 	 */
 	public boolean schulen (PersonalTyp von, int anzahl) {

@@ -9,12 +9,12 @@ import java.util.HashMap;
  */
 public class RaumschiffTyp extends ProduktTyp {
 	/**
-	 * Mengen der Bauteile, die f�r die Produktion eines Raumschiffs diesen Typs ben�tigt werden
+	 * Mengen der Bauteile, die für die Produktion eines Raumschiffs diesen Typs benötigt werden
 	 */
 	private final HashMap<BauteilTyp, Integer> bauteile = new HashMap<BauteilTyp, Integer>();
 	
 	/**
-	 * Gibt das ben�tigte Personal f�r diesen Raumschifftyp zur�ck.
+	 * Gibt das benötigte Personal für diesen Raumschifftyp zurück.
 	 */
 	private final int benoetigtesPersonal;
 	
@@ -26,19 +26,19 @@ public class RaumschiffTyp extends ProduktTyp {
 	}
 	
 	/**
-	 * F�gt ein Bauteil mit der zugeh�rigen Menge an die BauteilListe an
-	 * Erh�ht auch die ben�tigten LagerplatzEinheiten um den entsprechenden Wert
+	 * Fügt ein Bauteil mit der zugehörigen Menge an die BauteilListe an
+	 * Erhöht auch die benötigten LagerplatzEinheiten um den entsprechenden Wert
 	 * @param bauteilTyp BauteilTyp
 	 * @param menge Menge
 	 */
 	public void fuegeBauteilHinzu(BauteilTyp bauteilTyp, int menge) {
 		bauteile.put(bauteilTyp, menge);
-		System.out.printf("%d %s als Bauteil zu %s hinzugef�gt\n", menge, bauteilTyp, this);
+		System.out.printf("%d %s als Bauteil zu %s hinzugefügt\n", menge, bauteilTyp, this);
 	}
 	
 	/**
-	 * Berechnet die variablen Kosten f�r den Raumschifftyp, basierend auf den derzeitigen Marktpreisen der Bauteile
-	 * @return variable Kosten f�r diesen Raumschifftyp
+	 * Berechnet die variablen Kosten für den Raumschifftyp, basierend auf den derzeitigen Marktpreisen der Bauteile
+	 * @return variable Kosten für diesen Raumschifftyp
 	 */
 	public double getKosten() {
 		double kosten = 0;

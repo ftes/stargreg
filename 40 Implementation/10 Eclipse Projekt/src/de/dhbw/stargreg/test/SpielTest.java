@@ -25,7 +25,7 @@ public class SpielTest {
 	private static BauteilTyp rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0);
 	private static BauteilTyp hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0);
 	private static BauteilTyp triebwerk = new BauteilTyp("Triebwerk", 5, 500.0, 200.0);
-	private static BauteilTyp geschuetz = new BauteilTyp("Gesch�tz", 10, 1000.0, 400.0);
+	private static BauteilTyp geschuetz = new BauteilTyp("Geschütz", 10, 1000.0, 400.0);
 	private static BauteilTyp transport = new BauteilTyp("Transportkapsel", 20, 2000.0, 800.0);
 	private static BauteilTyp forschung = new BauteilTyp("Forschungsausstattung", 30, 3000.0, 1200.0);
 	
@@ -38,7 +38,7 @@ public class SpielTest {
 	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.9, 300.0, kampfDroide);
 	
 	private static Unternehmen galactic = new Unternehmen("Galactic");
-	private static Unternehmen foederation = new Unternehmen("F�deration");
+	private static Unternehmen foederation = new Unternehmen("Föderation");
 	private static Unternehmen rebellen = new Unternehmen("Rebellen");
 
 	@BeforeClass
@@ -73,7 +73,7 @@ public class SpielTest {
 		bauteilMarkt.fuegeTypHinzu(transport);
 		bauteilMarkt.fuegeTypHinzu(forschung);
 		
-		// Laufende Kosten und Werbekosten f�r die drei Personaltypen
+		// Laufende Kosten und Werbekosten für die drei Personaltypen
 		PersonalTyp[] personalTypen = {r2d2, kampfDroide, droideka};
 		double[][] personalKosten = {{50, 200}, {100, 400}, {200, 600}};
 		// Daten zur Spielrunde: Nachfrage Xwing/Corvette/Falke, Entwicklung Personalkosten

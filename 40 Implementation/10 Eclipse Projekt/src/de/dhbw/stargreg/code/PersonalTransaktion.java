@@ -1,7 +1,7 @@
 package de.dhbw.stargreg.code;
 
 /**
- * abstrakte Klasse für alle Personal-bezogenen Transaktionen
+ * abstrakte Klasse fÃ¼r alle Personal-bezogenen Transaktionen
  * @author fredrik
  *
  */

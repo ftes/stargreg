@@ -1,7 +1,7 @@
 package de.dhbw.stargreg.code;
 
 /**
- * Abstrakte Klasse für Produkttypen, die den Namen und die benötigten Lagerplatzeinheiten speichert
+ * Abstrakte Klasse fÃ¼r Produkttypen, die den Namen und die benÃ¶tigten Lagerplatzeinheiten speichert
  * @author fredrik
  *
  */

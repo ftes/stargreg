@@ -2,13 +2,13 @@ package de.dhbw.stargreg.code;
 
 /**
  * Unternehmen machen auf dem Raumschiffmarkt Angebote zum Verkauf von Raumschiffen.
- * Dabei legen sie den Preis fest, für den sie ein bestimmten Raumschifftypen verkaufen.
+ * Dabei legen sie den Preis fest, fÃ¼r den sie ein bestimmten Raumschifftypen verkaufen.
  * @author fredrik
  *
  */
 public class Angebot extends Transaktion {
 	/**
-	 * Zwischenspeicher für Berechnungen im Raumschiffmarkt
+	 * Zwischenspeicher fÃ¼r Berechnungen im Raumschiffmarkt
 	 */
 	private double anteil;
 	
@@ -22,7 +22,7 @@ public class Angebot extends Transaktion {
 	
 	/**
 	 * Erzeugt das zum Angebot passende Verkaufsobjekt, wobei sich die Menge unterscheiden kann
-	 * @param menge Menge, die tatsächlich abgesetzt werden kann
+	 * @param menge Menge, die tatsÃ¤chlich abgesetzt werden kann
 	 * @return Zum Angebot passender Verkauf
 	 */
 	public Verkauf kloneVerkauf(int menge) {

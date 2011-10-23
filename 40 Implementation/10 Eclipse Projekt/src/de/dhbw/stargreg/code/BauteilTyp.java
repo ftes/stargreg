@@ -2,7 +2,7 @@ package de.dhbw.stargreg.code;
 
 public final class BauteilTyp extends ProduktTyp {
 	/**
-	 * Grundpreis, von dem der Marktpreis abh‰ngt
+	 * Grundpreis, von dem der Marktpreis abh√§ngt
 	 */
 	private final double grundPreis;
 	

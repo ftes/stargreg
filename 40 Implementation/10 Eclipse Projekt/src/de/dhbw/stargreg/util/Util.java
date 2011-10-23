@@ -8,7 +8,7 @@ import de.dhbw.stargreg.code.Verkauf;
 
 
 /**
- * Hilfsfunktionen, die inhaltlich keiner anderen Klasse zugeordnet werden können
+ * Hilfsfunktionen, die inhaltlich keiner anderen Klasse zugeordnet werden kÃ¶nnen
  * 
  * @author fredrik
  * 
@@ -17,8 +17,8 @@ public class Util {
 	/**
 	 * Gruppiert die Elemente im {@code vector} nach einem Merkmal, das durch {@code gruppierung.nach()} definiert wird
 	 * 
-	 * @param vector Eingabe-{@code Vector}, der die zu gruppierenden Objekte enthält
-	 * @param gruppierung Enthält die Methode {@code nach()}, die das Gruppierungs-Merkmal zurückliefert
+	 * @param vector Eingabe-{@code Vector}, der die zu gruppierenden Objekte enthÃ¤lt
+	 * @param gruppierung EnthÃ¤lt die Methode {@code nach()}, die das Gruppierungs-Merkmal zurÃ¼ckliefert
 	 * @return Alle Objekte aus {@code vector} in einer{@code HashMap} gruppiert
 	 */
 	public static <G, O> HashMap<G, Vector<O>> gruppiereVector(Vector<O> vector, Gruppierung<G, O> gruppierung) {

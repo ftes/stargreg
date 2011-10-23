@@ -1,7 +1,7 @@
 package de.dhbw.stargreg.code;
 
 /**
- * Abstrakte Oberklasse f�r alle Abteilungen
+ * Abstrakte Oberklasse für alle Abteilungen
  * @author fredrik
  *
  */
