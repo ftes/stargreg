@@ -10,10 +10,10 @@ import de.dhbw.stargreg.util.Gruppierung;
 import de.dhbw.stargreg.util.Util;
 
 /**
- * Beschreibt den Raumschiffmarkt, der für die Spieler den Absatzmarkt darstellt
- * Die Absatzmengen sind abhängig von den jeweiligen Angebots-Mengen und Preisen,
- * und werden zusätzlich mit einem als sinnvoll angenommenem Vielfachen der Bauteilkosten
- * für ein Raumschiff verglichen, um zu hohe Preise zu verhindern
+ * Beschreibt den Raumschiffmarkt, der fÃ¼r die Spieler den Absatzmarkt darstellt
+ * Die Absatzmengen sind abhÃ¤ngig von den jeweiligen Angebots-Mengen und Preisen,
+ * und werden zusÃ¤tzlich mit einem als sinnvoll angenommenem Vielfachen der Bauteilkosten
+ * fÃ¼r ein Raumschiff verglichen, um zu hohe Preise zu verhindern
  * 
  * @author fredrik
  *
@@ -33,14 +33,14 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 	}
 	
 	/**
-	 * Berechnet die Absatzmengen für die jeweiligen Spieler (Angebote) für diese Periode
-	 * @param raumschiffTyp Raumschifftyp, für den die Absatzmengen bestimmt werden sollen (wichtig wegen der Elementarkosten)
+	 * Berechnet die Absatzmengen fÃ¼r die jeweiligen Spieler (Angebote) fÃ¼r diese Periode
+	 * @param raumschiffTyp Raumschifftyp, fÃ¼r den die Absatzmengen bestimmt werden sollen (wichtig wegen der Elementarkosten)
 	 * @param angebote {@code Vector} mit Angeboten der Unternehmen, die Menge und Preis beinhalten
-	 * @return Rückgabe eines {@code Vector} mit allen {@code Verkauf}-Objekten, die die jeweilige Absatzmenge enthalten
+	 * @return RÃ¼ckgabe eines {@code Vector} mit allen {@code Verkauf}-Objekten, die die jeweilige Absatzmenge enthalten
 	 */
 	public Vector<Verkauf> berechneTypAbsatz(RaumschiffTyp raumschiffTyp, Vector<Angebot> angebote) {
 		//To-Do: Was passiert bei gleichen Preisen
-		//To-Do: Beachten, dass maximal verfügbare Gesamtmenge auch verkauft wird
+		//To-Do: Beachten, dass maximal verfÃ¼gbare Gesamtmenge auch verkauft wird
 		
 		//Angebote nach aufsteigendem Preis sortieren
 		Collections.sort(angebote, new Comparator<Angebot>() {
@@ -63,7 +63,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 			}
 		}
 		
-		//Neue Nachfrage basierend auf niedrigstem Preis berechnen, abhängig von Spielerzahl
+		//Neue Nachfrage basierend auf niedrigstem Preis berechnen, abhÃ¤ngig von Spielerzahl
 		int nachfrage = raumschiffTyp.getNachfrage() * Spiel.INSTANCE.getAnzahlUnternehmen();
 		nachfrage = (int) Math.floor(nachfrage * (1 - Math.pow(niedrigsterPreis / (raumschiffTyp.getKosten() * 3.5), 4)));
 		if (nachfrage < 0) {
@@ -72,7 +72,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 		int uebertrag = 0;
 		
 		//Jeweilige Verkaufsmengen berechnen
-		System.out.printf("Typabsätze für %s:\n", raumschiffTyp);
+		System.out.printf("TypabsÃ¤tze fÃ¼r %s:\n", raumschiffTyp);
 		for (Angebot angebot : angebote) {
 			int menge = (int) Math.round(angebot.getAnteil() / anteilSumme * nachfrage) + uebertrag;
 			if (menge <= angebot.getMenge()) {
@@ -89,9 +89,9 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 	}
 
 	/**
-	 * Gruppiert alle Angebote nach Raumschifftypen, berechnet für diese jeweils mit {@code berechneTypAbsatz()} den Absatz für die
-	 * jeweiligen Unternehmen und gibt alle Verkäufe in einem {@code Vector} zurück
-	 * @return {@code Vector} mit allen Verkäufen
+	 * Gruppiert alle Angebote nach Raumschifftypen, berechnet fÃ¼r diese jeweils mit {@code berechneTypAbsatz()} den Absatz fÃ¼r die
+	 * jeweiligen Unternehmen und gibt alle VerkÃ¤ufe in einem {@code Vector} zurÃ¤ck
+	 * @return {@code Vector} mit allen VerkÃ¤ufen
 	 */
 	public Vector<Verkauf> berechneGesamtAbsatz() {
 		HashMap<RaumschiffTyp, Vector<Angebot>> angebote = Util.gruppiereVector(this.angebote, new Gruppierung<RaumschiffTyp, Angebot>() {
@@ -101,7 +101,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 		});
 		
 		System.out.println("Absatzmengen im Raumschiffmarkt:");
-		//Absätze für Raumschifftypen berechnen
+		//AbsÃ¤tze fÃ¼r Raumschifftypen berechnen
 		for (RaumschiffTyp raumschiffTyp : angebote.keySet()) {
 			Vector<Verkauf> typVerkaeufe = berechneTypAbsatz(raumschiffTyp, angebote.get(raumschiffTyp));
 			verkaeufe.addAll(typVerkaeufe);

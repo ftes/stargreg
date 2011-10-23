@@ -41,7 +41,7 @@ public enum Spiel {
 	private Status status = Status.EINRICHTEN;
 	
 	/**
-	 * Spiel kann sich in drei Zuständen befinden: Einrichten, Spielen oder Auswerten
+	 * Spiel kann sich in drei ZustÃ¤nden befinden: Einrichten, Spielen oder Auswerten
 	 * Dies wird durch diese Enumeration dargestellt
 	 * @author fredrik
 	 *
@@ -49,50 +49,50 @@ public enum Spiel {
 	private enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
 	
 	/**
-	 * Privater Konstruktor, um Singleton zu schützen
+	 * Privater Konstruktor, um Singleton zu schÃ¤tzen
 	 */
 	private Spiel() {
 		
 	}
 	
 	/**
-	 * Fügt die übergebene Spielrunde hinten an die Liste der Spielrunden an,
-	 * somit zwingend in richtiger Reihenfolge einzufügen.
-	 * Nur möglich, wenn sich das Spiel in der Einrichtungsphase befindet.
-	 * @param spielRunde Die anzufügende Spielrunde
+	 * FÃ¼gt die Ã¼bergebene Spielrunde hinten an die Liste der Spielrunden an,
+	 * somit zwingend in richtiger Reihenfolge einzufÃ¼gen.
+	 * Nur mÃ¶glich, wenn sich das Spiel in der Einrichtungsphase befindet.
+	 * @param spielRunde Die anzufÃ¼gende Spielrunde
 	 */
 	public void fuegeSpielRundeHinzu(SpielRunde spielRunde) {
 		if (status == Status.EINRICHTEN) {
 			this.spielrunden.add(spielRunde);
-			System.out.printf("Spielrunde %d hinzugefügt\n", this.spielrunden.size());
+			System.out.printf("Spielrunde %d hinzugefÃ¼gt\n", this.spielrunden.size());
 		} else {
-			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Einrichten' möglich");
+			System.err.println("Spielrunde nicht hinzugefÃ¼gt: nur in der Phase 'Einrichten' mÃ¶glich");
 		}
 	}
 	
 	/**
-	*Gibt die Anzahl der Unternehmen zurück
+	*Gibt die Anzahl der Unternehmen zurÃ¼ck
 	*/
 	public int getAnzahlUnternehmen() {
 		return unternehmen.size();
 	}
 	
 	/**
-	 * Fügt das übergebene Unternehmen hinten an die Liste der Unternehmen an.
-	 * Nur möglich, wenn das Spiel sich in der Einrichtungsphase befindet.
-	 * @param unternehmen Das anzufügende Unternehmen
+	 * FÃ¤gt das Ã¼bergebene Unternehmen hinten an die Liste der Unternehmen an.
+	 * Nur mÃ¶glich, wenn das Spiel sich in der Einrichtungsphase befindet.
+	 * @param unternehmen Das anzufÃ¼gende Unternehmen
 	 */
 	public void fuegeUnternehmenHinzu(Unternehmen unternehmen) {
 		if (status == Status.EINRICHTEN) {
 			this.unternehmen.add(unternehmen);
-			System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
+			System.out.printf("Unternehmen %s hinzugefÃ¼gt\n", unternehmen);
 		} else {
-			System.err.println("Unternehmen nicht hinzugefügt: nur in der Phase 'Einrichten' möglich");
+			System.err.println("Unternehmen nicht hinzugefÃ¼gt: nur in der Phase 'Einrichten' mÃ¶glich");
 		}
 	}
 	
 	/**
-	 * Startet das Spiel, nur möglich wenn in Einrichtungs-Phase
+	 * Startet das Spiel, nur mÃ¶glich wenn in Einrichtungs-Phase
 	 */
 	public void starteSpiel() {
 		if (status != Status.EINRICHTEN) {
@@ -105,7 +105,7 @@ public enum Spiel {
 	}
 	
 	/**
-	 * Beendet das Spiel, nur möglich wenn in Spielen-Phase
+	 * Beendet das Spiel, nur mÃ¶glich wenn in Spielen-Phase
 	 */
 	public void beendeSpiel() {
 		if (status == Status.SPIELEN) {
@@ -124,13 +124,13 @@ public enum Spiel {
 	}
 
 	/**
-	 * Sobald alle Benutzer ihre Eingaben getätigt haben, kann die Spielrunde simuliert werden,
+	 * Sobald alle Benutzer ihre Eingaben getÃ¤tigt haben, kann die Spielrunde simuliert werden,
 	 * dies setzt die aktuelle Spielrunde um eins weiter.
-	 * Nur möglich im Status Spielen
+	 * Nur mÃ¶glich im Status Spielen
 	 */
 	public void simuliere() {
 		if (status != Status.SPIELEN) {
-			System.out.println("Die nächste Runde kann nur im Modus Spielen erreicht werden");
+			System.out.println("Die nÃ¤chste Runde kann nur im Modus Spielen erreicht werden");
 			return;
 		}
 		
@@ -176,8 +176,8 @@ public enum Spiel {
 	}
 	
 	/**
-	 * Setzt das Spiel zurück. Es werden alle Unternehmen gelöscht und die Märkte
-	 * zurückgesetzt.
+	 * Setzt das Spiel zurÃ¼ck. Es werden alle Unternehmen gelÃ¶scht und die MÃ¤rkte
+	 * zurÃ¼ckgesetzt.
 	 */
 	public void setzeZurueck() {
 		raumschiffMarkt = new RaumschiffMarkt();

@@ -1,8 +1,8 @@
 package de.dhbw.stargreg.util;
 
 /**
- * Interface für die Gruppierungs-Funktion
- * Mit diesem Interface muss beim Ausführen von {@code Util.gruppiereVector()} eine Insatz erzeugt werden
+ * Interface fÃ¼r die Gruppierungs-Funktion
+ * Mit diesem Interface muss beim AusfÃ¼hren von {@code Util.gruppiereVector()} eine Insatz erzeugt werden
  * @author fredrik
  *
  * @param <G> Generischer Typ der Gruppen

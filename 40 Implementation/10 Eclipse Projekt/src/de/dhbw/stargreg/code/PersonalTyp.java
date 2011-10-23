@@ -1,7 +1,7 @@
 package de.dhbw.stargreg.code;
 
 /**
- * Ein PersonalTyp wird durch seine Bezeichnung und eine Qualit�tsstufe beschrieben,
+ * Ein PersonalTyp wird durch seine Bezeichnung und eine Qualitätsstufe beschrieben,
  * die den Ausschuss steuert
  * @author fredrik
  *

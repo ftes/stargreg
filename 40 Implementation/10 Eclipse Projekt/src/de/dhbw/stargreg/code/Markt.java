@@ -4,7 +4,7 @@ import java.util.Vector;
 
 
 /**
- * Oberklasse für alle Märkte.
+ * Oberklasse fÃ¼r alle MÃ¤rkte.
  * @author fredrik
  *
  */
@@ -35,8 +35,8 @@ public abstract class Markt<T extends Typ, A extends Transaktion> {
 	}
 	
 	/**
-	 * Führt alle nötigen Simulationen auf dem Markt durch und liefert zur weiteren Verarbeitung
-	 * den {@code Vector} mit den Transaktionen zurück.
+	 * FÃ¼hrt alle nÃ¶tigen Simulationen auf dem Markt durch und liefert zur weiteren Verarbeitung
+	 * den {@code Vector} mit den Transaktionen zurÃ¼ck.
 	 * @return Transaktionen
 	 */
 	public Vector<A> simuliere() {

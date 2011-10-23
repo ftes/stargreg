@@ -1,7 +1,7 @@
 package de.dhbw.stargreg.code;
 
 /**
- * Unternehmen t‰tigen auf dem Bauteilmarkt Eink‰ufe. Alle relevanten Informationen wie
+ * Unternehmen t√§tigen auf dem Bauteilmarkt Eink√§ufe. Alle relevanten Informationen wie
  * Bauteiltyp, Preis etc. werden hier festgehalten
  * @author fredrik
  *

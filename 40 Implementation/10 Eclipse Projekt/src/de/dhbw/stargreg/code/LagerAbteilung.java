@@ -31,7 +31,7 @@ public class LagerAbteilung extends Abteilung {
 	
 	/**
 	 * Entnimmt eine Anzahl an Bauteilen und Raumschiffen aus dem Lager, sofern der Lagerbestand dies 
-	 * erlaubt. Die �nderungen des Lagerbestands werden gespeichert.
+	 * erlaubt. Die Änderungen des Lagerbestands werden gespeichert.
 	 * @param produktTyp produktTyp von ProduktTyp
 	 * @param anzahl Anzahl der zu entnehmenden Teile dieses Typs
 	 * @return Meldung ???
@@ -49,8 +49,8 @@ public class LagerAbteilung extends Abteilung {
 	}//leeren
 	
 	/**
-	 * Lagert neue Bauteile und Raumschiffe in das Lager ein. Da das Lager beliebig gro� ist, muss keine 
-	 * Pruefung auf ausreichend freie Kapazitaet durchgefuehrt werden. Die �nderungen des Lagerbestands 
+	 * Lagert neue Bauteile und Raumschiffe in das Lager ein. Da das Lager beliebig groß ist, muss keine 
+	 * Pruefung auf ausreichend freie Kapazitaet durchgefuehrt werden. Die Änderungen des Lagerbestands 
 	 * werden gespeichert.
 	 * @param produktTyp produktTyp von ProduktTyp
 	 * @param anzahl Anzahl der einzulagernden Teile dieses Typs
