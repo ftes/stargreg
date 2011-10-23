@@ -47,6 +47,7 @@ public class RaumschiffMarktTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		Spiel.INSTANCE.setzeZurueck();
 	}
 
 	@Before
