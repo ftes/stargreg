@@ -1,0 +1,6 @@
+- Firmenlogos einarbeiten (Klasse Unternehmen)
+- Spielregeln (Spiel)
+- Hilfstexte (entweder zur Klasse Spiel, oder in den jeweiligen Klassen)
+- Star der letzten Runde (Spielrunde)
+- ROI (Spielrunde)
+- Marktanteil (Spielrunde ---> von Verkaufszahlen [+ preisen ausgehn])

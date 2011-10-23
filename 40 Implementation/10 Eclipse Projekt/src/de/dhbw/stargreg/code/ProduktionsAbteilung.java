@@ -28,7 +28,7 @@ public class ProduktionsAbteilung extends Abteilung {
 				int anzahl = auftrag.getMenge() * bauteile.get(bauteilTyp);
 				unternehmen.getLager().entnehmen(bauteilTyp, anzahl);
 			}
-			int menge = auftrag.getMenge() - berechneAusschuss(auftrag.getMenge());
+			int menge = auftrag.getMenge() - berechneFehlerhafteMenge(auftrag.getMenge());
 			unternehmen.getLager().einlagern(auftrag.getRaumschiffTyp(), menge);
 		}
 		
@@ -37,14 +37,14 @@ public class ProduktionsAbteilung extends Abteilung {
 		benoetigtesPersonal = 0;
 	}
 	
-	private int berechneAusschuss(int menge) {
-		int ausschuss = 0;
+	private int berechneFehlerhafteMenge(int menge) {
+		int fehlerhafteMenge = 0;
 		for (int i=0; i<menge; i++) {
 			if (Math.random() > unternehmen.getPersonal().getDurchschnittlicheQualitaet()) {
-				ausschuss++;
+				fehlerhafteMenge++;
 			}
 		}
-		return ausschuss;
+		return fehlerhafteMenge;
 	}
 	
 	public boolean fuegeAuftragHinzu(RaumschiffTyp raumschiffTyp, int menge) {
