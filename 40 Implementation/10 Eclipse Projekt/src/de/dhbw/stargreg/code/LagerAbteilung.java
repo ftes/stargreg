@@ -1,45 +1,40 @@
 package de.dhbw.stargreg.code;
 
 import java.util.HashMap;
-
-//Frage: Werden ProduktTypen direkt nach der Produktion eingelagert und fallen dann die Lagerkosten an,
-//auch wenn sie noch in der selben Periode wieder ausgelagert werden (durch Verkauf)?
-
-//Antwort: Die Reihenfolge bei der Simulation sieht wie folgt aus: erst wird produziert, dann werden
-//Verkäufe getätigt und abschließend wird erst Lager.simulieren() aufgerufen. Zu diesem Zeitpunkt sind
-//also nur noch nicht-verkaufte Raumschiffe im Lager. Also: einfach Kosten berechnen und vom Konto abbuchen
-//für alles, was im Lager liegt (Freddy).
-
 /**
  * Im Lager koennen beliebig viele Bauteile und fertige Raumschiffe aufgenommen werden, eine obere
- * Kapazitaetsschranke gibt es nicht. Verwaltet werden sie ueberber die gemeinsame Oberklasse 'ProduktTyp'. 
+ * Kapazitaetsschranke gibt es nicht. Verwaltet werden sie ueber die gemeinsame Oberklasse 'ProduktTyp'. 
  * Dabei setzten sich die belegten Stellplatzeinheiten aus den jeweiligen benoetigten SPEs der 
  * Bautteiltypen (vgl. Datenbasis) zusammen. 
  * @author Britta
  *
  */
+
+// Frage: Werden ProduktTypen direkt nach der Produktion eingelagert und fallen dann die Lagerkosten an,
+// auch wenn sie noch in der selben Periode wieder ausgelagert werden (durch Verkauf)?
+
 public class LagerAbteilung extends Abteilung {
 	public LagerAbteilung(Unternehmen unternehmen) {
 		super(unternehmen);
 	}
 
 	/**
-	 * Kosten pro LagerplatzEinheit.
+	 * Kosten pro LagerplatzEinheit
 	 */
 	private static double lagerPlatzEinheitKosten;
 	
 	/**
-	 * Zählt die belegten LagerplatzEinheiten.
+	 * zaehlt die belegten LagerplatzEinheiten
 	 */
 	private int lagerstand = 0;
 	private final HashMap<ProduktTyp, Integer> bestand = new HashMap<ProduktTyp, Integer>();	
 	
 	/**
 	 * Entnimmt eine Anzahl an Bauteilen und Raumschiffen aus dem Lager, sofern der Lagerbestand dies 
-	 * erlaubt. Die Änderungen des Lagerbestands werden gespeichert.
-	 * @param produktTyp Zu entnehmender Produkttyp.
+	 * erlaubt. Die ï¿½nderungen des Lagerbestands werden gespeichert.
+	 * @param produktTyp produktTyp von ProduktTyp
 	 * @param anzahl Anzahl der zu entnehmenden Teile dieses Typs
-	 * @return Rückmeldung, ob Entnahme erfolgreich war.
+	 * @return Meldung ???
 	 */
 	public boolean entnehmen (ProduktTyp produktTyp, int anzahl){
 		int istAnzahl = bestand.get(produktTyp); 		
@@ -55,7 +50,7 @@ public class LagerAbteilung extends Abteilung {
 	
 	/**
 	 * Lagert neue Bauteile und Raumschiffe in das Lager ein. Da das Lager beliebig groß ist, muss keine 
-	 * Pruefung auf ausreichend freie Kapazitaet durchgefuehrt werden. Die Änderungen des Lagerbestands 
+	 * Pruefung auf ausreichend freie Kapazitaet durchgefuehrt werden. Die ï¿½nderungen des Lagerbestands 
 	 * werden gespeichert.
 	 * @param produktTyp produktTyp von ProduktTyp
 	 * @param anzahl Anzahl der einzulagernden Teile dieses Typs
@@ -84,7 +79,7 @@ public class LagerAbteilung extends Abteilung {
 	}
 
 	/**
-	 * Kosten für belegte LpE abziehen!
+	 * Kosten fÃ¼r belegte LpE abziehen!
 	 */
 	public void simuliere() {
 

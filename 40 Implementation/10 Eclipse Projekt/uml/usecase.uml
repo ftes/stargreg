@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_PWtBkPigEeCQyJzrxPISRw" name="model">
+  <packagedElement xmi:type="uml:Actor" xmi:id="_Nl2SsP2oEeCXTbvytDjrnQ" name="Spielleiter"/>
+  <packagedElement xmi:type="uml:Actor" xmi:id="_V5-sEP2oEeCXTbvytDjrnQ" name="Spieler"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_a4TnQP2oEeCXTbvytDjrnQ" name="Stargreg">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_fSTtYP2oEeCXTbvytDjrnQ" name="Prüfen, ob alle Spieler eingecheckt haben"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_ma45oP2oEeCXTbvytDjrnQ" name="Spielrunde simulieren"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_pJ3oYP2oEeCXTbvytDjrnQ" name="Informationen ausgeben"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_s6FxsP2oEeCXTbvytDjrnQ" name="Neue Runde einleiten"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="__LwLMP2oEeCXTbvytDjrnQ" name="Spielrunde einchecken"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_BulUUP2pEeCXTbvytDjrnQ" name="Unternehmen einrichten">
+      <include xmi:id="_Cf5xoP2rEeCXTbvytDjrnQ" addition="_8fRr8P2qEeCXTbvytDjrnQ"/>
+      <include xmi:id="_DuAjgP2rEeCXTbvytDjrnQ" addition="_-flW0P2qEeCXTbvytDjrnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_FQxosP2pEeCXTbvytDjrnQ" name="Spielregeln anschauen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_GbdTIP2pEeCXTbvytDjrnQ" name="Informationen zur Spielrunde anschauen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_IyZ8YP2pEeCXTbvytDjrnQ" name="Finanzen einsehen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_K2J80P2pEeCXTbvytDjrnQ" name="Droiden anheuern">
+      <include xmi:id="_5TUGQP2qEeCXTbvytDjrnQ" addition="_3FeVsP2qEeCXTbvytDjrnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_fKLPoP2pEeCXTbvytDjrnQ" name="Droiden ausbauen">
+      <include xmi:id="_06ivMP2qEeCXTbvytDjrnQ" addition="_zM46kP2qEeCXTbvytDjrnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_kGrl4P2pEeCXTbvytDjrnQ" name="Droiden entlassen">
+      <include xmi:id="_viP00P2qEeCXTbvytDjrnQ" addition="_VdlZEP2qEeCXTbvytDjrnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_mdMxUP2pEeCXTbvytDjrnQ" name="Bauteile einkaufen">
+      <include xmi:id="_kDNlsP2qEeCXTbvytDjrnQ" addition="_VdlZEP2qEeCXTbvytDjrnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_nhHscP2pEeCXTbvytDjrnQ" name="Raumschiffe produzieren">
+      <include xmi:id="_gyNvAP2qEeCXTbvytDjrnQ" addition="_VdlZEP2qEeCXTbvytDjrnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_pMFZcP2pEeCXTbvytDjrnQ" name="Angebot zum Verkauf abgeben">
+      <include xmi:id="_SReCYP2qEeCXTbvytDjrnQ" addition="_rFwQ0P2pEeCXTbvytDjrnQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_rFwQ0P2pEeCXTbvytDjrnQ" name="Preis eingeben"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_VdlZEP2qEeCXTbvytDjrnQ" name="Anzahl auswählen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_zM46kP2qEeCXTbvytDjrnQ" name="Anzahl auswählen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_3FeVsP2qEeCXTbvytDjrnQ" name="Anzahl auswählen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_8fRr8P2qEeCXTbvytDjrnQ" name="Namen auswählen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_-flW0P2qEeCXTbvytDjrnQ" name="Logo aussuchen"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_1ci68P2oEeCXTbvytDjrnQ" name="A_spielleiter_prüfen, ob alle spieler eingecheckt haben" memberEnd="_1ci68f2oEeCXTbvytDjrnQ _1ci69P2oEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_1ci68f2oEeCXTbvytDjrnQ" name="spielleiter" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_1ci68P2oEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1ci68v2oEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1ci68_2oEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_1ci69P2oEeCXTbvytDjrnQ" name="prüfen, ob alle spieler eingecheckt haben" type="_fSTtYP2oEeCXTbvytDjrnQ" association="_1ci68P2oEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1ci69f2oEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1ci69v2oEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_24sv4P2oEeCXTbvytDjrnQ" name="A_spielleiter_spielrunde simulieren" memberEnd="_24sv4f2oEeCXTbvytDjrnQ _24sv5P2oEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_24sv4f2oEeCXTbvytDjrnQ" name="spielleiter" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_24sv4P2oEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_24sv4v2oEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_24sv4_2oEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_24sv5P2oEeCXTbvytDjrnQ" name="spielrunde simulieren" type="_ma45oP2oEeCXTbvytDjrnQ" association="_24sv4P2oEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_24sv5f2oEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_24sv5v2oEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_4FGRkP2oEeCXTbvytDjrnQ" name="A_spielleiter_neue runde einleiten" memberEnd="_4FGRkf2oEeCXTbvytDjrnQ _4FGRlP2oEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_4FGRkf2oEeCXTbvytDjrnQ" name="spielleiter" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_4FGRkP2oEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4FGRkv2oEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4FGRk_2oEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_4FGRlP2oEeCXTbvytDjrnQ" name="neue runde einleiten" type="_s6FxsP2oEeCXTbvytDjrnQ" association="_4FGRkP2oEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_4FGRlf2oEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4FGRlv2oEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_45jNUP2oEeCXTbvytDjrnQ" name="A_spielleiter_informationen ausgeben" memberEnd="_45jNUf2oEeCXTbvytDjrnQ _45jNVP2oEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_45jNUf2oEeCXTbvytDjrnQ" name="spielleiter" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_45jNUP2oEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_45jNUv2oEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_45jNU_2oEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_45jNVP2oEeCXTbvytDjrnQ" name="informationen ausgeben" type="_pJ3oYP2oEeCXTbvytDjrnQ" association="_45jNUP2oEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_45jNVf2oEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_45jNVv2oEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Qm8PsP2pEeCXTbvytDjrnQ" name="A_spieler_unternehmen einrichten" memberEnd="_Qm8Psf2pEeCXTbvytDjrnQ _Qm8PtP2pEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_Qm8Psf2pEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_Qm8PsP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qm8Psv2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qm8Ps_2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_Qm8PtP2pEeCXTbvytDjrnQ" name="unternehmen einrichten" type="_BulUUP2pEeCXTbvytDjrnQ" association="_Qm8PsP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qm8Ptf2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qm8Ptv2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_RffBQP2pEeCXTbvytDjrnQ" name="A_spieler_spielrunde einchecken" memberEnd="_RffBQf2pEeCXTbvytDjrnQ _RffBRP2pEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_RffBQf2pEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_RffBQP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RffBQv2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RffBQ_2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_RffBRP2pEeCXTbvytDjrnQ" name="spielrunde einchecken" type="__LwLMP2oEeCXTbvytDjrnQ" association="_RffBQP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RffBRf2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RffBRv2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_TdBE8P2pEeCXTbvytDjrnQ" name="A_spieler_informationen zur spielrunde anschauen" memberEnd="_TdBE8f2pEeCXTbvytDjrnQ _TdBE9P2pEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_TdBE8f2pEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_TdBE8P2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TdBE8v2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TdBE8_2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_TdBE9P2pEeCXTbvytDjrnQ" name="informationen zur spielrunde anschauen" type="_GbdTIP2pEeCXTbvytDjrnQ" association="_TdBE8P2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TdBE9f2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TdBE9v2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_WsLvoP2pEeCXTbvytDjrnQ" name="A_spieler_spielregeln anschauen" memberEnd="_WsLvof2pEeCXTbvytDjrnQ _WsLvpP2pEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_WsLvof2pEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_WsLvoP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WsLvov2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WsLvo_2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_WsLvpP2pEeCXTbvytDjrnQ" name="spielregeln anschauen" type="_FQxosP2pEeCXTbvytDjrnQ" association="_WsLvoP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_WsLvpf2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_WsLvpv2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Xid3YP2pEeCXTbvytDjrnQ" name="A_spieler_finanzen einsehen" memberEnd="_Xid3Yf2pEeCXTbvytDjrnQ _Xid3ZP2pEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_Xid3Yf2pEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_Xid3YP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xid3Yv2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xid3Y_2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_Xid3ZP2pEeCXTbvytDjrnQ" name="finanzen einsehen" type="_IyZ8YP2pEeCXTbvytDjrnQ" association="_Xid3YP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xid3Zf2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xid3Zv2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Y3KZcP2pEeCXTbvytDjrnQ" name="A_spieler_droiden anheuern" memberEnd="_Y3KZcf2pEeCXTbvytDjrnQ _Y3KZdP2pEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_Y3KZcf2pEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_Y3KZcP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Y3KZcv2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y3KZc_2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_Y3KZdP2pEeCXTbvytDjrnQ" name="droiden anheuern" type="_K2J80P2pEeCXTbvytDjrnQ" association="_Y3KZcP2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Y3KZdf2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Y3KZdv2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="__-mH8P2pEeCXTbvytDjrnQ" name="A_spieler_droiden ausbauen" memberEnd="__-mH8f2pEeCXTbvytDjrnQ __-mH9P2pEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="__-mH8f2pEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="__-mH8P2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__-mH8v2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__-mH8_2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="__-mH9P2pEeCXTbvytDjrnQ" name="droiden ausbauen" type="_fKLPoP2pEeCXTbvytDjrnQ" association="__-mH8P2pEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__-mH9f2pEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__-mH9v2pEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_BL3zYP2qEeCXTbvytDjrnQ" name="A_spieler_droiden entlassen" memberEnd="_BL3zYf2qEeCXTbvytDjrnQ _BL3zZP2qEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_BL3zYf2qEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_BL3zYP2qEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BL3zYv2qEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BL3zY_2qEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_BL3zZP2qEeCXTbvytDjrnQ" name="droiden entlassen" type="_kGrl4P2pEeCXTbvytDjrnQ" association="_BL3zYP2qEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_BL3zZf2qEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BL3zZv2qEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_CueOkP2qEeCXTbvytDjrnQ" name="A_spieler_bauteile einkaufen" memberEnd="_CueOkf2qEeCXTbvytDjrnQ _CueOlP2qEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_CueOkf2qEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_CueOkP2qEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CueOkv2qEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CueOk_2qEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_CueOlP2qEeCXTbvytDjrnQ" name="bauteile einkaufen" type="_mdMxUP2pEeCXTbvytDjrnQ" association="_CueOkP2qEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CueOlf2qEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CueOlv2qEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_Er4WcP2qEeCXTbvytDjrnQ" name="A_spieler_raumschiffe produzieren" memberEnd="_Er4Wcf2qEeCXTbvytDjrnQ _Er4WdP2qEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_Er4Wcf2qEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_Er4WcP2qEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Er4Wcv2qEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Er4Wc_2qEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_Er4WdP2qEeCXTbvytDjrnQ" name="raumschiffe produzieren" type="_nhHscP2pEeCXTbvytDjrnQ" association="_Er4WcP2qEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Er4Wdf2qEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Er4Wdv2qEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_G0-w8P2qEeCXTbvytDjrnQ" name="A_spieler_angebot zum verkauf abgeben" memberEnd="_G0-w8f2qEeCXTbvytDjrnQ _G0-w9P2qEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_G0-w8f2qEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_G0-w8P2qEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G0-w8v2qEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G0-w8_2qEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_G0-w9P2qEeCXTbvytDjrnQ" name="angebot zum verkauf abgeben" type="_pMFZcP2pEeCXTbvytDjrnQ" association="_G0-w8P2qEeCXTbvytDjrnQ">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_G0-w9f2qEeCXTbvytDjrnQ" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G0-w9v2qEeCXTbvytDjrnQ" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

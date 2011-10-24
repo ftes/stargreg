@@ -26,7 +26,7 @@ public class PersonalAbteilung extends Abteilung {
 
 	public PersonalAbteilung(Unternehmen unternehmen) {
 		super(unternehmen);
-	}//Konstruktor
+	}
 	
 	/**
 	 * Schult Personal, d.h. eine Anzahl an Personal wird aus ihrer aktuellen Qualitätsstufe
@@ -34,8 +34,7 @@ public class PersonalAbteilung extends Abteilung {
 	 * Stufe erhöht werden. Die Änderungen der laufenden Kosten durch die neuen Kosten werden 
 	 * gespeichert; Schulungskosten werden abgebucht.
 	 * @param von Ist-Qualitätsstufe
-	 * @param nach Soll-Qualitätsstufe 
-	 * @param anzahlPers Anzahl der zu schulenden Personal
+	 * @param anzahl Anzahl der zu schulenden Personal
 	 */
 	public boolean schulen (PersonalTyp von, int anzahl) {
 		if (personal.get(von) < anzahl) {
@@ -44,6 +43,10 @@ public class PersonalAbteilung extends Abteilung {
 		}
 		
 		PersonalTyp nach = von.getNaechsterPersonalTyp();
+		if (nach == null) {
+			System.err.printf("%s kann nicht weiter geschult werden\n", von);
+			return false;
+		}
 		Schulung schulung = new Schulung(von, unternehmen, anzahl, von.getSchulungsKosten());
 		if (! unternehmen.getFinanzen().abbuchen(schulung.getKosten())) {
 			System.err.printf("Nicht genug Geld, um %d %s zu schulen\n", anzahl, von);
@@ -63,9 +66,10 @@ public class PersonalAbteilung extends Abteilung {
 	}
 	
 	/**
-	 * Entlässt Mitarbeiter (Name angepasst an Gesamt-Terminologie)
+	 * Entlässt Personal. Dabei wird die Kapazität verringert und die laufenden
+	 * Kosten nehmen ab.
 	 * @param personalTyp PersonalTyp
-	 * @param anzahl Anzahl der Mitarbeiter
+	 * @param anzahl Anzahl des einzustellenden Personals
 	 */
 	public boolean entlassen (PersonalTyp personalTyp, int anzahl){
 		int vorhanden = personal.get(personalTyp);
@@ -82,10 +86,16 @@ public class PersonalAbteilung extends Abteilung {
 		Entlassung entlassung = new Entlassung(personalTyp, unternehmen, anzahl);
 		Spiel.INSTANCE.getPersonalMarkt().fuegeTransaktionHinzu(entlassung);
 		return true;
-	}//wegnehmenMit
+	}
 	
 
-	//nicht auf einmal Parameter umdrehen!
+	/**
+	 * Stellt neues Personal ein. Dadurch erhöht sich die Kapazität und die laufenden
+	 * Kosten nehmen zu.
+	 * @param personalTyp Einzustellender Personaltyp.
+	 * @param anzahl Anzahl des einzustellenden Personals.
+	 * @return
+	 */
 	public boolean einstellen (PersonalTyp personalTyp, int anzahl){
 		Einstellung einstellung = new Einstellung(personalTyp, unternehmen, anzahl, personalTyp.getWerbungsKosten());
 		
@@ -120,6 +130,12 @@ public class PersonalAbteilung extends Abteilung {
 		return personalTyp.getLaufendeKosten() * personal.get(personalTyp);
 	}//getTypPerosnalkosten
 	
+	/**
+	 * Berechnet die durchschnittliche Personal-Qualität als gewichtetes Mittel.
+	 * Dies ist entscheidend für die Fehlerrate und die dadurch entstehenden
+	 * Zusatzkosten.
+	 * @return
+	 */
 	public double getDurchschnittlicheQualitaet() {
 		double qualitaet = 0;
 		for (PersonalTyp personalTyp : personal.keySet()) {
@@ -130,7 +146,7 @@ public class PersonalAbteilung extends Abteilung {
 	}
 	
 	public void simuliere() {
-		// TODO Auto-generated method stub
+		// TODO Laufende Kosten von Konto abbuchen
 	
 	}
 }

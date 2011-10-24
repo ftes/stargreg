@@ -49,7 +49,8 @@ public abstract class Markt<T extends Typ, A extends Transaktion> {
 	
 	/**
 	 * Führt alle nötigen Simulationen auf dem Markt durch und liefert zur weiteren Verarbeitung
-	 * den {@code Vector} mit den Transaktionen zurück.
+	 * den {@code Vector} mit den Transaktionen zurück. Die Transaktionen der alten Runde werden dann
+	 * gelöscht.
 	 * @return Transaktionen
 	 */
 	public Vector<A> simuliere() {
