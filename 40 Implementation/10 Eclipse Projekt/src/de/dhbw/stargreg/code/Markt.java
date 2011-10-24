@@ -53,7 +53,8 @@ public abstract class Markt<T extends Typ, A extends Transaktion> {
 	 * @return Transaktionen
 	 */
 	public Vector<A> simuliere() {
-		Vector<A> transaktionen = new Vector<A>();
+		//Transaktionen vielleicht nicht wie Instanzattribut nennen, da dies verwirrend ist
+		Vector<A> transaktionen = new Vector<A>(); 
 		transaktionen.addAll(this.transaktionen);
 		loescheTransaktionen();
 		return transaktionen;

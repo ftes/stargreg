@@ -1,15 +1,16 @@
 package de.dhbw.stargreg.test;
 
-import static org.junit.Assert.fail;
-
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import de.dhbw.stargreg.code.BauteilMarkt;
 import de.dhbw.stargreg.code.BauteilTyp;
+import de.dhbw.stargreg.code.Einkauf;
+import de.dhbw.stargreg.code.Spiel;
 
 /**
  * @author Jan Schlenker
@@ -18,19 +19,21 @@ import de.dhbw.stargreg.code.BauteilTyp;
 public class BauteilMarktTest {
 
 	private static BauteilMarkt bauteilMarkt = new BauteilMarkt();
-	
-	private static BauteilTyp rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0);
-	private static BauteilTyp hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0);
-	private static BauteilTyp triebwerk = new BauteilTyp("Triebwerk", 5, 500.0, 200.0);
-	private static BauteilTyp geschuetz = new BauteilTyp("Geschütz", 10, 1000.0, 400.0);
-	private static BauteilTyp transport = new BauteilTyp("Transportkapsel", 20, 2000.0, 800.0);
-	private static BauteilTyp forschung = new BauteilTyp("Forschungsausstattung", 30, 3000.0, 1200.0);
+	private static BauteilTyp rumpf;
+	private static BauteilTyp hitzeschild;
+	private static BauteilTyp triebwerk;
 	
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0);
+		hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0);
+		triebwerk = new BauteilTyp("Triebwerk", 5, 500.00, 200.00);
+		bauteilMarkt.fuegeTypHinzu(rumpf);
+		bauteilMarkt.fuegeTypHinzu(hitzeschild);
+		bauteilMarkt.fuegeTypHinzu(triebwerk);
 	}
 
 	/**
@@ -38,6 +41,7 @@ public class BauteilMarktTest {
 	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		Spiel.INSTANCE.setzeZurueck();
 	}
 
 	/**
@@ -55,8 +59,18 @@ public class BauteilMarktTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void TestBerechnePreise() {
+		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(rumpf, null, 10, rumpf.getPreis()*10));
+		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(hitzeschild, null, 20, hitzeschild.getPreis()*20));
+		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(triebwerk, null, 20, triebwerk.getPreis()*20));
+		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(triebwerk, null, 0, triebwerk.getPreis()*0));
+		bauteilMarkt.simuliere();
+		Assert.assertTrue(Math.round(rumpf.getPreis())==62.00);
+		Assert.assertTrue(Math.round(hitzeschild.getPreis())==174.00);
+		Assert.assertTrue(Math.round(triebwerk.getPreis())==694.00);
 	}
+	
+
+	
 
 }
