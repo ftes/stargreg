@@ -37,7 +37,7 @@ public class Unternehmen {
 	
 	public void simuliere(Vector<Verkauf> verkaeufe) {
 		if (! rundeEingecheckt) {
-			System.out.printf("In %s wurde Runde noch nicht ausgecheckt\n", this);
+			System.out.printf("In %s wurde Runde noch nicht eingecheckt\n", this);
 		}
 		
 		personal.simuliere();
@@ -47,7 +47,6 @@ public class Unternehmen {
 		finanzen.simuliere();
 		
 		rundeEingecheckt = false;
-		System.out.printf("%s hat Runde simuliert\n", this);
 	}
 
 	public EinkaufsAbteilung getEinkauf() {

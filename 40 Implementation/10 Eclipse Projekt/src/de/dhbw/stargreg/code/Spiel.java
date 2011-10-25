@@ -2,8 +2,6 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-
 import de.dhbw.stargreg.util.Util;
 
 
@@ -99,6 +97,10 @@ public enum Spiel {
 			System.err.println("Spiel nicht gestartet: wurde bereits gestartet");
 			return;
 		}
+		if (unternehmen.size() < 2) {
+			System.err.println("Spiel nicht gestartet: weniger als zwei Unternehmen registriert");
+			return;
+		}
 		status = Status.SPIELEN;
 		aktuelleSpielRunde = spielrunden.firstElement();
 		System.out.println("Spiel gestartet");
@@ -127,6 +129,7 @@ public enum Spiel {
 			return;
 		}
 		
+		// Prüfen, ob alle schon eingecheckt haben. Sonst abbrechen
 		for (Unternehmen unternehmen : this.unternehmen) {
 			if (! unternehmen.getRundeEingecheckt()) {
 				System.out.printf("%s hat die Runde noch nicht eingecheckt\n", unternehmen);
@@ -134,7 +137,7 @@ public enum Spiel {
 			}
 		}
 		
-		
+		// Verkäufe nach Unternehmen gruppieren
 		HashMap<Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(
 				raumschiffMarkt.berechneGesamtAbsatz());
 		

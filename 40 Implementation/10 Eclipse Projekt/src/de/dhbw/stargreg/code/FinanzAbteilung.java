@@ -18,6 +18,7 @@ public class FinanzAbteilung extends Abteilung {
 	 */
 	public void einzahlen (double betrag){
 		if (betrag <= 0) {
+			System.err.println("Negative Beträge nicht einzahlbar");
 			return;
 		}
 		this.kapital += betrag;
@@ -28,7 +29,11 @@ public class FinanzAbteilung extends Abteilung {
 	 * @param betrag
 	 * @return
 	 */
-	public void abbuchen (double betrag){	
+	public void abbuchen (double betrag){
+		if (betrag <= 0) {
+			System.err.println("Negative Beträge nicht abbuchbar");
+			return;
+		}
 		this.kapital -= betrag;
 	}
 
@@ -39,7 +44,7 @@ public class FinanzAbteilung extends Abteilung {
 	public double getZinskosten() {
 		double zinskosten = 0;
 		if (this.kapital < 0) {
-			zinskosten = this.kapital * Spiel.INSTANCE.getKapitalMarkt().getZinssatz();
+			zinskosten = -this.kapital * Spiel.INSTANCE.getKapitalMarkt().getZinssatz();
 		}
 		return zinskosten;
 	}
@@ -50,7 +55,7 @@ public class FinanzAbteilung extends Abteilung {
 	 * abhängig ist.
 	 */
 	public void simuliere() {
-		
+		abbuchen(getZinskosten());
 	}
 
 }

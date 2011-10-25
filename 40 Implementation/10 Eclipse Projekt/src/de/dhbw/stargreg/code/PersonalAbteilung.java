@@ -59,6 +59,8 @@ public class PersonalAbteilung extends Abteilung {
 		laufendeKosten += nach.getLaufendeKosten() * anzahl;
 		
 		Spiel.INSTANCE.getPersonalMarkt().fuegeTransaktionHinzu(schulung);
+		
+		System.out.printf("%s hat %d %s zu %s geschult\n", unternehmen, anzahl, von, nach);
 		return true;
 	}
 	
@@ -82,6 +84,7 @@ public class PersonalAbteilung extends Abteilung {
 		
 		Entlassung entlassung = new Entlassung(personalTyp, unternehmen, anzahl);
 		Spiel.INSTANCE.getPersonalMarkt().fuegeTransaktionHinzu(entlassung);
+		System.out.printf("%s hat %d %s entlassen\n", unternehmen, anzahl, personalTyp);
 		return true;
 	}
 	
@@ -105,6 +108,7 @@ public class PersonalAbteilung extends Abteilung {
 		laufendeKosten += personalTyp.getLaufendeKosten()* anzahl;
 		
 		Spiel.INSTANCE.getPersonalMarkt().fuegeTransaktionHinzu(einstellung);
+		System.out.printf("%s hat %d %s eingestellt\n", unternehmen, anzahl, personalTyp);
 	}
 	
 	public int getAnzahlPersonal (){
@@ -138,8 +142,10 @@ public class PersonalAbteilung extends Abteilung {
 		return qualitaet;
 	}
 	
+	/**
+	 * Bucht die laufenden Kosten für das Personal vom Konto ab.
+	 */
 	public void simuliere() {
-		// TODO Laufende Kosten von Konto abbuchen
-	
+		unternehmen.getFinanzen().abbuchen(laufendeKosten);
 	}
 }
