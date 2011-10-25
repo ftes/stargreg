@@ -28,12 +28,12 @@ public class RaumschiffMarktTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		xwing = new RaumschiffTyp("X-Wing", 0) {
+		xwing = new RaumschiffTyp("X-Wing", 0, 0) {
 			public double getKosten() {
 				return 5;
 			}
 		};
-		corvette = new RaumschiffTyp("Corvette", 0) {
+		corvette = new RaumschiffTyp("Corvette", 0, 0) {
 			public double getKosten() {
 				 return 12;
 			}

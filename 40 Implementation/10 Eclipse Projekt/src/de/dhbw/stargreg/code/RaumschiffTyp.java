@@ -19,10 +19,16 @@ public class RaumschiffTyp extends ProduktTyp {
 	private final int benoetigtesPersonal;
 	
 	private int nachfrage;
+	
+	/**
+	 * Kosten die auftreten, falls das Raumschiff fehlerhaft produziert wird.
+	 */
+	private final double fehlerKosten;
 
-	public RaumschiffTyp(String name, int benoetigtesPersonal) {
+	public RaumschiffTyp(String name, int benoetigtesPersonal, double fehlerKosten) {
 		super(name, 0);
 		this.benoetigtesPersonal = benoetigtesPersonal;
+		this.fehlerKosten = fehlerKosten;
 	}
 	
 	/**
@@ -59,6 +65,10 @@ public class RaumschiffTyp extends ProduktTyp {
 	
 	public int getNachfrage() {
 		return nachfrage;
+	}
+	
+	public double getFehlerKosten() {
+		return fehlerKosten;
 	}
 	
 	public int getLagerplatzEinheiten(){
