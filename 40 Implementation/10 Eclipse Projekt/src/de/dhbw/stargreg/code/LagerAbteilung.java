@@ -58,7 +58,7 @@ public class LagerAbteilung extends Abteilung {
 	}//getLagerstand
 	
 	public double getLagerkosten() {
-		return Spiel.INSTANCE.getBauteilMarkt().getLagerplatzEinheitKosten() * lagerstand;
+		return unternehmen.getSpiel().getBauteilMarkt().getLagerplatzEinheitKosten() * lagerstand;
 	}//getLagerkosten
 	
 	public int getAnzahl(ProduktTyp produktTyp) {

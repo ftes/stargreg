@@ -23,7 +23,7 @@ public class EinkaufsAbteilung extends Abteilung {
 		double kosten = einkauf.getKosten();
 		//Umstellen auf Kreditfähigkeit
 		unternehmen.getFinanzen().abbuchen(kosten);
-		Spiel.INSTANCE.getBauteilMarkt().fuegeTransaktionHinzu(einkauf);
+		unternehmen.getSpiel().getBauteilMarkt().fuegeTransaktionHinzu(einkauf);
 		unternehmen.getLager().einlagern(bauteilTyp, menge);
 	}
 

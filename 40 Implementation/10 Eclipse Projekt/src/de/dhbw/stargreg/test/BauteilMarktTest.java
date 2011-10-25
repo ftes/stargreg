@@ -41,7 +41,6 @@ public class BauteilMarktTest {
 	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		Spiel.INSTANCE.setzeZurueck();
 	}
 
 	/**

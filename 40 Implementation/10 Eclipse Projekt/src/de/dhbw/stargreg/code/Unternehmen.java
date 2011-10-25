@@ -9,6 +9,7 @@ import java.util.Vector;
  */
 public class Unternehmen {
 	private final String name;
+	private final Spiel spiel;
 	private final EinkaufsAbteilung einkauf = new EinkaufsAbteilung(this);
 	private final ProduktionsAbteilung produktion = new ProduktionsAbteilung(this);
 	private final VerkaufsAbteilung verkauf = new VerkaufsAbteilung(this);
@@ -18,7 +19,8 @@ public class Unternehmen {
 	
 	private boolean rundeEingecheckt = false;
 	
-	public Unternehmen(String name) {
+	public Unternehmen(Spiel spiel, String name) {
+		this.spiel = spiel;
 		this.name = name;
 	}
 
@@ -71,5 +73,9 @@ public class Unternehmen {
 	
 	public LagerAbteilung getLager() {
 		return lager;
+	}
+	
+	public Spiel getSpiel() {
+		return spiel;
 	}
 }

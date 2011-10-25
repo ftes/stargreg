@@ -44,7 +44,7 @@ public class FinanzAbteilung extends Abteilung {
 	public double getZinskosten() {
 		double zinskosten = 0;
 		if (this.kapital < 0) {
-			zinskosten = -this.kapital * Spiel.INSTANCE.getKapitalMarkt().getZinssatz();
+			zinskosten = -this.kapital * unternehmen.getSpiel().getKapitalMarkt().getZinssatz();
 		}
 		return zinskosten;
 	}

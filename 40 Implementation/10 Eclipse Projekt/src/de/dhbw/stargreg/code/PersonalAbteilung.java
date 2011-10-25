@@ -58,7 +58,7 @@ public class PersonalAbteilung extends Abteilung {
 		laufendeKosten -= von.getLaufendeKosten() * anzahl;
 		laufendeKosten += nach.getLaufendeKosten() * anzahl;
 		
-		Spiel.INSTANCE.getPersonalMarkt().fuegeTransaktionHinzu(schulung);
+		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(schulung);
 		
 		System.out.printf("%s hat %d %s zu %s geschult\n", unternehmen, anzahl, von, nach);
 		return true;
@@ -83,7 +83,7 @@ public class PersonalAbteilung extends Abteilung {
 		laufendeKosten -= personalTyp.getLaufendeKosten()* anzahl;
 		
 		Entlassung entlassung = new Entlassung(personalTyp, unternehmen, anzahl);
-		Spiel.INSTANCE.getPersonalMarkt().fuegeTransaktionHinzu(entlassung);
+		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(entlassung);
 		System.out.printf("%s hat %d %s entlassen\n", unternehmen, anzahl, personalTyp);
 		return true;
 	}
@@ -107,7 +107,7 @@ public class PersonalAbteilung extends Abteilung {
 
 		laufendeKosten += personalTyp.getLaufendeKosten()* anzahl;
 		
-		Spiel.INSTANCE.getPersonalMarkt().fuegeTransaktionHinzu(einstellung);
+		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(einstellung);
 		System.out.printf("%s hat %d %s eingestellt\n", unternehmen, anzahl, personalTyp);
 	}
 	

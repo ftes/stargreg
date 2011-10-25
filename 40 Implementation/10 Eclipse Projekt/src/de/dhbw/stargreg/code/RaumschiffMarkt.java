@@ -64,7 +64,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 		}
 		
 		//Neue Nachfrage basierend auf niedrigstem Preis berechnen, abhängig von Spielerzahl
-		int nachfrage = raumschiffTyp.getNachfrage() * Spiel.INSTANCE.getAnzahlUnternehmen();
+		int nachfrage = raumschiffTyp.getNachfrage();
 		nachfrage = (int) Math.floor(nachfrage * (1 - Math.pow(niedrigsterPreis / (raumschiffTyp.getKosten() * 3.5), 4)));
 		if (nachfrage < 0) {
 			nachfrage = 0;

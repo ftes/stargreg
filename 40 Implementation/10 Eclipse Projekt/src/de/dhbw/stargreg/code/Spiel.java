@@ -6,13 +6,12 @@ import de.dhbw.stargreg.util.Util;
 
 
 /**
- * Verwaltet den gesamten Spielablauf, darunter alle Unternehmen
- * Aufgebaut nach Singleton-Muster
+ * Verwaltet den gesamten Spielablauf, darunter alle Unternehmen.
  * @author fredrik
  * 
  */
-public enum Spiel {
-	INSTANCE;
+public class Spiel {
+	//INSTANCE;
 	
 	/**
 	 * Liste aller Unternehmen
@@ -22,7 +21,7 @@ public enum Spiel {
 	/**
 	 * Liste aller Spielrunden
 	 */
-	private final Vector<SpielRunde> spielrunden = new Vector<SpielRunde>();
+	private final Vector<SpielRunde> spielRunden = new Vector<SpielRunde>();
 	
 	/**
 	 * aktuelle Spielrunde
@@ -51,24 +50,21 @@ public enum Spiel {
 	private enum Status { EINRICHTEN, SPIELEN, AUSWERTEN }
 	
 	/**
-	 * Privater Konstruktor, um Singleton zu schützen
-	 */
-	private Spiel() {
-		
-	}
-	
-	/**
 	 * Fügt die übergebene Spielrunde hinten an die Liste der Spielrunden an.
 	 * Nur möglich in der Phase Spielen.
 	 * @param spielRunde Die anzufügende Spielrunde
 	 */
-	public void fuegeSpielRundeHinzu(SpielRunde spielRunde) {
-		if (status == Status.SPIELEN) {
-			this.spielrunden.add(spielRunde);
-			System.out.printf("Spielrunde %d hinzugefügt\n", this.spielrunden.size());
-		} else {
+	public void fuegeSpielRundeHinzu(
+			HashMap<RaumschiffTyp, Integer> nachfrage, 
+			HashMap<PersonalTyp, Double> laufendeKosten,
+			HashMap<PersonalTyp, Double> werbungsKosten,
+			String nachricht) {
+		if (status != Status.EINRICHTEN) {
 			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Spielen' möglich");
+			return;
 		}
+		this.spielRunden.add(new SpielRunde(this, nachfrage, laufendeKosten, werbungsKosten, nachricht, spielRunden.size()));
+		System.out.printf("Spielrunde %d hinzugefügt\n", this.spielRunden.size());
 	}
 	
 	public int getAnzahlUnternehmen() {
@@ -80,13 +76,15 @@ public enum Spiel {
 	 * Nur möglich, wenn das Spiel sich in der Einrichtungsphase befindet.
 	 * @param unternehmen Das anzufügende Unternehmen
 	 */
-	public void fuegeUnternehmenHinzu(Unternehmen unternehmen) {
-		if (status == Status.EINRICHTEN) {
-			this.unternehmen.add(unternehmen);
-			System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
-		} else {
+	public Unternehmen fuegeUnternehmenHinzu(String name) {
+		if (status != Status.EINRICHTEN) {
 			System.err.println("Unternehmen nicht hinzugefügt: nur in der Phase 'Einrichten' möglich");
+			return null;
 		}
+		Unternehmen unternehmen = new Unternehmen(this, name);
+		this.unternehmen.add(unternehmen);
+		System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
+		return unternehmen;
 	}
 	
 	/**
@@ -102,7 +100,7 @@ public enum Spiel {
 			return;
 		}
 		status = Status.SPIELEN;
-		aktuelleSpielRunde = spielrunden.firstElement();
+		aktuelleSpielRunde = spielRunden.firstElement();
 		System.out.println("Spiel gestartet");
 	}
 	
@@ -150,8 +148,10 @@ public enum Spiel {
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.getAngebote());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.simuliere());
 		
-		aktuelleSpielRunde = new SpielRunde();
-		fuegeSpielRundeHinzu(aktuelleSpielRunde);
+		aktuelleSpielRunde = getNaechsteSpielRunde();
+		if (aktuelleSpielRunde == null) {
+			beendeSpiel();
+		}
 		// simulieren
 	}
 
@@ -175,16 +175,9 @@ public enum Spiel {
 		return kapitalMarkt;
 	}
 	
-	/**
-	 * Setzt das Spiel zurück. Es werden alle Unternehmen gelöscht und die Märkte
-	 * zurückgesetzt.
-	 */
-	public void setzeZurueck() {
-		raumschiffMarkt = new RaumschiffMarkt();
-		bauteilMarkt = new BauteilMarkt();
-		personalMarkt = new PersonalMarkt();
-		kapitalMarkt = new KapitalMarkt();
-		unternehmen.clear();
-		spielrunden.clear();
+	private SpielRunde getNaechsteSpielRunde() {
+		int naechste = spielRunden.indexOf(aktuelleSpielRunde) + 1;
+		if (naechste == spielRunden.size()) return null;
+		return spielRunden.elementAt(naechste);
 	}
 }

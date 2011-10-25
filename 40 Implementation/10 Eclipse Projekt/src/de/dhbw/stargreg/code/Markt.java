@@ -9,6 +9,7 @@ import java.util.Vector;
  *
  */
 public abstract class Markt<T extends Typ, A extends Transaktion> {
+	
 	/**
 	 * Verwaltung der Typen dieses Marktes.
 	 */

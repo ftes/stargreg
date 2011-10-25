@@ -20,7 +20,8 @@ import de.dhbw.stargreg.util.Util;
 
 public class RaumschiffMarktTest {
 	
-	private static RaumschiffMarkt raumschiffMarkt = new RaumschiffMarkt();
+	private static Spiel spiel = new Spiel();
+	private static RaumschiffMarkt raumschiffMarkt = spiel.getRaumschiffMarkt();
 	private static RaumschiffTyp xwing;
 	private static RaumschiffTyp corvette;
 	private static int nachfrageXwing = 5;
@@ -40,14 +41,13 @@ public class RaumschiffMarktTest {
 		};		
 		raumschiffMarkt.fuegeTypHinzu(xwing);
 		raumschiffMarkt.fuegeTypHinzu(corvette);
-		Spiel.INSTANCE.fuegeUnternehmenHinzu(null);
-		Spiel.INSTANCE.fuegeUnternehmenHinzu(null);
-		Spiel.INSTANCE.fuegeUnternehmenHinzu(null);
+		spiel.fuegeUnternehmenHinzu(null);
+		spiel.fuegeUnternehmenHinzu(null);
+		spiel.fuegeUnternehmenHinzu(null);
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		Spiel.INSTANCE.setzeZurueck();
 	}
 
 	@Before
@@ -76,7 +76,7 @@ public class RaumschiffMarktTest {
 			gesamtMenge += menge;
 		}
 		
-		Assert.assertTrue(gesamtMenge <= nachfrageXwing * Spiel.INSTANCE.getAnzahlUnternehmen());
+		Assert.assertTrue(gesamtMenge <= nachfrageXwing * spiel.getAnzahlUnternehmen());
 	}
 	
 	@Test

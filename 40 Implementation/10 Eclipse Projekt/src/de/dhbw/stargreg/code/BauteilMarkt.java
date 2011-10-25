@@ -15,6 +15,7 @@ import de.dhbw.stargreg.util.Util;
  *
  */
 public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
+
 	/**
 	 * Kosten pro LagerplatzEinheit
 	 */
