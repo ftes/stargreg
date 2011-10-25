@@ -3,6 +3,9 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.Gruppierung;
+import de.dhbw.stargreg.util.Util;
+
 
 /**
  * Eine Spielrunde verwaltet die Märkte im aktuellen Zustand, und somit indirekt alle
@@ -91,5 +94,34 @@ public class SpielRunde {
 	
 	public Vector<Schulung> getSchulungen() {
 		return get(Schulung.class);
+	}
+	
+	/**
+	 * Bestimmt den Star der RaumschiffTypen dieser Runde anhand des erzielten
+	 * Umsatzes über die Verkäufe aller Unternehmen.
+	 * @return Star
+	 */
+	public RaumschiffTyp getStar() {
+		HashMap<RaumschiffTyp, Vector<Verkauf>> verkaeufe = 
+			Util.gruppiereVector(getVerkaeufe(), new Gruppierung<RaumschiffTyp, Verkauf>() {
+			public RaumschiffTyp nach(Verkauf verkauf) {
+				return verkauf.getRaumschiffTyp();
+			}
+		});
+		
+		
+		RaumschiffTyp star = null;
+		double starUmsatz = Double.MIN_VALUE;
+		for (RaumschiffTyp raumschiffTyp : verkaeufe.keySet()) {
+			double umsatz = 0;
+			for (Verkauf verkauf : verkaeufe.get(raumschiffTyp)) {
+				umsatz += verkauf.getKosten();
+			}
+			if (umsatz > starUmsatz) {
+				star = raumschiffTyp;
+				starUmsatz = umsatz;
+			}
+		}
+		return star;
 	}
 }
