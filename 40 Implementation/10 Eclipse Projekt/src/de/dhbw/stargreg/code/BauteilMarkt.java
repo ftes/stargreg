@@ -16,6 +16,22 @@ import de.dhbw.stargreg.util.Util;
  */
 public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 	/**
+	 * Kosten pro LagerplatzEinheit
+	 */
+	private double lagerplatzEinheitKosten = -1;
+	
+	public double getLagerplatzEinheitKosten() {
+		if (lagerplatzEinheitKosten == -1) {
+			System.err.println("LagerplatzEinheit Kosten wurden noch nicht gesetzt");
+		}
+		return lagerplatzEinheitKosten;
+	}
+	
+	public void setLagerPlatzEinheitKosten(double lagerplatzEinheitKosten) {
+		this.lagerplatzEinheitKosten = lagerplatzEinheitKosten;
+	}
+	
+	/**
 	 * Berechnet die neuen Bauteilpreise abhänging von den Umsätzen in der letzten Spielrunde.
 	 */
 	private void berechnePreise() {
