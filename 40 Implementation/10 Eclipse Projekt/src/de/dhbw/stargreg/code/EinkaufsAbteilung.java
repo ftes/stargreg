@@ -18,17 +18,13 @@ public class EinkaufsAbteilung extends Abteilung {
 	 * @param menge
 	 * @return
 	 */
-	public boolean kaufeEin(BauteilTyp bauteilTyp, int menge) {
+	public void kaufeEin(BauteilTyp bauteilTyp, int menge) {
 		Einkauf einkauf = new Einkauf(bauteilTyp, unternehmen, menge, bauteilTyp.getPreis());
 		double kosten = einkauf.getKosten();
 		//Umstellen auf Kreditfähigkeit
-		if (! unternehmen.getFinanzen().abbuchen(kosten)) {
-			System.err.printf("Es konnten nicht %d %s eingekauft werden\n", menge, bauteilTyp);
-			return false;
-		}
+		unternehmen.getFinanzen().abbuchen(kosten);
 		Spiel.INSTANCE.getBauteilMarkt().fuegeTransaktionHinzu(einkauf);
 		unternehmen.getLager().einlagern(bauteilTyp, menge);
-		return true;
 	}
 
 }

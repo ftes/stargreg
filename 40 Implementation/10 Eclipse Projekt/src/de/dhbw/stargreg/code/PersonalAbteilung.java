@@ -48,10 +48,7 @@ public class PersonalAbteilung extends Abteilung {
 			return false;
 		}
 		Schulung schulung = new Schulung(von, unternehmen, anzahl, von.getSchulungsKosten());
-		if (! unternehmen.getFinanzen().abbuchen(schulung.getKosten())) {
-			System.err.printf("Nicht genug Geld, um %d %s zu schulen\n", anzahl, von);
-			return false;
-		}
+		unternehmen.getFinanzen().abbuchen(schulung.getKosten());
 		
 		int anzahlVon = personal.get(von) - anzahl;
 		int anzahlNach = personal.get(nach) + anzahl;
@@ -96,13 +93,10 @@ public class PersonalAbteilung extends Abteilung {
 	 * @param anzahl Anzahl des einzustellenden Personals.
 	 * @return
 	 */
-	public boolean einstellen (PersonalTyp personalTyp, int anzahl){
+	public void einstellen (PersonalTyp personalTyp, int anzahl){
 		Einstellung einstellung = new Einstellung(personalTyp, unternehmen, anzahl, personalTyp.getWerbungsKosten());
 		
-		if (! unternehmen.getFinanzen().abbuchen(einstellung.getKosten())) {
-			System.err.printf("Nicht genug Geld, um %d %s einzustellen\n", anzahl, personalTyp);
-			return false;
-		}
+		unternehmen.getFinanzen().abbuchen(einstellung.getKosten());
 		
 		int vorhanden = personal.get(personalTyp);
 		personal.put (personalTyp, (vorhanden + anzahl));
@@ -111,8 +105,7 @@ public class PersonalAbteilung extends Abteilung {
 		laufendeKosten += personalTyp.getLaufendeKosten()* anzahl;
 		
 		Spiel.INSTANCE.getPersonalMarkt().fuegeTransaktionHinzu(einstellung);
-		return true;
-	}//schulenMit
+	}
 	
 	public int getAnzahlPersonal (){
 		return anzahlPersonal;

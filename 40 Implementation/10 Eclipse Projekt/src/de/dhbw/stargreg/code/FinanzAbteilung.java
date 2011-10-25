@@ -28,9 +28,8 @@ public class FinanzAbteilung extends Abteilung {
 	 * @param betrag
 	 * @return
 	 */
-	public boolean abbuchen (double betrag){	
+	public void abbuchen (double betrag){	
 		this.kapital -= betrag;
-		return true;
 	}
 
 	public double getKontostand(){
@@ -44,6 +43,7 @@ public class FinanzAbteilung extends Abteilung {
 		}
 		return zinskosten;
 	}
+	
 	/**
 	 * Kosten bei Überziehung berechnen. Dies ist nötig, weil beispielsweise unklar
 	 * ist, wie viele Raumschiffe gelagert werden, da dies von der absetzbaren menge
