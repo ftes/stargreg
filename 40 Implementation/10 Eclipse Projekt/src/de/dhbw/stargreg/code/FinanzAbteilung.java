@@ -28,12 +28,7 @@ public class FinanzAbteilung extends Abteilung {
 	 * @param betrag
 	 * @return
 	 */
-	public boolean abbuchen (double betrag, KapitalMarkt zinsen){
-/*		if (betrag > this.kapital) {
-			System.err.println("Kapital zu niedrig");
-			return false;
-		} // Falls Konto nicht überzogen werden kann
-*/		
+	public boolean abbuchen (double betrag){	
 		this.kapital -= betrag;
 		return true;
 	}
@@ -42,10 +37,10 @@ public class FinanzAbteilung extends Abteilung {
 		return this.kapital;
 	}
 	
-	public double getZinskosten(KapitalMarkt zinsen) {
+	public double getZinskosten() {
 		double zinskosten = 0;
 		if (this.kapital < 0) {
-			zinskosten = this.kapital * zinsen.getZinssatz();
+			zinskosten = this.kapital * Spiel.INSTANCE.getKapitalMarkt().getZinssatz();
 		}
 		return zinskosten;
 	}

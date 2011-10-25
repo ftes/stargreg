@@ -2,6 +2,8 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
+
 import de.dhbw.stargreg.util.Util;
 
 
@@ -34,6 +36,8 @@ public enum Spiel {
 	private PersonalMarkt personalMarkt = new PersonalMarkt();
 	
 	private BauteilMarkt bauteilMarkt = new BauteilMarkt();
+	
+	private KapitalMarkt kapitalMarkt = new KapitalMarkt();
 	
 	/**
 	 * aktueller Spielstatus
@@ -164,6 +168,10 @@ public enum Spiel {
 		return personalMarkt;
 	}
 	
+	public KapitalMarkt getKapitalMarkt() {
+		return kapitalMarkt;
+	}
+	
 	/**
 	 * Setzt das Spiel zurück. Es werden alle Unternehmen gelöscht und die Märkte
 	 * zurückgesetzt.
@@ -172,6 +180,7 @@ public enum Spiel {
 		raumschiffMarkt = new RaumschiffMarkt();
 		bauteilMarkt = new BauteilMarkt();
 		personalMarkt = new PersonalMarkt();
+		kapitalMarkt = new KapitalMarkt();
 		unternehmen.clear();
 		spielrunden.clear();
 	}
