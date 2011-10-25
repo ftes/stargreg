@@ -3,7 +3,6 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
-import de.dhbw.stargreg.util.Gruppierung;
 import de.dhbw.stargreg.util.Util;
 
 
@@ -102,26 +101,9 @@ public class SpielRunde {
 	 * @return Star
 	 */
 	public RaumschiffTyp getStar() {
-		HashMap<RaumschiffTyp, Vector<Verkauf>> verkaeufe = 
-			Util.gruppiereVector(getVerkaeufe(), new Gruppierung<RaumschiffTyp, Verkauf>() {
-			public RaumschiffTyp nach(Verkauf verkauf) {
-				return verkauf.getRaumschiffTyp();
-			}
-		});
+		HashMap<RaumschiffTyp, Double> umsaetze = Util.gruppiereUndSummiereVerkaeufeNachRaumschiffTyp(getVerkaeufe());
+		Vector<RaumschiffTyp> rangfolge = Util.sortiere(umsaetze, false);
 		
-		
-		RaumschiffTyp star = null;
-		double starUmsatz = Double.MIN_VALUE;
-		for (RaumschiffTyp raumschiffTyp : verkaeufe.keySet()) {
-			double umsatz = 0;
-			for (Verkauf verkauf : verkaeufe.get(raumschiffTyp)) {
-				umsatz += verkauf.getKosten();
-			}
-			if (umsatz > starUmsatz) {
-				star = raumschiffTyp;
-				starUmsatz = umsatz;
-			}
-		}
-		return star;
+		return rangfolge.firstElement();
 	}
 }

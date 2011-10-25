@@ -1,5 +1,6 @@
 package de.dhbw.stargreg.code;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -109,11 +110,26 @@ public class Spiel {
 	 * Beendet das Spiel, nur möglich wenn in Spielen-Phase.
 	 */
 	public void beendeSpiel() {
-		if (status == Status.SPIELEN) {
-			status = Status.AUSWERTEN;
-			System.out.println("Spiel beendet");
-		} else {
-			System.out.println("Spiel nicht beendet: wurde noch nicht gestartet oder schon beendet");
+		if (status != Status.SPIELEN) {
+			System.err.println("Spiel nicht beendet: wurde noch nicht gestartet oder schon beendet");
+			return;
+		}
+		status = Status.AUSWERTEN;
+		System.out.println("Spiel beendet");
+	}
+	
+	/**
+	 * Bewertet die Unternehmen
+	 */
+	public void bewerteUnternehmen() {
+		if (status != Status.AUSWERTEN) {
+			System.err.println("Keine Bewertung möglich, da Spiel noch nicht beendet wurde");
+			return;
+		}
+		Vector<Unternehmen> rangfolge = ermittleRangfolge();
+		System.out.println("Spielergebnis:");
+		for (int i=0; i<rangfolge.size(); i++) {
+			System.out.printf("%d. %s", i, rangfolge.elementAt(i));
 		}
 	}
 
@@ -182,58 +198,43 @@ public class Spiel {
 		return spielRunden.elementAt(naechste);
 	}
 	
+	/**
+	 * Ermittelt die Rangfolge der Unternehmen in der Endbewertung.
+	 * Der ROI (Gewinn / Investition) wird zu 70% gewichtet, der
+	 * Marktanteil gemessen am Umsatz des Unternehmens wird zu 30%
+	 * gewichtet.
+	 * Zum Gewinn zählt dabei im vollen Umfang dsa Kapital, zu 67%
+	 * fertige Raumschiffe im Lager und zu 33% Bauteile im Lager.
+	 * @return
+	 */
 	public Vector<Unternehmen> ermittleRangfolge() {
-		HashMap <Unternehmen, Double> rOIs = new HashMap <Unternehmen, Double>();
-		for (Unternehmen unternehmen : this.unternehmen) {
-			double rOI = 0;
-			rOI += unternehmen.getFinanzen().getKontostand();
-			for (BauteilTyp bauteilTyp : bauteilMarkt.getTypen()) {
-				rOI += unternehmen.getLager().getAnzahl(bauteilTyp) * bauteilTyp.getPreis() / 3;
-			}
-			for (RaumschiffTyp raumschiffTyp : raumschiffMarkt.getTypen()) {
-				rOI += unternehmen.getLager().getAnzahl(raumschiffTyp) * raumschiffTyp.getKosten() * 2 / 3;
-			}
-			rOI = rOI / unternehmen.getFinanzen().getStartKapital();
-			rOIs.put(unternehmen, rOI);
-		}
-		
-		HashMap <Unternehmen, Double> marktAnteile = new HashMap <Unternehmen, Double>();
-		for (Unternehmen unternehmen : this.unternehmen) {
-			marktAnteile.put(unternehmen, 0.0);
-		}
-		for (SpielRunde spielRunde : spielRunden) {
-			HashMap <Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(spielRunde.getVerkaeufe());
-			for (Unternehmen unternehmen : verkaeufe.keySet()) {
-				double umsatz = 0;
-				for (Verkauf verkauf : verkaeufe.get(unternehmen)) {
-					umsatz += verkauf.getKosten();
-				}
-				double alt = marktAnteile.get(unternehmen);
-				marktAnteile.put(unternehmen, alt + umsatz);
-			}
-		}
-		
-		HashMap <Unternehmen, Double> bewertung = new HashMap<Unternehmen, Double>();
 		double summeROI = 0;
-		double summeMarktAnteile = 0;
-		for (double rOI : rOIs.values()) {
-			summeROI += rOI;
+		double summeUmsatz = 0;
+		for (Unternehmen unternehmen : this.unternehmen) {
+			summeROI += unternehmen.getROI();
+			summeUmsatz += unternehmen.getUmsatz();
 		}
-		for (double marktAnteil : marktAnteile.values()) {
-			summeMarktAnteile += marktAnteil;
+		
+		System.out.printf("Unternehmen | ROI         | Marktanteil | Bewertung\n");
+		for (Unternehmen unternehmen : this.unternehmen) {
+			double punkte = unternehmen.getROI() / summeROI * 70;
+			punkte += unternehmen.getUmsatz() / summeUmsatz * 30;
+			unternehmen.setBewertung(punkte);
+			System.out.printf("%11-s | %11.1f | 11.1f | 11.0f\n", unternehmen, unternehmen.getROI(), unternehmen.getUmsatz() / summeUmsatz, punkte);
 		}
-		for (Unternehmen unternehmen : rOIs.keySet()) {
-			double punkte = 0;
-			punkte = rOIs.get(unternehmen) / summeROI * 70;
-			bewertung.put(unternehmen, punkte);
-		}
-		for (Unternehmen unternehmen : marktAnteile.keySet()) {
-			double punkte = 0;
-			punkte = marktAnteile.get(unternehmen) / summeMarktAnteile * 30;
-			double alt = bewertung.get(unternehmen);
-			bewertung.put(unternehmen, alt + punkte);
-		}
+		
 		// Bewertung sortieren um Rangfolge zu erhalten
-	return null;
+		@SuppressWarnings("unchecked")
+		Vector<Unternehmen> rangfolge = (Vector<Unternehmen>) unternehmen.clone();
+		Collections.sort(rangfolge, new Comparator<Unternehmen>() {
+			public int compare(Unternehmen u1, Unternehmen u2) {
+				return ((Double) u2.getBewertung()).compareTo(u1.getBewertung());
+			}
+		});
+		return rangfolge;
+	}
+	
+	public Vector<SpielRunde> getSpielRunden() {
+		return spielRunden;
 	}
 }

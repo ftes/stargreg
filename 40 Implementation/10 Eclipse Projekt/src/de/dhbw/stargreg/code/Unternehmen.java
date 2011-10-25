@@ -17,6 +17,8 @@ public class Unternehmen {
 	private final PersonalAbteilung personal = new PersonalAbteilung(this);
 	private final LagerAbteilung lager = new LagerAbteilung(this);
 	
+	private double bewertung;
+	
 	private boolean rundeEingecheckt = false;
 	
 	public Unternehmen(Spiel spiel, String name, double startKapital) {
@@ -78,5 +80,39 @@ public class Unternehmen {
 	
 	public Spiel getSpiel() {
 		return spiel;
+	}
+	
+	public double getROI() {
+		double rOI = finanzen.getKontostand();
+		for (BauteilTyp bauteilTyp : spiel.getBauteilMarkt().getTypen()) {
+			rOI += lager.getAnzahl(bauteilTyp) * bauteilTyp.getPreis() / 3;
+		}
+		for (RaumschiffTyp raumschiffTyp : spiel.getRaumschiffMarkt().getTypen()) {
+			rOI += lager.getAnzahl(raumschiffTyp) * raumschiffTyp.getKosten() * 2 / 3;
+		}
+		rOI = rOI / finanzen.getStartKapital();
+		return rOI;
+	}
+	
+	public double getUmsatz() {
+		Vector<Verkauf> verkaeufe = new Vector<Verkauf>();
+		for (SpielRunde spielRunde : spiel.getSpielRunden()) {
+			verkaeufe.addAll(spielRunde.getVerkaeufe());
+		}
+		
+		double umsatz = 0;
+		for (Verkauf verkauf : verkaeufe) {
+			if (verkauf.getUnternehmen() == this) umsatz += verkauf.getKosten();
+		}
+		
+		return umsatz;
+	}
+
+	public double getBewertung() {
+		return bewertung;
+	}
+
+	public void setBewertung(double bewertung) {
+		this.bewertung = bewertung;
 	}
 }
