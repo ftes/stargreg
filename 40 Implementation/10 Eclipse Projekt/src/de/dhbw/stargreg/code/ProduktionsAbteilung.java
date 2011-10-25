@@ -3,6 +3,8 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.IntegerHashMap;
+
 
 /**
  * 
@@ -13,7 +15,7 @@ public class ProduktionsAbteilung extends Abteilung {
 	
 	private final Vector<ProduktionsAuftrag> auftraege = new Vector<ProduktionsAuftrag>();
 	
-	private final HashMap<BauteilTyp, Integer> benoetigteBauteile = new HashMap<BauteilTyp, Integer>();
+	private final IntegerHashMap<BauteilTyp> benoetigteBauteile = new IntegerHashMap<BauteilTyp>();
 	
 	private int benoetigtesPersonal = 0;
 
@@ -23,12 +25,18 @@ public class ProduktionsAbteilung extends Abteilung {
 
 	public void produziere() {
 		for (ProduktionsAuftrag auftrag : auftraege) {
+			int menge = auftrag.getMenge();
 			HashMap<BauteilTyp, Integer> bauteile = auftrag.getRaumschiffTyp().getBauteile();
 			for (BauteilTyp bauteilTyp : bauteile.keySet()) {
-				int anzahl = auftrag.getMenge() * bauteile.get(bauteilTyp);
-				unternehmen.getLager().entnehmen(bauteilTyp, anzahl);
+				int anzahl = menge * bauteile.get(bauteilTyp);
+				if (! unternehmen.getLager().entnehmen(bauteilTyp, anzahl)) {
+					System.err.printf("Weniger als %d %s vorhanden, Fehler in Aufträgen\n", anzahl, bauteilTyp);
+					return;
+				}
 			}
-			int menge = auftrag.getMenge() - berechneFehlerhafteMenge(auftrag.getMenge());
+			
+			int fehlerhaft = berechneFehlerhafteMenge(menge);
+			unternehmen.getFinanzen().abbuchen(fehlerhaft * auftrag.getRaumschiffTyp().getFehlerKosten());
 			unternehmen.getLager().einlagern(auftrag.getRaumschiffTyp(), menge);
 		}
 		
@@ -66,9 +74,7 @@ public class ProduktionsAbteilung extends Abteilung {
 		
 		//Dann speichern
 		for (BauteilTyp bauteilTyp : bauteile.keySet()) {
-			int anzahl = benoetigteBauteile.get(bauteilTyp);
-			anzahl += menge * bauteile.get(bauteilTyp);
-			benoetigteBauteile.put(bauteilTyp, anzahl);
+			benoetigteBauteile.add(bauteilTyp, bauteile.get(bauteilTyp));
 		}
 		
 		benoetigtesPersonal += menge * raumschiffTyp.getBenoetigtesPersonal();
