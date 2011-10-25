@@ -170,8 +170,14 @@ public class SpielTest {
 
 	@Test
 	public void testSpiel() {
-		
 		spiel.starteSpiel();
+		
+		//Informieren, Handeln und einchecken
+		
+		printSpacer();
+		spiel.simuliere();
+		
+		//Asserts ganz zum Schluss!
 
 		
 	}

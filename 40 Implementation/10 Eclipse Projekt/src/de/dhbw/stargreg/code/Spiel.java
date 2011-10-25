@@ -104,6 +104,7 @@ public class Spiel {
 		status = Status.SPIELEN;
 		aktuelleSpielRunde = spielRunden.firstElement();
 		System.out.println("Spiel gestartet");
+		aktuelleSpielRunde.starteSpielRunde();
 	}
 	
 	/**
@@ -165,9 +166,13 @@ public class Spiel {
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.getAngebote());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.simuliere());
 		
+		System.out.printf("Star dieser Runde war der Raumschifftyp %s\n", aktuelleSpielRunde.getStar());
+		
 		aktuelleSpielRunde = getNaechsteSpielRunde();
 		if (aktuelleSpielRunde == null) {
 			beendeSpiel();
+		} else {
+			aktuelleSpielRunde.starteSpielRunde();
 		}
 		// simulieren
 	}
@@ -196,6 +201,12 @@ public class Spiel {
 		int naechste = spielRunden.indexOf(aktuelleSpielRunde) + 1;
 		if (naechste == spielRunden.size()) return null;
 		return spielRunden.elementAt(naechste);
+	}
+	
+	public RaumschiffTyp getStarDerLetztenRunde() {
+		int vorherige = spielRunden.indexOf(aktuelleSpielRunde) - 1;
+		if (vorherige == -1) return null;
+		return spielRunden.elementAt(vorherige).getStar();
 	}
 	
 	/**

@@ -41,9 +41,9 @@ public class RaumschiffMarktTest {
 		};		
 		raumschiffMarkt.fuegeTypHinzu(xwing);
 		raumschiffMarkt.fuegeTypHinzu(corvette);
-		spiel.fuegeUnternehmenHinzu(null, 0);
-		spiel.fuegeUnternehmenHinzu(null, 0);
-		spiel.fuegeUnternehmenHinzu(null, 0);
+		spiel.fuegeUnternehmenHinzu(null, 1);
+		spiel.fuegeUnternehmenHinzu(null, 1);
+		spiel.fuegeUnternehmenHinzu(null, 1);
 	}
 
 	@AfterClass

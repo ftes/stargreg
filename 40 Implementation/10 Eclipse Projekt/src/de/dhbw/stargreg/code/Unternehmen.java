@@ -115,4 +115,13 @@ public class Unternehmen {
 	public void setBewertung(double bewertung) {
 		this.bewertung = bewertung;
 	}
+	
+	public void gebeInformationenAus() {
+		System.out.printf("Informationen für %s:\n", this);
+		if (spiel.getSpielRunden() != null) System.out.printf("Star der letzten Runde: %s", spiel.getStarDerLetztenRunde());
+		verkauf.gebeInformationenAus();
+		finanzen.gebeInformationenAus();
+		lager.gebeInformationenAus();
+		personal.gebeInformationenAus();
+	}
 }

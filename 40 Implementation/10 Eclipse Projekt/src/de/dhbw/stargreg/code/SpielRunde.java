@@ -46,8 +46,7 @@ public class SpielRunde {
 			personalTyp.setLaufendeKosten(laufendeKosten.get(personalTyp));
 			personalTyp.setWerbungsKosten(werbungsKosten.get(personalTyp));
 		}
-		System.out.printf("Spielrunde %d gestartet\n", nummer);
-		System.out.println(nachricht);
+		System.out.printf("Spielrunde %d gestartet: %s\n", nummer, nachricht);
 	}
 	
 	private final Vector<Transaktion> transaktionen = new Vector<Transaktion>();
