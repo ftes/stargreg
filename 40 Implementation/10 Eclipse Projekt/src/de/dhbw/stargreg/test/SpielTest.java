@@ -20,6 +20,8 @@ import de.dhbw.stargreg.code.Unternehmen;
 
 public class SpielTest {
 	
+	private static final double startKapital = 1000000;
+	
 	private static Spiel spiel = new Spiel();
 	private static BauteilMarkt bauteilMarkt = spiel.getBauteilMarkt();
 	private static PersonalMarkt personalMarkt = spiel.getPersonalMarkt();
@@ -41,9 +43,9 @@ public class SpielTest {
 	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.95, 300.0, droideka);
 	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.92, 300.0, kampfDroide);
 	
-	private static Unternehmen galactic = spiel.fuegeUnternehmenHinzu("Galactic");
-	private static Unternehmen foederation = spiel.fuegeUnternehmenHinzu("Föderation");
-	private static Unternehmen rebellen = spiel.fuegeUnternehmenHinzu("Rebellen");
+	private static Unternehmen galactic = spiel.fuegeUnternehmenHinzu("Galactic", startKapital);
+	private static Unternehmen foederation = spiel.fuegeUnternehmenHinzu("Föderation", startKapital);
+	private static Unternehmen rebellen = spiel.fuegeUnternehmenHinzu("Rebellen", startKapital);
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {

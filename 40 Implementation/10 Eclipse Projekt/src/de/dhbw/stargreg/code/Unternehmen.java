@@ -13,15 +13,16 @@ public class Unternehmen {
 	private final EinkaufsAbteilung einkauf = new EinkaufsAbteilung(this);
 	private final ProduktionsAbteilung produktion = new ProduktionsAbteilung(this);
 	private final VerkaufsAbteilung verkauf = new VerkaufsAbteilung(this);
-	private final FinanzAbteilung finanzen = new FinanzAbteilung(this);
+	private final FinanzAbteilung finanzen;
 	private final PersonalAbteilung personal = new PersonalAbteilung(this);
 	private final LagerAbteilung lager = new LagerAbteilung(this);
 	
 	private boolean rundeEingecheckt = false;
 	
-	public Unternehmen(Spiel spiel, String name) {
+	public Unternehmen(Spiel spiel, String name, double startKapital) {
 		this.spiel = spiel;
 		this.name = name;
+		this.finanzen = new FinanzAbteilung(this, startKapital);
 	}
 
 	public String toString() {

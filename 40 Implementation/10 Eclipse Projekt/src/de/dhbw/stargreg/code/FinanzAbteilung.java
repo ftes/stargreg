@@ -7,9 +7,12 @@ package de.dhbw.stargreg.code;
  */
 public class FinanzAbteilung extends Abteilung {
 	private double kapital = 0;
+	private final double startKapital;
 
-	public FinanzAbteilung(Unternehmen unternehmen) {
+	public FinanzAbteilung(Unternehmen unternehmen, double startKapital) {
 		super(unternehmen);
+		this.startKapital = startKapital;
+		einzahlen(startKapital);
 	}
 
 	/**
@@ -56,6 +59,10 @@ public class FinanzAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		abbuchen(getZinskosten());
+	}
+	
+	public double getStartKapital() {
+		return startKapital;
 	}
 
 }

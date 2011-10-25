@@ -1,4 +1,5 @@
 package de.dhbw.stargreg.code;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -76,12 +77,12 @@ public class Spiel {
 	 * Nur möglich, wenn das Spiel sich in der Einrichtungsphase befindet.
 	 * @param unternehmen Das anzufügende Unternehmen
 	 */
-	public Unternehmen fuegeUnternehmenHinzu(String name) {
+	public Unternehmen fuegeUnternehmenHinzu(String name, double startKapital) {
 		if (status != Status.EINRICHTEN) {
 			System.err.println("Unternehmen nicht hinzugefügt: nur in der Phase 'Einrichten' möglich");
 			return null;
 		}
-		Unternehmen unternehmen = new Unternehmen(this, name);
+		Unternehmen unternehmen = new Unternehmen(this, name, startKapital);
 		this.unternehmen.add(unternehmen);
 		System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
 		return unternehmen;
@@ -179,5 +180,60 @@ public class Spiel {
 		int naechste = spielRunden.indexOf(aktuelleSpielRunde) + 1;
 		if (naechste == spielRunden.size()) return null;
 		return spielRunden.elementAt(naechste);
+	}
+	
+	public Vector<Unternehmen> ermittleRangfolge() {
+		HashMap <Unternehmen, Double> rOIs = new HashMap <Unternehmen, Double>();
+		for (Unternehmen unternehmen : this.unternehmen) {
+			double rOI = 0;
+			rOI += unternehmen.getFinanzen().getKontostand();
+			for (BauteilTyp bauteilTyp : bauteilMarkt.getTypen()) {
+				rOI += unternehmen.getLager().getAnzahl(bauteilTyp) * bauteilTyp.getPreis() / 3;
+			}
+			for (RaumschiffTyp raumschiffTyp : raumschiffMarkt.getTypen()) {
+				rOI += unternehmen.getLager().getAnzahl(raumschiffTyp) * raumschiffTyp.getKosten() * 2 / 3;
+			}
+			rOI = rOI / unternehmen.getFinanzen().getStartKapital();
+			rOIs.put(unternehmen, rOI);
+		}
+		
+		HashMap <Unternehmen, Double> marktAnteile = new HashMap <Unternehmen, Double>();
+		for (Unternehmen unternehmen : this.unternehmen) {
+			marktAnteile.put(unternehmen, 0.0);
+		}
+		for (SpielRunde spielRunde : spielRunden) {
+			HashMap <Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(spielRunde.getVerkaeufe());
+			for (Unternehmen unternehmen : verkaeufe.keySet()) {
+				double umsatz = 0;
+				for (Verkauf verkauf : verkaeufe.get(unternehmen)) {
+					umsatz += verkauf.getKosten();
+				}
+				double alt = marktAnteile.get(unternehmen);
+				marktAnteile.put(unternehmen, alt + umsatz);
+			}
+		}
+		
+		HashMap <Unternehmen, Double> bewertung = new HashMap<Unternehmen, Double>();
+		double summeROI = 0;
+		double summeMarktAnteile = 0;
+		for (double rOI : rOIs.values()) {
+			summeROI += rOI;
+		}
+		for (double marktAnteil : marktAnteile.values()) {
+			summeMarktAnteile += marktAnteil;
+		}
+		for (Unternehmen unternehmen : rOIs.keySet()) {
+			double punkte = 0;
+			punkte = rOIs.get(unternehmen) / summeROI * 70;
+			bewertung.put(unternehmen, punkte);
+		}
+		for (Unternehmen unternehmen : marktAnteile.keySet()) {
+			double punkte = 0;
+			punkte = marktAnteile.get(unternehmen) / summeMarktAnteile * 30;
+			double alt = bewertung.get(unternehmen);
+			bewertung.put(unternehmen, alt + punkte);
+		}
+		// Bewertung sortieren um Rangfolge zu erhalten
+	return null;
 	}
 }
