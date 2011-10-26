@@ -32,4 +32,10 @@ public class VerkaufsAbteilung extends Abteilung {
 		}
 	}
 
+	@Override
+	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

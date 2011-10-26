@@ -119,9 +119,11 @@ public class Unternehmen {
 	public void gebeInformationenAus() {
 		System.out.printf("Informationen für %s:\n", this);
 		if (spiel.getSpielRunden() != null) System.out.printf("Star der letzten Runde: %s", spiel.getStarDerLetztenRunde());
-		verkauf.gebeInformationenAus();
-		finanzen.gebeInformationenAus();
-		lager.gebeInformationenAus();
-		personal.gebeInformationenAus();
+		einkauf.gebeInformationenAus(false);
+		produktion.gebeInformationenAus(false);
+		verkauf.gebeInformationenAus(false);
+		finanzen.gebeInformationenAus(true);
+		lager.gebeInformationenAus(true);
+		personal.gebeInformationenAus(true);
 	}
 }

@@ -27,4 +27,10 @@ public class EinkaufsAbteilung extends Abteilung {
 		unternehmen.getLager().einlagern(bauteilTyp, menge);
 	}
 
+	@Override
+	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

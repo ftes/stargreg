@@ -84,4 +84,10 @@ public class ProduktionsAbteilung extends Abteilung {
 		return true;
 	}
 
+	@Override
+	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

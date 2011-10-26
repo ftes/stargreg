@@ -15,5 +15,11 @@ public abstract class Abteilung {
 	public Unternehmen getUnternehmen() {
 		return unternehmen;
 	}
+	
+	/**
+	 * Gibt Informationen zu dieser oder der letzten SpielRunde aus.
+	 * @param aktuelleSpielRunde {@code true} wenn Informationen zu dieser SpielRunde erwünscht sind.
+	 */
+	public abstract void gebeInformationenAus(boolean aktuelleSpielRunde);
 
 }
