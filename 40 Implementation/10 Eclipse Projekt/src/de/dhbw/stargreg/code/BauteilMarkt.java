@@ -44,10 +44,12 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 			}
 		});
 		double gesamtUmsatz = 0;
-		for (BauteilTyp bauteilTyp : einkaeufe.keySet()) {
+		for (BauteilTyp bauteilTyp : typen) {
 			double umsatz = 0;
-			for (Einkauf einkauf : einkaeufe.get(bauteilTyp)) {
-				umsatz += einkauf.getPreis() * einkauf.getMenge();
+			if (einkaeufe.containsKey(bauteilTyp)) {
+				for (Einkauf einkauf : einkaeufe.get(bauteilTyp)) {
+					umsatz += einkauf.getPreis() * einkauf.getMenge();
+				}
 			}
 			umsaetze.put(bauteilTyp, umsatz);
 			gesamtUmsatz += umsatz;

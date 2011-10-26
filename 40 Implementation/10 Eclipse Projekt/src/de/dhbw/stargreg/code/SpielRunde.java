@@ -103,6 +103,7 @@ public class SpielRunde {
 		HashMap<RaumschiffTyp, Double> umsaetze = Util.gruppiereUndSummiereVerkaeufeNachRaumschiffTyp(getVerkaeufe());
 		Vector<RaumschiffTyp> rangfolge = Util.sortiere(umsaetze, false);
 		
+		if (rangfolge.isEmpty()) return null;
 		return rangfolge.firstElement();
 	}
 }
