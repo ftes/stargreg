@@ -15,28 +15,12 @@
     <packagedElement xmi:type="uml:UseCase" xmi:id="_FQxosP2pEeCXTbvytDjrnQ" name="Spielregeln anschauen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_GbdTIP2pEeCXTbvytDjrnQ" name="Informationen zur Spielrunde anschauen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_IyZ8YP2pEeCXTbvytDjrnQ" name="Finanzen einsehen"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_K2J80P2pEeCXTbvytDjrnQ" name="Droiden anheuern">
-      <include xmi:id="_5TUGQP2qEeCXTbvytDjrnQ" addition="_3FeVsP2qEeCXTbvytDjrnQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_fKLPoP2pEeCXTbvytDjrnQ" name="Droiden ausbauen">
-      <include xmi:id="_06ivMP2qEeCXTbvytDjrnQ" addition="_zM46kP2qEeCXTbvytDjrnQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_kGrl4P2pEeCXTbvytDjrnQ" name="Droiden entlassen">
-      <include xmi:id="_viP00P2qEeCXTbvytDjrnQ" addition="_VdlZEP2qEeCXTbvytDjrnQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_mdMxUP2pEeCXTbvytDjrnQ" name="Bauteile einkaufen">
-      <include xmi:id="_kDNlsP2qEeCXTbvytDjrnQ" addition="_VdlZEP2qEeCXTbvytDjrnQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_nhHscP2pEeCXTbvytDjrnQ" name="Raumschiffe produzieren">
-      <include xmi:id="_gyNvAP2qEeCXTbvytDjrnQ" addition="_VdlZEP2qEeCXTbvytDjrnQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_pMFZcP2pEeCXTbvytDjrnQ" name="Angebot zum Verkauf abgeben">
-      <include xmi:id="_SReCYP2qEeCXTbvytDjrnQ" addition="_rFwQ0P2pEeCXTbvytDjrnQ"/>
-    </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_rFwQ0P2pEeCXTbvytDjrnQ" name="Preis eingeben"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_VdlZEP2qEeCXTbvytDjrnQ" name="Anzahl auswählen"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_zM46kP2qEeCXTbvytDjrnQ" name="Anzahl auswählen"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_3FeVsP2qEeCXTbvytDjrnQ" name="Anzahl auswählen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_K2J80P2pEeCXTbvytDjrnQ" name="Droiden anheuern"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_fKLPoP2pEeCXTbvytDjrnQ" name="Droiden ausbauen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_kGrl4P2pEeCXTbvytDjrnQ" name="Droiden entlassen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_mdMxUP2pEeCXTbvytDjrnQ" name="Bauteile einkaufen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_nhHscP2pEeCXTbvytDjrnQ" name="Raumschiffe produzieren"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_pMFZcP2pEeCXTbvytDjrnQ" name="Angebot zum Verkauf abgeben"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_8fRr8P2qEeCXTbvytDjrnQ" name="Namen auswählen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_-flW0P2qEeCXTbvytDjrnQ" name="Logo aussuchen"/>
   </packagedElement>
