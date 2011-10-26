@@ -39,7 +39,7 @@ public class RaumschiffTyp extends ProduktTyp {
 	 */
 	public void fuegeBauteilHinzu(BauteilTyp bauteilTyp, int menge) {
 		bauteile.put(bauteilTyp, menge);
-		System.out.printf("%d %s als Bauteil zu %s hinzugefügt\n", menge, bauteilTyp, this);
+		System.out.printf("%dmal %s als Bauteil zu %s hinzugefügt\n", menge, bauteilTyp, this);
 	}
 	
 	/**

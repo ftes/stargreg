@@ -10,7 +10,6 @@ import org.junit.Test;
 import de.dhbw.stargreg.code.BauteilMarkt;
 import de.dhbw.stargreg.code.BauteilTyp;
 import de.dhbw.stargreg.code.Einkauf;
-import de.dhbw.stargreg.code.Spiel;
 
 /**
  * @author Jan Schlenker
@@ -59,14 +58,14 @@ public class BauteilMarktTest {
 
 	@Test
 	public void TestBerechnePreise() {
-		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(rumpf, null, 10, rumpf.getPreis()*10));
-		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(hitzeschild, null, 20, hitzeschild.getPreis()*20));
-		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(triebwerk, null, 20, triebwerk.getPreis()*20));
-		//bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(triebwerk, null, 0, triebwerk.getPreis()*0));
+		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(rumpf, null, 10, rumpf.getPreis()));
+		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(hitzeschild, null, 20, hitzeschild.getPreis()));
+		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(triebwerk, null, 20, triebwerk.getPreis()));
+		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(triebwerk, null, 0, triebwerk.getPreis()));
 		bauteilMarkt.simuliere();
-		Assert.assertTrue(Math.round(rumpf.getPreis())==62.00);
-		Assert.assertTrue(Math.round(hitzeschild.getPreis())==174.00);
-		Assert.assertTrue(Math.round(triebwerk.getPreis())==694.00);
+		Assert.assertTrue(Math.round(rumpf.getPreis())==63.00);
+		Assert.assertTrue(Math.round(hitzeschild.getPreis())==170.00);
+		Assert.assertTrue(Math.round(triebwerk.getPreis())==693.00);
 	}
 	
 
