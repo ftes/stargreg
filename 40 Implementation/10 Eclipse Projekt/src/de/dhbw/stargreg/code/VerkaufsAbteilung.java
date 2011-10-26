@@ -19,6 +19,7 @@ public class VerkaufsAbteilung extends Abteilung {
 	 * @param verkaeufe {@code Vector} mit den zu tätigenden Verkäufen.
 	 */
 	public void verkaufe(Vector<Verkauf> verkaeufe) {
+		if (verkaeufe == null) return;
 		for (Verkauf verkauf : verkaeufe) {
 			if (verkauf.getUnternehmen() != unternehmen) {
 				System.err.printf("Nicht für %s bestimmte Verkäufe zum verkaufen erhalten\n", unternehmen);
@@ -30,6 +31,12 @@ public class VerkaufsAbteilung extends Abteilung {
 			}
 			unternehmen.getFinanzen().einzahlen(verkauf.getKosten());
 		}
+	}
+
+	@Override
+	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

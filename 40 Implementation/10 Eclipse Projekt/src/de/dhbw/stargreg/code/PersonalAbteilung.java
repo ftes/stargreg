@@ -148,4 +148,10 @@ public class PersonalAbteilung extends Abteilung {
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(laufendeKosten);
 	}
+
+	@Override
+	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -71,4 +71,10 @@ public class LagerAbteilung extends Abteilung {
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(getLagerkosten());
 	}
+
+	@Override
+	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
+		// TODO Auto-generated method stub
+		
+	}
 }

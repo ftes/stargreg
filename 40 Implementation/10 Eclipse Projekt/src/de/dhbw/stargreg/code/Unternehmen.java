@@ -85,12 +85,12 @@ public class Unternehmen {
 	public double getROI() {
 		double rOI = finanzen.getKontostand();
 		for (BauteilTyp bauteilTyp : spiel.getBauteilMarkt().getTypen()) {
-			rOI += lager.getAnzahl(bauteilTyp) * bauteilTyp.getPreis() / 3;
+			rOI += lager.getAnzahl(bauteilTyp) * bauteilTyp.getPreis() * 0.5;
 		}
 		for (RaumschiffTyp raumschiffTyp : spiel.getRaumschiffMarkt().getTypen()) {
-			rOI += lager.getAnzahl(raumschiffTyp) * raumschiffTyp.getKosten() * 2 / 3;
+			rOI += lager.getAnzahl(raumschiffTyp) * raumschiffTyp.getKosten() * 0.75;
 		}
-		rOI = rOI / finanzen.getStartKapital();
+		rOI = (rOI - finanzen.getStartKapital()) / finanzen.getStartKapital();
 		return rOI;
 	}
 	
@@ -118,10 +118,12 @@ public class Unternehmen {
 	
 	public void gebeInformationenAus() {
 		System.out.printf("Informationen für %s:\n", this);
-		if (spiel.getSpielRunden() != null) System.out.printf("Star der letzten Runde: %s", spiel.getStarDerLetztenRunde());
-		verkauf.gebeInformationenAus();
-		finanzen.gebeInformationenAus();
-		lager.gebeInformationenAus();
-		personal.gebeInformationenAus();
+		if (spiel.getSpielRunden() != null) System.out.printf("Star der letzten Runde: %s\n", spiel.getStarDerLetztenRunde());
+		einkauf.gebeInformationenAus(false);
+		produktion.gebeInformationenAus(false);
+		verkauf.gebeInformationenAus(false);
+		finanzen.gebeInformationenAus(true);
+		lager.gebeInformationenAus(true);
+		personal.gebeInformationenAus(true);
 	}
 }

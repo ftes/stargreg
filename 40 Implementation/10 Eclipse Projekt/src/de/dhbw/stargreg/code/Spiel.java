@@ -65,7 +65,7 @@ public class Spiel {
 			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Spielen' möglich");
 			return;
 		}
-		this.spielRunden.add(new SpielRunde(this, nachfrage, laufendeKosten, werbungsKosten, nachricht, spielRunden.size()));
+		this.spielRunden.add(new SpielRunde(this, nachfrage, laufendeKosten, werbungsKosten, nachricht, spielRunden.size() + 1));
 		System.out.printf("Spielrunde %d hinzugefügt\n", this.spielRunden.size());
 	}
 	
@@ -165,6 +165,8 @@ public class Spiel {
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(personalMarkt.simuliere());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.getAngebote());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.simuliere());
+		
+		System.out.println("Spielrunde wurde simuliert");
 		
 		System.out.printf("Star dieser Runde war der Raumschifftyp %s\n", aktuelleSpielRunde.getStar());
 		

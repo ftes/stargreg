@@ -35,9 +35,9 @@ public class SpielTest {
 	private static BauteilTyp transport = new BauteilTyp("Transportkapsel", 20, 2000.0, 800.0);
 	private static BauteilTyp forschung = new BauteilTyp("Forschungsausstattung", 30, 3000.0, 1200.0);
 	
-	private static RaumschiffTyp xwing = new RaumschiffTyp("X-Wing", 5, 900);
-	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10, 1800);
-	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15, 2700);
+	private static RaumschiffTyp xwing = new RaumschiffTyp("X-Wing", 5, 0.15);
+	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10, 0.15);
+	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15, 0.15);
 	
 	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, -1.0, null);
 	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.95, 300.0, droideka);

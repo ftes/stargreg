@@ -65,4 +65,10 @@ public class FinanzAbteilung extends Abteilung {
 		return startKapital;
 	}
 
+	@Override
+	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
