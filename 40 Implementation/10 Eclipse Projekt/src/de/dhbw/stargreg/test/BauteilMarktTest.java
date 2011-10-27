@@ -13,7 +13,7 @@ import de.dhbw.stargreg.code.Einkauf;
 
 /**
  * @author Jan Schlenker
- *
+ * 
  */
 public class BauteilMarktTest {
 
@@ -24,6 +24,7 @@ public class BauteilMarktTest {
 	
 	/**
 	 * @throws java.lang.Exception
+	 * Initialisierung der drei Grundbauteile nach den Werten der Datenbasis
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -55,7 +56,12 @@ public class BauteilMarktTest {
 	@After
 	public void tearDown() throws Exception {
 	}
-
+	
+	/**
+	 * Test der Berechnung von Bauteilpreisen, nach dem verschiedene Einkäufe von Bauteilen getätigt wurden. 
+	 * Für die Entwicklung der Preise ist nur entscheidend, welche Mengen der jeweiligen Bauteile eingekauft wurden. 
+	 * Die Unternehmen der Einkäufe spielen keine Rolle, weshalb keine Unternehmensinstanzen erzeugt werden müssen.
+	 */
 	@Test
 	public void TestBerechnePreise() {
 		bauteilMarkt.fuegeTransaktionHinzu(new Einkauf(rumpf, null, 10, rumpf.getPreis()));

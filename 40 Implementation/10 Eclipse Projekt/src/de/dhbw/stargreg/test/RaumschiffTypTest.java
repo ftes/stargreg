@@ -20,6 +20,10 @@ public class RaumschiffTypTest {
 	private static BauteilTyp hitzeschild;
 	private static BauteilTyp triebwerk;
 
+	/**
+	 * Initialisierung der drei Raumschiffe und der drei Grundbauteile nach den Werten der Datenbasis
+	 * @throws Exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		xwing = new RaumschiffTyp("xwing", 5, 900.00);
@@ -41,6 +45,10 @@ public class RaumschiffTypTest {
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * Test, bei dem zu einem Raumschifftyp Bauteile nach den Werten der Datenbasis hinzugefügt werden und bei dem betrachtet wird,
+	 * ob sich die jeweiligen Bauteile danach auch in der Bauteilhashmap des jeweiligen Raumschiffs mit den richtigen Mengen befinden.
+	 */
 	@Test
 	public void testFuegeBauteilHinzu() {
 		xwing.fuegeBauteilHinzu(rumpf, 18);
@@ -54,26 +62,31 @@ public class RaumschiffTypTest {
 		Assert.assertTrue(xwing.getBauteile().get(triebwerk) == 4);	
 	}
 	
+	/**
+	 * Test, bei dem zu einem Raumschifftyp Bauteile nach den Werten der Datenbasis hinzugefügt werden und bei dem betrachtet wird,
+	 * ob die Kosten der einzelnen Bauteilmengen summiert die Raumschiffkosten ergeben.
+	 */
 	@Test
 	public void testGetKosten(){
 		corellian_corvette.fuegeBauteilHinzu(rumpf, 38);
 		corellian_corvette.fuegeBauteilHinzu(hitzeschild, 16);
 		corellian_corvette.fuegeBauteilHinzu(triebwerk, 6);
-		Assert.assertTrue(corellian_corvette.getKosten() == 10000.00);
+		Assert.assertTrue(corellian_corvette.getKosten() == (rumpf.getPreis()*38 + 
+															 hitzeschild.getPreis()*16 + 
+															 triebwerk.getPreis()*6));
 	}
 	
+	/**
+	 * Test, bei dem zu einem Raumschifftyp Bauteile nach den Werten der Datenbasis hinzugefügt werden und bei dem betrachtet wird,
+	 * ob die Lagerplatzeinheiten der einzelnen Bauteilmengen summiert die Raumschifflagerplatzeinheiten ergeben.
+	 */
 	@Test
 	public void testGetLagerplatzEinheiten() {
 		millenium_falke.fuegeBauteilHinzu(rumpf, 40);
 		millenium_falke.fuegeBauteilHinzu(hitzeschild, 30);
 		millenium_falke.fuegeBauteilHinzu(triebwerk, 10);
-		Assert.assertTrue(millenium_falke.getLagerplatzEinheiten() == 150);
+		Assert.assertTrue(millenium_falke.getLagerplatzEinheiten() == (rumpf.getLagerplatzEinheiten()*40 + 
+																	   hitzeschild.getLagerplatzEinheiten()*30 + 
+																	   triebwerk.getLagerplatzEinheiten()*10));
 	}
-	
-
-	
-	
-
-	
-
 }

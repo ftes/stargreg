@@ -21,6 +21,7 @@ public class BauteilTypTest {
 	public static BauteilTyp rumpfbauteil;
 	/**
 	 * @throws java.lang.Exception
+	 * Initialisierung eines Grundbauteils nach den Werten der Datenbasis
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -49,7 +50,7 @@ public class BauteilTypTest {
 	}
 
 	/**
-	 * Test method for {@link de.dhbw.stargreg.code.BauteilTyp#berechnePreis(double)}.
+	 * Test der Preisveränderung eines Bauteils bei gegebener Abweichung
 	 */
 	@Test
 	public void testBerechnePreis() {

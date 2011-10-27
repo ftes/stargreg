@@ -27,6 +27,11 @@ public class RaumschiffMarktTest {
 	private static int nachfrageXwing = 5;
 	private static int nachfrageCorvette = 3;
 
+	/**
+	 * Initialisierung von zwei Raumschiffen, welchen feste Kosten zugewiesen werden, da die Bauteilpreisänderungen für die Tests der Methoden 
+	 * dieser Klasse keine Rolle spielen. 
+	 * @throws Exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		xwing = new RaumschiffTyp("X-Wing", 0, 0) {
