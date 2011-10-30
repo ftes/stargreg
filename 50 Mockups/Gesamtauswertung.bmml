@@ -1,0 +1,44 @@
+<mockup version="1.0" skin="sketch" measuredW="1094" measuredH="768" mockupW="1024" mockupH="768">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="70" y="0" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>StarGreg</text>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::TextInput" x="243" y="50" w="678" h="-1" measuredW="184" measuredH="50" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <size>32</size>
+        <state>up</state>
+        <text>Auswertung</text>
+      </controlProperties>
+    </control>
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::TabBar" x="85" y="123" w="994" h="564" measuredW="885" measuredH="100" zOrder="2" locked="true" isInGroup="-1">
+      <controlProperties>
+        <hrefs>Endauswertung%26bm%3BEndauswertung.bmml%26bm%3BEndauswertung.bmml%26bm%3BEndauswertung.bmml%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C</hrefs>
+        <selectedIndex>11</selectedIndex>
+        <text>1%20Runde%2C%202%20Runde%2C%203%20Runde%2C%204%20Runde%2C%205%20Runde%2C%206%20Runde%2C%207%20Runde%2C%208%20Runde%2C%208%20Runde%2C%209%20Runde%2C%2010%20Runde%2C%20Gesamtauswertung</text>
+      </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::Button" x="446" y="699" w="271" h="38" measuredW="154" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>9684093</color>
+        <href>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22376%2C699%2C647%2C737%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2274%22/%3E</map>
+        <text>Zur%FCck%20zur%20%DCbersicht</text>
+      </controlProperties>
+    </control>
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::DataGrid" x="111" y="163" w="937" h="479" measuredW="232" measuredH="206" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Rang%2C%20Unternehmen%2C%20Punktzahl%0A1%2C%20StarTreg%2C%209999%0A2%2C%20Baumbart%2C%208888%0A3%2C%20Pagani%20Ships%2C%207777%0A4%2C%20Loppelt%20Ganger%2C%206666%0A5%2C%20Kosloveski%2C%205555%0A6%2C%20Weedman%20Ships%2C%204444</text>
+      </controlProperties>
+    </control>
+    <control controlID="84" controlTypeID="com.balsamiq.mockups::Button" x="866" y="650" w="-1" h="-1" measuredW="182" measuredH="28" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16767334</color>
+        <href>Gesamtauswertung_Berechnung%26bm%3BGesamtauswertung_Berechnung.bmml%26bm%3BGesamtauswertung_Berechnung.bmml%26bm%3BGesamtauswertung_Berechnung.bmml</href>
+        <text>Berechnung%20der%20Punktzahl</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

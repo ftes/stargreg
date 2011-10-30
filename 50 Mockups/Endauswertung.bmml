@@ -1,0 +1,65 @@
+<mockup version="1.0" skin="sketch" measuredW="1094" measuredH="768" mockupW="1024" mockupH="768">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="70" y="0" w="1024" h="768" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties>
+        <text>StarGreg</text>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::TextInput" x="243" y="50" w="678" h="-1" measuredW="184" measuredH="50" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <size>32</size>
+        <state>up</state>
+        <text>Auswertung</text>
+      </controlProperties>
+    </control>
+    <control controlID="73" controlTypeID="com.balsamiq.mockups::TabBar" x="85" y="123" w="994" h="564" measuredW="885" measuredH="100" zOrder="2" locked="true" isInGroup="-1">
+      <controlProperties>
+        <hrefs>%2C%2C%2C%2C%2C%2C%2C%2C%2C%2C%2CGesamtauswertung%26bm%3BGesamtauswertung.bmml%26bm%3BGesamtauswertung.bmml%26bm%3BGesamtauswertung.bmml</hrefs>
+        <selectedIndex>0</selectedIndex>
+        <text>1%20Runde%2C%202%20Runde%2C%203%20Runde%2C%204%20Runde%2C%205%20Runde%2C%206%20Runde%2C%207%20Runde%2C%208%20Runde%2C%208%20Runde%2C%209%20Runde%2C%2010%20Runde%2C%20Gesamtauswertung</text>
+      </controlProperties>
+    </control>
+    <control controlID="74" controlTypeID="com.balsamiq.mockups::Button" x="446" y="699" w="271" h="38" measuredW="154" measuredH="28" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>9684093</color>
+        <href>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml</href>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22376%2C699%2C647%2C737%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2274%22/%3E</map>
+        <text>Zur%FCck%20zur%20%DCbersicht</text>
+      </controlProperties>
+    </control>
+    <control controlID="80" controlTypeID="com.balsamiq.mockups::List" x="115" y="184" w="275" h="134" measuredW="100" measuredH="126" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hasHeader>true</hasHeader>
+        <selectedIndex>-1</selectedIndex>
+        <text>Finanzen%0ABankguthaben%20am%20Anfang%20der%20Runde%3A%0AEinnahmen%3A%0AAusgaben%3A%0ABankguthaben%20am%20Ende%20der%20Runde%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="81" controlTypeID="com.balsamiq.mockups::List" x="431" y="184" w="275" h="134" measuredW="100" measuredH="126" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <hasHeader>true</hasHeader>
+        <selectedIndex>-1</selectedIndex>
+        <text>%20%0AXY%2C00%0AXY%2C00%0AXY%2C00%0AXY%2C00</text>
+      </controlProperties>
+    </control>
+    <control controlID="82" controlTypeID="com.balsamiq.mockups::LineChart" x="774" y="182" w="242" h="136" measuredW="187" measuredH="175" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="83" controlTypeID="com.balsamiq.mockups::FieldSet" x="123" y="346" w="583" h="316" measuredW="200" measuredH="170" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Star%20der%20Runde</text>
+      </controlProperties>
+    </control>
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::Image" x="226" y="429" w="376" h="206" measuredW="721" measuredH="378" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./Einkauf_Millenium.gif</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="86" controlTypeID="com.balsamiq.mockups::Label" x="325" y="370" w="177" h="28" measuredW="148" measuredH="32" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <size>20</size>
+        <text>Millenium%20Falke</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
