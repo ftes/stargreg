@@ -17,7 +17,6 @@ public class PersonalAbteilung extends Abteilung {
 	/**
 	 * Laufende Kosten für Personal.
 	 */
-	private double laufendeKosten = 0.0;
 	
 	/**
 	 * Verwaltet die Anzahlen des eingestellten Personals für die jeweiligen Typen.
@@ -52,9 +51,6 @@ public class PersonalAbteilung extends Abteilung {
 		
 		personal.subtract(von, anzahl);
 		personal.add(nach, anzahl);
-		//Personalkosten neu berechnen
-		laufendeKosten -= von.getLaufendeKosten() * anzahl;
-		laufendeKosten += nach.getLaufendeKosten() * anzahl;
 		
 		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(schulung);
 		
@@ -83,7 +79,6 @@ public class PersonalAbteilung extends Abteilung {
 		}
 
 		anzahlPersonal -= anzahl;
-		laufendeKosten -= personalTyp.getLaufendeKosten()* anzahl;
 		
 		Entlassung entlassung = new Entlassung(personalTyp, unternehmen, anzahl);
 		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(entlassung);
@@ -109,8 +104,6 @@ public class PersonalAbteilung extends Abteilung {
 		
 		personal.add (personalTyp, anzahl);
 		anzahlPersonal += anzahl;
-
-		laufendeKosten += personalTyp.getLaufendeKosten()* anzahl;
 		
 		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(einstellung);
 		System.out.printf("%s hat %d %s eingestellt\n", unternehmen, anzahl, personalTyp);
@@ -125,7 +118,11 @@ public class PersonalAbteilung extends Abteilung {
 	}//getTypMitAnzahl
 	
 	public double getLaufendeKosten (){
-		return this.laufendeKosten;
+		double kosten = 0;
+		for (PersonalTyp personalTyp : personal.keySet()) {
+			kosten += personalTyp.getLaufendeKosten() * personal.get(personalTyp);
+		}
+		return kosten;
 	}//getlaufendeKosten
 	
 	public double getLaufendeKosten (PersonalTyp personalTyp) {
@@ -151,8 +148,8 @@ public class PersonalAbteilung extends Abteilung {
 	 * Bucht die laufenden Kosten für das Personal vom Konto ab.
 	 */
 	public void simuliere() {
-		unternehmen.getFinanzen().abbuchen(laufendeKosten);
-		System.out.printf("%.2f laufende Personalkosten abgebucht\n", laufendeKosten);
+		unternehmen.getFinanzen().abbuchen(getLaufendeKosten());
+		System.out.printf("%.2f laufende Personalkosten abgebucht\n", getLaufendeKosten());
 	}
 
 	@Override
