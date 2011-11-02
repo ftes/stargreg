@@ -32,6 +32,17 @@ public class VerkaufsAbteilung extends Abteilung {
 			unternehmen.getFinanzen().einzahlen(verkauf.getKosten());
 		}
 	}
+	
+	/**
+	 * Gibt ein Angebot zu allen Raumschiffen im Lager (also inkl. der zu produzierenden) ab.
+	 * @param raumschiffTyp
+	 * @param preis
+	 */
+	public void macheAngebot(RaumschiffTyp raumschiffTyp, double preis) {
+		int menge = unternehmen.getLager().getAnzahl(raumschiffTyp);
+		Angebot angebot = new Angebot(raumschiffTyp, unternehmen, menge, preis);
+		unternehmen.getSpiel().getRaumschiffMarkt().fuegeAngebotHinzu(angebot);
+	}
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {

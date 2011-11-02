@@ -73,6 +73,12 @@ public class PersonalAbteilung extends Abteilung {
 			System.err.printf("Weniger als %d %s zum entlassen vorhanden\n", anzahl, personalTyp);
 			return false;
 		}
+		
+		int personalUebrig = anzahlPersonal - unternehmen.getProduktion().getBenoetigtesPersonal();
+		if (personalUebrig < anzahl) {
+			System.err.printf("Personalkapazitäten durch Produktion ausgeschöpft\n");
+			return false;
+		}
 
 		anzahlPersonal -= anzahl;
 		laufendeKosten -= personalTyp.getLaufendeKosten()* anzahl;

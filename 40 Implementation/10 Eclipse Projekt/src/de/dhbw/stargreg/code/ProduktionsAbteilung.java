@@ -3,8 +3,6 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
-import de.dhbw.stargreg.util.IntegerHashMap;
-
 
 /**
  * 
@@ -15,8 +13,6 @@ public class ProduktionsAbteilung extends Abteilung {
 	
 	private final Vector<ProduktionsAuftrag> auftraege = new Vector<ProduktionsAuftrag>();
 	
-	private final IntegerHashMap<BauteilTyp> benoetigteBauteile = new IntegerHashMap<BauteilTyp>();
-	
 	private int benoetigtesPersonal = 0;
 
 	public ProduktionsAbteilung(Unternehmen unternehmen) {
@@ -26,22 +22,15 @@ public class ProduktionsAbteilung extends Abteilung {
 	public void produziere() {
 		for (ProduktionsAuftrag auftrag : auftraege) {
 			int menge = auftrag.getMenge();
-			HashMap<BauteilTyp, Integer> bauteile = auftrag.getRaumschiffTyp().getBauteile();
-			for (BauteilTyp bauteilTyp : bauteile.keySet()) {
-				int anzahl = menge * bauteile.get(bauteilTyp);
-				if (! unternehmen.getLager().entnehmen(bauteilTyp, anzahl)) {
-					System.err.printf("Weniger als %d %s vorhanden, Fehler in Aufträgen\n", anzahl, bauteilTyp);
-					return;
-				}
-			}
 			
 			int fehlerhaft = berechneFehlerhafteMenge(menge);
-			unternehmen.getFinanzen().abbuchen(fehlerhaft * auftrag.getRaumschiffTyp().getFehlerKosten());
-			unternehmen.getLager().einlagern(auftrag.getRaumschiffTyp(), menge);
+			double fehlerKosten = fehlerhaft * auftrag.getRaumschiffTyp().getFehlerKosten();
+			unternehmen.getFinanzen().abbuchen(fehlerKosten);
+			
+			System.out.printf("%d fehlerhafte %s verursachen für %s %.2f Zusatzkosten\n", fehlerhaft, auftrag.getRaumschiffTyp(), unternehmen, fehlerKosten);
 		}
 		
 		auftraege.clear();
-		benoetigteBauteile.clear();
 		benoetigtesPersonal = 0;
 	}
 	
@@ -55,12 +44,20 @@ public class ProduktionsAbteilung extends Abteilung {
 		return fehlerhafteMenge;
 	}
 	
+	/**
+	 * Fügt den Produktionsauftrag hinzu und entnimmt bereits die benötigten Bauteile
+	 * aus dem Lager und fügt die Raumschiffe hinzu. Die Fehlerkosten werden allerdings
+	 * erst bei der Simulation berechnet.
+	 * @param raumschiffTyp
+	 * @param menge
+	 * @return
+	 */
 	public boolean fuegeAuftragHinzu(RaumschiffTyp raumschiffTyp, int menge) {
 		//Erst prüfen, ob so viel produzierbar
 		HashMap<BauteilTyp, Integer> bauteile = raumschiffTyp.getBauteile();
 		
 		for (BauteilTyp bauteilTyp : bauteile.keySet()) {
-			int anzahlUebrig = unternehmen.getLager().getAnzahl(bauteilTyp) - benoetigteBauteile.get(bauteilTyp);
+			int anzahlUebrig = unternehmen.getLager().getAnzahl(bauteilTyp);
 			if (menge * bauteile.get(bauteilTyp) > anzahlUebrig) {
 				System.err.printf("Nicht genug %s auf Lager, um %d %s in Auftrag zu geben\n", bauteilTyp, menge, raumschiffTyp);
 				return false;
@@ -70,16 +67,20 @@ public class ProduktionsAbteilung extends Abteilung {
 		int personalUebrig = unternehmen.getPersonal().getAnzahlPersonal() - benoetigtesPersonal;
 		if (menge * raumschiffTyp.getBenoetigtesPersonal() > personalUebrig) {
 			System.err.printf("Nicht genug Personal, um %d %s in Auftrag zu geben\n", menge, raumschiffTyp);
+			return false;
 		}
 		
 		//Dann speichern
 		for (BauteilTyp bauteilTyp : bauteile.keySet()) {
-			benoetigteBauteile.add(bauteilTyp, bauteile.get(bauteilTyp));
+			unternehmen.getLager().entnehmen(bauteilTyp, menge * bauteile.get(bauteilTyp));
 		}
 		
 		benoetigtesPersonal += menge * raumschiffTyp.getBenoetigtesPersonal();
 		
 		auftraege.add(new ProduktionsAuftrag(raumschiffTyp, unternehmen, menge));
+		System.out.printf("%s hat %d %s in Auftrag gegeben\n", unternehmen, menge, raumschiffTyp);
+		
+		unternehmen.getLager().einlagern(raumschiffTyp, menge);
 		
 		return true;
 	}
@@ -88,6 +89,10 @@ public class ProduktionsAbteilung extends Abteilung {
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public int getBenoetigtesPersonal() {
+		return benoetigtesPersonal;
 	}
 
 }

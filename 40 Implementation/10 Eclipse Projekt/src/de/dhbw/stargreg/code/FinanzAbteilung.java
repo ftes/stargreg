@@ -21,7 +21,7 @@ public class FinanzAbteilung extends Abteilung {
 	 * @param betrag
 	 */
 	public void einzahlen (double betrag){
-		if (betrag <= 0) {
+		if (betrag < 0) {
 			System.err.println("Negative Beträge nicht einzahlbar");
 			return;
 		}

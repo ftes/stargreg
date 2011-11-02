@@ -1,5 +1,7 @@
 package de.dhbw.stargreg.code;
 
+import java.util.HashMap;
+
 /**
  * Die Einkaufsabteilung eines Unternehmens.
  * @author fredrik
@@ -21,10 +23,22 @@ public class EinkaufsAbteilung extends Abteilung {
 	public void kaufeEin(BauteilTyp bauteilTyp, int menge) {
 		Einkauf einkauf = new Einkauf(bauteilTyp, unternehmen, menge, bauteilTyp.getPreis());
 		double kosten = einkauf.getKosten();
-		//Umstellen auf Kreditfähigkeit
 		unternehmen.getFinanzen().abbuchen(kosten);
 		unternehmen.getSpiel().getBauteilMarkt().fuegeTransaktionHinzu(einkauf);
 		unternehmen.getLager().einlagern(bauteilTyp, menge);
+		System.out.printf("%s hat %d %s eingekauft\n", unternehmen, menge, bauteilTyp);
+	}
+	
+	/**
+	 * Ausreichend Bauteile zun Bau von Raumschiffen einkaufen. Berücksichtigt keine Lagerbestände.
+	 * @param raumschiffTyp
+	 * @param menge
+	 */
+	public void kaufeEinFuer(RaumschiffTyp raumschiffTyp, int menge) {
+		HashMap<BauteilTyp, Integer> bauteile = raumschiffTyp.getBauteile();
+		for (BauteilTyp bauteilTyp : bauteile.keySet()) {
+			kaufeEin(bauteilTyp, bauteile.get(bauteilTyp) * menge);
+		}
 	}
 
 	@Override

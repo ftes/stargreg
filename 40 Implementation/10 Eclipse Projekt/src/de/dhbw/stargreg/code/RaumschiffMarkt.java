@@ -25,6 +25,13 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 	private final Vector<Verkauf> verkaeufe = transaktionen;
 	
 	public void fuegeAngebotHinzu(Angebot angebot) {
+		Angebot duplikat = null;
+		for (Angebot a : angebote) {
+			if (a.getUnternehmen() == angebot.getUnternehmen() && a.getRaumschiffTyp() == angebot.getRaumschiffTyp()) {
+				duplikat = a;
+			}
+		}
+		if (duplikat != null) angebote.remove(duplikat);
 		angebote.add(angebot);
 	}
 	
