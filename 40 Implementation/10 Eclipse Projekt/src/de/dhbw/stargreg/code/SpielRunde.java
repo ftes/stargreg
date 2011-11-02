@@ -70,6 +70,17 @@ public class SpielRunde {
 		return transaktionen;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public <T> Vector<T> get(Class<T> clazz, Unternehmen unternehmen) {
+		Vector<T> transaktionen = new Vector<T>();
+		for (Transaktion transaktion : this.transaktionen) {
+			if (transaktion.getClass() == clazz && transaktion.getUnternehmen() == unternehmen) {
+				transaktionen.add((T) transaktion);
+			}
+		}
+		return transaktionen;
+	}
+	
 	public Vector<Verkauf> getVerkaeufe() {
 		return get(Verkauf.class);
 	}
