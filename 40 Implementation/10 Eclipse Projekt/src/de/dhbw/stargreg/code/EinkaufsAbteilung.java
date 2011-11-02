@@ -26,7 +26,7 @@ public class EinkaufsAbteilung extends Abteilung {
 		unternehmen.getFinanzen().abbuchen(kosten);
 		unternehmen.getSpiel().getBauteilMarkt().fuegeTransaktionHinzu(einkauf);
 		unternehmen.getLager().einlagern(bauteilTyp, menge);
-		System.out.printf("%s hat %d %s eingekauft\n", unternehmen, menge, bauteilTyp);
+		System.out.printf("%s hat %d %s zu je %.2f eingekauft\n", unternehmen, menge, bauteilTyp, bauteilTyp.getPreis());
 	}
 	
 	/**
