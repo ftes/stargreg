@@ -105,6 +105,7 @@ public class Spiel {
 		aktuelleSpielRunde = spielRunden.firstElement();
 		System.out.println("Spiel gestartet");
 		aktuelleSpielRunde.starteSpielRunde();
+		Util.printSpacer();
 	}
 	
 	/**
@@ -165,6 +166,8 @@ public class Spiel {
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(personalMarkt.simuliere());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.getAngebote());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.simuliere());
+		
+		Util.printSpacer();
 		
 		System.out.println("Spielrunde wurde simuliert");
 		

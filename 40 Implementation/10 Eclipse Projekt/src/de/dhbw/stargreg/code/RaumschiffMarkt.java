@@ -89,7 +89,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 				verkaeufe.add(angebot.kloneVerkauf(angebot.getMenge()));
 				uebertrag = menge - angebot.getMenge();
 			}
-			System.out.printf("   %s kann %s verkaufen\n", verkaeufe.lastElement().getUnternehmen(), verkaeufe.lastElement());
+			System.out.printf("   %s kann von %d %s verkaufen\n", verkaeufe.lastElement().getUnternehmen(), angebot.getMenge(), verkaeufe.lastElement());
 		}
 		
 		return verkaeufe;

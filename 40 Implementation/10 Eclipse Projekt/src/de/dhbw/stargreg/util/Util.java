@@ -131,4 +131,8 @@ public class Util {
 		if (! aufsteigend) Collections.reverse(vector);
 		return vector;
 	}
+	
+	public static void printSpacer() {
+		System.out.println("----------------------------------------");
+	}
 }

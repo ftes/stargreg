@@ -37,6 +37,7 @@ public class LagerAbteilung extends Abteilung {
 			System.err.println("Lagerbestand zu gering! Es koennen nur " + bestand.get(produktTyp) + " Teile entnommen werden.");
 			return false;
 		}
+		if (bestand.get(produktTyp) == 0) bestand.remove(produktTyp);
 		this.lagerstand -= produktTyp.getLagerplatzEinheiten() * anzahl;
 		return true;
 	}//leeren
@@ -70,6 +71,7 @@ public class LagerAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(getLagerkosten());
+		System.out.printf("%.2f Lagerkosten abgebucht\n", getLagerkosten());
 	}
 
 	@Override

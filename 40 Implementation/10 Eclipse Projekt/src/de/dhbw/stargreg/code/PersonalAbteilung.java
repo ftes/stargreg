@@ -147,6 +147,7 @@ public class PersonalAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(laufendeKosten);
+		System.out.printf("%.2f laufende Personalkosten abgebucht\n", laufendeKosten);
 	}
 
 	@Override

@@ -2,6 +2,8 @@ package de.dhbw.stargreg.code;
 
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.Util;
+
 /**
  * 
  * @author fredrik
@@ -45,11 +47,12 @@ public class Unternehmen {
 			System.out.printf("In %s wurde Runde noch nicht eingecheckt\n", this);
 		}
 		
+		System.out.printf("Simulation von %s:\n", this);
 		personal.simuliere();
 		produktion.produziere();
+		finanzen.simuliere();
 		verkauf.verkaufe(verkaeufe);
 		lager.simuliere();
-		finanzen.simuliere();
 		
 		rundeEingecheckt = false;
 	}
@@ -117,6 +120,7 @@ public class Unternehmen {
 	}
 	
 	public void gebeInformationenAus() {
+		Util.printSpacer();
 		System.out.printf("Informationen für %s:\n", this);
 		if (spiel.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n", spiel.getStarDerLetztenRunde());
 //		einkauf.gebeInformationenAus(false);

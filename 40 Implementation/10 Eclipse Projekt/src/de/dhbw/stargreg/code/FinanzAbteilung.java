@@ -60,6 +60,7 @@ public class FinanzAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		abbuchen(getZinskosten());
+		System.out.printf("%.2f Zinsaufwendungen abgebucht\n", getZinskosten());
 	}
 	
 	public double getStartKapital() {
