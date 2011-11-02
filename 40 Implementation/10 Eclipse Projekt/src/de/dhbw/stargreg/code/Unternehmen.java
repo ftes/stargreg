@@ -130,4 +130,16 @@ public class Unternehmen {
 		lager.gebeInformationenAus(true);
 		personal.gebeInformationenAus(true);
 	}
+	
+	/**
+	 * Hilfsfunktion, die alle drei Schritte ausführt
+	 * @param raumschiffTyp
+	 * @param menge
+	 * @param preis
+	 */
+	public void kaufeEinProduziereVerkaufe(RaumschiffTyp raumschiffTyp, int menge, double preis) {
+		einkauf.kaufeEinFuer(raumschiffTyp, menge);
+		produktion.fuegeAuftragHinzu(raumschiffTyp, menge);
+		verkauf.macheAngebot(raumschiffTyp, preis);
+	}
 }
