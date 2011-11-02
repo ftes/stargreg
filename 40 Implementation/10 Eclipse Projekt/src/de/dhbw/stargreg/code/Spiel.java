@@ -205,6 +205,12 @@ public class Spiel {
 		return spielRunden.elementAt(naechste);
 	}
 	
+	public SpielRunde getVorherigeSpielRunde() {
+		int vorherige = spielRunden.indexOf(aktuelleSpielRunde) - 1;
+		if (vorherige == -1) return null;
+		return spielRunden.elementAt(vorherige);
+	}
+	
 	public RaumschiffTyp getStarDerLetztenRunde() {
 		int vorherige = spielRunden.indexOf(aktuelleSpielRunde) - 1;
 		if (vorherige == -1) return null;
