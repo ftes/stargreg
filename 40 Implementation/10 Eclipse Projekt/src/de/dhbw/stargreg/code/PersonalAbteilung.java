@@ -1,6 +1,6 @@
 package de.dhbw.stargreg.code;
 
-import java.util.HashMap;
+import de.dhbw.stargreg.util.IntegerHashMap;
 
 /**
  * Hier werden die Personal der drei Qualitätsstufen über den gemeinsamen Obertyp 'Personaltyp' 
@@ -22,7 +22,7 @@ public class PersonalAbteilung extends Abteilung {
 	/**
 	 * Verwaltet die Anzahlen des eingestellten Personals für die jeweiligen Typen.
 	 */
-	private final HashMap<PersonalTyp, Integer> personal = new HashMap<PersonalTyp, Integer>();	
+	private final IntegerHashMap<PersonalTyp> personal = new IntegerHashMap<PersonalTyp>();	
 
 	public PersonalAbteilung(Unternehmen unternehmen) {
 		super(unternehmen);
@@ -50,10 +50,8 @@ public class PersonalAbteilung extends Abteilung {
 		Schulung schulung = new Schulung(von, unternehmen, anzahl, von.getSchulungsKosten());
 		unternehmen.getFinanzen().abbuchen(schulung.getKosten());
 		
-		int anzahlVon = personal.get(von) - anzahl;
-		int anzahlNach = personal.get(nach) + anzahl;
-		personal.put(von, anzahlVon);
-		personal.put(nach, anzahlNach);
+		personal.subtract(von, anzahl);
+		personal.add(nach, anzahl);
 		//Personalkosten neu berechnen
 		laufendeKosten -= von.getLaufendeKosten() * anzahl;
 		laufendeKosten += nach.getLaufendeKosten() * anzahl;
@@ -71,14 +69,11 @@ public class PersonalAbteilung extends Abteilung {
 	 * @param anzahl Anzahl des einzustellenden Personals
 	 */
 	public boolean entlassen (PersonalTyp personalTyp, int anzahl){
-		int vorhanden = personal.get(personalTyp);
-		
-		if (vorhanden < anzahl) {
+		if (! personal.subtract(personalTyp, anzahl)) {
 			System.err.printf("Weniger als %d %s zum entlassen vorhanden\n", anzahl, personalTyp);
 			return false;
 		}
-		
-		personal.put(personalTyp, (vorhanden - anzahl));
+
 		anzahlPersonal -= anzahl;
 		laufendeKosten -= personalTyp.getLaufendeKosten()* anzahl;
 		
@@ -101,8 +96,7 @@ public class PersonalAbteilung extends Abteilung {
 		
 		unternehmen.getFinanzen().abbuchen(einstellung.getKosten());
 		
-		int vorhanden = personal.get(personalTyp);
-		personal.put (personalTyp, (vorhanden + anzahl));
+		personal.add (personalTyp, anzahl);
 		anzahlPersonal += anzahl;
 
 		laufendeKosten += personalTyp.getLaufendeKosten()* anzahl;

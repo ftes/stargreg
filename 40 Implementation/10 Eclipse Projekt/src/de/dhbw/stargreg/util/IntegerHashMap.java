@@ -21,12 +21,12 @@ public class IntegerHashMap<K> extends HashMap<K, Integer> {
 	}
 	
 	public void add(K key, Integer value) {
-		super.put(key, super.get(key) + value);
+		super.put(key, get(key) + value);
 	}
 	
 	public boolean subtract(K key, Integer value) {
-		if (super.get(key) - value < 0) return false;
-		super.put(key, super.get(key) - value);
+		if (get(key) - value < 0) return false;
+		super.put(key, get(key) - value);
 		return true;
 	}
 
