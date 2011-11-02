@@ -146,6 +146,8 @@ public class Spiel {
 			return;
 		}
 		
+		Util.printSpacer();
+		
 		// Prüfen, ob alle schon eingecheckt haben. Sonst abbrechen
 		for (Unternehmen unternehmen : this.unternehmen) {
 			if (! unternehmen.getRundeEingecheckt()) {
