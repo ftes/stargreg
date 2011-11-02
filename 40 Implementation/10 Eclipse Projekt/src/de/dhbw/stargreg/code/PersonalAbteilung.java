@@ -58,6 +58,8 @@ public class PersonalAbteilung extends Abteilung {
 		
 		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(schulung);
 		
+		if (personal.get(von) == 0) personal.remove(von);
+		
 		System.out.printf("%s hat %d %s zu %s geschult\n", unternehmen, anzahl, von, nach);
 		return true;
 	}
@@ -85,6 +87,9 @@ public class PersonalAbteilung extends Abteilung {
 		
 		Entlassung entlassung = new Entlassung(personalTyp, unternehmen, anzahl);
 		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(entlassung);
+		
+		if (personal.get(personalTyp) == 0) personal.remove(personalTyp);
+		
 		System.out.printf("%s hat %d %s entlassen\n", unternehmen, anzahl, personalTyp);
 		return true;
 	}
