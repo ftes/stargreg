@@ -27,7 +27,7 @@ public abstract class Transaktion {
 	}
 	
 	public String toString() {
-		return String.format("%d %s zu %f Credits", menge, typ, preis);
+		return String.format("%d %s zu %.2f Credits", menge, typ, preis);
 	}
 	
 	public Typ getTyp() {
