@@ -1,5 +1,6 @@
 package de.dhbw.stargreg.code;
 
+
 /**
  * Finanzabteilung eines Unternehmens.
  * @author Britta
@@ -33,7 +34,7 @@ public class FinanzAbteilung extends Abteilung {
 	 * @return
 	 */
 	public void abbuchen (double betrag){
-		if (betrag <= 0) {
+		if (betrag < 0) {
 			System.err.println("Negative Beträge nicht abbuchbar");
 			return;
 		}
@@ -67,8 +68,8 @@ public class FinanzAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		// TODO Auto-generated method stub
-		
+		if (!aktuelleSpielRunde) return;
+		System.out.printf("Kontostand: %.2f\nZinsaufwendungen: %.2f\n", kapital, getZinskosten());
 	}
 
 }

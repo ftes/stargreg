@@ -21,5 +21,10 @@ public abstract class Abteilung {
 	 * @param aktuelleSpielRunde {@code true} wenn Informationen zu dieser SpielRunde erwünscht sind.
 	 */
 	public abstract void gebeInformationenAus(boolean aktuelleSpielRunde);
+	
+	public SpielRunde getSpielRunde(boolean aktuelleSpielRunde) {
+		if (aktuelleSpielRunde) return unternehmen.getSpiel().getAktuelleSpielRunde();
+		return unternehmen.getSpiel().getVorherigeSpielRunde();
+	}
 
 }

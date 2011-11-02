@@ -35,8 +35,14 @@ public class VerkaufsAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		// TODO Auto-generated method stub
-		
+		SpielRunde spielRunde = getSpielRunde(aktuelleSpielRunde);
+		if (spielRunde == null) return;
+		Vector<Verkauf> verkaeufe = spielRunde.get(Verkauf.class, unternehmen);
+
+		System.out.println("Verkäufe der letzten Runde:");
+		for (Verkauf verkauf : verkaeufe) {
+			System.out.printf("%d %s zu %.2f pro Stück verkauft\n", verkauf.getMenge(), verkauf.getRaumschiffTyp(), verkauf.getPreis());
+		}		
 	}
 
 }

@@ -151,7 +151,10 @@ public class PersonalAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		// TODO Auto-generated method stub
-		
+		if (! aktuelleSpielRunde) return;
+		for (PersonalTyp personalTyp : personal.keySet()) {
+			System.out.printf("%d %s beschäftigt\n", personal.get(personalTyp), personalTyp);
+		}
+		System.out.printf("Das Personal verursacht %.2f laufende Kosten\n", getLaufendeKosten());
 	}
 }

@@ -74,7 +74,11 @@ public class LagerAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		// TODO Auto-generated method stub
-		
+		if (! aktuelleSpielRunde) return;
+		for (ProduktTyp produktTyp : bestand.keySet()) {
+			System.out.printf("%d %s belegen %d LagerPlatz-Einheiten\n", bestand.get(produktTyp), produktTyp, bestand.get(produktTyp) * produktTyp.getLagerplatzEinheiten());
+		}
+		System.out.printf("Insgesamt sind %d LagerPlatz-Einheiten belegt\n", lagerstand);
+		System.out.printf("Dies verursacht %.2f Lagerkosten\n", getLagerkosten());
 	}
 }
