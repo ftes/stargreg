@@ -251,16 +251,21 @@ public class Spiel {
 			summeUmsatz += unternehmen.getUmsatz();
 		}
 		
-		System.out.println(Util.repeat("-", 57));
-		System.out.printf("| %-11s | %11s | %11s | %11s |\n", "Unternehmen", "ROI", "Marktanteil", "Bewertung");
-		System.out.println(Util.repeat("-", 57));
+		Vector<String[]> data = new Vector<String[]>();
+		String[] header = {"Unternehmen", "ROI", "Marktanteil", "Bewertung"};
+		data.add(header);
 		for (Unternehmen unternehmen : this.unternehmen) {
 			double punkte = (unternehmen.getROI() + rechtsVerschiebung) / summeROI * 70;
 			punkte += unternehmen.getUmsatz() / summeUmsatz * 30;
 			unternehmen.setBewertung(punkte);
-			System.out.printf("| %-11s | %11.2f | %11.2f | %11.0f |\n", unternehmen, unternehmen.getROI(), unternehmen.getUmsatz() / summeUmsatz, punkte);
+			String[] row = new String[4];
+			row[0] = unternehmen.toString();
+			row[1] = String.format("%.1f", unternehmen.getROI() * 100) + " %";
+			row[2] = String.format("%.1f", unternehmen.getUmsatz() / summeUmsatz * 100) + " %";
+			row[3] = String.format("%.0f", punkte);
+			data.add(row);
 		}
-		System.out.println(Util.repeat("-", 57));
+		Util.printTable(data);
 		
 		// Bewertung sortieren um Rangfolge zu erhalten
 		@SuppressWarnings("unchecked")
