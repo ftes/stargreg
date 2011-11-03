@@ -135,40 +135,4 @@ public class Util {
 	public static void printSpacer() {
 		System.out.println("----------------------------------------");
 	}
-	
-	public static String repeat(String s, int n) {
-		StringBuilder sb = new StringBuilder();
-		for (int i=0; i<n; i++) {
-			sb.append(s);
-		}
-		return sb.toString();
-	}
-	
-	public static void printTable(Vector<String[]> data) {
-		int[] max = new int[data.get(0).length];
-		for (int i=0; i<max.length; i++) max[i] = Integer.MIN_VALUE;
-		for (String[] row : data) {
-			for (int j=0; j<max.length; j++) {
-				if (row[j].length() > max[j]) {
-					max[j] = row[j].length();
-				}
-			}
-		}
-		
-		String format = "|";
-		int width = 4 + (max.length - 1) * 3;
-		for (int i=0; i<max.length; i++){
-			format += " %" + max[i] + "s |";
-			width += max[i];
-		}
-		format += "\n";
-		
-		System.out.println(repeat("-", width));
-		System.out.printf(format, (Object[]) data.get(0));
-		System.out.println(repeat("-", width));
-		for (int i=1; i<data.size(); i++) {
-			System.out.printf(format, (Object[]) data.get(i));
-		}
-		System.out.println(repeat("-", width));
-	}
 }

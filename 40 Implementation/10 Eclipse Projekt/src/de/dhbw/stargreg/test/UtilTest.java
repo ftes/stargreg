@@ -56,18 +56,4 @@ public class UtilTest {
 			}
 		}
 	}
-	
-	@Test
-	public void testPrintTable() {
-		Vector<String[]> data = new Vector<String[]>();
-		String[] row = {"Unternehmen", "Marktanteil", "ROI"};
-		data.add(row);
-		String[] row2 = {"Galactic", "-1.5", "-4.2"};
-		data.add(row2);
-		String[] row3 = {"Föderation", "-2.8", "-3.9"};
-		data.add(row3);
-		Util.printTable(data);
-		
-	}
-
 }

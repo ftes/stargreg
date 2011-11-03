@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.TableBuilder;
 import de.dhbw.stargreg.util.Util;
 
 
@@ -251,21 +252,17 @@ public class Spiel {
 			summeUmsatz += unternehmen.getUmsatz();
 		}
 		
-		Vector<String[]> data = new Vector<String[]>();
-		String[] header = {"Unternehmen", "ROI", "Marktanteil", "Bewertung"};
-		data.add(header);
+		TableBuilder tb = new TableBuilder("Unternehmen", "ROI", "Marktanteil", "Bewertung");
 		for (Unternehmen unternehmen : this.unternehmen) {
 			double punkte = (unternehmen.getROI() + rechtsVerschiebung) / summeROI * 70;
 			punkte += unternehmen.getUmsatz() / summeUmsatz * 30;
 			unternehmen.setBewertung(punkte);
-			String[] row = new String[4];
-			row[0] = unternehmen.toString();
-			row[1] = String.format("%.1f", unternehmen.getROI() * 100) + " %";
-			row[2] = String.format("%.1f", unternehmen.getUmsatz() / summeUmsatz * 100) + " %";
-			row[3] = String.format("%.0f", punkte);
-			data.add(row);
+			tb.addNewRow(unternehmen, 
+					String.format("%.1f", unternehmen.getROI() * 100) + " %",
+					String.format("%.1f", unternehmen.getUmsatz() / summeUmsatz * 100) + " %",
+					String.format("%.0f", punkte));
 		}
-		Util.printTable(data);
+		tb.print();
 		
 		// Bewertung sortieren um Rangfolge zu erhalten
 		@SuppressWarnings("unchecked")
