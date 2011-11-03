@@ -30,6 +30,10 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_hZD4kPNiEeCh_KZDOPO_0A" name="VerkaufsAbteilung">
     <generalization xmi:id="_1QzzYPOUEeC6vY4rnGyctg" general="_mwug0PNiEeCh_KZDOPO_0A"/>
+    <ownedAttribute xmi:id="_KaWGsAYREeGvrtY2VtNGxw" name="angebot" type="_XjzigPOVEeC6vY4rnGyctg" association="_KaaYIAYREeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KaWGsQYREeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KaWGsgYREeGvrtY2VtNGxw" value="1"/>
+    </ownedAttribute>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_iWWnQPNiEeCh_KZDOPO_0A" name="EinkaufsAbteilung">
     <generalization xmi:id="_1pNFQPOUEeC6vY4rnGyctg" general="_mwug0PNiEeCh_KZDOPO_0A"/>
@@ -50,42 +54,38 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_pUYJUPNiEeCh_KZDOPO_0A" name="Transaktion"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_qYhG4PNiEeCh_KZDOPO_0A" name="Verkauf">
-    <generalization xmi:id="_3oHB8POUEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
+    <generalization xmi:id="_3oHB8POUEeC6vY4rnGyctg" general="_H3GDoAYNEeGvrtY2VtNGxw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_rD9QkPNiEeCh_KZDOPO_0A" name="Einkauf">
-    <generalization xmi:id="_34njIPOUEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
+    <generalization xmi:id="_34njIPOUEeC6vY4rnGyctg" general="_H3GDoAYNEeGvrtY2VtNGxw"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_rrrX4PNiEeCh_KZDOPO_0A" name="Angebot">
-    <generalization xmi:id="_4IZEgPOUEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
-    <ownedAttribute xmi:id="_LXyRkPOVEeC6vY4rnGyctg" name="raumschiffMarkt" type="_uws9APM_EeCgedBhj007tA" association="_LXyRk_OVEeC6vY4rnGyctg">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LXyRkfOVEeC6vY4rnGyctg" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LXyRkvOVEeC6vY4rnGyctg" value="1"/>
-    </ownedAttribute>
+  <packagedElement xmi:type="uml:Class" xmi:id="_XjzigPOVEeC6vY4rnGyctg" name="Angebot">
+    <generalization xmi:id="_YONKYPOVEeC6vY4rnGyctg" general="_H3GDoAYNEeGvrtY2VtNGxw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_tEzG8PNiEeCh_KZDOPO_0A" name="ProduktionsAuftrag">
-    <generalization xmi:id="_4aikcPOUEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
+    <generalization xmi:id="_4aikcPOUEeC6vY4rnGyctg" general="_H3GDoAYNEeGvrtY2VtNGxw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_vBKtAPNiEeCh_KZDOPO_0A" name="Entlassung">
     <generalization xmi:id="_4vObAPOUEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
     <generalization xmi:id="_5r-FMPOWEeC6vY4rnGyctg" general="_0KVooPOWEeC6vY4rnGyctg"/>
-    <generalization xmi:id="_rlj5QPOYEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
+    <generalization xmi:id="_rlj5QPOYEeC6vY4rnGyctg" general="_JB9UQAYNEeGvrtY2VtNGxw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_x1LswPNiEeCh_KZDOPO_0A" name="Schulung">
     <generalization xmi:id="_5Dc-kPOUEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
     <generalization xmi:id="_5ShqcPOWEeC6vY4rnGyctg" general="_0KVooPOWEeC6vY4rnGyctg"/>
-    <generalization xmi:id="_sjmO0POYEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
+    <generalization xmi:id="_sjmO0POYEeC6vY4rnGyctg" general="_JB9UQAYNEeGvrtY2VtNGxw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_yjAcEPNiEeCh_KZDOPO_0A" name="Einstellung">
     <generalization xmi:id="_5YurAPOUEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
     <generalization xmi:id="_423CIPOWEeC6vY4rnGyctg" general="_0KVooPOWEeC6vY4rnGyctg"/>
-    <generalization xmi:id="_trmYsPOYEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
+    <generalization xmi:id="_trmYsPOYEeC6vY4rnGyctg" general="_JB9UQAYNEeGvrtY2VtNGxw"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_KaEX0PNjEeCh_KZDOPO_0A" name="spiel_spielrunde" memberEnd="_KaEX0fNjEeCh_KZDOPO_0A _KZ6m0PNjEeCh_KZDOPO_0A">
     <ownedEnd xmi:id="_KaEX0fNjEeCh_KZDOPO_0A" name="spiel" type="_nVQfIPM_EeCgedBhj007tA" association="_KaEX0PNjEeCh_KZDOPO_0A">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KaEX0vNjEeCh_KZDOPO_0A" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KaEX0_NjEeCh_KZDOPO_0A" value="1"/>
     </ownedEnd>
-    <ownedEnd xmi:id="_KZ6m0PNjEeCh_KZDOPO_0A" name="spielrunde" type="_-P5O4PM_EeCgedBhj007tA" aggregation="composite" association="_KaEX0PNjEeCh_KZDOPO_0A">
+    <ownedEnd xmi:id="_KZ6m0PNjEeCh_KZDOPO_0A" name="spielrunde" type="_-P5O4PM_EeCgedBhj007tA" aggregation="shared" association="_KaEX0PNjEeCh_KZDOPO_0A">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KZ6m0fNjEeCh_KZDOPO_0A" value="*"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KZ6m0vNjEeCh_KZDOPO_0A"/>
     </ownedEnd>
@@ -125,7 +125,7 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wJNAZfOUEeC6vY4rnGyctg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wJNAZvOUEeC6vY4rnGyctg" value="1"/>
     </ownedEnd>
-    <ownedEnd xmi:id="_wJNAYPOUEeC6vY4rnGyctg" name="unternehmen" type="_N9E5cPNAEeCgedBhj007tA" aggregation="composite" association="_wJNAY_OUEeC6vY4rnGyctg">
+    <ownedEnd xmi:id="_wJNAYPOUEeC6vY4rnGyctg" name="unternehmen" type="_N9E5cPNAEeCgedBhj007tA" aggregation="shared" association="_wJNAY_OUEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wJNAYfOUEeC6vY4rnGyctg" value="*"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wJNAYvOUEeC6vY4rnGyctg"/>
     </ownedEnd>
@@ -180,7 +180,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9-Z1ovOUEeC6vY4rnGyctg" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_H8yxY_OVEeC6vY4rnGyctg" name="einstellung_personalMarkt_0" memberEnd="_H8yxZPOVEeC6vY4rnGyctg _H8yxYPOVEeC6vY4rnGyctg">
+  <packagedElement xmi:type="uml:Association" xmi:id="_H8yxY_OVEeC6vY4rnGyctg" name="einstellung_personalMarkt_0" memberEnd="_H8yxZPOVEeC6vY4rnGyctg _H8yxYPOVEeC6vY4rnGyctg" navigableOwnedEnd="_H8yxZPOVEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_H8yxZPOVEeC6vY4rnGyctg" name="einstellung" type="_yjAcEPNiEeCh_KZDOPO_0A" association="_H8yxY_OVEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_H8yxZfOVEeC6vY4rnGyctg" value="*"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H8yxZvOVEeC6vY4rnGyctg"/>
@@ -190,7 +190,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_H8yxYvOVEeC6vY4rnGyctg" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_IVC5U_OVEeC6vY4rnGyctg" name="schulung_personalMarkt_0" memberEnd="_IVC5VPOVEeC6vY4rnGyctg _IVC5UPOVEeC6vY4rnGyctg">
+  <packagedElement xmi:type="uml:Association" xmi:id="_IVC5U_OVEeC6vY4rnGyctg" name="schulung_personalMarkt_0" memberEnd="_IVC5VPOVEeC6vY4rnGyctg _IVC5UPOVEeC6vY4rnGyctg" navigableOwnedEnd="_IVC5VPOVEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_IVC5VPOVEeC6vY4rnGyctg" name="schulung" type="_x1LswPNiEeCh_KZDOPO_0A" association="_IVC5U_OVEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IVC5VfOVEeC6vY4rnGyctg" value="*"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IVC5VvOVEeC6vY4rnGyctg"/>
@@ -200,7 +200,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IVC5UvOVEeC6vY4rnGyctg" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_IqUlw_OVEeC6vY4rnGyctg" name="entlassung_personalMarkt_0" memberEnd="_IqUlxPOVEeC6vY4rnGyctg _IqUlwPOVEeC6vY4rnGyctg">
+  <packagedElement xmi:type="uml:Association" xmi:id="_IqUlw_OVEeC6vY4rnGyctg" name="entlassung_personalMarkt_0" memberEnd="_IqUlxPOVEeC6vY4rnGyctg _IqUlwPOVEeC6vY4rnGyctg" navigableOwnedEnd="_IqUlxPOVEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_IqUlxPOVEeC6vY4rnGyctg" name="entlassung" type="_vBKtAPNiEeCh_KZDOPO_0A" association="_IqUlw_OVEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IqUlxfOVEeC6vY4rnGyctg" value="*"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IqUlxvOVEeC6vY4rnGyctg"/>
@@ -229,15 +229,6 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KgvU0fOVEeC6vY4rnGyctg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KgvU0vOVEeC6vY4rnGyctg" value="1"/>
     </ownedEnd>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_LXyRk_OVEeC6vY4rnGyctg" name="angebot_raumschiffMarkt_0" memberEnd="_LXyRlPOVEeC6vY4rnGyctg _LXyRkPOVEeC6vY4rnGyctg">
-    <ownedEnd xmi:id="_LXyRlPOVEeC6vY4rnGyctg" name="angebot" type="_rrrX4PNiEeCh_KZDOPO_0A" association="_LXyRk_OVEeC6vY4rnGyctg">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_LXyRlfOVEeC6vY4rnGyctg" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LXyRlvOVEeC6vY4rnGyctg" value="1"/>
-    </ownedEnd>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Class" xmi:id="_XjzigPOVEeC6vY4rnGyctg" name="Angebot">
-    <generalization xmi:id="_YONKYPOVEeC6vY4rnGyctg" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_YosG8_OVEeC6vY4rnGyctg" name="angebot_raumschiffMarkt_1" memberEnd="_YosG9POVEeC6vY4rnGyctg _YosG8POVEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_YosG9POVEeC6vY4rnGyctg" name="angebot" type="_XjzigPOVEeC6vY4rnGyctg" association="_YosG8_OVEeC6vY4rnGyctg">
@@ -309,7 +300,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8mNeMvOVEeC6vY4rnGyctg"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_-WPRY_OVEeC6vY4rnGyctg" name="raumschiffMarkt_raumschiffTyp_0" memberEnd="_-WPRZPOVEeC6vY4rnGyctg _-WPRYPOVEeC6vY4rnGyctg">
+  <packagedElement xmi:type="uml:Association" xmi:id="_-WPRY_OVEeC6vY4rnGyctg" name="raumschiffMarkt_raumschiffTyp_0" memberEnd="_-WPRZPOVEeC6vY4rnGyctg _-WPRYPOVEeC6vY4rnGyctg" navigableOwnedEnd="_-WPRYPOVEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_-WPRZPOVEeC6vY4rnGyctg" name="raumschiffMarkt" type="_uws9APM_EeCgedBhj007tA" association="_-WPRY_OVEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-WPRZfOVEeC6vY4rnGyctg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-WPRZvOVEeC6vY4rnGyctg" value="1"/>
@@ -329,7 +320,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AB8lQvOWEeC6vY4rnGyctg"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_CCC0w_OWEeC6vY4rnGyctg" name="raumschiffTyp_bauteilTyp_0" memberEnd="_CCC0xPOWEeC6vY4rnGyctg _CCC0wPOWEeC6vY4rnGyctg">
+  <packagedElement xmi:type="uml:Association" xmi:id="_CCC0w_OWEeC6vY4rnGyctg" name="raumschiffTyp_bauteilTyp_0" memberEnd="_CCC0xPOWEeC6vY4rnGyctg _CCC0wPOWEeC6vY4rnGyctg" navigableOwnedEnd="_CCC0wPOWEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_CCC0xPOWEeC6vY4rnGyctg" name="raumschiffTyp" type="_v8_J8PM_EeCgedBhj007tA" association="_CCC0w_OWEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CCC0xfOWEeC6vY4rnGyctg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CCC0xvOWEeC6vY4rnGyctg" value="1"/>
@@ -339,7 +330,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_CCC0wvOWEeC6vY4rnGyctg"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_NBvcgPOWEeC6vY4rnGyctg" name="einstellung_personalTyp_0" memberEnd="_NBvcgfOWEeC6vY4rnGyctg _NBlrgPOWEeC6vY4rnGyctg">
+  <packagedElement xmi:type="uml:Association" xmi:id="_NBvcgPOWEeC6vY4rnGyctg" name="einstellung_personalTyp_0" memberEnd="_NBvcgfOWEeC6vY4rnGyctg _NBlrgPOWEeC6vY4rnGyctg" navigableOwnedEnd="_NBlrgPOWEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_NBvcgfOWEeC6vY4rnGyctg" name="einstellung" type="_yjAcEPNiEeCh_KZDOPO_0A" association="_NBvcgPOWEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_NBvcgvOWEeC6vY4rnGyctg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_NBvcg_OWEeC6vY4rnGyctg" value="1"/>
@@ -369,7 +360,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PuA1gvOWEeC6vY4rnGyctg" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_RBLtk_OWEeC6vY4rnGyctg" name="verkauf_raumschiffTyp_0" memberEnd="_RBLtlPOWEeC6vY4rnGyctg _RBLtkPOWEeC6vY4rnGyctg">
+  <packagedElement xmi:type="uml:Association" xmi:id="_RBLtk_OWEeC6vY4rnGyctg" name="verkauf_raumschiffTyp_0" memberEnd="_RBLtlPOWEeC6vY4rnGyctg _RBLtkPOWEeC6vY4rnGyctg" navigableOwnedEnd="_RBLtkPOWEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_RBLtlPOWEeC6vY4rnGyctg" name="verkauf" type="_qYhG4PNiEeCh_KZDOPO_0A" association="_RBLtk_OWEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RBLtlfOWEeC6vY4rnGyctg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RBLtlvOWEeC6vY4rnGyctg" value="1"/>
@@ -409,7 +400,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_VpYnxvOWEeC6vY4rnGyctg" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_W8Gz4_OWEeC6vY4rnGyctg" name="angebot_raumschiffTyp_0" memberEnd="_W8Gz5POWEeC6vY4rnGyctg _W8Gz4POWEeC6vY4rnGyctg">
+  <packagedElement xmi:type="uml:Association" xmi:id="_W8Gz4_OWEeC6vY4rnGyctg" name="angebot_raumschiffTyp_0" memberEnd="_W8Gz5POWEeC6vY4rnGyctg _W8Gz4POWEeC6vY4rnGyctg" navigableOwnedEnd="_W8Gz4POWEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_W8Gz5POWEeC6vY4rnGyctg" name="angebot" type="_XjzigPOVEeC6vY4rnGyctg" association="_W8Gz4_OWEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W8Gz5fOWEeC6vY4rnGyctg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W8Gz5vOWEeC6vY4rnGyctg" value="1"/>
@@ -521,7 +512,7 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_VP_lcPOYEeC6vY4rnGyctg" name="Markt"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_d2v_4POYEeC6vY4rnGyctg" name="Typ"/>
-  <packagedElement xmi:type="uml:Association" xmi:id="_kkHPwPOYEeC6vY4rnGyctg" name="transaktion_typ_0" memberEnd="_kkHPwfOYEeC6vY4rnGyctg _kj9ewPOYEeC6vY4rnGyctg">
+  <packagedElement xmi:type="uml:Association" xmi:id="_kkHPwPOYEeC6vY4rnGyctg" name="transaktion_typ_0" memberEnd="_kkHPwfOYEeC6vY4rnGyctg _kj9ewPOYEeC6vY4rnGyctg" navigableOwnedEnd="_kj9ewPOYEeC6vY4rnGyctg">
     <ownedEnd xmi:id="_kkHPwfOYEeC6vY4rnGyctg" name="transaktion" type="_pUYJUPNiEeCh_KZDOPO_0A" association="_kkHPwPOYEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kkHPwvOYEeC6vY4rnGyctg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kkHPw_OYEeC6vY4rnGyctg" value="1"/>
@@ -532,17 +523,157 @@
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_XNleEPOZEeC6vY4rnGyctg" name="Menge">
-    <ownedAttribute xmi:id="_aavWkPOZEeC6vY4rnGyctg" name="raumschifftyp_bauteiltyp_0" type="_CCC0w_OWEeC6vY4rnGyctg" association="_aa5HkvOZEeC6vY4rnGyctg">
+    <ownedAttribute xmi:id="_aavWkPOZEeC6vY4rnGyctg" name="raumschifftyp_bauteiltyp_0" type="_CCC0w_OWEeC6vY4rnGyctg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aa5HkfOZEeC6vY4rnGyctg" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aa5HkPOZEeC6vY4rnGyctg" value="1"/>
     </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:AssociationClass" xmi:id="_aa5HkvOZEeC6vY4rnGyctg" name="AssociationClass0" memberEnd="_aa5Hk_OZEeC6vY4rnGyctg _aavWkPOZEeC6vY4rnGyctg">
-    <ownedEnd xmi:id="_aa5Hk_OZEeC6vY4rnGyctg" name="menge" type="_XNleEPOZEeC6vY4rnGyctg" association="_aa5HkvOZEeC6vY4rnGyctg">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_aa5HlPOZEeC6vY4rnGyctg" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_aa5HlfOZEeC6vY4rnGyctg" value="1"/>
-    </ownedEnd>
-  </packagedElement>
   <packagedElement xmi:type="uml:Class" xmi:id="_h6r58POZEeC6vY4rnGyctg" name="Preis"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_n98c4POZEeC6vY4rnGyctg" name="Nachfrage"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_qfZw4AYMEeGvrtY2VtNGxw" name="markt_typ_0" memberEnd="_qfZw4QYMEeGvrtY2VtNGxw _qfScIQYMEeGvrtY2VtNGxw" navigableOwnedEnd="_qfScIQYMEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_qfZw4QYMEeGvrtY2VtNGxw" name="markt" type="_VP_lcPOYEeC6vY4rnGyctg" association="_qfZw4AYMEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qfZw4gYMEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qfZw4wYMEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_qfScIQYMEeGvrtY2VtNGxw" name="typ" type="_d2v_4POYEeC6vY4rnGyctg" association="_qfZw4AYMEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qfScIgYMEeGvrtY2VtNGxw" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qfScIwYMEeGvrtY2VtNGxw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_unzJoAYMEeGvrtY2VtNGxw" name="markt_transaktion_0" memberEnd="_unzJoQYMEeGvrtY2VtNGxw _unuRIAYMEeGvrtY2VtNGxw" navigableOwnedEnd="_unuRIAYMEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_unzJoQYMEeGvrtY2VtNGxw" name="markt" type="_VP_lcPOYEeC6vY4rnGyctg" association="_unzJoAYMEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_unzJogYMEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_unzJowYMEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_unuRIAYMEeGvrtY2VtNGxw" name="transaktion" type="_pUYJUPNiEeCh_KZDOPO_0A" association="_unzJoAYMEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_unuRIQYMEeGvrtY2VtNGxw" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_unuRIgYMEeGvrtY2VtNGxw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_H3GDoAYNEeGvrtY2VtNGxw" name="ProduktTransaktion">
+    <generalization xmi:id="_Nvy8YAYNEeGvrtY2VtNGxw" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_JB9UQAYNEeGvrtY2VtNGxw" name="PersonalTransaktion">
+    <generalization xmi:id="_OU4mcAYNEeGvrtY2VtNGxw" general="_pUYJUPNiEeCh_KZDOPO_0A"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_gyEzIAYQEeGvrtY2VtNGxw" name="spiel_bauteilMarkt_0" memberEnd="_gyEzIQYQEeGvrtY2VtNGxw _gyAhsAYQEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_gyEzIQYQEeGvrtY2VtNGxw" name="spiel" type="_nVQfIPM_EeCgedBhj007tA" association="_gyEzIAYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gyEzIgYQEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gyEzIwYQEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_gyAhsAYQEeGvrtY2VtNGxw" name="bauteilMarkt" type="_9YtvQPM_EeCgedBhj007tA" aggregation="composite" association="_gyEzIAYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gyAhsQYQEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gyAhsgYQEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_hUdugAYQEeGvrtY2VtNGxw" name="spiel_raumschiffMarkt_0" memberEnd="_hUdugQYQEeGvrtY2VtNGxw _hUYO8AYQEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_hUdugQYQEeGvrtY2VtNGxw" name="spiel" type="_nVQfIPM_EeCgedBhj007tA" association="_hUdugAYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hUduggYQEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hUdugwYQEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_hUYO8AYQEeGvrtY2VtNGxw" name="raumschiffMarkt" type="_uws9APM_EeCgedBhj007tA" aggregation="composite" association="_hUdugAYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hUYO8QYQEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hUYO8gYQEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_htpDgAYQEeGvrtY2VtNGxw" name="spiel_personalMarkt_0" memberEnd="_htpDgQYQEeGvrtY2VtNGxw _htjj8AYQEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_htpDgQYQEeGvrtY2VtNGxw" name="spiel" type="_nVQfIPM_EeCgedBhj007tA" association="_htpDgAYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_htpDggYQEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_htpDgwYQEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_htjj8AYQEeGvrtY2VtNGxw" name="personalMarkt" type="_xNnrYPM_EeCgedBhj007tA" aggregation="composite" association="_htpDgAYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_htjj8QYQEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_htjj8gYQEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_jFPIkAYQEeGvrtY2VtNGxw" name="KapitalMarkt">
+    <generalization xmi:id="_kNlQsAYQEeGvrtY2VtNGxw" general="_VP_lcPOYEeC6vY4rnGyctg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_lww6sAYQEeGvrtY2VtNGxw" name="spiel_kapitalMarkt_0" memberEnd="_lww6sQYQEeGvrtY2VtNGxw _lwsCMAYQEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_lww6sQYQEeGvrtY2VtNGxw" name="spiel" type="_nVQfIPM_EeCgedBhj007tA" association="_lww6sAYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lww6sgYQEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lww6swYQEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_lwsCMAYQEeGvrtY2VtNGxw" name="kapitalMarkt" type="_jFPIkAYQEeGvrtY2VtNGxw" aggregation="composite" association="_lww6sAYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lwsCMQYQEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_lwsCMgYQEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_9jdT0AYQEeGvrtY2VtNGxw" name="spielrunde_transaktion_0" memberEnd="_9jdT0QYQEeGvrtY2VtNGxw _9jYbUAYQEeGvrtY2VtNGxw" navigableOwnedEnd="_9jYbUAYQEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_9jdT0QYQEeGvrtY2VtNGxw" name="spielrunde" type="_-P5O4PM_EeCgedBhj007tA" association="_9jdT0AYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9jdT0gYQEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9jdT0wYQEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_9jYbUAYQEeGvrtY2VtNGxw" name="transaktion" type="_pUYJUPNiEeCh_KZDOPO_0A" association="_9jdT0AYQEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9jYbUQYQEeGvrtY2VtNGxw" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9jYbUgYQEeGvrtY2VtNGxw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_IEYU4AYREeGvrtY2VtNGxw" name="produktionsAbteilung_produktionsAuftrag_0" memberEnd="_IEYU4QYREeGvrtY2VtNGxw _IEUDcAYREeGvrtY2VtNGxw" navigableOwnedEnd="_IEUDcAYREeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_IEYU4QYREeGvrtY2VtNGxw" name="produktionsAbteilung" type="_e_O6cfNiEeCh_KZDOPO_0A" association="_IEYU4AYREeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IEYU4gYREeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IEYU4wYREeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_IEUDcAYREeGvrtY2VtNGxw" name="produktionsAuftrag" type="_tEzG8PNiEeCh_KZDOPO_0A" association="_IEYU4AYREeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_IEUDcQYREeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_IEUDcgYREeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_KaaYIAYREeGvrtY2VtNGxw" name="verkaufsAbteilung_angebot_0" memberEnd="_KaaYIQYREeGvrtY2VtNGxw _KaWGsAYREeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_KaaYIQYREeGvrtY2VtNGxw" name="verkaufsAbteilung" type="_hZD4kPNiEeCh_KZDOPO_0A" association="_KaaYIAYREeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KaaYIgYREeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_KaaYIwYREeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_OX0B0AYREeGvrtY2VtNGxw" name="abteilung_transaktion_0" memberEnd="_OX0B0QYREeGvrtY2VtNGxw _OXyMoAYREeGvrtY2VtNGxw" navigableOwnedEnd="_OXyMoAYREeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_OX0B0QYREeGvrtY2VtNGxw" name="abteilung" type="_mwug0PNiEeCh_KZDOPO_0A" association="_OX0B0AYREeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OX0B0gYREeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OX0B0wYREeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_OXyMoAYREeGvrtY2VtNGxw" name="transaktion" type="_pUYJUPNiEeCh_KZDOPO_0A" association="_OX0B0AYREeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_OXyMoQYREeGvrtY2VtNGxw" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_OXyMogYREeGvrtY2VtNGxw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_aFOEIAYREeGvrtY2VtNGxw" name="Menge"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_krCzUAYREeGvrtY2VtNGxw" name="lagerAbteilung_produktTyp_1" memberEnd="_krCzUQYREeGvrtY2VtNGxw _kq9TwAYREeGvrtY2VtNGxw" navigableOwnedEnd="_kq9TwAYREeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_krCzUQYREeGvrtY2VtNGxw" name="lagerAbteilung" type="_lMYbkPOWEeC6vY4rnGyctg" association="_krCzUAYREeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_krCzUgYREeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_krCzUwYREeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_kq9TwAYREeGvrtY2VtNGxw" name="produktTyp" type="_nYwKIPNiEeCh_KZDOPO_0A" association="_krCzUAYREeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kq9TwQYREeGvrtY2VtNGxw" value="*"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kq9TwgYREeGvrtY2VtNGxw"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_0XN70AYSEeGvrtY2VtNGxw" name="transaktion_typ_0_menge_0" memberEnd="_0XN71AYSEeGvrtY2VtNGxw _0XN70QYSEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_0XN70QYSEeGvrtY2VtNGxw" name="menge" type="_aFOEIAYREeGvrtY2VtNGxw" association="_0XN70AYSEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0XN70gYSEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0XN70wYSEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_0XN71AYSEeGvrtY2VtNGxw" name="transaktion_typ_0" type="_kkHPwPOYEeC6vY4rnGyctg" association="_0XN70AYSEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_0XN71QYSEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_0XN71gYSEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_10RIoAYSEeGvrtY2VtNGxw" name="raumschiffTyp_bauteilTyp_0_menge_0" memberEnd="_10RIpAYSEeGvrtY2VtNGxw _10RIoQYSEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_10RIoQYSEeGvrtY2VtNGxw" name="menge" type="_aFOEIAYREeGvrtY2VtNGxw" association="_10RIoAYSEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_10RIogYSEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_10RIowYSEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_10RIpAYSEeGvrtY2VtNGxw" name="raumschiffTyp_bauteilTyp_0" type="_CCC0w_OWEeC6vY4rnGyctg" association="_10RIoAYSEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_10RIpQYSEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_10RIpgYSEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_246cgAYSEeGvrtY2VtNGxw" name="abteilung_transaktion_0_menge_0" memberEnd="_246chAYSEeGvrtY2VtNGxw _246cgQYSEeGvrtY2VtNGxw">
+    <ownedEnd xmi:id="_246cgQYSEeGvrtY2VtNGxw" name="menge" type="_aFOEIAYREeGvrtY2VtNGxw" association="_246cgAYSEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_246cggYSEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_246cgwYSEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_246chAYSEeGvrtY2VtNGxw" name="abteilung_transaktion_0" type="_OX0B0AYREeGvrtY2VtNGxw" association="_246cgAYSEeGvrtY2VtNGxw">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_246chQYSEeGvrtY2VtNGxw" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_246chgYSEeGvrtY2VtNGxw" value="1"/>
+    </ownedEnd>
+  </packagedElement>
 </uml:Model>
