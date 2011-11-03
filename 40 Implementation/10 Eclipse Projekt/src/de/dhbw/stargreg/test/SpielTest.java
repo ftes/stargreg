@@ -182,7 +182,10 @@ public class SpielTest {
 		runde3();
 		spiel.simuliere();
 		
-		runde4();
+//		runde4();
+		
+		spiel.beendeSpiel();
+		spiel.bewerteUnternehmen();
 		
 		//Asserts ganz zum Schluss!
 
