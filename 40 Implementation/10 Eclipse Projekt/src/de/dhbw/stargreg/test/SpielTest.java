@@ -213,9 +213,6 @@ public class SpielTest {
 		rebellen.gebeInformationenAus();
 		rebellen.getPersonal().einstellen(droideka, 300);
 		rebellen.kaufeEinProduziereVerkaufe(falke, 20, 50000);
-		rebellen.getEinkauf().kaufeEinFuer(falke, 20);
-		rebellen.getProduktion().fuegeAuftragHinzu(falke, 20);
-		rebellen.getVerkauf().macheAngebot(falke, 50000);
 		rebellen.rundeEinchecken();
 	}
 	
@@ -238,6 +235,7 @@ public class SpielTest {
 
 		//denkt sich: weiter so!
 		rebellen.gebeInformationenAus();
+		rebellen.getPersonal().einstellen(droideka, 600);
 		rebellen.kaufeEinProduziereVerkaufe(falke, 60, 50000);
 		rebellen.rundeEinchecken();
 	}

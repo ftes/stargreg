@@ -5,10 +5,10 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public abstract class PersonalTransaktion extends Transaktion {
+public abstract class PersonalTransaktion extends Transaktion<PersonalTyp> {
 
-	public PersonalTransaktion(Typ typ, Unternehmen unternehmen, int menge, double preis) {
-		super(typ, unternehmen, menge, preis);
+	public PersonalTransaktion(PersonalTyp personalTyp, Unternehmen unternehmen, int menge, double preis) {
+		super(personalTyp, unternehmen, menge, preis);
 	}
 
 }

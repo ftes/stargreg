@@ -27,7 +27,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 	public void fuegeAngebotHinzu(Angebot angebot) {
 		Angebot duplikat = null;
 		for (Angebot a : angebote) {
-			if (a.getUnternehmen() == angebot.getUnternehmen() && a.getRaumschiffTyp() == angebot.getRaumschiffTyp()) {
+			if (a.getUnternehmen() == angebot.getUnternehmen() && a.getTyp() == angebot.getTyp()) {
 				duplikat = a;
 			}
 		}
@@ -103,7 +103,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 	public Vector<Verkauf> berechneGesamtAbsatz() {
 		HashMap<RaumschiffTyp, Vector<Angebot>> angebote = Util.gruppiereVector(this.angebote, new Gruppierung<RaumschiffTyp, Angebot>() {
 			public RaumschiffTyp nach(Angebot angebot) {
-				return angebot.getRaumschiffTyp();
+				return angebot.getTyp();
 			}
 		});
 		

@@ -6,7 +6,7 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public class Angebot extends Transaktion {
+public class Angebot extends Transaktion<RaumschiffTyp> {
 	/**
 	 * Zwischenspeicher für Berechnungen im Raumschiffmarkt.
 	 */
@@ -16,17 +16,13 @@ public class Angebot extends Transaktion {
 		super(raumschiffTyp, unternehmen, menge, preis);
 	}
 	
-	public RaumschiffTyp getRaumschiffTyp() {
-		return (RaumschiffTyp) typ;
-	}
-	
 	/**
 	 * Erzeugt das zum Angebot passende Verkaufsobjekt, wobei sich die Menge unterscheiden kann.
 	 * @param menge Menge, die tatsächlich abgesetzt werden kann.
 	 * @return Zum Angebot passender Verkauf.
 	 */
 	public Verkauf kloneVerkauf(int menge) {
-		return new Verkauf(getRaumschiffTyp(), this.unternehmen, menge, this.preis);
+		return new Verkauf(getTyp(), this.unternehmen, menge, this.preis);
 	}
 
 	public double getAnteil() {
