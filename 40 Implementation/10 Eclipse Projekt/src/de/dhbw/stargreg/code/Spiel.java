@@ -131,7 +131,7 @@ public class Spiel {
 		Vector<Unternehmen> rangfolge = ermittleRangfolge();
 		System.out.println("Spielergebnis:");
 		for (int i=0; i<rangfolge.size(); i++) {
-			System.out.printf("%d. %s", i, rangfolge.elementAt(i));
+			System.out.printf("%d. %s\n", i + 1, rangfolge.elementAt(i));
 		}
 	}
 
@@ -232,20 +232,35 @@ public class Spiel {
 	 * @return
 	 */
 	public Vector<Unternehmen> ermittleRangfolge() {
+		//Achtung: Problem bei negativen ROI -> wenn summeROI negativ ist, dann wird bei Division ein negativer ROI gut
+		//Lösung: rechts-verschiebung bei Vorhandensein eines negativen ROI
+		double minROI = Double.MAX_VALUE;
+		for (Unternehmen unternehmen : this.unternehmen) {
+			if (unternehmen.getROI() < minROI) minROI = unternehmen.getROI();
+		}
+		
+		double rechtsVerschiebung = 0;
+		if (minROI < 0) {
+			rechtsVerschiebung = -minROI;
+		}
+		
 		double summeROI = 0;
 		double summeUmsatz = 0;
 		for (Unternehmen unternehmen : this.unternehmen) {
-			summeROI += unternehmen.getROI();
+			summeROI += unternehmen.getROI() + rechtsVerschiebung;
 			summeUmsatz += unternehmen.getUmsatz();
 		}
 		
-		System.out.printf("Unternehmen | ROI         | Marktanteil | Bewertung\n");
+		System.out.println(Util.repeat("-", 57));
+		System.out.printf("| %-11s | %11s | %11s | %11s |\n", "Unternehmen", "ROI", "Marktanteil", "Bewertung");
+		System.out.println(Util.repeat("-", 57));
 		for (Unternehmen unternehmen : this.unternehmen) {
-			double punkte = unternehmen.getROI() / summeROI * 70;
+			double punkte = (unternehmen.getROI() + rechtsVerschiebung) / summeROI * 70;
 			punkte += unternehmen.getUmsatz() / summeUmsatz * 30;
 			unternehmen.setBewertung(punkte);
-			System.out.printf("%11-s | %11.1f | 11.1f | 11.0f\n", unternehmen, unternehmen.getROI(), unternehmen.getUmsatz() / summeUmsatz, punkte);
+			System.out.printf("| %-11s | %11.2f | %11.2f | %11.0f |\n", unternehmen, unternehmen.getROI(), unternehmen.getUmsatz() / summeUmsatz, punkte);
 		}
+		System.out.println(Util.repeat("-", 57));
 		
 		// Bewertung sortieren um Rangfolge zu erhalten
 		@SuppressWarnings("unchecked")
