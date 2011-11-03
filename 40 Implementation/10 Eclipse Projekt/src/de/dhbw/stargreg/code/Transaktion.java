@@ -1,13 +1,13 @@
 package de.dhbw.stargreg.code;
 
-public abstract class Transaktion {
+public abstract class Transaktion<T extends Typ> {
 	protected final Unternehmen unternehmen;
 	protected final int menge;
 	protected final double preis;
-	protected final Typ typ;
+	protected final T typ;
 	
 	
-	public Transaktion(Typ typ, Unternehmen unternehmen, int menge, double preis) {
+	public Transaktion(T typ, Unternehmen unternehmen, int menge, double preis) {
 		this.unternehmen = unternehmen;
 		this.menge = menge;
 		this.preis = preis;
@@ -30,7 +30,7 @@ public abstract class Transaktion {
 		return String.format("%d %s zu %.2f Credits", menge, typ, preis);
 	}
 	
-	public Typ getTyp() {
+	public T getTyp() {
 		return typ;
 	}
 	

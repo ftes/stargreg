@@ -24,10 +24,10 @@ public class ProduktionsAbteilung extends Abteilung {
 			int menge = auftrag.getMenge();
 			
 			int fehlerhaft = berechneFehlerhafteMenge(menge);
-			double fehlerKosten = fehlerhaft * auftrag.getRaumschiffTyp().getFehlerKosten();
+			double fehlerKosten = fehlerhaft * auftrag.getTyp().getFehlerKosten();
 			unternehmen.getFinanzen().abbuchen(fehlerKosten);
 			
-			System.out.printf("%d fehlerhafte %s verursachen für %s %.2f Zusatzkosten\n", fehlerhaft, auftrag.getRaumschiffTyp(), unternehmen, fehlerKosten);
+			System.out.printf("%d fehlerhafte %s verursachen für %s %.2f Zusatzkosten\n", fehlerhaft, auftrag.getTyp(), unternehmen, fehlerKosten);
 		}
 		
 		auftraege.clear();

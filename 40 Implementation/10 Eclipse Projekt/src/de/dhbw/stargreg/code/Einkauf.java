@@ -5,13 +5,9 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public class Einkauf extends Transaktion {
+public class Einkauf extends Transaktion<BauteilTyp> {
 	
 	public Einkauf(BauteilTyp bauteilTyp, Unternehmen unternehmen, int menge, double preis) {
 		super(bauteilTyp, unternehmen, menge, preis);
-	}
-	
-	public BauteilTyp getBauteilTyp() {
-		return (BauteilTyp) typ;
 	}
 }

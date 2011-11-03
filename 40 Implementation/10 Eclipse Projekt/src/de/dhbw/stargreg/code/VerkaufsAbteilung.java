@@ -25,8 +25,8 @@ public class VerkaufsAbteilung extends Abteilung {
 				System.err.printf("Nicht für %s bestimmte Verkäufe zum verkaufen erhalten\n", unternehmen);
 				return;
 			}
-			if (! unternehmen.getLager().entnehmen(verkauf.getRaumschiffTyp(), verkauf.getMenge())) {
-				System.err.printf("Weniger als %d %s vorhanden, Fehler in Verkäufen\n", verkauf.getMenge(), verkauf.getRaumschiffTyp());
+			if (! unternehmen.getLager().entnehmen(verkauf.getTyp(), verkauf.getMenge())) {
+				System.err.printf("Weniger als %d %s vorhanden, Fehler in Verkäufen\n", verkauf.getMenge(), verkauf.getTyp());
 				return;
 			}
 			unternehmen.getFinanzen().einzahlen(verkauf.getKosten());
@@ -52,7 +52,7 @@ public class VerkaufsAbteilung extends Abteilung {
 
 		System.out.println("Verkäufe der letzten Runde:");
 		for (Verkauf verkauf : verkaeufe) {
-			System.out.printf("%d %s zu %.2f pro Stück verkauft\n", verkauf.getMenge(), verkauf.getRaumschiffTyp(), verkauf.getPreis());
+			System.out.printf("%d %s zu %.2f pro Stück verkauft\n", verkauf.getMenge(), verkauf.getTyp(), verkauf.getPreis());
 		}		
 	}
 

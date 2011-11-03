@@ -6,13 +6,9 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public class Verkauf extends Transaktion {
+public class Verkauf extends Transaktion<RaumschiffTyp> {
 	
 	public Verkauf(RaumschiffTyp raumschiffTyp, Unternehmen unternehmen, int menge, double preis) {
 		super(raumschiffTyp, unternehmen, menge, preis);
-	}
-	
-	public RaumschiffTyp getRaumschiffTyp() {
-		return (RaumschiffTyp) typ;
 	}
 }

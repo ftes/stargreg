@@ -97,7 +97,7 @@ public class RaumschiffMarktTest {
 		HashMap<RaumschiffTyp, Vector<Verkauf>> map = Util.gruppiereVector(verkaeufe, new Gruppierung<RaumschiffTyp, Verkauf>() {
 			@Override
 			public RaumschiffTyp nach(Verkauf verkauf) {
-				return verkauf.getRaumschiffTyp();
+				return verkauf.getTyp();
 			}
 		});
 		Assert.assertTrue(map.containsKey(xwing));

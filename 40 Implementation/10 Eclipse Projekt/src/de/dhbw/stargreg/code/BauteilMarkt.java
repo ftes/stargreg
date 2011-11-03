@@ -40,7 +40,7 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 		HashMap<BauteilTyp, Double> umsaetze = new HashMap<BauteilTyp, Double>();
 		HashMap<BauteilTyp, Vector<Einkauf>> einkaeufe = Util.gruppiereVector(transaktionen, new Gruppierung<BauteilTyp, Einkauf>() {
 			public BauteilTyp nach(Einkauf einkauf) {
-				return einkauf.getBauteilTyp();
+				return einkauf.getTyp();
 			}
 		});
 		double gesamtUmsatz = 0;

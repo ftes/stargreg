@@ -110,7 +110,7 @@ public class Util {
 				verkaeufe,
 				new Gruppierung<RaumschiffTyp, Verkauf>() {
 					public RaumschiffTyp nach(Verkauf verkauf) {
-						return verkauf.getRaumschiffTyp();
+						return verkauf.getTyp();
 					}
 				},
 				new Summe<Verkauf>() {
