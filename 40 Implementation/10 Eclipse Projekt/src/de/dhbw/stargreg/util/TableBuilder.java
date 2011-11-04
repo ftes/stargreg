@@ -39,7 +39,8 @@ public class TableBuilder {
 	
 	public void add(Object... elements) {
 		for (Object element : elements) {
-			row.add(element.toString());
+			if (element == null) newRow();
+			else row.add(element.toString());
 		}
 	}
 	
@@ -53,10 +54,20 @@ public class TableBuilder {
 		data.add(row);
 	}
 	
-	public void print() {
+	public void hline() {
+		data.add(data.size() - 1, null);
+	}
+	
+	public void print(boolean kopfZeile) {
+		if (kopfZeile && data.size() == 2 || ! kopfZeile && data.size() == 1) {
+			System.out.println();
+			return;
+		}
+		
 		int[] max = new int[data.get(0).size()];
 		for (int i=0; i<max.length; i++) max[i] = Integer.MIN_VALUE;
 		for (Vector<String> row : data) {
+			if (row == null) continue;
 			for (int i=0; i<row.size(); i++) {
 				if (row.get(i).length() > max[i]) {
 					max[i] = row.get(i).length();
@@ -73,12 +84,20 @@ public class TableBuilder {
 		format += "\n";
 		
 		System.out.println(repeat("-", width));
-		System.out.printf(format, data.get(0).toArray());
-		System.out.println(repeat("-", width));
-		for (int i=1; i<data.size(); i++) {
-			if (! data.get(i).isEmpty()) System.out.printf(format, data.get(i).toArray());
+		for (Vector<String> row : data) {
+			if (row == null) {
+				System.out.println(repeat("-", width));
+				continue;
+			}
+			if (! row.isEmpty()) System.out.printf(format, row.toArray());
+			if (data.indexOf(row) == 0 && kopfZeile) System.out.println(repeat("-", width));
 		}
-		System.out.println(repeat("-", width));
+		if (data.get(data.size() - 2) != null) System.out.println(repeat("-", width));
+		System.out.println();
+	}
+	
+	public void print() {
+		print(true);
 	}
 	
 	private static String repeat(String s, int n) {

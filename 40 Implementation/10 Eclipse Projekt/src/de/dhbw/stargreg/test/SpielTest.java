@@ -40,7 +40,7 @@ public class SpielTest {
 	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10, 0.15);
 	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15, 0.15);
 	
-	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, -1.0, null);
+	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, null, null);
 	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.95, 300.0, droideka);
 	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.92, 300.0, kampfDroide);
 	
@@ -151,10 +151,8 @@ public class SpielTest {
 			spiel.fuegeSpielRundeHinzu(nachfrage, laufendeKosten, werbungsKosten, nachricht);
 		}
 		
-		System.out.println("Spiel wurde eingerichtet");
 		Util.printSpacer();
-		
-		
+		System.out.println("Spiel eingerichtet\n");
 	}
 
 	@AfterClass
@@ -200,6 +198,7 @@ public class SpielTest {
 		galactic.kaufeEinProduziereVerkaufe(xwing, 60, 12000);
 		galactic.kaufeEinProduziereVerkaufe(corvette, 30, 24000);
 		galactic.kaufeEinProduziereVerkaufe(falke, 20, 36000);
+		galactic.getFinanzen().gebeInformationenAus(true);
 		galactic.rundeEinchecken();
 
 		//Kampfpreise

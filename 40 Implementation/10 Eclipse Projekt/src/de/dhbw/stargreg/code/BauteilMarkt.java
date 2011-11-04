@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import de.dhbw.stargreg.util.Gruppierung;
+import de.dhbw.stargreg.util.TableBuilder;
 import de.dhbw.stargreg.util.Util;
 
 /**
@@ -36,6 +37,8 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 	 * Berechnet die neuen Bauteilpreise abhänging von den Umsätzen in der letzten Spielrunde.
 	 */
 	private void berechnePreise() {
+		System.out.println("Bauteilpreise");
+		TableBuilder tb = new TableBuilder("BauteilTyp", "Delta in %", "Alter Preis", "Neuer Preis");
 		// Umsätze für Bauteiltypen und Gesamtumsatz berechnen
 		HashMap<BauteilTyp, Double> umsaetze = new HashMap<BauteilTyp, Double>();
 		HashMap<BauteilTyp, Vector<Einkauf>> einkaeufe = Util.gruppiereVector(transaktionen, new Gruppierung<BauteilTyp, Einkauf>() {
@@ -60,8 +63,13 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 		// neue Preise berechnen
 		for(BauteilTyp bauteilTyp : typen) {
 			double abweichung = (umsaetze.get(bauteilTyp) - durchschnittsUmsatz) / durchschnittsUmsatz;
+			tb.add(bauteilTyp,
+					String.format("%.1f", 100 * abweichung) + " %",
+					String.format("%.2f", bauteilTyp.getPreis()));
 			bauteilTyp.berechnePreis(abweichung);
+			tb.addNewRow(String.format("%.2f", bauteilTyp.getPreis()));
 		}
+		tb.print();
 	}
 	
 	/**
@@ -71,5 +79,14 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 	public Vector<Einkauf> simuliere() {
 		berechnePreise();
 		return super.simuliere();
+	}
+	
+	public void gebePreiseAus() {
+		TableBuilder tb = new TableBuilder("BauteilTyp", "Preis");
+		for (BauteilTyp typ : typen) {
+			tb.addNewRow(typ,
+					String.format("%.2f", typ.getPreis()));
+		}
+		tb.print();
 	}
 }

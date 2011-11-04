@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import de.dhbw.stargreg.code.RaumschiffTyp;
+import de.dhbw.stargreg.code.Transaktion;
 import de.dhbw.stargreg.code.Unternehmen;
 import de.dhbw.stargreg.code.Verkauf;
 
@@ -63,10 +64,10 @@ public class Util {
 		return tmp;		
 	}
 	
-	public static double summiereVerkaeufe(Vector<Verkauf> verkaeufe) {
-		return summiereVector(verkaeufe, new Summe<Verkauf>() {
-			public double von(Verkauf verkauf) {
-				return verkauf.getKosten();
+	public static double summiereTransaktionen(Vector<? extends Transaktion<?>> transaktionen) {
+		return summiereVector(transaktionen, new Summe<Transaktion<?>>() {
+			public double von(Transaktion<?> transaktion) {
+				return transaktion.getKosten();
 			}
 		});
 	}
@@ -130,6 +131,13 @@ public class Util {
 		});
 		if (! aufsteigend) Collections.reverse(vector);
 		return vector;
+	}
+	
+	public static <T> T finde(Vector<T> vector, Filter<T> filter) {
+		for (T object : vector) {
+			if (filter.nach(object)) return object;
+		}
+		return null;
 	}
 	
 	public static void printSpacer() {

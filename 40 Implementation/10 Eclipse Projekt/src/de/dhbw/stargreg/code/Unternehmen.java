@@ -38,7 +38,7 @@ public class Unternehmen {
 	}
 	
 	public void rundeEinchecken() {
-		System.out.printf("%s hat Runde eingecheckt\n", this);
+//		System.out.printf("%s hat Runde eingecheckt\n", this);
 		rundeEingecheckt = true;
 	}
 	
@@ -47,12 +47,12 @@ public class Unternehmen {
 			System.out.printf("In %s wurde Runde noch nicht eingecheckt\n", this);
 		}
 		
-		System.out.printf("Simulation von %s:\n", this);
+//		System.out.printf("Simulation von %s:\n", this);
 		personal.simuliere();
 		produktion.produziere();
-		finanzen.simuliere();
 		verkauf.verkaufe(verkaeufe);
 		lager.simuliere();
+		finanzen.simuliere();
 		
 		rundeEingecheckt = false;
 	}
@@ -100,7 +100,7 @@ public class Unternehmen {
 	public double getUmsatz() {
 		Vector<Verkauf> verkaeufe = new Vector<Verkauf>();
 		for (SpielRunde spielRunde : spiel.getSpielRunden()) {
-			verkaeufe.addAll(spielRunde.getVerkaeufe());
+			verkaeufe.addAll(spielRunde.getTransaktionen(Verkauf.class));
 		}
 		
 		double umsatz = 0;
@@ -121,12 +121,15 @@ public class Unternehmen {
 	
 	public void gebeInformationenAus() {
 		Util.printSpacer();
-		System.out.printf("Informationen für %s:\n", this);
-		if (spiel.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n", spiel.getStarDerLetztenRunde());
-//		einkauf.gebeInformationenAus(false);
-//		produktion.gebeInformationenAus(false);
+		System.out.printf("%s\n\n", this);
+		System.out.println(spiel.getAktuelleSpielRunde().getNachricht() + "\n");
+		if (spiel.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n\n", spiel.getStarDerLetztenRunde());
+		System.out.println("Bauteilmarkt");
+		spiel.getBauteilMarkt().gebePreiseAus();
+		System.out.println("Personalmarkt");
+		spiel.getPersonalMarkt().gebeKostenAus();
+		finanzen.gebeInformationenAus(false);
 		verkauf.gebeInformationenAus(false);
-		finanzen.gebeInformationenAus(true);
 		lager.gebeInformationenAus(true);
 		personal.gebeInformationenAus(true);
 	}

@@ -1,6 +1,7 @@
 package de.dhbw.stargreg.code;
 
 import de.dhbw.stargreg.util.IntegerHashMap;
+import de.dhbw.stargreg.util.TableBuilder;
 /**
  * Im Lager koennen beliebig viele Bauteile und fertige Raumschiffe aufgenommen werden, eine obere
  * Kapazitaetsschranke gibt es nicht. Verwaltet werden sie ueber die gemeinsame Oberklasse 'ProduktTyp'. 
@@ -58,8 +59,12 @@ public class LagerAbteilung extends Abteilung {
 		return this.lagerstand;
 	}//getLagerstand
 	
-	public double getLagerkosten() {
+	public double getLagerKosten() {
 		return unternehmen.getSpiel().getBauteilMarkt().getLagerplatzEinheitKosten() * lagerstand;
+	}//getLagerkosten
+	
+	public double getLagerKosten(ProduktTyp produktTyp) {
+		return unternehmen.getSpiel().getBauteilMarkt().getLagerplatzEinheitKosten() * bestand.get(produktTyp) * produktTyp.getLagerplatzEinheiten();
 	}//getLagerkosten
 	
 	public int getAnzahl(ProduktTyp produktTyp) {
@@ -70,17 +75,21 @@ public class LagerAbteilung extends Abteilung {
 	 * Kosten für belegte LpE abziehen.
 	 */
 	public void simuliere() {
-		unternehmen.getFinanzen().abbuchen(getLagerkosten());
-		System.out.printf("%.2f Lagerkosten abgebucht\n", getLagerkosten());
+		unternehmen.getFinanzen().abbuchen(getLagerKosten());
+		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(getLagerKosten(), Zahlung.Art.LAGER, unternehmen));
+//		System.out.printf("%.2f Lagerkosten abgebucht\n", getLagerKosten());
 	}
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
 		if (! aktuelleSpielRunde) return;
+		System.out.printf("Lager (Kosten pro Runde: %.2f)\n", getLagerKosten());
+		TableBuilder tb = new TableBuilder("ProduktTyp", "Bestand", "Kosten");
 		for (ProduktTyp produktTyp : bestand.keySet()) {
-			System.out.printf("%d %s belegen %d LagerPlatz-Einheiten\n", bestand.get(produktTyp), produktTyp, bestand.get(produktTyp) * produktTyp.getLagerplatzEinheiten());
+			tb.addNewRow(produktTyp,
+					bestand.get(produktTyp),
+					String.format("%.2f", getLagerKosten(produktTyp)));
 		}
-		System.out.printf("Insgesamt sind %d LagerPlatz-Einheiten belegt\n", lagerstand);
-		System.out.printf("Dies verursacht %.2f Lagerkosten\n", getLagerkosten());
+		tb.print();
 	}
 }

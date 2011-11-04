@@ -54,8 +54,8 @@ public class BauteilTypTest {
 	 */
 	@Test
 	public void testBerechnePreis() {
-		rumpfbauteil.berechnePreis(10);
-		Assert.assertTrue(Math.round(rumpfbauteil.getPreis()) == 140.00);
+		rumpfbauteil.berechnePreis(.5);
+		Assert.assertTrue(Math.round(rumpfbauteil.getPreis()) == 130);
 	}
 
 }

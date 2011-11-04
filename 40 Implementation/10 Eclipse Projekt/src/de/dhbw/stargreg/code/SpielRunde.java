@@ -3,6 +3,7 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.TableBuilder;
 import de.dhbw.stargreg.util.Util;
 
 
@@ -23,6 +24,10 @@ public class SpielRunde {
 	private final String nachricht;
 	private final int nummer;
 	
+	public String getNachricht() {
+		return nachricht;
+	}
+	
 	public SpielRunde(
 			Spiel spiel,
 			HashMap<RaumschiffTyp, Integer> nachfrage,
@@ -39,30 +44,47 @@ public class SpielRunde {
 	}
 	
 	public void starteSpielRunde() {
+		Util.printSpacer();
+		System.out.printf("Spielrunde %d einrichten\n\n", nummer);
+		System.out.println("Nachfrage auf Raumschiffmarkt");
+		TableBuilder tb = new TableBuilder("RaumschiffTyp", "Nachfrage");
 		for (RaumschiffTyp raumschiffTyp : nachfrage.keySet()) {
+			tb.addNewRow(raumschiffTyp,
+					nachfrage.get(raumschiffTyp));
 			raumschiffTyp.setNachfrage(nachfrage.get(raumschiffTyp) * spiel.getAnzahlUnternehmen());
 		}
+		tb.print();
+		System.out.println("Personalkosten");
+		tb = new TableBuilder("PersonalTyp", "Laufende Kosten", "Werbungskosten");
 		for (PersonalTyp personalTyp : laufendeKosten.keySet()) {
+			tb.addNewRow(personalTyp,
+					String.format("%.2f", laufendeKosten.get(personalTyp)),
+					String.format("%.2f", werbungsKosten.get(personalTyp)));
 			personalTyp.setLaufendeKosten(laufendeKosten.get(personalTyp));
 			personalTyp.setWerbungsKosten(werbungsKosten.get(personalTyp));
 		}
-		System.out.printf("Spielrunde %d gestartet: %s\n", nummer, nachricht);
+		tb.print();
 	}
 	
-	private final Vector<Transaktion> transaktionen = new Vector<Transaktion>();
+	private final Vector<Transaktion<?>> transaktionen = new Vector<Transaktion<?>>();
+	private final Vector<Zahlung> zahlungen = new Vector<Zahlung>();
 	
-	public void fuegeTransaktionHinzu(Transaktion transaktion) {
+	public void fuegeTransaktionHinzu(Transaktion<?> transaktion) {
 		transaktionen.add(transaktion);
 	}
 	
-	public void fuegeTransaktionenHinzu(Vector<? extends Transaktion> transaktionen) {
+	public void fuegeTransaktionenHinzu(Vector<? extends Transaktion<?>> transaktionen) {
 		this.transaktionen.addAll(transaktionen);
 	}
 	
+	public void fuegeZahlungHinzu(Zahlung zahlung) {
+		zahlungen.add(zahlung);
+	}
+	
 	@SuppressWarnings("unchecked")
-	public <T> Vector<T> get(Class<T> clazz) {
+	public <T> Vector<T> getTransaktionen(Class<T> clazz) {
 		Vector<T> transaktionen = new Vector<T>();
-		for (Transaktion transaktion : this.transaktionen) {
+		for (Transaktion<?> transaktion : this.transaktionen) {
 			if (transaktion.getClass() == clazz) {
 				transaktionen.add((T) transaktion);
 			}
@@ -70,10 +92,14 @@ public class SpielRunde {
 		return transaktionen;
 	}
 	
+	public <T extends Transaktion<?>> double getSummeTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
+		return Util.summiereTransaktionen(getTransaktionen(clazz, unternehmen));
+	}
+	
 	@SuppressWarnings("unchecked")
-	public <T> Vector<T> get(Class<T> clazz, Unternehmen unternehmen) {
+	public <T> Vector<T> getTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
 		Vector<T> transaktionen = new Vector<T>();
-		for (Transaktion transaktion : this.transaktionen) {
+		for (Transaktion<?> transaktion : this.transaktionen) {
 			if (transaktion.getClass() == clazz && transaktion.getUnternehmen() == unternehmen) {
 				transaktionen.add((T) transaktion);
 			}
@@ -81,28 +107,11 @@ public class SpielRunde {
 		return transaktionen;
 	}
 	
-	public Vector<Verkauf> getVerkaeufe() {
-		return get(Verkauf.class);
-	}
-	
-	public Vector<Angebot> getAngebote() {
-		return get(Angebot.class);
-	}
-	
-	public Vector<Einkauf> getEinkaeufe() {
-		return get(Einkauf.class);
-	}
-	
-	public Vector<Einstellung> getEinstellungen() {
-		return get(Einstellung.class);
-	}
-	
-	public Vector<Entlassung> getEntlassungen() {
-		return get(Entlassung.class);
-	}
-	
-	public Vector<Schulung> getSchulungen() {
-		return get(Schulung.class);
+	public Zahlung getZahlung(Zahlung.Art art, Unternehmen unternehmen) {
+		for (Zahlung zahlung : zahlungen) {
+			if (zahlung.getArt() == art && zahlung.getUnternehmen() == unternehmen) return zahlung;
+		}
+		return null;
 	}
 	
 	/**
@@ -111,7 +120,7 @@ public class SpielRunde {
 	 * @return Star
 	 */
 	public RaumschiffTyp getStar() {
-		HashMap<RaumschiffTyp, Double> umsaetze = Util.gruppiereUndSummiereVerkaeufeNachRaumschiffTyp(getVerkaeufe());
+		HashMap<RaumschiffTyp, Double> umsaetze = Util.gruppiereUndSummiereVerkaeufeNachRaumschiffTyp(getTransaktionen(Verkauf.class));
 		Vector<RaumschiffTyp> rangfolge = Util.sortiere(umsaetze, false);
 		
 		if (rangfolge.isEmpty()) return null;

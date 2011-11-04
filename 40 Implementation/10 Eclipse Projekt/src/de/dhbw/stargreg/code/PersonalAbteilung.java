@@ -1,6 +1,7 @@
 package de.dhbw.stargreg.code;
 
 import de.dhbw.stargreg.util.IntegerHashMap;
+import de.dhbw.stargreg.util.TableBuilder;
 
 /**
  * Hier werden die Personal der drei Qualitätsstufen über den gemeinsamen Obertyp 'Personaltyp' 
@@ -56,7 +57,7 @@ public class PersonalAbteilung extends Abteilung {
 		
 		if (personal.get(von) == 0) personal.remove(von);
 		
-		System.out.printf("%s hat %d %s zu %s geschult\n", unternehmen, anzahl, von, nach);
+//		System.out.printf("%s hat %d %s zu %s geschult\n", unternehmen, anzahl, von, nach);
 		return true;
 	}
 	
@@ -85,7 +86,7 @@ public class PersonalAbteilung extends Abteilung {
 		
 		if (personal.get(personalTyp) == 0) personal.remove(personalTyp);
 		
-		System.out.printf("%s hat %d %s entlassen\n", unternehmen, anzahl, personalTyp);
+//		System.out.printf("%s hat %d %s entlassen\n", unternehmen, anzahl, personalTyp);
 		return true;
 	}
 	
@@ -106,7 +107,7 @@ public class PersonalAbteilung extends Abteilung {
 		anzahlPersonal += anzahl;
 		
 		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(einstellung);
-		System.out.printf("%s hat %d %s eingestellt\n", unternehmen, anzahl, personalTyp);
+//		System.out.printf("%s hat %d %s eingestellt\n", unternehmen, anzahl, personalTyp);
 	}
 	
 	public int getAnzahlPersonal (){
@@ -125,7 +126,7 @@ public class PersonalAbteilung extends Abteilung {
 		return kosten;
 	}//getlaufendeKosten
 	
-	public double getLaufendeKosten (PersonalTyp personalTyp) {
+	public double getLaufendeKosten(PersonalTyp personalTyp) {
 		return personalTyp.getLaufendeKosten() * personal.get(personalTyp);
 	}//getTypPerosnalkosten
 	
@@ -149,15 +150,20 @@ public class PersonalAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(getLaufendeKosten());
-		System.out.printf("%.2f laufende Personalkosten abgebucht\n", getLaufendeKosten());
+		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(getLaufendeKosten(), Zahlung.Art.PERSONAL, unternehmen));
+//		System.out.printf("%.2f laufende Personalkosten abgebucht\n", getLaufendeKosten());
 	}
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
 		if (! aktuelleSpielRunde) return;
+		System.out.printf("Personal (Kosten pro Runde: %.2f)\n", getLaufendeKosten());
+		TableBuilder tb = new TableBuilder("PersonalTyp", "Anzahl", "Kosten");
 		for (PersonalTyp personalTyp : personal.keySet()) {
-			System.out.printf("%d %s beschäftigt\n", personal.get(personalTyp), personalTyp);
+			tb.addNewRow(personalTyp,
+					personal.get(personalTyp),
+					String.format("%.2f", getLaufendeKosten(personalTyp)));
 		}
-		System.out.printf("Das Personal verursacht %.2f laufende Kosten\n", getLaufendeKosten());
+		tb.print();
 	}
 }

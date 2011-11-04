@@ -1,5 +1,8 @@
 package de.dhbw.stargreg.code;
 
+import de.dhbw.stargreg.util.TableBuilder;
+import de.dhbw.stargreg.util.Util;
+
 
 /**
  * Finanzabteilung eines Unternehmens.
@@ -60,7 +63,8 @@ public class FinanzAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		abbuchen(getZinskosten());
-		System.out.printf("%.2f Zinsaufwendungen abgebucht\n", getZinskosten());
+		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(getZinskosten(), Zahlung.Art.ZINSEN, unternehmen));
+//		System.out.printf("%.2f Zinsaufwendungen abgebucht\n", getZinskosten());
 	}
 	
 	public double getStartKapital() {
@@ -69,8 +73,33 @@ public class FinanzAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		if (!aktuelleSpielRunde) return;
-		System.out.printf("Kontostand: %.2f\nZinsaufwendungen: %.2f\n", kapital, getZinskosten());
+		SpielRunde spielRunde = getSpielRunde(aktuelleSpielRunde);
+		System.out.println("Finanzen");
+		TableBuilder tb = new TableBuilder("Art", "Betrag");
+		if (! aktuelleSpielRunde) {
+			if (spielRunde != null) {
+				double einkaeufe = -spielRunde.getSummeTransaktionen(Einkauf.class, unternehmen);
+				double verkaeufe = spielRunde.getSummeTransaktionen(Verkauf.class, unternehmen);
+				double personal = -spielRunde.getSummeTransaktionen(Einstellung.class, unternehmen) + 
+						spielRunde.getSummeTransaktionen(Schulung.class, unternehmen);
+				tb.addNewRow("Verkäufe", String.format("%.2f", verkaeufe));
+				tb.addNewRow("Einkäufe", String.format("%.2f", einkaeufe));
+				tb.addNewRow("Personal (einmalig)", String.format("%.2f", personal));
+				tb.addNewRow("Personal (laufend)", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.PERSONAL, unternehmen).getBetrag()));
+				tb.addNewRow("Fehler", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.FEHLER, unternehmen).getBetrag()));
+				tb.addNewRow("Lager", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.LAGER, unternehmen).getBetrag()));
+				tb.addNewRow("Zinsen", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.ZINSEN, unternehmen).getBetrag()));
+			}
+		} else {
+			double einkaeufe = -Util.summiereTransaktionen(unternehmen.getSpiel().getBauteilMarkt().getTransaktionen(unternehmen));
+			double personal = -Util.summiereTransaktionen(unternehmen.getSpiel().getPersonalMarkt().getTransaktionen(unternehmen));
+			tb.addNewRow("Einkäufe", String.format("%.2f", einkaeufe));
+			tb.addNewRow("Personal (einmalig)", String.format("%.2f", personal));
+		}
+		
+		tb.hline();
+		tb.addNewRow("Kontostand", String.format("%.2f", kapital));
+		tb.print();
 	}
 
 }

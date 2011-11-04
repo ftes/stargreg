@@ -67,7 +67,7 @@ public class Spiel {
 			return;
 		}
 		this.spielRunden.add(new SpielRunde(this, nachfrage, laufendeKosten, werbungsKosten, nachricht, spielRunden.size() + 1));
-		System.out.printf("Spielrunde %d hinzugefügt\n", this.spielRunden.size());
+//		System.out.printf("Spielrunde %d hinzugefügt\n", this.spielRunden.size());
 	}
 	
 	public int getAnzahlUnternehmen() {
@@ -86,7 +86,7 @@ public class Spiel {
 		}
 		Unternehmen unternehmen = new Unternehmen(this, name, startKapital);
 		this.unternehmen.add(unternehmen);
-		System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
+//		System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
 		return unternehmen;
 	}
 	
@@ -104,9 +104,9 @@ public class Spiel {
 		}
 		status = Status.SPIELEN;
 		aktuelleSpielRunde = spielRunden.firstElement();
-		System.out.println("Spiel gestartet");
-		aktuelleSpielRunde.starteSpielRunde();
 		Util.printSpacer();
+		System.out.println("Spiel gestartet\n");
+		aktuelleSpielRunde.starteSpielRunde();
 	}
 	
 	/**
@@ -118,7 +118,8 @@ public class Spiel {
 			return;
 		}
 		status = Status.AUSWERTEN;
-		System.out.println("Spiel beendet");
+		Util.printSpacer();
+		System.out.println("Spiel beendet\n");
 	}
 	
 	/**
@@ -130,10 +131,12 @@ public class Spiel {
 			return;
 		}
 		Vector<Unternehmen> rangfolge = ermittleRangfolge();
-		System.out.println("Spielergebnis:");
+		TableBuilder tb = new TableBuilder("Rang", "Unternehmen");
 		for (int i=0; i<rangfolge.size(); i++) {
-			System.out.printf("%d. %s\n", i + 1, rangfolge.elementAt(i));
+			tb.addNewRow(i + 1 + ".",
+					rangfolge.elementAt(i));
 		}
+		tb.print();
 	}
 
 	/**
@@ -147,15 +150,16 @@ public class Spiel {
 			return;
 		}
 		
-		Util.printSpacer();
-		
 		// Prüfen, ob alle schon eingecheckt haben. Sonst abbrechen
 		for (Unternehmen unternehmen : this.unternehmen) {
 			if (! unternehmen.getRundeEingecheckt()) {
-				System.out.printf("%s hat die Runde noch nicht eingecheckt\n", unternehmen);
+				System.err.printf("%s hat die Runde noch nicht eingecheckt\n", unternehmen);
 				return;
 			}
 		}
+		
+		Util.printSpacer();
+		System.out.println("Simulation der Spielrunde\n");
 		
 		// Verkäufe nach Unternehmen gruppieren
 		HashMap<Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(
@@ -169,12 +173,6 @@ public class Spiel {
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(personalMarkt.simuliere());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.getAngebote());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.simuliere());
-		
-		Util.printSpacer();
-		
-		System.out.println("Spielrunde wurde simuliert");
-		
-		System.out.printf("Star dieser Runde war der Raumschifftyp %s\n", aktuelleSpielRunde.getStar());
 		
 		aktuelleSpielRunde = getNaechsteSpielRunde();
 		if (aktuelleSpielRunde == null) {
