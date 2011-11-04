@@ -1,6 +1,7 @@
 package de.dhbw.stargreg.util;
 
 import java.io.Console;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -19,6 +20,8 @@ import de.dhbw.stargreg.code.Verkauf;
  * 
  */
 public class Util {
+	private static boolean praesentation = false;
+	
 	/**
 	 * Gruppiert die Elemente im {@code vector} nach einem Merkmal, das durch {@code gruppierung.nach()} definiert wird
 	 * 
@@ -150,5 +153,19 @@ public class Util {
 		System.out.println(heading);
 		printSpacer();
 		System.out.println();
+	}
+	
+	public static void setPraesentation(boolean status) {
+		praesentation = status;
+	}
+	
+	public static void pause() {
+		if (! praesentation) return;
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

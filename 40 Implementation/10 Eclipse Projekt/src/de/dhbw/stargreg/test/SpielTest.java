@@ -1,5 +1,6 @@
 package de.dhbw.stargreg.test;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import org.junit.After;
@@ -50,6 +51,8 @@ public class SpielTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		Util.setPraesentation(true);
+		
 		xwing.fuegeBauteilHinzu(rumpf, 18);
 		xwing.fuegeBauteilHinzu(hitzeschild, 6);
 		xwing.fuegeBauteilHinzu(triebwerk, 4);
@@ -156,6 +159,7 @@ public class SpielTest {
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		Util.setPraesentation(true);
 	}
 
 	@Before

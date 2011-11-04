@@ -120,6 +120,7 @@ public class Unternehmen {
 	}
 	
 	public void gebeAnfangsInformationenAus() {
+		Util.pause();
 		Util.printHeading(this.toString());
 		System.out.println(spiel.getAktuelleSpielRunde().getNachricht() + "\n");
 		if (spiel.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n\n", spiel.getStarDerLetztenRunde());
@@ -132,6 +133,7 @@ public class Unternehmen {
 	}
 	
 	public void gebeEndInformationenAus() {
+		Util.pause();
 		Util.printSpacer();
 		System.out.println("Ergebnisse\n");
 		finanzen.gebeInformationenAus(true);
