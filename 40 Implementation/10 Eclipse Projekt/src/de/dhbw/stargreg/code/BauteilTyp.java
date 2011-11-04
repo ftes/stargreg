@@ -45,4 +45,8 @@ public final class BauteilTyp extends ProduktTyp {
 							/ (Math.pow(2 / maxPreisDelta + 1,
 									2 * abweichung * maxPreisDelta)));
 	}
+	
+	public double getGrundPreis() {
+		return grundPreis;
+	}
 }

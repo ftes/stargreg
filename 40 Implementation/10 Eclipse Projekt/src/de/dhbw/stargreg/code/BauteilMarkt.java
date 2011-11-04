@@ -38,7 +38,7 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 	 */
 	private void berechnePreise() {
 		System.out.println("Bauteilpreise");
-		TableBuilder tb = new TableBuilder("BauteilTyp", "Delta in %", "Alter Preis", "Neuer Preis");
+		TableBuilder tb = new TableBuilder("BauteilTyp", "Grundpreis", "Delta in %", "Alter Preis", "Neuer Preis");
 		// Umsätze für Bauteiltypen und Gesamtumsatz berechnen
 		HashMap<BauteilTyp, Double> umsaetze = new HashMap<BauteilTyp, Double>();
 		HashMap<BauteilTyp, Vector<Einkauf>> einkaeufe = Util.gruppiereVector(transaktionen, new Gruppierung<BauteilTyp, Einkauf>() {
@@ -64,6 +64,7 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 		for(BauteilTyp bauteilTyp : typen) {
 			double abweichung = (umsaetze.get(bauteilTyp) - durchschnittsUmsatz) / durchschnittsUmsatz;
 			tb.add(bauteilTyp,
+					String.format("%.2f", bauteilTyp.getGrundPreis()),
 					String.format("%.1f", 100 * abweichung) + " %",
 					String.format("%.2f", bauteilTyp.getPreis()));
 			bauteilTyp.berechnePreis(abweichung);
@@ -83,9 +84,10 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 	
 	public void gebePreiseAus() {
 		System.out.println("Bauteilmarkt");
-		TableBuilder tb = new TableBuilder("BauteilTyp", "Preis");
+		TableBuilder tb = new TableBuilder("BauteilTyp", "Grundpreis", "Preis");
 		for (BauteilTyp typ : typen) {
 			tb.addNewRow(typ,
+					String.format("%.2f", typ.getGrundPreis()),
 					String.format("%.2f", typ.getPreis()));
 		}
 		tb.print();

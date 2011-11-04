@@ -1,6 +1,5 @@
 package de.dhbw.stargreg.test;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import org.junit.After;
