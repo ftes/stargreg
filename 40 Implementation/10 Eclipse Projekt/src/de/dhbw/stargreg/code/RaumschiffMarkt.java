@@ -7,6 +7,7 @@ import java.util.Vector;
 
 import de.dhbw.stargreg.util.Filter;
 import de.dhbw.stargreg.util.Gruppierung;
+import de.dhbw.stargreg.util.TableBuilder;
 import de.dhbw.stargreg.util.Util;
 
 /**
@@ -79,7 +80,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 		int uebertrag = 0;
 		
 		//Jeweilige Verkaufsmengen berechnen
-		System.out.printf("Typabsätze für %s:\n", raumschiffTyp);
+//		System.out.printf("Typabsätze für %s:\n", raumschiffTyp);
 		for (Angebot angebot : angebote) {
 			int menge = (int) Math.round(angebot.getAnteil() / anteilSumme * nachfrage) + uebertrag;
 			if (menge <= angebot.getMenge()) {
@@ -89,7 +90,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 				verkaeufe.add(angebot.kloneVerkauf(angebot.getMenge()));
 				uebertrag = menge - angebot.getMenge();
 			}
-			System.out.printf("   %s kann von %d %s verkaufen\n", verkaeufe.lastElement().getUnternehmen(), angebot.getMenge(), verkaeufe.lastElement());
+//			System.out.printf("   %s kann von %d %s verkaufen\n", verkaeufe.lastElement().getUnternehmen(), angebot.getMenge(), verkaeufe.lastElement());
 		}
 		
 		return verkaeufe;
@@ -107,12 +108,28 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 			}
 		});
 		
-		System.out.println("Absatzmengen im Raumschiffmarkt:");
+		System.out.println("Raumschiffmarkt Absätze");
+		TableBuilder tb = new TableBuilder("RaumschiffTyp", "Unternehmen", "Angeboten", "Verkauft", "Preis");
 		//Absätze für Raumschifftypen berechnen
 		for (RaumschiffTyp raumschiffTyp : angebote.keySet()) {
 			Vector<Verkauf> typVerkaeufe = berechneTypAbsatz(raumschiffTyp, angebote.get(raumschiffTyp));
 			verkaeufe.addAll(typVerkaeufe);
-		}		
+			for (final Verkauf verkauf : typVerkaeufe) {
+				Angebot angebot = Util.finde(this.angebote, new Filter<Angebot>() {
+					public boolean nach(Angebot object) {
+						if (object.getTyp() == verkauf.getTyp() && object.getUnternehmen() == verkauf.getUnternehmen()) return true;
+						return false;
+					}
+				});
+				tb.addNewRow(verkauf.getTyp(),
+						verkauf.getUnternehmen(),
+						angebot.getMenge(),
+						verkauf.getMenge(),
+						String.format("%.2f", verkauf.getPreis()));
+			}
+			tb.hline();
+		}
+		tb.print();
 		return verkaeufe;
 	}
 	

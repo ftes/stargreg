@@ -38,7 +38,7 @@ public class Unternehmen {
 	}
 	
 	public void rundeEinchecken() {
-		System.out.printf("%s hat Runde eingecheckt\n", this);
+//		System.out.printf("%s hat Runde eingecheckt\n", this);
 		rundeEingecheckt = true;
 	}
 	
@@ -47,12 +47,12 @@ public class Unternehmen {
 			System.out.printf("In %s wurde Runde noch nicht eingecheckt\n", this);
 		}
 		
-		System.out.printf("Simulation von %s:\n", this);
+//		System.out.printf("Simulation von %s:\n", this);
 		personal.simuliere();
 		produktion.produziere();
-		finanzen.simuliere();
 		verkauf.verkaufe(verkaeufe);
 		lager.simuliere();
+		finanzen.simuliere();
 		
 		rundeEingecheckt = false;
 	}
@@ -100,7 +100,7 @@ public class Unternehmen {
 	public double getUmsatz() {
 		Vector<Verkauf> verkaeufe = new Vector<Verkauf>();
 		for (SpielRunde spielRunde : spiel.getSpielRunden()) {
-			verkaeufe.addAll(spielRunde.getVerkaeufe());
+			verkaeufe.addAll(spielRunde.getTransaktionen(Verkauf.class));
 		}
 		
 		double umsatz = 0;
@@ -119,16 +119,29 @@ public class Unternehmen {
 		this.bewertung = bewertung;
 	}
 	
-	public void gebeInformationenAus() {
-		Util.printSpacer();
-		System.out.printf("Informationen für %s:\n", this);
-		if (spiel.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n", spiel.getStarDerLetztenRunde());
-//		einkauf.gebeInformationenAus(false);
-//		produktion.gebeInformationenAus(false);
+	public void gebeAnfangsInformationenAus() {
+		Util.pause();
+		Util.printHeading(this.toString());
+		System.out.println(spiel.getAktuelleSpielRunde().getNachricht() + "\n");
+		if (spiel.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n\n", spiel.getStarDerLetztenRunde());
+		spiel.getBauteilMarkt().gebePreiseAus();
+		spiel.getPersonalMarkt().gebeKostenAus();
+		finanzen.gebeInformationenAus(false);
 		verkauf.gebeInformationenAus(false);
-		finanzen.gebeInformationenAus(true);
 		lager.gebeInformationenAus(true);
 		personal.gebeInformationenAus(true);
+	}
+	
+	public void gebeEndInformationenAus() {
+		Util.pause();
+		Util.printSpacer();
+		System.out.println("Ergebnisse\n");
+		finanzen.gebeInformationenAus(true);
+		personal.gebeInformationenAus(true);
+		produktion.gebeInformationenAus(true);
+		verkauf.gebeInformationenAus(true);
+		lager.gebeInformationenAus(true);
+		
 	}
 	
 	/**

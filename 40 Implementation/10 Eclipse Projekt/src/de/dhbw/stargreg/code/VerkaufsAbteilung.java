@@ -2,6 +2,10 @@ package de.dhbw.stargreg.code;
 
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.Filter;
+import de.dhbw.stargreg.util.TableBuilder;
+import de.dhbw.stargreg.util.Util;
+
 /**
  * 
  * @author fredrik
@@ -46,14 +50,37 @@ public class VerkaufsAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		SpielRunde spielRunde = getSpielRunde(aktuelleSpielRunde);
-		if (spielRunde == null) return;
-		Vector<Verkauf> verkaeufe = spielRunde.get(Verkauf.class, unternehmen);
+		if (! aktuelleSpielRunde) {
+			SpielRunde spielRunde = getSpielRunde(aktuelleSpielRunde);
+			if (spielRunde == null) return;
+			Vector<Verkauf> verkaeufe = spielRunde.getTransaktionen(Verkauf.class, unternehmen);
 
-		System.out.println("Verkäufe der letzten Runde:");
-		for (Verkauf verkauf : verkaeufe) {
-			System.out.printf("%d %s zu %.2f pro Stück verkauft\n", verkauf.getMenge(), verkauf.getTyp(), verkauf.getPreis());
-		}		
+			double gesamtUmsatz = Util.summiereTransaktionen(spielRunde.getTransaktionen(Verkauf.class, unternehmen));
+			System.out.printf("Verkäufe (Gesamtumsatz: %.2f)\n", gesamtUmsatz);
+			TableBuilder tb = new TableBuilder("RaumschiffTyp", "Menge", "Preis", "Umsatz");
+			for (Verkauf verkauf : verkaeufe) {
+				tb.addNewRow(verkauf.getTyp(),
+						verkauf.getMenge(),
+						String.format("%.2f", verkauf.getPreis()),
+						String.format("%.2f", verkauf.getKosten()));
+			}
+			tb.print();
+		} else {
+			System.out.println("Verkaufsangebote");
+			Vector<Angebot> angebote = Util.filtereVector(unternehmen.getSpiel().getRaumschiffMarkt().getAngebote(), new Filter<Angebot>() {
+				public boolean nach(Angebot object) {
+					if (object.getUnternehmen() == unternehmen) return true;
+					return false;
+				}
+			});
+			TableBuilder tb = new TableBuilder("RaumschiffTyp", "Menge", "Preis");
+			for (Angebot angebot : angebote) {
+				tb.addNewRow(angebot.getTyp(),
+						angebot.getMenge(),
+						String.format("%.2f", angebot.getPreis()));
+			}
+			tb.print();
+		}
 	}
 
 }

@@ -1,5 +1,7 @@
 package de.dhbw.stargreg.code;
 
+import de.dhbw.stargreg.util.TableBuilder;
+
 
 /**
  * Auf dem Personalmarkt können Unternehmen zusätzliches Personal einstellen, schulen oder entlassen.
@@ -10,5 +12,16 @@ package de.dhbw.stargreg.code;
  *
  */
 public class PersonalMarkt extends Markt<PersonalTyp, PersonalTransaktion> {
-
+	public void gebeKostenAus() {
+		System.out.println("Personalmarkt");
+		TableBuilder tb = new TableBuilder("PersonalTyp", "Qualität", "Laufende Kosten", "Werbungskosten", "Schulungskosten");
+		for (PersonalTyp typ : typen) {
+			tb.addNewRow(typ,
+					String.format("%.0f", typ.getQualitaet() * 100) + " %",
+					String.format("%.2f", typ.getLaufendeKosten()),
+					String.format("%.2f", typ.getWerbungsKosten()),
+					(typ.getSchulungsKosten() == null) ? "" : String.format("%.2f", typ.getSchulungsKosten()));
+		}
+		tb.print();
+	}
 }

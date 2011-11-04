@@ -1,5 +1,7 @@
 package de.dhbw.stargreg.test;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 
 import org.junit.After;
@@ -29,20 +31,20 @@ public class SpielTest {
 	private static RaumschiffMarkt raumschiffMarkt = spiel.getRaumschiffMarkt();
 	private static KapitalMarkt kapitalMarkt = spiel.getKapitalMarkt();
 	
-	private static BauteilTyp rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0);
-	private static BauteilTyp hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0);
-	private static BauteilTyp triebwerk = new BauteilTyp("Triebwerk", 5, 500.0, 200.0);
-	private static BauteilTyp geschuetz = new BauteilTyp("Geschütz", 10, 1000.0, 400.0);
-	private static BauteilTyp transport = new BauteilTyp("Transportkapsel", 20, 2000.0, 800.0);
-	private static BauteilTyp forschung = new BauteilTyp("Forschungsausstattung", 30, 3000.0, 1200.0);
+	private static BauteilTyp rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0, BauteilTyp.Art.STANDARD);
+	private static BauteilTyp hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0, BauteilTyp.Art.STANDARD);
+	private static BauteilTyp triebwerk = new BauteilTyp("Triebwerk", 5, 500.0, 200.0, BauteilTyp.Art.STANDARD);
+	private static BauteilTyp geschuetz = new BauteilTyp("Geschütz", 10, 1000.0, 400.0, BauteilTyp.Art.SONDER);
+	private static BauteilTyp transport = new BauteilTyp("Transportkapsel", 20, 2000.0, 800.0, BauteilTyp.Art.SONDER);
+	private static BauteilTyp forschung = new BauteilTyp("Forschungsausstattung", 30, 3000.0, 1200.0, BauteilTyp.Art.SONDER);
 	
-	private static RaumschiffTyp xwing = new RaumschiffTyp("X-Wing", 5, 0.15);
-	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10, 0.15);
-	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15, 0.15);
+	private static RaumschiffTyp xwing = new RaumschiffTyp("X-Wing", 5, 0.50);
+	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10, 0.50);
+	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15, 0.50);
 	
-	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, -1.0, null);
-	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.95, 300.0, droideka);
-	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.92, 300.0, kampfDroide);
+	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, null, null);
+	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.90, 300.0, droideka);
+	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.80, 300.0, kampfDroide);
 	
 	private static Unternehmen galactic = spiel.fuegeUnternehmenHinzu("Galactic", startKapital);
 	private static Unternehmen foederation = spiel.fuegeUnternehmenHinzu("Föderation", startKapital);
@@ -50,6 +52,11 @@ public class SpielTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		System.out.print("Interkativer Modus (j/n): ");
+		Util.setPraesentation(
+				new BufferedReader(new InputStreamReader(System.in)).readLine().
+					equals("j"));		
+		
 		xwing.fuegeBauteilHinzu(rumpf, 18);
 		xwing.fuegeBauteilHinzu(hitzeschild, 6);
 		xwing.fuegeBauteilHinzu(triebwerk, 4);
@@ -80,8 +87,8 @@ public class SpielTest {
 		bauteilMarkt.fuegeTypHinzu(transport);
 		bauteilMarkt.fuegeTypHinzu(forschung);
 		
-		kapitalMarkt.setZinssatz(0.15);
-		bauteilMarkt.setLagerPlatzEinheitKosten(1);
+		kapitalMarkt.setZinssatz(0.25);
+		bauteilMarkt.setLagerPlatzEinheitKosten(5);
 		
 		
 		//Spielrunden erstellen
@@ -100,27 +107,27 @@ public class SpielTest {
 		
 		PersonalTyp[] p = {r2d2, kampfDroide, droideka};
 		//laufende Kosten
-		double[][] l = {{50, 100, 200}, //1
-						{50, 100, 200}, //2
-						{75, 150, 300}, //3
-						{60, 120, 240}, //4
-						{50, 100, 200}, //5
-						{50, 100, 200}, //6
-						{40,  80, 160}, //7
-						{45,  90, 180}, //8
-						{60, 120, 240}, //9
-						{50, 100, 200}};//10
+		double[][] l = {{100, 150, 200}, //1
+						{100, 150, 200}, //2
+						{150, 225, 300}, //3
+						{120, 180, 240}, //4
+						{100, 150, 200}, //5
+						{100, 150, 200}, //6
+						{80,  120, 160}, //7
+						{90,  135, 180}, //8
+						{120, 180, 240}, //9
+						{100, 150, 200}};//10
 		//Werbungskosten
-		double[][] w = {{200, 400, 600}, //1
-						{200, 400, 600}, //2
-						{300, 600, 900}, //3
-						{240, 480, 720}, //4
-						{200, 400, 600}, //5
-						{200, 400, 600}, //6
-						{160, 320, 480}, //7
-						{180, 360, 540}, //8
-						{240, 480, 720}, //9
-						{200, 400, 600}};//10
+		double[][] w = {{400, 600, 800}, //1
+						{400, 600, 800}, //2
+						{600, 900, 1200}, //3
+						{480, 720, 960}, //4
+						{400, 600, 800}, //5
+						{400, 600, 800}, //6
+						{320, 480, 640}, //7
+						{360, 540, 720}, //8
+						{480, 720, 960}, //9
+						{400, 600, 800}};//10
 		
 		String[] s = {"Keine besonderen Vorkommnisse.", //1
 					  "Keine besonderen Vorkommnisse.", //2
@@ -151,14 +158,12 @@ public class SpielTest {
 			spiel.fuegeSpielRundeHinzu(nachfrage, laufendeKosten, werbungsKosten, nachricht);
 		}
 		
-		System.out.println("Spiel wurde eingerichtet");
-		Util.printSpacer();
-		
-		
+		Util.printHeading("Spiel eingerichtet");
 	}
 
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		Util.setPraesentation(true);
 	}
 
 	@Before
@@ -195,48 +200,54 @@ public class SpielTest {
 	private void runde1() {
 		//Informieren, Handeln und einchecken
 		//Galactic: wie in Datenbasis
-		galactic.gebeInformationenAus();
+		galactic.gebeAnfangsInformationenAus();
 		galactic.getPersonal().einstellen(r2d2, 900);
 		galactic.kaufeEinProduziereVerkaufe(xwing, 60, 12000);
 		galactic.kaufeEinProduziereVerkaufe(corvette, 30, 24000);
 		galactic.kaufeEinProduziereVerkaufe(falke, 20, 36000);
+		galactic.gebeEndInformationenAus();
 		galactic.rundeEinchecken();
 
 		//Kampfpreise
-		foederation.gebeInformationenAus();
+		foederation.gebeAnfangsInformationenAus();
 		foederation.getPersonal().einstellen(r2d2, 2000);
 		foederation.kaufeEinProduziereVerkaufe(xwing, 120, 8000);
 		foederation.kaufeEinProduziereVerkaufe(corvette, 140, 15000);
+		galactic.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
 
 		//Qualitäts-fokussiert
-		rebellen.gebeInformationenAus();
+		rebellen.gebeAnfangsInformationenAus();
 		rebellen.getPersonal().einstellen(droideka, 300);
 		rebellen.kaufeEinProduziereVerkaufe(falke, 20, 50000);
+		galactic.gebeEndInformationenAus();
 		rebellen.rundeEinchecken();
 	}
 	
 	private void runde2() {
 		//soweit alles i.O., macht ähnlich weiter
-		galactic.gebeInformationenAus();
+		galactic.gebeAnfangsInformationenAus();
 		galactic.getPersonal().schulen(r2d2, 900);
 		galactic.getPersonal().einstellen(kampfDroide, 900);
 		galactic.kaufeEinProduziereVerkaufe(xwing, 120, 12000);
 		galactic.kaufeEinProduziereVerkaufe(corvette, 60, 24000);
 		galactic.kaufeEinProduziereVerkaufe(falke, 40, 36000);
+		galactic.gebeEndInformationenAus();
 		galactic.rundeEinchecken();
 
 		//stellt fest, dass wenig Corvettes verkauft
-		foederation.gebeInformationenAus();
+		foederation.gebeAnfangsInformationenAus();
 		foederation.getVerkauf().macheAngebot(corvette, 14000);
 		foederation.kaufeEinProduziereVerkaufe(xwing, 120, 8000);
 		foederation.kaufeEinProduziereVerkaufe(falke, 30, 22000);
+		galactic.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
 
 		//denkt sich: weiter so!
-		rebellen.gebeInformationenAus();
+		rebellen.gebeAnfangsInformationenAus();
 		rebellen.getPersonal().einstellen(droideka, 600);
 		rebellen.kaufeEinProduziereVerkaufe(falke, 60, 50000);
+		galactic.gebeEndInformationenAus();
 		rebellen.rundeEinchecken();
 	}
 
@@ -244,27 +255,30 @@ public class SpielTest {
 		//muss Preise senken
 		//will kein neues Personal wegen Streik einstellen
 		//sieht Chancen bei Falke
-		galactic.gebeInformationenAus();
+		galactic.gebeAnfangsInformationenAus();
 		galactic.kaufeEinProduziereVerkaufe(falke, 40, 27000);
 		galactic.getVerkauf().macheAngebot(xwing, 9000);
 		galactic.getVerkauf().macheAngebot(corvette, 18000);
+		galactic.gebeEndInformationenAus();
 		galactic.rundeEinchecken();
 		
 		//ähnlich wie in Vorrunde weiter
 		//hat vorhin Personal nicht voll ausgenutzt
-		foederation.gebeInformationenAus();
+		foederation.gebeAnfangsInformationenAus();
 		foederation.kaufeEinProduziereVerkaufe(xwing, 120, 8000);
 		foederation.kaufeEinProduziereVerkaufe(falke, 80, 22000);
+		galactic.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
 		
 		//kaum Falken verkauft
 		//diversifizieren und Preise runter
 		//etwas Personal entlassen
-		rebellen.gebeInformationenAus();
+		rebellen.gebeAnfangsInformationenAus();
 		rebellen.getPersonal().entlassen(droideka, 150);
 		rebellen.getVerkauf().macheAngebot(falke, 30000);
 		rebellen.kaufeEinProduziereVerkaufe(xwing,  70, 12000);
 		rebellen.kaufeEinProduziereVerkaufe(corvette, 40, 24000);
+		galactic.gebeEndInformationenAus();
 		rebellen.rundeEinchecken();
 	}
 	
@@ -272,11 +286,13 @@ public class SpielTest {
 		//Falken noch günstiger
 		//X-Wing Preis anheben
 		//Personal entlassen
-		galactic.gebeInformationenAus();
-		galactic.getPersonal().entlassen(kampfDroide, 600);
-		galactic.getVerkauf().macheAngebot(falke, 22000);
-		galactic.getEinkauf().kaufeEinFuer(xwing, 100);
-		galactic.getProduktion().fuegeAuftragHinzu(xwing, 100);
-		galactic.getVerkauf().macheAngebot(xwing, 9000);
+		galactic.gebeAnfangsInformationenAus();
+		galactic.getPersonal().entlassen(kampfDroide, 800);
+		galactic.getVerkauf().macheAngebot(falke, 20000);
+		galactic.kaufeEinProduziereVerkaufe(xwing, 100, 11000);
+		galactic.kaufeEinProduziereVerkaufe(corvette, 50, 16000);
+		galactic.gebeEndInformationenAus();
+		
+		foederation.gebeAnfangsInformationenAus();
 	}
 }

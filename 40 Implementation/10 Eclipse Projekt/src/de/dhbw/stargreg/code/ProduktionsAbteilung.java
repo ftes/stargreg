@@ -3,6 +3,8 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.TableBuilder;
+
 
 /**
  * 
@@ -26,8 +28,9 @@ public class ProduktionsAbteilung extends Abteilung {
 			int fehlerhaft = berechneFehlerhafteMenge(menge);
 			double fehlerKosten = fehlerhaft * auftrag.getTyp().getFehlerKosten();
 			unternehmen.getFinanzen().abbuchen(fehlerKosten);
+			unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(fehlerKosten, Zahlung.Art.FEHLER, unternehmen));
 			
-			System.out.printf("%d fehlerhafte %s verursachen für %s %.2f Zusatzkosten\n", fehlerhaft, auftrag.getTyp(), unternehmen, fehlerKosten);
+//			System.out.printf("%d fehlerhafte %s verursachen für %s %.2f Zusatzkosten\n", fehlerhaft, auftrag.getTyp(), unternehmen, fehlerKosten);
 		}
 		
 		auftraege.clear();
@@ -78,7 +81,7 @@ public class ProduktionsAbteilung extends Abteilung {
 		benoetigtesPersonal += menge * raumschiffTyp.getBenoetigtesPersonal();
 		
 		auftraege.add(new ProduktionsAuftrag(raumschiffTyp, unternehmen, menge));
-		System.out.printf("%s hat %d %s in Auftrag gegeben\n", unternehmen, menge, raumschiffTyp);
+//		System.out.printf("%s hat %d %s in Auftrag gegeben\n", unternehmen, menge, raumschiffTyp);
 		
 		unternehmen.getLager().einlagern(raumschiffTyp, menge);
 		
@@ -87,8 +90,17 @@ public class ProduktionsAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		// TODO Auto-generated method stub
-		
+		System.out.printf("Produktionsaufträge (Kapazität %d/%d ausgelastet)\n", benoetigtesPersonal, unternehmen.getPersonal().getAnzahlPersonal());
+		TableBuilder tb = new TableBuilder("RaumschiffTyp", "Menge");
+		if (! aktuelleSpielRunde) {
+			
+		} else {
+			for (ProduktionsAuftrag auftrag : auftraege) {
+				tb.addNewRow(auftrag.getTyp(),
+						auftrag.getMenge());
+			}
+		}
+		tb.print();
 	}
 	
 	public int getBenoetigtesPersonal() {

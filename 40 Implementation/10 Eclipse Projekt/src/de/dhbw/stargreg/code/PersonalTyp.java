@@ -10,20 +10,13 @@ public class PersonalTyp extends Typ {
 	private final double qualitaet;
 	private double laufendeKosten;
 	private double werbungsKosten;
-	private final double schulungsKosten;
-	private final boolean schulbar;
+	private final Double schulungsKosten;
 	private final PersonalTyp naechsterPersonalTyp;
 	
-	public PersonalTyp(String name, double qualitaet, double schulungsKosten, PersonalTyp naechsterPersonalTyp) {
+	public PersonalTyp(String name, double qualitaet, Double schulungsKosten, PersonalTyp naechsterPersonalTyp) {
 		super(name);
 		this.qualitaet = qualitaet;
-		if (schulungsKosten <= 0.0) {
-			this.schulbar = false;
-			this.schulungsKosten = 0.0;
-		} else {
-			this.schulbar = true;
-			this.schulungsKosten = schulungsKosten;
-		}
+		this.schulungsKosten = schulungsKosten;
 		this.naechsterPersonalTyp = naechsterPersonalTyp;
 	}
 	
@@ -35,10 +28,7 @@ public class PersonalTyp extends Typ {
 		return laufendeKosten;
 	}
 	
-	public double getSchulungsKosten() {
-		if (! schulbar) {
-			System.err.printf("%s ist nicht weiter schulbar\n", this);
-		}
+	public Double getSchulungsKosten() {
 		return schulungsKosten;
 	}
 

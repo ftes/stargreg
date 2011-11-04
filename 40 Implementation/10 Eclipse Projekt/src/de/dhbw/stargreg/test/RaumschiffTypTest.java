@@ -29,9 +29,9 @@ public class RaumschiffTypTest {
 		xwing = new RaumschiffTyp("xwing", 5, 900.00);
 		corellian_corvette = new RaumschiffTyp("Correlian Corvette", 10, 1800.00);
 		millenium_falke = new RaumschiffTyp("Millenium Falke", 15, 2700.00);
-		rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0);
-		hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0);
-		triebwerk = new BauteilTyp("Triebwerk", 5, 500.00, 200.00);
+		rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0, BauteilTyp.Art.STANDARD);
+		hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0, BauteilTyp.Art.STANDARD);
+		triebwerk = new BauteilTyp("Triebwerk", 5, 500.00, 200.00, BauteilTyp.Art.STANDARD);
 	}
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
