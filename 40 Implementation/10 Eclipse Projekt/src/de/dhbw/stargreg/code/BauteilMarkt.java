@@ -82,6 +82,7 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 	}
 	
 	public void gebePreiseAus() {
+		System.out.println("Bauteilmarkt");
 		TableBuilder tb = new TableBuilder("BauteilTyp", "Preis");
 		for (BauteilTyp typ : typen) {
 			tb.addNewRow(typ,

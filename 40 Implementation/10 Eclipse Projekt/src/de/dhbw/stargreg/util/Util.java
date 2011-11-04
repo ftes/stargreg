@@ -1,5 +1,6 @@
 package de.dhbw.stargreg.util;
 
+import java.io.Console;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -141,6 +142,13 @@ public class Util {
 	}
 	
 	public static void printSpacer() {
-		System.out.println("----------------------------------------");
+		System.out.println("/////////////////////////////////////////////////////////////");
+	}
+	
+	public static void printHeading(String heading) {
+		printSpacer();
+		System.out.println(heading);
+		printSpacer();
+		System.out.println();
 	}
 }

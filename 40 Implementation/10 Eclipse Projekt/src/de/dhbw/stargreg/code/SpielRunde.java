@@ -44,8 +44,7 @@ public class SpielRunde {
 	}
 	
 	public void starteSpielRunde() {
-		Util.printSpacer();
-		System.out.printf("Spielrunde %d einrichten\n\n", nummer);
+		Util.printHeading(String.format("Spielrunde %d einrichten", nummer));
 		System.out.println("Nachfrage auf Raumschiffmarkt");
 		TableBuilder tb = new TableBuilder("RaumschiffTyp", "Nachfrage");
 		for (RaumschiffTyp raumschiffTyp : nachfrage.keySet()) {

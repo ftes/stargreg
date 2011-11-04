@@ -3,6 +3,8 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.TableBuilder;
+
 
 /**
  * 
@@ -88,8 +90,17 @@ public class ProduktionsAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Produktionsaufträge");
+		TableBuilder tb = new TableBuilder("RaumschiffTyp", "Menge");
+		if (! aktuelleSpielRunde) {
+			
+		} else {
+			for (ProduktionsAuftrag auftrag : auftraege) {
+				tb.addNewRow(auftrag.getTyp(),
+						auftrag.getMenge());
+			}
+		}
+		tb.print();
 	}
 	
 	public int getBenoetigtesPersonal() {

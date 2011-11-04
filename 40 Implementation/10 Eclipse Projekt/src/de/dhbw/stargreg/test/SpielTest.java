@@ -151,8 +151,7 @@ public class SpielTest {
 			spiel.fuegeSpielRundeHinzu(nachfrage, laufendeKosten, werbungsKosten, nachricht);
 		}
 		
-		Util.printSpacer();
-		System.out.println("Spiel eingerichtet\n");
+		Util.printHeading("Spiel eingerichtet");
 	}
 
 	@AfterClass
@@ -193,49 +192,54 @@ public class SpielTest {
 	private void runde1() {
 		//Informieren, Handeln und einchecken
 		//Galactic: wie in Datenbasis
-		galactic.gebeInformationenAus();
+		galactic.gebeAnfangsInformationenAus();
 		galactic.getPersonal().einstellen(r2d2, 900);
 		galactic.kaufeEinProduziereVerkaufe(xwing, 60, 12000);
 		galactic.kaufeEinProduziereVerkaufe(corvette, 30, 24000);
 		galactic.kaufeEinProduziereVerkaufe(falke, 20, 36000);
-		galactic.getFinanzen().gebeInformationenAus(true);
+		galactic.gebeEndInformationenAus();
 		galactic.rundeEinchecken();
 
 		//Kampfpreise
-		foederation.gebeInformationenAus();
+		foederation.gebeAnfangsInformationenAus();
 		foederation.getPersonal().einstellen(r2d2, 2000);
 		foederation.kaufeEinProduziereVerkaufe(xwing, 120, 8000);
 		foederation.kaufeEinProduziereVerkaufe(corvette, 140, 15000);
+		galactic.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
 
 		//Qualitäts-fokussiert
-		rebellen.gebeInformationenAus();
+		rebellen.gebeAnfangsInformationenAus();
 		rebellen.getPersonal().einstellen(droideka, 300);
 		rebellen.kaufeEinProduziereVerkaufe(falke, 20, 50000);
+		galactic.gebeEndInformationenAus();
 		rebellen.rundeEinchecken();
 	}
 	
 	private void runde2() {
 		//soweit alles i.O., macht ähnlich weiter
-		galactic.gebeInformationenAus();
+		galactic.gebeAnfangsInformationenAus();
 		galactic.getPersonal().schulen(r2d2, 900);
 		galactic.getPersonal().einstellen(kampfDroide, 900);
 		galactic.kaufeEinProduziereVerkaufe(xwing, 120, 12000);
 		galactic.kaufeEinProduziereVerkaufe(corvette, 60, 24000);
 		galactic.kaufeEinProduziereVerkaufe(falke, 40, 36000);
+		galactic.gebeEndInformationenAus();
 		galactic.rundeEinchecken();
 
 		//stellt fest, dass wenig Corvettes verkauft
-		foederation.gebeInformationenAus();
+		foederation.gebeAnfangsInformationenAus();
 		foederation.getVerkauf().macheAngebot(corvette, 14000);
 		foederation.kaufeEinProduziereVerkaufe(xwing, 120, 8000);
 		foederation.kaufeEinProduziereVerkaufe(falke, 30, 22000);
+		galactic.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
 
 		//denkt sich: weiter so!
-		rebellen.gebeInformationenAus();
+		rebellen.gebeAnfangsInformationenAus();
 		rebellen.getPersonal().einstellen(droideka, 600);
 		rebellen.kaufeEinProduziereVerkaufe(falke, 60, 50000);
+		galactic.gebeEndInformationenAus();
 		rebellen.rundeEinchecken();
 	}
 
@@ -243,27 +247,30 @@ public class SpielTest {
 		//muss Preise senken
 		//will kein neues Personal wegen Streik einstellen
 		//sieht Chancen bei Falke
-		galactic.gebeInformationenAus();
+		galactic.gebeAnfangsInformationenAus();
 		galactic.kaufeEinProduziereVerkaufe(falke, 40, 27000);
 		galactic.getVerkauf().macheAngebot(xwing, 9000);
 		galactic.getVerkauf().macheAngebot(corvette, 18000);
+		galactic.gebeEndInformationenAus();
 		galactic.rundeEinchecken();
 		
 		//ähnlich wie in Vorrunde weiter
 		//hat vorhin Personal nicht voll ausgenutzt
-		foederation.gebeInformationenAus();
+		foederation.gebeAnfangsInformationenAus();
 		foederation.kaufeEinProduziereVerkaufe(xwing, 120, 8000);
 		foederation.kaufeEinProduziereVerkaufe(falke, 80, 22000);
+		galactic.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
 		
 		//kaum Falken verkauft
 		//diversifizieren und Preise runter
 		//etwas Personal entlassen
-		rebellen.gebeInformationenAus();
+		rebellen.gebeAnfangsInformationenAus();
 		rebellen.getPersonal().entlassen(droideka, 150);
 		rebellen.getVerkauf().macheAngebot(falke, 30000);
 		rebellen.kaufeEinProduziereVerkaufe(xwing,  70, 12000);
 		rebellen.kaufeEinProduziereVerkaufe(corvette, 40, 24000);
+		galactic.gebeEndInformationenAus();
 		rebellen.rundeEinchecken();
 	}
 	
@@ -271,11 +278,12 @@ public class SpielTest {
 		//Falken noch günstiger
 		//X-Wing Preis anheben
 		//Personal entlassen
-		galactic.gebeInformationenAus();
+		galactic.gebeAnfangsInformationenAus();
 		galactic.getPersonal().entlassen(kampfDroide, 600);
 		galactic.getVerkauf().macheAngebot(falke, 22000);
 		galactic.getEinkauf().kaufeEinFuer(xwing, 100);
 		galactic.getProduktion().fuegeAuftragHinzu(xwing, 100);
 		galactic.getVerkauf().macheAngebot(xwing, 9000);
+		galactic.gebeEndInformationenAus();
 	}
 }

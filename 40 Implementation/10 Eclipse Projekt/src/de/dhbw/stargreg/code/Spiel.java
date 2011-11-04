@@ -104,8 +104,7 @@ public class Spiel {
 		}
 		status = Status.SPIELEN;
 		aktuelleSpielRunde = spielRunden.firstElement();
-		Util.printSpacer();
-		System.out.println("Spiel gestartet\n");
+		Util.printHeading("Spiel gestartet");
 		aktuelleSpielRunde.starteSpielRunde();
 	}
 	
@@ -118,8 +117,7 @@ public class Spiel {
 			return;
 		}
 		status = Status.AUSWERTEN;
-		Util.printSpacer();
-		System.out.println("Spiel beendet\n");
+		Util.printHeading("Spiel beendet");
 	}
 	
 	/**
@@ -130,11 +128,15 @@ public class Spiel {
 			System.err.println("Keine Bewertung möglich, da Spiel noch nicht beendet wurde");
 			return;
 		}
+		
+		Util.printHeading("Bewertung der Unternehmen");
 		Vector<Unternehmen> rangfolge = ermittleRangfolge();
-		TableBuilder tb = new TableBuilder("Rang", "Unternehmen");
+		System.out.println("Ergebnis");
+		TableBuilder tb = new TableBuilder("Rang", "Unternehmen", "Punkte");
 		for (int i=0; i<rangfolge.size(); i++) {
 			tb.addNewRow(i + 1 + ".",
-					rangfolge.elementAt(i));
+					rangfolge.elementAt(i),
+					String.format("%.0f", rangfolge.elementAt(i).getBewertung()));
 		}
 		tb.print();
 	}
@@ -158,8 +160,7 @@ public class Spiel {
 			}
 		}
 		
-		Util.printSpacer();
-		System.out.println("Simulation der Spielrunde\n");
+		Util.printHeading("Simulation der Spielrunde");
 		
 		// Verkäufe nach Unternehmen gruppieren
 		HashMap<Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(
@@ -250,6 +251,7 @@ public class Spiel {
 			summeUmsatz += unternehmen.getUmsatz();
 		}
 		
+		System.out.println("Punkteverteilung");
 		TableBuilder tb = new TableBuilder("Unternehmen", "ROI", "Marktanteil", "Bewertung");
 		for (Unternehmen unternehmen : this.unternehmen) {
 			double punkte = (unternehmen.getROI() + rechtsVerschiebung) / summeROI * 70;

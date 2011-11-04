@@ -119,19 +119,27 @@ public class Unternehmen {
 		this.bewertung = bewertung;
 	}
 	
-	public void gebeInformationenAus() {
-		Util.printSpacer();
-		System.out.printf("%s\n\n", this);
+	public void gebeAnfangsInformationenAus() {
+		Util.printHeading(this.toString());
 		System.out.println(spiel.getAktuelleSpielRunde().getNachricht() + "\n");
 		if (spiel.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n\n", spiel.getStarDerLetztenRunde());
-		System.out.println("Bauteilmarkt");
 		spiel.getBauteilMarkt().gebePreiseAus();
-		System.out.println("Personalmarkt");
 		spiel.getPersonalMarkt().gebeKostenAus();
 		finanzen.gebeInformationenAus(false);
 		verkauf.gebeInformationenAus(false);
 		lager.gebeInformationenAus(true);
 		personal.gebeInformationenAus(true);
+	}
+	
+	public void gebeEndInformationenAus() {
+		Util.printSpacer();
+		System.out.println("Ergebnisse\n");
+		finanzen.gebeInformationenAus(true);
+		personal.gebeInformationenAus(true);
+		produktion.gebeInformationenAus(true);
+		verkauf.gebeInformationenAus(true);
+		lager.gebeInformationenAus(true);
+		
 	}
 	
 	/**
