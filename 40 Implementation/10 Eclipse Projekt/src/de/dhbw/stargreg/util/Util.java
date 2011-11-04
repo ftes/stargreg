@@ -1,6 +1,5 @@
 package de.dhbw.stargreg.util;
 
-import java.io.Console;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;

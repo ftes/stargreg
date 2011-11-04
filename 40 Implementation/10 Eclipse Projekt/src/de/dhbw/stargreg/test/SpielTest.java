@@ -1,5 +1,7 @@
 package de.dhbw.stargreg.test;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 
 import org.junit.After;
@@ -50,7 +52,10 @@ public class SpielTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		Util.setPraesentation(true);
+		System.out.print("Interkativer Modus (j/n): ");
+		Util.setPraesentation(
+				new BufferedReader(new InputStreamReader(System.in)).readLine().
+					equals("j"));		
 		
 		xwing.fuegeBauteilHinzu(rumpf, 18);
 		xwing.fuegeBauteilHinzu(hitzeschild, 6);
