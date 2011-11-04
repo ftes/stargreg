@@ -25,7 +25,7 @@ public class BauteilTypTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		rumpfbauteil = new BauteilTyp("rumpfbauteil", 1, 100.00, 40.00);
+		rumpfbauteil = new BauteilTyp("rumpfbauteil", 1, 100.00, 40.00, BauteilTyp.Art.STANDARD);
 	}
 
 	/**

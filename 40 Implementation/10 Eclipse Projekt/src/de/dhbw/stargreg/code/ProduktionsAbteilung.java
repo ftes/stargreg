@@ -90,7 +90,7 @@ public class ProduktionsAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		System.out.println("Produktionsaufträge");
+		System.out.printf("Produktionsaufträge (Kapazität %d/%d ausgelastet)\n", benoetigtesPersonal, unternehmen.getPersonal().getAnzahlPersonal());
 		TableBuilder tb = new TableBuilder("RaumschiffTyp", "Menge");
 		if (! aktuelleSpielRunde) {
 			

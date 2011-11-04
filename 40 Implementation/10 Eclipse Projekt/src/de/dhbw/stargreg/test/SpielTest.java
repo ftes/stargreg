@@ -31,20 +31,20 @@ public class SpielTest {
 	private static RaumschiffMarkt raumschiffMarkt = spiel.getRaumschiffMarkt();
 	private static KapitalMarkt kapitalMarkt = spiel.getKapitalMarkt();
 	
-	private static BauteilTyp rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0);
-	private static BauteilTyp hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0);
-	private static BauteilTyp triebwerk = new BauteilTyp("Triebwerk", 5, 500.0, 200.0);
-	private static BauteilTyp geschuetz = new BauteilTyp("Geschütz", 10, 1000.0, 400.0);
-	private static BauteilTyp transport = new BauteilTyp("Transportkapsel", 20, 2000.0, 800.0);
-	private static BauteilTyp forschung = new BauteilTyp("Forschungsausstattung", 30, 3000.0, 1200.0);
+	private static BauteilTyp rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0, BauteilTyp.Art.STANDARD);
+	private static BauteilTyp hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0, BauteilTyp.Art.STANDARD);
+	private static BauteilTyp triebwerk = new BauteilTyp("Triebwerk", 5, 500.0, 200.0, BauteilTyp.Art.STANDARD);
+	private static BauteilTyp geschuetz = new BauteilTyp("Geschütz", 10, 1000.0, 400.0, BauteilTyp.Art.SONDER);
+	private static BauteilTyp transport = new BauteilTyp("Transportkapsel", 20, 2000.0, 800.0, BauteilTyp.Art.SONDER);
+	private static BauteilTyp forschung = new BauteilTyp("Forschungsausstattung", 30, 3000.0, 1200.0, BauteilTyp.Art.SONDER);
 	
-	private static RaumschiffTyp xwing = new RaumschiffTyp("X-Wing", 5, 0.15);
-	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10, 0.15);
-	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15, 0.15);
+	private static RaumschiffTyp xwing = new RaumschiffTyp("X-Wing", 5, 0.50);
+	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10, 0.50);
+	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15, 0.50);
 	
 	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, null, null);
-	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.95, 300.0, droideka);
-	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.92, 300.0, kampfDroide);
+	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.90, 300.0, droideka);
+	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.80, 300.0, kampfDroide);
 	
 	private static Unternehmen galactic = spiel.fuegeUnternehmenHinzu("Galactic", startKapital);
 	private static Unternehmen foederation = spiel.fuegeUnternehmenHinzu("Föderation", startKapital);
@@ -87,8 +87,8 @@ public class SpielTest {
 		bauteilMarkt.fuegeTypHinzu(transport);
 		bauteilMarkt.fuegeTypHinzu(forschung);
 		
-		kapitalMarkt.setZinssatz(0.15);
-		bauteilMarkt.setLagerPlatzEinheitKosten(1);
+		kapitalMarkt.setZinssatz(0.25);
+		bauteilMarkt.setLagerPlatzEinheitKosten(5);
 		
 		
 		//Spielrunden erstellen
@@ -107,27 +107,27 @@ public class SpielTest {
 		
 		PersonalTyp[] p = {r2d2, kampfDroide, droideka};
 		//laufende Kosten
-		double[][] l = {{50, 100, 200}, //1
-						{50, 100, 200}, //2
-						{75, 150, 300}, //3
-						{60, 120, 240}, //4
-						{50, 100, 200}, //5
-						{50, 100, 200}, //6
-						{40,  80, 160}, //7
-						{45,  90, 180}, //8
-						{60, 120, 240}, //9
-						{50, 100, 200}};//10
+		double[][] l = {{100, 150, 200}, //1
+						{100, 150, 200}, //2
+						{150, 225, 300}, //3
+						{120, 180, 240}, //4
+						{100, 150, 200}, //5
+						{100, 150, 200}, //6
+						{80,  120, 160}, //7
+						{90,  135, 180}, //8
+						{120, 180, 240}, //9
+						{100, 150, 200}};//10
 		//Werbungskosten
-		double[][] w = {{200, 400, 600}, //1
-						{200, 400, 600}, //2
-						{300, 600, 900}, //3
-						{240, 480, 720}, //4
-						{200, 400, 600}, //5
-						{200, 400, 600}, //6
-						{160, 320, 480}, //7
-						{180, 360, 540}, //8
-						{240, 480, 720}, //9
-						{200, 400, 600}};//10
+		double[][] w = {{400, 600, 800}, //1
+						{400, 600, 800}, //2
+						{600, 900, 1200}, //3
+						{480, 720, 960}, //4
+						{400, 600, 800}, //5
+						{400, 600, 800}, //6
+						{320, 480, 640}, //7
+						{360, 540, 720}, //8
+						{480, 720, 960}, //9
+						{400, 600, 800}};//10
 		
 		String[] s = {"Keine besonderen Vorkommnisse.", //1
 					  "Keine besonderen Vorkommnisse.", //2
@@ -287,11 +287,12 @@ public class SpielTest {
 		//X-Wing Preis anheben
 		//Personal entlassen
 		galactic.gebeAnfangsInformationenAus();
-		galactic.getPersonal().entlassen(kampfDroide, 600);
-		galactic.getVerkauf().macheAngebot(falke, 22000);
-		galactic.getEinkauf().kaufeEinFuer(xwing, 100);
-		galactic.getProduktion().fuegeAuftragHinzu(xwing, 100);
-		galactic.getVerkauf().macheAngebot(xwing, 9000);
+		galactic.getPersonal().entlassen(kampfDroide, 800);
+		galactic.getVerkauf().macheAngebot(falke, 20000);
+		galactic.kaufeEinProduziereVerkaufe(xwing, 100, 11000);
+		galactic.kaufeEinProduziereVerkaufe(corvette, 50, 16000);
 		galactic.gebeEndInformationenAus();
+		
+		foederation.gebeAnfangsInformationenAus();
 	}
 }

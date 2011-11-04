@@ -46,29 +46,35 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 				return einkauf.getTyp();
 			}
 		});
-		double gesamtUmsatz = 0;
-		for (BauteilTyp bauteilTyp : typen) {
-			double umsatz = 0;
-			if (einkaeufe.containsKey(bauteilTyp)) {
-				for (Einkauf einkauf : einkaeufe.get(bauteilTyp)) {
-					umsatz += einkauf.getPreis() * einkauf.getMenge();
+		for (BauteilTyp.Art art : BauteilTyp.Art.values()) {
+			double gesamtUmsatz = 0;
+			int anzahl = 0;
+			for (BauteilTyp bauteilTyp : typen) {
+				if (bauteilTyp.getArt() != art) continue;
+				anzahl++;
+				double umsatz = 0;
+				if (einkaeufe.containsKey(bauteilTyp)) {
+					for (Einkauf einkauf : einkaeufe.get(bauteilTyp)) {
+						umsatz += einkauf.getPreis() * einkauf.getMenge();
+					}
 				}
+				umsaetze.put(bauteilTyp, umsatz);
+				gesamtUmsatz += umsatz;
 			}
-			umsaetze.put(bauteilTyp, umsatz);
-			gesamtUmsatz += umsatz;
-		}
-		
-		double durchschnittsUmsatz = gesamtUmsatz / typen.size();
-		
-		// neue Preise berechnen
-		for(BauteilTyp bauteilTyp : typen) {
-			double abweichung = (umsaetze.get(bauteilTyp) - durchschnittsUmsatz) / durchschnittsUmsatz;
-			tb.add(bauteilTyp,
-					String.format("%.2f", bauteilTyp.getGrundPreis()),
-					String.format("%.1f", 100 * abweichung) + " %",
-					String.format("%.2f", bauteilTyp.getPreis()));
-			bauteilTyp.berechnePreis(abweichung);
-			tb.addNewRow(String.format("%.2f", bauteilTyp.getPreis()));
+			
+			double durchschnittsUmsatz = gesamtUmsatz / anzahl;
+			
+			// neue Preise berechnen
+			for(BauteilTyp bauteilTyp : typen) {
+				if (bauteilTyp.getArt() != art) continue;
+				double abweichung = (umsaetze.get(bauteilTyp) - durchschnittsUmsatz) / durchschnittsUmsatz;
+				tb.add(bauteilTyp,
+						String.format("%.2f", bauteilTyp.getGrundPreis()),
+						String.format("%.1f", 100 * abweichung) + " %",
+						String.format("%.2f", bauteilTyp.getPreis()));
+				bauteilTyp.berechnePreis(abweichung);
+				tb.addNewRow(String.format("%.2f", bauteilTyp.getPreis()));
+			}	
 		}
 		tb.print();
 	}
