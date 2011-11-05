@@ -110,6 +110,24 @@ public class Unternehmen {
 		
 		return umsatz;
 	}
+	
+	/**
+	 * Wert des Absatzes des Unternehmens im gesamten Spiel, gemessen an den Raumschiffwerten
+	 * @return
+	 */
+	public double getAbsatzWert() {
+		Vector<Verkauf> verkaeufe = new Vector<Verkauf>();
+		for (SpielRunde spielRunde : spiel.getSpielRunden()) {
+			verkaeufe.addAll(spielRunde.getTransaktionen(Verkauf.class));
+		}
+		
+		double absatzWert = 0;
+		for (Verkauf verkauf : verkaeufe) {
+			if (verkauf.getUnternehmen() == this) absatzWert += verkauf.getGesamtWert();
+		}
+		
+		return absatzWert;
+	}
 
 	public double getBewertung() {
 		return bewertung;

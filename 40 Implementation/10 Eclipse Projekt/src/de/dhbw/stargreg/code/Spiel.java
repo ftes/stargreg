@@ -224,13 +224,13 @@ public class Spiel {
 	/**
 	 * Ermittelt die Rangfolge der Unternehmen in der Endbewertung.
 	 * Der ROI (Gewinn / Investition) wird zu 70% gewichtet, der
-	 * Marktanteil gemessen am Umsatz des Unternehmens wird zu 30%
+	 * Marktanteil gemessen am Absatzwert des Unternehmens wird zu 30%
 	 * gewichtet.
 	 * Zum Gewinn zählt dabei im vollen Umfang dsa Kapital, zu 67%
 	 * fertige Raumschiffe im Lager und zu 33% Bauteile im Lager.
 	 * @return
 	 */
-	public Vector<Unternehmen> ermittleRangfolge() {
+	private Vector<Unternehmen> ermittleRangfolge() {
 		//Achtung: Problem bei negativen ROI -> wenn summeROI negativ ist, dann wird bei Division ein negativer ROI gut
 		//Lösung: rechts-verschiebung bei Vorhandensein eines negativen ROI
 		double minROI = Double.MAX_VALUE;
@@ -244,21 +244,21 @@ public class Spiel {
 		}
 		
 		double summeROI = 0;
-		double summeUmsatz = 0;
+		double summeAbsatzWert = 0;
 		for (Unternehmen unternehmen : this.unternehmen) {
 			summeROI += unternehmen.getROI() + rechtsVerschiebung;
-			summeUmsatz += unternehmen.getUmsatz();
+			summeAbsatzWert += unternehmen.getAbsatzWert();
 		}
 		
 		System.out.println("Punkteverteilung");
 		TableBuilder tb = new TableBuilder("Unternehmen", "ROI", "Marktanteil", "Bewertung");
 		for (Unternehmen unternehmen : this.unternehmen) {
 			double punkte = (unternehmen.getROI() + rechtsVerschiebung) / summeROI * 70;
-			punkte += unternehmen.getUmsatz() / summeUmsatz * 30;
+			punkte += unternehmen.getAbsatzWert() / summeAbsatzWert * 30;
 			unternehmen.setBewertung(punkte);
 			tb.addNewRow(unternehmen, 
 					String.format("%.1f", unternehmen.getROI() * 100) + " %",
-					String.format("%.1f", unternehmen.getUmsatz() / summeUmsatz * 100) + " %",
+					String.format("%.1f", unternehmen.getAbsatzWert() / summeAbsatzWert * 100) + " %",
 					String.format("%.0f", punkte));
 		}
 		tb.print();
