@@ -174,13 +174,15 @@ public class Spiel {
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.getAngebote());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.simuliere());
 		
+		Util.pause();
+		
 		aktuelleSpielRunde = getNaechsteSpielRunde();
 		if (aktuelleSpielRunde == null) {
 			beendeSpiel();
 		} else {
 			aktuelleSpielRunde.starteSpielRunde();
 		}
-		// simulieren
+
 	}
 
 	public SpielRunde getAktuelleSpielRunde() {

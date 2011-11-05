@@ -59,6 +59,7 @@ public class SpielRunde {
 					String.format("%.2f", personalTyp.getWerbungsKosten()));
 		}
 		tb.print();
+		Util.pause();
 	}
 	
 	private final Vector<Transaktion<?>> transaktionen = new Vector<Transaktion<?>>();

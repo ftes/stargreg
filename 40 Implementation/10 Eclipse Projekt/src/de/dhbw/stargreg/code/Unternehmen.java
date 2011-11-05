@@ -138,8 +138,7 @@ public class Unternehmen {
 	}
 	
 	public void gebeAnfangsInformationenAus() {
-		Util.pause();
-		Util.printHeading(this.toString());
+		Util.printHeading(this.toString() + ": Informationsphase");
 		System.out.println(spiel.getAktuelleSpielRunde().getNachricht() + "\n");
 		if (spiel.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n\n", spiel.getStarDerLetztenRunde());
 		spiel.getBauteilMarkt().gebePreiseAus();
@@ -148,18 +147,17 @@ public class Unternehmen {
 		verkauf.gebeInformationenAus(false);
 		lager.gebeInformationenAus(true);
 		personal.gebeInformationenAus(true);
+		Util.pause();
 	}
 	
 	public void gebeEndInformationenAus() {
-		Util.pause();
-		Util.printSpacer();
-		System.out.println("Ergebnisse\n");
+		Util.printHeading(this.toString() + ": Aktionsübersicht");
 		finanzen.gebeInformationenAus(true);
 		personal.gebeInformationenAus(true);
 		produktion.gebeInformationenAus(true);
 		verkauf.gebeInformationenAus(true);
 		lager.gebeInformationenAus(true);
-		
+		Util.pause();
 	}
 	
 	/**
