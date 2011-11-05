@@ -19,8 +19,7 @@ public class SpielRunde {
 	 * Achtung: zu multiplizieren mit der Anzahl der Unternehmen!
 	 */
 	private final HashMap<RaumschiffTyp, Integer> nachfrage;
-	private final HashMap<PersonalTyp, Double> laufendeKosten;
-	private final HashMap<PersonalTyp, Double> werbungsKosten;
+	private final double personalKonjunkturFaktor;
 	private final String nachricht;
 	private final int nummer;
 	
@@ -31,14 +30,12 @@ public class SpielRunde {
 	public SpielRunde(
 			Spiel spiel,
 			HashMap<RaumschiffTyp, Integer> nachfrage,
-			HashMap<PersonalTyp, Double> laufendeKosten,
-			HashMap<PersonalTyp, Double> werbungsKosten,
+			double personalKonjunkturFaktor,
 			String nachricht,
 			int nummer) {
 		this.spiel = spiel;
 		this.nachfrage = nachfrage;
-		this.laufendeKosten = laufendeKosten;
-		this.werbungsKosten = werbungsKosten;
+		this.personalKonjunkturFaktor = personalKonjunkturFaktor;
 		this.nachricht = nachricht;
 		this.nummer = nummer;
 	}
@@ -49,18 +46,17 @@ public class SpielRunde {
 		TableBuilder tb = new TableBuilder("RaumschiffTyp", "Nachfrage");
 		for (RaumschiffTyp raumschiffTyp : nachfrage.keySet()) {
 			tb.addNewRow(raumschiffTyp,
-					nachfrage.get(raumschiffTyp));
+					nachfrage.get(raumschiffTyp) * spiel.getAnzahlUnternehmen());
 			raumschiffTyp.setNachfrage(nachfrage.get(raumschiffTyp) * spiel.getAnzahlUnternehmen());
 		}
 		tb.print();
 		System.out.println("Personalkosten");
 		tb = new TableBuilder("PersonalTyp", "Laufende Kosten", "Werbungskosten");
-		for (PersonalTyp personalTyp : laufendeKosten.keySet()) {
+		for (PersonalTyp personalTyp : spiel.getPersonalMarkt().getTypen()) {
+			personalTyp.setKonjunkturFaktor(personalKonjunkturFaktor);
 			tb.addNewRow(personalTyp,
-					String.format("%.2f", laufendeKosten.get(personalTyp)),
-					String.format("%.2f", werbungsKosten.get(personalTyp)));
-			personalTyp.setLaufendeKosten(laufendeKosten.get(personalTyp));
-			personalTyp.setWerbungsKosten(werbungsKosten.get(personalTyp));
+					String.format("%.2f", personalTyp.getLaufendeKosten()),
+					String.format("%.2f", personalTyp.getWerbungsKosten()));
 		}
 		tb.print();
 	}

@@ -59,14 +59,13 @@ public class Spiel {
 	 */
 	public void fuegeSpielRundeHinzu(
 			HashMap<RaumschiffTyp, Integer> nachfrage, 
-			HashMap<PersonalTyp, Double> laufendeKosten,
-			HashMap<PersonalTyp, Double> werbungsKosten,
+			double personalKonjunkturFaktor,
 			String nachricht) {
 		if (status != Status.EINRICHTEN) {
 			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Spielen' möglich");
 			return;
 		}
-		this.spielRunden.add(new SpielRunde(this, nachfrage, laufendeKosten, werbungsKosten, nachricht, spielRunden.size() + 1));
+		this.spielRunden.add(new SpielRunde(this, nachfrage, personalKonjunkturFaktor, nachricht, spielRunden.size() + 1));
 //		System.out.printf("Spielrunde %d hinzugefügt\n", this.spielRunden.size());
 	}
 	

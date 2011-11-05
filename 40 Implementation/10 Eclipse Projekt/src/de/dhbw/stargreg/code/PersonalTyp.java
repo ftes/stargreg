@@ -8,43 +8,42 @@ package de.dhbw.stargreg.code;
  */
 public class PersonalTyp extends Typ {
 	private final double qualitaet;
-	private double laufendeKosten;
-	private double werbungsKosten;
+	private final double basisLaufendeKosten;
+	private final double basisWerbungsKosten;
 	private final Double schulungsKosten;
 	private final PersonalTyp naechsterPersonalTyp;
-	
-	public PersonalTyp(String name, double qualitaet, Double schulungsKosten, PersonalTyp naechsterPersonalTyp) {
+	private double konjunkturFaktor;
+
+	public PersonalTyp(String name, double qualitaet, double basisLaufendeKosten, double basisWerbungsKosten, Double schulungsKosten, PersonalTyp naechsterPersonalTyp) {
 		super(name);
 		this.qualitaet = qualitaet;
 		this.schulungsKosten = schulungsKosten;
 		this.naechsterPersonalTyp = naechsterPersonalTyp;
+		this.basisLaufendeKosten = basisLaufendeKosten;
+		this.basisWerbungsKosten = basisWerbungsKosten;
 	}
-	
+
 	public double getQualitaet() {
 		return qualitaet;
 	}
-	
+
 	public double getLaufendeKosten() {
-		return laufendeKosten;
+		return basisLaufendeKosten * konjunkturFaktor;
 	}
-	
+
 	public Double getSchulungsKosten() {
 		return schulungsKosten;
 	}
 
-	public void setLaufendeKosten(double laufendeKosten) {
-		this.laufendeKosten = laufendeKosten;
-	}
-
 	public double getWerbungsKosten() {
-		return werbungsKosten;
+		return basisWerbungsKosten * konjunkturFaktor;
 	}
 
-	public void setWerbungsKosten(double werbungsKosten) {
-		this.werbungsKosten = werbungsKosten;
-	}
-	
 	public PersonalTyp getNaechsterPersonalTyp() {
 		return naechsterPersonalTyp;
+	}
+	
+	public void setKonjunkturFaktor(double konjunkturFaktor) {
+		this.konjunkturFaktor = konjunkturFaktor;
 	}
 }
