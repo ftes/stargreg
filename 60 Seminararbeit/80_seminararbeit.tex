@@ -15,7 +15,18 @@
 
 \begin{document}
 
-\newcommand{\version}{0.93}
+%Insert Image: file, label, caption
+\newcommand{\img}[3]{
+	\begin{figure}[h]
+	\centering
+	\fbox{\includegraphics[width=0.9\textwidth]{#1}}
+	\caption[#3]
+	\label{#2}
+	\end{figure}
+}
+
+\newcommand{\curr}{\textcolonmonetary}
+\newcommand{\autor}[1]{\textit{Autor: #1}}
 
 % Erzeugung des Titelblatts
 %
@@ -26,7 +37,7 @@
 %dhbwlogoSkalierung=0.5,
 %dhbwlogoDeltaX=2.4,
 %dhbwlogoDeltaY=-10,
-thema=\LaTeX-Layoutvorlage zur Anfertigung einer Seminararbeit\\(Version \version),
+thema=Star Greg\\Das Unternehmensplanspiel,
 verfasser=J\"org Baumgart,
 firma=Ausbildungsfirma,
 %verfasserin=,
@@ -50,7 +61,7 @@ dozent=Gregor Tielsch
 % Kurzfassung
 %
 %\seKurzfassung{} % dieses Kommando sollte standardm\"assig verwendet werden
-\seKurzfassung[\LaTeX-Layoutvorlage zur Anfertigung einer Seminararbeit (Version \version)]{}
+\seKurzfassung[Star Greg - Das Unternehmensplanspiel]{}
 
 % Beispiel f\"ur ein Kapitel, dass vor dem Einleitungskapitel kommt, z. B. ein Vorwort oder eine Danksagung
 \seKapitelVorEinleitung{Vorwort}
@@ -180,7 +191,7 @@ gliederungsebenen=4
 % ehrenw\"ortlichen Erkl\"arung
 %
 %\seEhrenwoertlicheErklaerung{} % dieses Kommando sollte standardm\"assig verwendet werden
-\seEhrenwoertlicheErklaerung[\LaTeX-Layoutvorlage zur Anfertigung\\ einer Seminarbeit (Version \version)]{}
+\seEhrenwoertlicheErklaerung[Star Greg\\Das Unternehmensplanspiel]{}
 
 
 \end{document}

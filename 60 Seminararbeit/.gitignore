@@ -1,4 +1,5 @@
 80_seminararbeit.*
+test.*
 .DS_Store
 .log
 jurabib.*
@@ -6,3 +7,4 @@ jurabib.*
 */*.aux
 
 !80_seminararbeit.tex
+!test.tex
