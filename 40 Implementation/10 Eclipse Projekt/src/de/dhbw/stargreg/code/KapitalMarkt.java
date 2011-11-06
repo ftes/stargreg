@@ -7,10 +7,10 @@ package de.dhbw.stargreg.code;
  */
 public class KapitalMarkt extends Markt<Typ, TypTransaktion<Typ>> {
 
-	private static Double zinssatz = null;
+	private Double zinssatz = null;
 	
 	public void setZinssatz(double zinssatz) {
-		KapitalMarkt.zinssatz = zinssatz;
+		this.zinssatz = zinssatz;
 	}
 	
 	public double getZinssatz() {
