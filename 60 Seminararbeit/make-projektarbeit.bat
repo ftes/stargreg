@@ -1,31 +1,35 @@
 @echo off
 echo Uebersetzung einer tex-datei
-echo Parameter: Name der tex-datei OHNE die Endung .tex
-pdflatex %1.tex
-bibtex %1
-makeindex -s %1.ist -t %1.alg -o %1.acr %1.acn
-makeindex -s %1.ist -t %1.glg -o %1.gls %1.glo
-makeindex -s %1.ist -t %1.slg -o %1.syi %1.syg
-pdflatex %1.tex
-pdflatex %1.tex
-pdflatex %1.tex
+echo Parameter: Name der tex-datei OHNE die Endung .tex
+
+set file=80_seminararbeit
+echo %file%%
 
-del %1.acn
-del %1.acr
-del %1.alg
-del %1.aux
-del %1.bbl
-del %1.blg
-del %1.glg
-del %1.glo
-del %1.gls
-del %1.ist
-del %1.lof
-del %1.log
-del %1.lop
-del %1.lot
-del %1.slg
-del %1.syg
-del %1.syi
-del %1.toc
-del %1.url
+pdflatex %file%.tex
+bibtex %file%
+makeindex -s %file%.ist -t %file%.alg -o %file%.acr %file%.acn
+makeindex -s %file%.ist -t %file%.glg -o %file%.gls %file%.glo
+makeindex -s %file%.ist -t %file%.slg -o %file%.syi %file%.syg
+pdflatex %file%.tex
+pdflatex %file%.tex
+pdflatex %file%.tex
+
+del %file%.acn
+del %file%.acr
+del %file%.alg
+del %file%.aux
+del %file%.bbl
+del %file%.blg
+del %file%.glg
+del %file%.glo
+del %file%.gls
+del %file%.ist
+del %file%.lof
+del %file%.log
+del %file%.lop
+del %file%.lot
+del %file%.slg
+del %file%.syg
+del %file%.syi
+del %file%.toc
+del %file%.url
