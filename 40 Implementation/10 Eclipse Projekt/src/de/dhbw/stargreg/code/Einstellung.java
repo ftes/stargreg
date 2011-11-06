@@ -10,8 +10,4 @@ public class Einstellung extends PersonalTransaktion {
 	public Einstellung(PersonalTyp personalTyp, Unternehmen unternehmen, int menge, double preis) {
 		super(personalTyp, unternehmen, menge, preis);
 	}
-	
-	public PersonalTyp getPersonalTyp() {
-		return (PersonalTyp) typ;
-	}
 }
