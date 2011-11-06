@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import de.dhbw.stargreg.code.RaumschiffTyp;
-import de.dhbw.stargreg.code.Transaktion;
+import de.dhbw.stargreg.code.TypTransaktion;
 import de.dhbw.stargreg.code.Unternehmen;
 import de.dhbw.stargreg.code.Verkauf;
 
@@ -69,9 +69,9 @@ public class Util {
 		return tmp;		
 	}
 	
-	public static double summiereTransaktionen(Vector<? extends Transaktion<?>> transaktionen) {
-		return summiereVector(transaktionen, new Summe<Transaktion<?>>() {
-			public double von(Transaktion<?> transaktion) {
+	public static double summiereTransaktionen(Vector<? extends TypTransaktion<?>> transaktionen) {
+		return summiereVector(transaktionen, new Summe<TypTransaktion<?>>() {
+			public double von(TypTransaktion<?> transaktion) {
 				return transaktion.getKosten();
 			}
 		});

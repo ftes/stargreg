@@ -1,15 +1,12 @@
 package de.dhbw.stargreg.code;
 
-public class Zahlung {
+public class Zahlung extends Transaktion {
 	public static enum Art {ZINSEN, PERSONAL, LAGER, FEHLER};
-	private Art art;
-	private double betrag;
-	private Unternehmen unternehmen;
+	private final Art art;
 	
 	public Zahlung(double betrag, Art art, Unternehmen unternehmen) {
-		this.betrag = betrag;
+		super(unternehmen, betrag);
 		this.art = art;
-		this.unternehmen = unternehmen;
 	}
 
 	public Art getArt() {
@@ -17,10 +14,6 @@ public class Zahlung {
 	}
 
 	public double getBetrag() {
-		return betrag;
-	}
-	
-	public Unternehmen getUnternehmen() {
-		return unternehmen;
+		return preis;
 	}
 }

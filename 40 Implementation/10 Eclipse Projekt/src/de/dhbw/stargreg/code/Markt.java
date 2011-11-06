@@ -8,7 +8,7 @@ import java.util.Vector;
  * @author fredrik
  *
  */
-public abstract class Markt<T extends Typ, A extends Transaktion<T>> {
+public abstract class Markt<T extends Typ, A extends TypTransaktion<T>> {
 	
 	/**
 	 * Verwaltung der Typen dieses Marktes.
@@ -33,8 +33,8 @@ public abstract class Markt<T extends Typ, A extends Transaktion<T>> {
 	}
 	
 	/**
-	 * Fügt die Transaktion zur Liste der Transaktionen hinzu.
-	 * @param transaktion Anzufügende Transaktion.
+	 * Fügt die TypTransaktion zur Liste der Transaktionen hinzu.
+	 * @param transaktion Anzufügende TypTransaktion.
 	 */
 	public void fuegeTransaktionHinzu(A transaktion) {
 		transaktionen.add(transaktion);

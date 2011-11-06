@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="javadoc">
     <target name="javadoc">
-        <javadoc access="private" additionalparam=" -encoding UTF-8&#13;&#10;-docencoding UTF-8&#13;&#10;-charset UTF-8" author="true" classpath="C:\Program Files\Eclipse\plugins\org.junit_4.8.2.v4_8_2_v20110321-1705\junit.jar;C:\Program Files\Eclipse\plugins\org.hamcrest.core_1.1.0.v20090501071000.jar" destdir="doc" doctitle="Star Greg" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="de.dhbw.stargreg.code,de.dhbw.stargreg.test,de.dhbw.stargreg.util" source="1.7" sourcepath="src" splitindex="true" use="true" version="true"/>
+        <javadoc access="private" additionalparam=" -encoding UTF-8 -docencoding UTF-8 -charset UTF-8" author="true" classpath="C:\Program Files\Eclipse\plugins\org.junit_4.8.2.v4_8_2_v20110321-1705\junit.jar;C:\Program Files\Eclipse\plugins\org.hamcrest.core_1.1.0.v20090501071000.jar" destdir="doc" doctitle="Star Greg" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="de.dhbw.stargreg.code,de.dhbw.stargreg.test,de.dhbw.stargreg.util" source="1.7" sourcepath="src" splitindex="true" use="true" version="true"/>
     </target>
 </project>
