@@ -6,7 +6,7 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public class Verkauf extends Transaktion<RaumschiffTyp> {
+public class Verkauf extends ProduktTransaktion<RaumschiffTyp> {
 	/*
 	 * Wert eines Raumschiffs gemessen an Bauteilpreisen zum Zeitpunkt des Verkaufs
 	 */

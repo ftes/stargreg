@@ -112,8 +112,8 @@ public class Unternehmen {
 	}
 	
 	/**
-	 * Wert des Absatzes des Unternehmens im gesamten Spiel, gemessen an den Raumschiffwerten
-	 * @return
+	 * Wert des Absatzes des Unternehmens im gesamten Spiel, gemessen an den Raumschiffwerten.
+	 * @return Absatzwert.
 	 */
 	public double getAbsatzWert() {
 		Vector<Verkauf> verkaeufe = new Vector<Verkauf>();

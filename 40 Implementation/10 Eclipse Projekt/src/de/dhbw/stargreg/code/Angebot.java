@@ -6,7 +6,7 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public class Angebot extends Transaktion<RaumschiffTyp> {
+public class Angebot extends ProduktTransaktion<RaumschiffTyp> {
 	/**
 	 * Zwischenspeicher für Berechnungen im Raumschiffmarkt.
 	 */

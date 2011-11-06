@@ -53,7 +53,8 @@ public class ProduktionsAbteilung extends Abteilung {
 	 * erst bei der Simulation berechnet.
 	 * @param raumschiffTyp
 	 * @param menge
-	 * @return
+	 * @return {@code True}, wenn ausreichend Bauteile und Personal vorhanden sind und der Auftrag
+	 * erfolgreich hinzugefügt wurde.
 	 */
 	public boolean fuegeAuftragHinzu(RaumschiffTyp raumschiffTyp, int menge) {
 		//Erst prüfen, ob so viel produzierbar

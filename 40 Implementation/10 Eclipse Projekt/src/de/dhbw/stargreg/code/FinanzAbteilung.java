@@ -32,9 +32,8 @@ public class FinanzAbteilung extends Abteilung {
 	}
 
 	/**
-	 * 
-	 * @param betrag
-	 * @return
+	 * Bucht den angegebenen Betrag vom Konto ab.
+	 * @param betrag Muss positiv sein.
 	 */
 	public void abbuchen (double betrag){
 		if (betrag < 0) {

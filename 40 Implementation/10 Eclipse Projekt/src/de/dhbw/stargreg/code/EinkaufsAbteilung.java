@@ -18,7 +18,6 @@ public class EinkaufsAbteilung extends Abteilung {
 	 * verringert und die Teile werden ins Lager gelegt.
 	 * @param bauteilTyp
 	 * @param menge
-	 * @return
 	 */
 	public void kaufeEin(BauteilTyp bauteilTyp, int menge) {
 		Einkauf einkauf = new Einkauf(bauteilTyp, unternehmen, menge, bauteilTyp.getPreis());

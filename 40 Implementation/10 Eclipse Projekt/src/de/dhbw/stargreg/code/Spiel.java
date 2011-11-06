@@ -55,7 +55,9 @@ public class Spiel {
 	/**
 	 * Fügt die übergebene Spielrunde hinten an die Liste der Spielrunden an.
 	 * Nur möglich in der Phase Spielen.
-	 * @param spielRunde Die anzufügende Spielrunde
+	 * @param nachfrage
+	 * @param personalKonjunkturFaktor
+	 * @param nachricht
 	 */
 	public void fuegeSpielRundeHinzu(
 			HashMap<RaumschiffTyp, Integer> nachfrage, 
@@ -76,7 +78,9 @@ public class Spiel {
 	/**
 	 * Fügt das übergebene Unternehmen hinten an die Liste der Unternehmen an.
 	 * Nur möglich, wenn das Spiel sich in der Einrichtungsphase befindet.
-	 * @param unternehmen Das anzufügende Unternehmen
+	 * @param name Name des Unterenehmens.
+	 * @param startKapital
+	 * @return Das neu erstellte Unternehmen.
 	 */
 	public Unternehmen fuegeUnternehmenHinzu(String name, double startKapital) {
 		if (status != Status.EINRICHTEN) {
@@ -230,7 +234,7 @@ public class Spiel {
 	 * gewichtet.
 	 * Zum Gewinn zählt dabei im vollen Umfang dsa Kapital, zu 67%
 	 * fertige Raumschiffe im Lager und zu 33% Bauteile im Lager.
-	 * @return
+	 * @return Unternehmen, sortiert nach Ergebnissen (bestes zuerst).
 	 */
 	private Vector<Unternehmen> ermittleRangfolge() {
 		//Achtung: Problem bei negativen ROI -> wenn summeROI negativ ist, dann wird bei Division ein negativer ROI gut

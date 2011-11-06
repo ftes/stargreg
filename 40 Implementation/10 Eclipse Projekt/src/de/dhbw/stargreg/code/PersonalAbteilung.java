@@ -96,7 +96,6 @@ public class PersonalAbteilung extends Abteilung {
 	 * Kosten nehmen zu.
 	 * @param personalTyp Einzustellender Personaltyp.
 	 * @param anzahl Anzahl des einzustellenden Personals.
-	 * @return
 	 */
 	public void einstellen (PersonalTyp personalTyp, int anzahl){
 		Einstellung einstellung = new Einstellung(personalTyp, unternehmen, anzahl, personalTyp.getWerbungsKosten());
@@ -134,7 +133,7 @@ public class PersonalAbteilung extends Abteilung {
 	 * Berechnet die durchschnittliche Personal-Qualität als gewichtetes Mittel.
 	 * Dies ist entscheidend für die Fehlerrate und die dadurch entstehenden
 	 * Zusatzkosten.
-	 * @return
+	 * @return Durchschnittliche Qualität des Personals, 0 < x < 1.
 	 */
 	public double getDurchschnittlicheQualitaet() {
 		double qualitaet = 0;
