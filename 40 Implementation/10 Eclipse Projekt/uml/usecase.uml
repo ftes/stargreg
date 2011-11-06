@@ -6,12 +6,12 @@
     <packagedElement xmi:type="uml:UseCase" xmi:id="_fSTtYP2oEeCXTbvytDjrnQ" name="Prüfen, ob alle Spieler eingecheckt haben"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_ma45oP2oEeCXTbvytDjrnQ" name="Spielrunde simulieren">
       <include xmi:id="_sYAHAf_GEeCiK5ZNQa27mw" addition="_fSTtYP2oEeCXTbvytDjrnQ"/>
+      <include xmi:id="_FRGJkQixEeGwd9Yh7DIn0A" addition="_s6FxsP2oEeCXTbvytDjrnQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_pJ3oYP2oEeCXTbvytDjrnQ" name="Informationen ausgeben"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_s6FxsP2oEeCXTbvytDjrnQ" name="Neue Runde einleiten">
       <include xmi:id="_-mDL0P_GEeCiK5ZNQa27mw" addition="_pJ3oYP2oEeCXTbvytDjrnQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="__LwLMP2oEeCXTbvytDjrnQ" name="Spielrunde einchecken"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_BulUUP2pEeCXTbvytDjrnQ" name="Unternehmen einrichten">
       <include xmi:id="_Cf5xoP2rEeCXTbvytDjrnQ" addition="_8fRr8P2qEeCXTbvytDjrnQ"/>
     </packagedElement>
@@ -23,17 +23,19 @@
       <include xmi:id="_irlksP_JEeCiK5ZNQa27mw" addition="_g_eBIP_JEeCiK5ZNQa27mw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_IyZ8YP2pEeCXTbvytDjrnQ" name="Finanzen einsehen"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_K2J80P2pEeCXTbvytDjrnQ" name="Droiden anheuern"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_fKLPoP2pEeCXTbvytDjrnQ" name="Droiden ausbauen"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_kGrl4P2pEeCXTbvytDjrnQ" name="Droiden entlassen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_K2J80P2pEeCXTbvytDjrnQ" name="Personal einstellen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_fKLPoP2pEeCXTbvytDjrnQ" name="Personal weiterbilden"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_kGrl4P2pEeCXTbvytDjrnQ" name="Personal entlassen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_mdMxUP2pEeCXTbvytDjrnQ" name="Bauteile einkaufen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_nhHscP2pEeCXTbvytDjrnQ" name="Raumschiffe produzieren"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_pMFZcP2pEeCXTbvytDjrnQ" name="Angebot zum Verkauf abgeben"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_8fRr8P2qEeCXTbvytDjrnQ" name="Namen auswählen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_HQ9GcP_HEeCiK5ZNQa27mw" name="Verkaufte Raumschiffe einsehen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_La_d8P_HEeCiK5ZNQa27mw" name="Angeheuerte Droiden einsehen"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_4x04gP_IEeCiK5ZNQa27mw" name="vorhandene Rohstoffe einsehen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_4x04gP_IEeCiK5ZNQa27mw" name="vorhandene Bauteile einsehen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_g_eBIP_JEeCiK5ZNQa27mw" name="Raumschiffe auf Lager anzeigen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_Ha1dQAixEeGwd9Yh7DIn0A" name="Unternehmen bewerten"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="__LwLMP2oEeCXTbvytDjrnQ" name="Spielrunde einchecken"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_24sv4P2oEeCXTbvytDjrnQ" name="A_spielleiter_spielrunde simulieren" memberEnd="_24sv4f2oEeCXTbvytDjrnQ _24sv5P2oEeCXTbvytDjrnQ">
     <ownedEnd xmi:id="_24sv4f2oEeCXTbvytDjrnQ" name="spielleiter" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_24sv4P2oEeCXTbvytDjrnQ">
@@ -135,14 +137,14 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_G0-w9v2qEeCXTbvytDjrnQ" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="_9Qd48P_GEeCiK5ZNQa27mw" name="A_spielleiter_neue runde einleiten" memberEnd="_9Qd48f_GEeCiK5ZNQa27mw _9Qd49P_GEeCiK5ZNQa27mw">
-    <ownedEnd xmi:id="_9Qd48f_GEeCiK5ZNQa27mw" name="spielleiter" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_9Qd48P_GEeCiK5ZNQa27mw">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9Qd48v_GEeCiK5ZNQa27mw" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9Qd48__GEeCiK5ZNQa27mw" value="1"/>
+  <packagedElement xmi:type="uml:Association" xmi:id="_JaiEIAixEeGwd9Yh7DIn0A" name="A_spielleiter_unternehmen bewerten" memberEnd="_JaiEIQixEeGwd9Yh7DIn0A _JaiEJAixEeGwd9Yh7DIn0A">
+    <ownedEnd xmi:id="_JaiEIQixEeGwd9Yh7DIn0A" name="spielleiter" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_JaiEIAixEeGwd9Yh7DIn0A">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JaiEIgixEeGwd9Yh7DIn0A" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JaiEIwixEeGwd9Yh7DIn0A" value="1"/>
     </ownedEnd>
-    <ownedEnd xmi:id="_9Qd49P_GEeCiK5ZNQa27mw" name="neue runde einleiten" type="_s6FxsP2oEeCXTbvytDjrnQ" association="_9Qd48P_GEeCiK5ZNQa27mw">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9Qd49f_GEeCiK5ZNQa27mw" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9Qd49v_GEeCiK5ZNQa27mw" value="1"/>
+    <ownedEnd xmi:id="_JaiEJAixEeGwd9Yh7DIn0A" name="unternehmen bewerten" type="_Ha1dQAixEeGwd9Yh7DIn0A" association="_JaiEIAixEeGwd9Yh7DIn0A">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JaiEJQixEeGwd9Yh7DIn0A" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JaiEJgixEeGwd9Yh7DIn0A" value="1"/>
     </ownedEnd>
   </packagedElement>
 </uml:Model>
