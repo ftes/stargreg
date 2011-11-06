@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.TableBuilder;
 import de.dhbw.stargreg.util.Util;
 
 
@@ -58,15 +59,14 @@ public class Spiel {
 	 */
 	public void fuegeSpielRundeHinzu(
 			HashMap<RaumschiffTyp, Integer> nachfrage, 
-			HashMap<PersonalTyp, Double> laufendeKosten,
-			HashMap<PersonalTyp, Double> werbungsKosten,
+			double personalKonjunkturFaktor,
 			String nachricht) {
 		if (status != Status.EINRICHTEN) {
 			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Spielen' möglich");
 			return;
 		}
-		this.spielRunden.add(new SpielRunde(this, nachfrage, laufendeKosten, werbungsKosten, nachricht, spielRunden.size() + 1));
-		System.out.printf("Spielrunde %d hinzugefügt\n", this.spielRunden.size());
+		this.spielRunden.add(new SpielRunde(this, nachfrage, personalKonjunkturFaktor, nachricht, spielRunden.size() + 1));
+//		System.out.printf("Spielrunde %d hinzugefügt\n", this.spielRunden.size());
 	}
 	
 	public int getAnzahlUnternehmen() {
@@ -85,7 +85,7 @@ public class Spiel {
 		}
 		Unternehmen unternehmen = new Unternehmen(this, name, startKapital);
 		this.unternehmen.add(unternehmen);
-		System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
+//		System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
 		return unternehmen;
 	}
 	
@@ -103,9 +103,8 @@ public class Spiel {
 		}
 		status = Status.SPIELEN;
 		aktuelleSpielRunde = spielRunden.firstElement();
-		System.out.println("Spiel gestartet");
+		Util.printHeading("Spiel gestartet");
 		aktuelleSpielRunde.starteSpielRunde();
-		Util.printSpacer();
 	}
 	
 	/**
@@ -117,7 +116,7 @@ public class Spiel {
 			return;
 		}
 		status = Status.AUSWERTEN;
-		System.out.println("Spiel beendet");
+		Util.printHeading("Spiel beendet");
 	}
 	
 	/**
@@ -128,11 +127,17 @@ public class Spiel {
 			System.err.println("Keine Bewertung möglich, da Spiel noch nicht beendet wurde");
 			return;
 		}
+		
+		Util.printHeading("Bewertung der Unternehmen");
 		Vector<Unternehmen> rangfolge = ermittleRangfolge();
-		System.out.println("Spielergebnis:");
+		System.out.println("Ergebnis");
+		TableBuilder tb = new TableBuilder("Rang", "Unternehmen", "Punkte");
 		for (int i=0; i<rangfolge.size(); i++) {
-			System.out.printf("%d. %s\n", i + 1, rangfolge.elementAt(i));
+			tb.addNewRow(i + 1 + ".",
+					rangfolge.elementAt(i),
+					String.format("%.0f", rangfolge.elementAt(i).getBewertung()));
 		}
+		tb.print();
 	}
 
 	/**
@@ -146,15 +151,15 @@ public class Spiel {
 			return;
 		}
 		
-		Util.printSpacer();
-		
 		// Prüfen, ob alle schon eingecheckt haben. Sonst abbrechen
 		for (Unternehmen unternehmen : this.unternehmen) {
 			if (! unternehmen.getRundeEingecheckt()) {
-				System.out.printf("%s hat die Runde noch nicht eingecheckt\n", unternehmen);
+				System.err.printf("%s hat die Runde noch nicht eingecheckt\n", unternehmen);
 				return;
 			}
 		}
+		
+		Util.printHeading("Simulation der Spielrunde");
 		
 		// Verkäufe nach Unternehmen gruppieren
 		HashMap<Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(
@@ -169,11 +174,7 @@ public class Spiel {
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.getAngebote());
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.simuliere());
 		
-		Util.printSpacer();
-		
-		System.out.println("Spielrunde wurde simuliert");
-		
-		System.out.printf("Star dieser Runde war der Raumschifftyp %s\n", aktuelleSpielRunde.getStar());
+		Util.pause();
 		
 		aktuelleSpielRunde = getNaechsteSpielRunde();
 		if (aktuelleSpielRunde == null) {
@@ -181,7 +182,7 @@ public class Spiel {
 		} else {
 			aktuelleSpielRunde.starteSpielRunde();
 		}
-		// simulieren
+
 	}
 
 	public SpielRunde getAktuelleSpielRunde() {
@@ -225,13 +226,13 @@ public class Spiel {
 	/**
 	 * Ermittelt die Rangfolge der Unternehmen in der Endbewertung.
 	 * Der ROI (Gewinn / Investition) wird zu 70% gewichtet, der
-	 * Marktanteil gemessen am Umsatz des Unternehmens wird zu 30%
+	 * Marktanteil gemessen am Absatzwert des Unternehmens wird zu 30%
 	 * gewichtet.
 	 * Zum Gewinn zählt dabei im vollen Umfang dsa Kapital, zu 67%
 	 * fertige Raumschiffe im Lager und zu 33% Bauteile im Lager.
 	 * @return
 	 */
-	public Vector<Unternehmen> ermittleRangfolge() {
+	private Vector<Unternehmen> ermittleRangfolge() {
 		//Achtung: Problem bei negativen ROI -> wenn summeROI negativ ist, dann wird bei Division ein negativer ROI gut
 		//Lösung: rechts-verschiebung bei Vorhandensein eines negativen ROI
 		double minROI = Double.MAX_VALUE;
@@ -245,27 +246,24 @@ public class Spiel {
 		}
 		
 		double summeROI = 0;
-		double summeUmsatz = 0;
+		double summeAbsatzWert = 0;
 		for (Unternehmen unternehmen : this.unternehmen) {
 			summeROI += unternehmen.getROI() + rechtsVerschiebung;
-			summeUmsatz += unternehmen.getUmsatz();
+			summeAbsatzWert += unternehmen.getAbsatzWert();
 		}
 		
-		Vector<String[]> data = new Vector<String[]>();
-		String[] header = {"Unternehmen", "ROI", "Marktanteil", "Bewertung"};
-		data.add(header);
+		System.out.println("Punkteverteilung");
+		TableBuilder tb = new TableBuilder("Unternehmen", "ROI", "Marktanteil", "Bewertung");
 		for (Unternehmen unternehmen : this.unternehmen) {
 			double punkte = (unternehmen.getROI() + rechtsVerschiebung) / summeROI * 70;
-			punkte += unternehmen.getUmsatz() / summeUmsatz * 30;
+			punkte += unternehmen.getAbsatzWert() / summeAbsatzWert * 30;
 			unternehmen.setBewertung(punkte);
-			String[] row = new String[4];
-			row[0] = unternehmen.toString();
-			row[1] = String.format("%.1f", unternehmen.getROI() * 100) + " %";
-			row[2] = String.format("%.1f", unternehmen.getUmsatz() / summeUmsatz * 100) + " %";
-			row[3] = String.format("%.0f", punkte);
-			data.add(row);
+			tb.addNewRow(unternehmen, 
+					String.format("%.1f", unternehmen.getROI() * 100) + " %",
+					String.format("%.1f", unternehmen.getAbsatzWert() / summeAbsatzWert * 100) + " %",
+					String.format("%.0f", punkte));
 		}
-		Util.printTable(data);
+		tb.print();
 		
 		// Bewertung sortieren um Rangfolge zu erhalten
 		@SuppressWarnings("unchecked")

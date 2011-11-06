@@ -25,7 +25,7 @@ public class BauteilTypTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		rumpfbauteil = new BauteilTyp("rumpfbauteil", 1, 100.00, 40.00);
+		rumpfbauteil = new BauteilTyp("rumpfbauteil", 1, 100.00, 40.00, BauteilTyp.Art.STANDARD);
 	}
 
 	/**
@@ -54,8 +54,8 @@ public class BauteilTypTest {
 	 */
 	@Test
 	public void testBerechnePreis() {
-		rumpfbauteil.berechnePreis(10);
-		Assert.assertTrue(Math.round(rumpfbauteil.getPreis()) == 140.00);
+		rumpfbauteil.berechnePreis(.5);
+		Assert.assertTrue(Math.round(rumpfbauteil.getPreis()) == 130);
 	}
 
 }

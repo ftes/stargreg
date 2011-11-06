@@ -14,6 +14,7 @@ import de.dhbw.stargreg.code.Angebot;
 import de.dhbw.stargreg.code.RaumschiffMarkt;
 import de.dhbw.stargreg.code.RaumschiffTyp;
 import de.dhbw.stargreg.code.Spiel;
+import de.dhbw.stargreg.code.Unternehmen;
 import de.dhbw.stargreg.code.Verkauf;
 import de.dhbw.stargreg.util.Gruppierung;
 import de.dhbw.stargreg.util.Util;
@@ -26,6 +27,7 @@ public class RaumschiffMarktTest {
 	private static RaumschiffTyp corvette;
 	private static int nachfrageXwing = 5;
 	private static int nachfrageCorvette = 3;
+	private static Unternehmen unternehmen = new Unternehmen(null, "", 0);
 
 	/**
 	 * Initialisierung von zwei Raumschiffen, welchen feste Kosten zugewiesen werden, da die Bauteilpreisänderungen für die Tests der Methoden 
@@ -69,9 +71,9 @@ public class RaumschiffMarktTest {
 	@Test
 	public void testBerechneTypAbsatz() {
 		Vector<Angebot> angebote = new Vector<Angebot>();
-		angebote.add(new Angebot(xwing, null, 10, 10.0));
-		angebote.add(new Angebot(xwing, null, 5, 15.0));
-		angebote.add(new Angebot(xwing, null, 10, 20.0));
+		angebote.add(new Angebot(xwing, unternehmen, 10, 10.0));
+		angebote.add(new Angebot(xwing, unternehmen, 5, 15.0));
+		angebote.add(new Angebot(xwing, unternehmen, 10, 20.0));
 		
 		int gesamtMenge = 0;
 		Vector<Verkauf> verkaeufe = raumschiffMarkt.berechneTypAbsatz(xwing, angebote);
@@ -86,12 +88,12 @@ public class RaumschiffMarktTest {
 	
 	@Test
 	public void testBerechneGesamtAbsatz() {
-		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(xwing, null, 10, 10.0));
-		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(xwing, null, 5, 15.0));
-		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(xwing, null, 10, 20.0));
-		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 3, 20.0));
-		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 5, 18.0));
-		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, null, 2, 27.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(xwing, unternehmen, 10, 10.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(xwing, unternehmen, 5, 15.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(xwing, unternehmen, 10, 20.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, unternehmen, 3, 20.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, unternehmen, 5, 18.0));
+		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, unternehmen, 2, 27.0));
 		
 		Vector<Verkauf> verkaeufe = raumschiffMarkt.berechneGesamtAbsatz();
 		HashMap<RaumschiffTyp, Vector<Verkauf>> map = Util.gruppiereVector(verkaeufe, new Gruppierung<RaumschiffTyp, Verkauf>() {

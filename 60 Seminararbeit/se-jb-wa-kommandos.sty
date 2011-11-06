@@ -1,9 +1,20 @@
-% J\"org Baumgart
-% 2011-04-17
-%\define@key{seKonfigurationAbk}{abstandEintrag}{\renewcommand{\seAbkAbstandEintrag}{#1}}
-% Kommandos f\"ur das Schreiben von Seminar-, Projekt- und Bachelorarbeiten
 %
-% 2011-05-06 Anpassung an floatrow.sty
+% se-jb-wa-kommandos
+% 
+% Kommandos f\"ur die Erstellung von Seminar-, Projekt- und Bachelorarbeiten
+%
+% J\"org Baumgart
+%
+% 2011-08-19
+%
+% ACHTUNG: diese Datei sollte keinesfalls ver\"andert werden!!!
+%                    andernfalls sind neue Versionen nicht mehr kompatibel
+%
+%
+% 2011-10-27 Kommando f\"ur die Kurzfassung angepasst
+%
+% 2011-10-30 Kommando f\"ur das Titelblatt einer Seminararbeit \"uberarbeitet
+
 
 % Kommandos f\"ur die Erzeugung von Hilfslinien
 
@@ -36,6 +47,7 @@
 \newcommand{\seVsb}{\vspace{0.5\baselineskip}}
 \newcommand{\seVsc}{\vspace{0.75\baselineskip}}
 \newcommand{\seVsd}{\vspace{1\baselineskip}}
+\newcommand{\seVse}{\vspace{1.25\baselineskip}}
 \newcommand{\seVs}[1]{\vspace{#1\baselineskip}}
 
 \newcommand{\zB}{z.\,B.}
@@ -51,6 +63,9 @@
 \newcommand{\Seite}[1]{S. #1}
 
 \newcommand{\seArbeit}[1]{}
+\newcommand{\seNrpa}[1]{}
+\newcommand{\seNrPa}[1]{}
+
 
 \newcommand{\seDEL}[1]{}
 
@@ -81,8 +96,12 @@
 %
 %  Erzeugung einer Ehrenw\"ortlichen Erkl\"arung
 %
+%  Der optionale Paremeter kann f\"ur eine ge\"anderte Formatierung des Titels der Arbeit verwendet werden
 %
-\newcommand{\seEhrenwoertlicheErklaerung}{
+%
+\newcommand{\seThemaDerArbeitEE}{???}
+\newcommand{\seEhrenwoertlicheErklaerung}[1][]{%
+\ifthenelse{\equal{#1}{}}{\renewcommand{\seThemaDerArbeitEE}{\seThemaDerArbeit}}{\renewcommand{\seThemaDerArbeitEE}{#1}}%
 \chapter*{Ehrenw\"ortliche Erkl\"arung}\thispagestyle{empty}
 
 \seSettoplistbaselineskip{1}{0.75}{0.75}{0.75}{0.75}
@@ -90,14 +109,14 @@
 \glqq{}Ich erkl\"are hiermit ehrenw\"ortlich:
 
 \begin{seToplist}{1.}
-\item[1.] dass ich meine \seTypDerArbeit{} mit dem Thema 
+\item[1.] dass ich meine \seArbeit{} mit dem Thema 
 \begin{center}
-\textbf{\seThemaDerArbeit{}}
+\textbf{\seThemaDerArbeitEE{}}
 \end{center}
 ohne fremde Hilfe angefertigt habe;
 \item[2.] dass ich die \"Ubernahme w\"ortlicher Zitate aus der Literatur sowie die Verwendung der Gedanken
-anderer Autoren an den entsprechenden Stellen innerhalb der \seTypDerArbeit{} gekennzeichnet habe;
-\item[3.] dass ich meine \seTypDerArbeit{} bei keiner anderen Pr\"ufung vorgelegt habe;
+anderer Autoren an den entsprechenden Stellen innerhalb der \seArbeit{} gekennzeichnet habe;
+\item[3.] dass ich meine \seArbeit{} bei keiner anderen Pr\"ufung vorgelegt habe;
 \item[4.] dass die eingereichte elektronische Fassung exakt mit der eingereichten schriftlichen Fassung 
 \"ubereinstimmt.
 \end{seToplist}
@@ -113,6 +132,9 @@ Ort, Datum \hspace*{\fill} Unterschrift\newline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ende \seEhrenwoertlicheErklaerung
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Typ der Vorlage (wird f\"ur die Hinweise zur Installation und \"Ubersetzung ben\"otigt)
+\newcommand{\seVorlage}{???}
 
 %
 % Allgemeine Definitionen f\"ur ein Titelblatt
@@ -216,9 +238,10 @@ Ort, Datum \hspace*{\fill} Unterschrift\newline
 \define@key{seTitelblattErsteProjektarbeit}{bearbeitungszeitraumVon}{\renewcommand{\seBearbeitungszeitraumVon}{#1}}
 \define@key{seTitelblattErsteProjektarbeit}{bearbeitungszeitraumBis}{\renewcommand{\seBearbeitungszeitraumBis}{#1}}
 \define@key{seTitelblattErsteProjektarbeit}{sperrvermerk}{\renewcommand{\seSperrvermerk}{#1}}
+\define@key{seTitelblattErsteProjektarbeit}{sperrvermerkAlternativerText}{\renewcommand{\seSperrvermerkText}{#1}}
 %
 \newcommand{\seTitelblatt}{%
-\renewcommand{\seTypDerArbeit}{Projektarbeit}
+%\renewcommand{\seTypDerArbeit}{xxx}
 \ifthenelse{\equal{\seFirmenlogo}{}}{%
 % 2011-08-04 bereits global definiert!!!
 %\renewcommand{\seDhbwLogoX}{93.65}%
@@ -282,7 +305,7 @@ Ort, Datum \hspace*{\fill} Unterschrift\newline
 
 \begin{center}
 \textsf{\large{}Duale Hochschule Baden-W\"urttemberg\\[1.5mm] Mannheim} \\[20mm]
-\textsf{\textbf{\Large{}Erste \seTypDerArbeit}}\\[5mm]
+\textsf{\textbf{\Large{}\seTypDerArbeit}}\\[5mm]
 \textsf{\textbf{\seThemaDerArbeit}} \\[1.5cm]
 \textsf{\textbf{\Large{}Studiengang Wirtschaftsinformatik}\\[3mm] \textsf{Vertiefungsrichtung Softwaremethodik}}
 \end{center}
@@ -315,9 +338,9 @@ Ort, Datum \hspace*{\fill} Unterschrift\newline
 
 
 \renewcommand{\seSperrvermerkText}{%
-Diese \seTypDerArbeit{} enth\"alt vertrauliche Daten der \emph{\seFirma}. Eine Ver\"offentlichung 
+Diese \seArbeit{} enth\"alt vertrauliche Daten der \textsl{\seFirma}. Eine Ver\"offentlichung 
 oder Vervielf\"altigung dieser Arbeit, auch auszugsweise, ist ohne ausdr\"uckliche Genehmigung 
-der \emph{\seFirma} nicht zul\"assig. Diese Arbeit darf nur den Korrektoren, der Studiengangsleitung und dem Pr\"ufungsausschuss 
+der \textsl{\seFirma} nicht zul\"assig. Diese Arbeit darf nur den Korrektoren, der Studiengangsleitung und dem Pr\"ufungsausschuss 
 zug\"anglich gemacht werden.
 }
 
@@ -330,19 +353,36 @@ zug\"anglich gemacht werden.
 }
 } % seSperrvermerk
 
-\newcommand{\seKurzfassung}{
+%\newcommand{\seKurzfassung}[1][]{%
+%\chapter*{Kurzfassung}\thispagestyle{empty}\markboth{Kurzfassung}{Kurzfassung}
+%\seSettoplistbaselineskip{-0.25}{0.75}{0.75}{0.75}{0.75}
+%\textsf{
+%\seIt[\seItemVerfasser]{\seItemVerfasser}{\seVerfasser}
+%\seIt{Firma:}{\seFirma}
+%\seIt{Thema:}{\ifthenelse{\equal{#1}{}}{\seThemaDerArbeit}{#1}}
+%%\seResettoplistbaselineskip{}
+%} % textsf
+%\vspace*{\baselineskip}
+%\seResettoplistbaselineskip{}
+%}
+
+%
+% 2011-10-27
+%
+\newcommand{\seKurzfassung}[1][]{%
 \chapter*{Kurzfassung}\thispagestyle{empty}\markboth{Kurzfassung}{Kurzfassung}
+\vspace*{-6.25mm}
 \seSettoplistbaselineskip{-0.25}{0.75}{0.75}{0.75}{0.75}
 \textsf{
 \seIt[\seItemVerfasser]{\seItemVerfasser}{\seVerfasser}
+\seIt{Kurs:}{\seKurs}
 \seIt{Firma:}{\seFirma}
-\seIt{Thema:}{\seThemaDerArbeit}
+\seIt{Thema:}{\ifthenelse{\equal{#1}{}}{\seThemaDerArbeit}{#1}}
 %\seResettoplistbaselineskip{}
 } % textsf
 \vspace*{\baselineskip}
 \seResettoplistbaselineskip{}
 }
-
 
 \newcommand{\seKapitelVorEinleitung}[1]{%
 \chapter*{#1}\thispagestyle{empty}\markboth{#1}{#1}
@@ -351,9 +391,26 @@ zug\"anglich gemacht werden.
 
 \newcommand{\seTitelblattErsteProjektarbeit}[1][]{%
 \setkeys{seTitelblattErsteProjektarbeit}{#1}%
+\renewcommand{\seNrpa}[1]{erste##1}
+\renewcommand{\seNrPa}[1]{Erste##1}
+\renewcommand{\seTypDerArbeit}{Erste Projektarbeit}
+\renewcommand{\seVorlage}{se-pa1-vorlage}
+\renewcommand{\seArbeit}[1]{Projektarbeit##1}
 \seTitelblatt{}
 \sePrintSperrvermerk{}
 } % \seTitelblattErsteProjektarbeit
+
+
+\newcommand{\seTitelblattZweiteProjektarbeit}[1][]{%
+\setkeys{seTitelblattErsteProjektarbeit}{#1}%
+\renewcommand{\seNrpa}[1]{zweite##1}
+\renewcommand{\seNrPa}[1]{Zweite##1}
+\renewcommand{\seTypDerArbeit}{Zweite Projektarbeit}
+\renewcommand{\seVorlage}{se-pa2-vorlage}
+\renewcommand{\seArbeit}[1]{Projektarbeit##1}
+\seTitelblatt{}
+\sePrintSperrvermerk{}
+} % \seTitelblattZweiteProjektarbeit
 
 
 % Inhaltsverzeichnis
@@ -393,79 +450,210 @@ zug\"anglich gemacht werden.
 %
 %  Erzeugung Titelblatt Seminararbeit
 %
+%  2011-10-30 optionale Parameter eingef\"uhrt
 %
 %
 %
 %
 %
 %
+
+% 2011-10-30
+\define@key{seTitelblattSeminararbeit}{hilfslinien}{\renewcommand{\seHilfslinien}{#1}}
+\define@key{seTitelblattSeminararbeit}{thema}{\renewcommand{\seThemaDerArbeit}{#1}}
+\define@key{seTitelblattSeminararbeit}{dhbwlogoSkalierung}{\renewcommand{\seDhbwLogoSkalierung}{#1}}
+\define@key{seTitelblattSeminararbeit}{dhbwlogoDeltaX}{\renewcommand{\seDhbwLogoDx}{#1}}
+\define@key{seTitelblattSeminararbeit}{dhbwlogoDeltaY}{\renewcommand{\seDhbwLogoDy}{#1}}
+\define@key{seTitelblattSeminararbeit}{verfasser}{\renewcommand{\seVerfasser}{#1}}
+\define@key{seTitelblattSeminararbeit}{verfasserin}{\seIstVerfasserin{ja}\renewcommand{\seVerfasser}{#1}}
+\define@key{seTitelblattSeminararbeit}{matrikelnummer}{\renewcommand{\seMatrikelnummer}{#1}}
+\define@key{seTitelblattSeminararbeit}{firma}{\renewcommand{\seFirma}{#1}}
+\define@key{seTitelblattSeminararbeit}{kurs}{\renewcommand{\seKurs}{#1}}
+\define@key{seTitelblattSeminararbeit}{studiengangsleiter}{\renewcommand{\seStudiengangsleiter}{#1}}
+\define@key{seTitelblattSeminararbeit}{studiengangsleiterin}{\seIstStudiengangsleiterin{ja}\renewcommand{\seStudiengangsleiter}{#1}}
+\define@key{seTitelblattSeminararbeit}{modul}{\renewcommand{\seModul}{#1}}
+\define@key{seTitelblattSeminararbeit}{lehrveranstaltung}{\renewcommand{\seLehrveranstaltung}{#1}}
+\define@key{seTitelblattSeminararbeit}{dozent}{\renewcommand{\seDozent}{#1}}
+\define@key{seTitelblattSeminararbeit}{dozentin}{\seIstDozentin{ja}\renewcommand{\seDozent}{#1}}
+%%\define@key{seTitelblattSeminararbeit}{sperrvermerk}{\renewcommand{\seSperrvermerk}{#1}}
 %
-\newcommand{\seTitelblattSeminararbeit}{%
-\renewcommand{\seTypDerArbeit}{Seminararbeit}
+%
+\newcommand{\seTitelblattSem}{%
+%\renewcommand{\seTypDerArbeit}{xxx}
+%%\ifthenelse{\equal{\seFirmenlogo}{}}{%
+%%% 2011-08-04 bereits global definiert!!!
+%%%\renewcommand{\seDhbwLogoX}{93.65}%
+%%%\renewcommand{\seDhbwLogoY}{1.9}%
+%%%\renewcommand{\seDhbwLogoScale}{1.2}%
+%%}% 
+%%{% Firmenlogo liegt vor => Breite des DHBW-Logos = 50mm
+%%% 2011-08-04 Werte angepasst
+%%\renewcommand{\seDhbwLogoX}{101.8}%
+%%\renewcommand{\seDhbwLogoY}{6.05}%
+%%\renewcommand{\seDhbwLogoScale}{1.092}%
+%%%\renewcommand{\seDhbwLogoX}{99.5}%
+%%%\renewcommand{\seDhbwLogoY}{4.45}%
+%%%\renewcommand{\seDhbwLogoScale}{1.092}%
+%%}% ifthenelse
 \thispagestyle{empty}
+\ifthenelse{\equal{\seDhbwLogoSkalierung}{}}{}{\renewcommand{\seDhbwLogoScale}{\seDhbwLogoSkalierung}}
 
 \setlength{\unitlength}{1mm}
-\begin{picture}(0,0)
-\put(96.9,-1.3){\includegraphics[scale=1.2]{DHBW_d_MA_46mm_RGB_300dpi}}
-\put(0,0){\includegraphics[scale=\seFirmenlogoScale]{firmenlogo}}
+\begin{picture}(0,0)%
+\put(\seDhbwLogoDx,\seDhbwLogoDy){\put(\seDhbwLogoX,\seDhbwLogoY){\includegraphics[scale=\seDhbwLogoScale]{DHBW_d_MA_46mm_RGB_300dpi}}}
+%%\ifthenelse{\equal{\seFirmenlogo}{}}{}{%
+%%% 2011-08-04 Anpassung der Werte
+%%\put(\seFirmenlogoDx,\seFirmenlogoDy){\put(-0.05,15.9){\includegraphics[scale=\seFirmenlogoScale]{\seFirmenlogo}}}%
+%%%\put(\seFirmenlogoDx,\seFirmenlogoDy){\put(-7.9,14.3){\includegraphics[scale=\seFirmenlogoScale]{\seFirmenlogo}}}%
+%%}%
+%
+\ifthenelse{\equal{\seHilfslinien}{}}{}{%
+\ifthenelse{\equal{\seFirmenlogo}{}}
+{% kein Firmenlogo
+% 2011-08-04 Werte angepasst
+\sePdfHline[0.1]{-30,32.0}{200}
+\sePdfVline[0.1]{0,-250}{285}
+\sePdfVline[0.1]{150,-250}{285}
+\sePdfVline[0.1]{160.3,-250}{285}
+\sePdfVline[0.1]{105.3,-250}{285}
+%\sePdfHline[0.1]{-30,30.4}{200}
+%\sePdfVline[0.1]{0,-250}{285}
+%\sePdfVline[0.1]{150,-250}{285}
+%\sePdfVline[0.1]{157.9,-250}{285}
+%\sePdfVline[0.1]{102.9,-250}{285}
+}%
+{%
+% 2011-08-04 Werte angepasst
+\sePdfHline[0.1]{-30,32}{200}
+\sePdfVline[0.1]{0,-250}{285}
+\sePdfVline[0.1]{-10.2,-250}{285}
+\sePdfVline[0.1]{150,-250}{285}
+\sePdfVline[0.1]{160.2,-250}{285}
+\sePdfVline[0.1]{110.2,-250}{285}
+%\sePdfHline[0.1]{-30,30.4}{200}
+%\sePdfVline[0.1]{0,-250}{285}
+%\sePdfVline[0.1]{-7.9,-250}{285}
+%\sePdfVline[0.1]{150,-250}{285}
+%\sePdfVline[0.1]{157.9,-250}{285}
+%\sePdfVline[0.1]{107.9,-250}{285}
+} % ifthenelse
+} % ifthenelse
+%
 \end{picture}
-
-
 
 \begin{center}
 \textsf{\large{}Duale Hochschule Baden-W\"urttemberg\\[1.5mm] Mannheim} \\[20mm]
-\textsf{\textbf{\Large{}Seminarbeit}}\\[5mm]
+\textsf{\textbf{\Large{}\seTypDerArbeit}}\\[5mm]
 \textsf{\textbf{\seThemaDerArbeit}} \\[1.5cm]
 \textsf{\textbf{\Large{}Studiengang Wirtschaftsinformatik}\\[3mm] \textsf{Vertiefungsrichtung Softwaremethodik}}
 \end{center}
 
+%%\ifthenelse{\equal{\seSperrvermerk}{nein}}{}{\vfill\begin{center}{\textsf{\Large\textbf{Sperrvermerk}}}\end{center}}
+
 \vfill
-\seSettoplistbaselineskip{0.5}{0.75}{0.75}{0.75}{0.75}
+\seSettoplistbaselineskip{-0.25}{0.75}{0.75}{0.75}{0.75}
+%%\textsf{
+%%\seIt[\seItemWissBetreuer]{\seItemVerfasser}{\seVerfasser}
+%%\seIt{Matrikelnummer:}{\seMatrikelnummer}
+%%\seIt{Firma:}{\seFirma}
+%%\ifthenelse{\equal{\seAbteilung}{}}{}{\seIt{Abteilung:}{\seAbteilung}}
+%%\seVsd
+%%\seIt{Kurs:}{\seKurs}
+%%\seIt{\seItemSGL}{\seStudiengangsleiter}
+%%\seVsd
+%%\seIt{\seItemWissBetreuer}{\seWissenschaftlicherBetreuerName}
+%%\ifthenelse{\equal{\seWissenschaftlicherBetreuerEmail}{}}{}{\seIt{}{\seWissenschaftlicherBetreuerEmail}}
+%%\ifthenelse{\equal{\seWissenschaftlicherBetreuerTelefon}{}}{}{\seIt{}{\seWissenschaftlicherBetreuerTelefon}}
+%%\seVsd
+%%\seIt{\seItemFirmenbetreuer}{\seFirmenbetreuerName}
+%%\ifthenelse{\equal{\seFirmenbetreuerEmail}{}}{}{\seIt{}{\seFirmenbetreuerEmail}}
+%%\ifthenelse{\equal{\seFirmenbetreuerTelefon}{}}{}{\seIt{}{\seFirmenbetreuerTelefon}}
+%%\seVsd
+%%\seIt{Bearbeitungszeitraum:}{\seBearbeitungszeitraumVon{} bis \seBearbeitungszeitraumBis}
+%%}
 \textsf{
 \seIt[\seItemSGL]{\seItemVerfasser}{\seVerfasser}
 \seIt{Matrikelnummer:}{\seMatrikelnummer}
-\seVsd
+\seIt{Firma:}{\seFirma}
+\seVse
 \seIt{Kurs:}{\seKurs}
 \seIt{\seItemSGL}{\seStudiengangsleiter}
-\seVsd
+\seVse
 \seIt{Modul:}{\seModul}
 \seIt{Lehrveranstaltung:}{\seLehrveranstaltung}
 \seIt{\seItemDozent}{\seDozent}
 }
 \seResettoplistbaselineskip{}
+} % seTitelblattSem
+
+
+\newcommand{\seTitelblattSeminararbeit}[1][]{%
+\setkeys{seTitelblattSeminararbeit}{#1}%
+%\renewcommand{\seNrpa}[1]{zweite##1}
+%\renewcommand{\seNrPa}[1]{Zweite##1}
+\renewcommand{\seTypDerArbeit}{Seminararbeit}
+\renewcommand{\seVorlage}{se-sem-vorlage}
+\renewcommand{\seArbeit}[1]{Seminarbeit##1}
+\seTitelblattSem{}
+\sePrintSperrvermerk{}
+} % \seTitelblattZweiteProjektarbeit
 %
-%
-}
+%%\newcommand{\seTitelblattSeminararbeit}{%
+%%\renewcommand{\seTypDerArbeit}{Seminararbeit}
+%%\thispagestyle{empty}
+%%
+%%\setlength{\unitlength}{1mm}
+%%\begin{picture}(0,0)
+%%\put(96.9,-1.3){\includegraphics[scale=1.2]{DHBW_d_MA_46mm_RGB_300dpi}}
+%%\put(0,0){\includegraphics[scale=\seFirmenlogoScale]{firmenlogo}}
+%%\end{picture}
+%%
+%%
+%%
+%%\begin{center}
+%%\textsf{\large{}Duale Hochschule Baden-W\"urttemberg\\[1.5mm] Mannheim} \\[20mm]
+%%\textsf{\textbf{\Large{}Seminarbeit}}\\[5mm]
+%%\textsf{\textbf{\seThemaDerArbeit}} \\[1.5cm]
+%%\textsf{\textbf{\Large{}Studiengang Wirtschaftsinformatik}\\[3mm] \textsf{Vertiefungsrichtung Softwaremethodik}}
+%%\end{center}
+%%
+%%\vfill
+%%\seSettoplistbaselineskip{0.5}{0.75}{0.75}{0.75}{0.75}
+%%\textsf{
+%%\seIt[\seItemSGL]{\seItemVerfasser}{\seVerfasser}
+%%\seIt{Matrikelnummer:}{\seMatrikelnummer}
+%%\seVsd
+%%\seIt{Kurs:}{\seKurs}
+%%\seIt{\seItemSGL}{\seStudiengangsleiter}
+%%\seVsd
+%%\seIt{Modul:}{\seModul}
+%%\seIt{Lehrveranstaltung:}{\seLehrveranstaltung}
+%%\seIt{\seItemDozent}{\seDozent}
+%%}
+%%\seResettoplistbaselineskip{}
+%%
+%%
+%%}
 %
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ende \seTitelblattSeminararbeit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Ausgabe von Abk\"urzungs- und Symbolverzeichnis
-%
-%  mit \renewcommand{\seAbkuerzungsverzeichnisLabelwidth}{5cm}
-%  kann im LaTeX-Dokument die Breite des Labels f\"ur das 
-%  Abk\"urzungsverzeichnis auf (z. B.) 5cm ver\"andert werden
-%
-%%\newcommand{\sePrintAcronyms}{%
-%%\deftranslation[to=German]{Acronyms}{Abk\"urzungsverzeichnis}
-%%\renewcommand{\seGloLabelwidth}{\seAbkuerzungsverzeichnisLabelwidth}
-%%%
-%%\printglossary[type=\acronymtype,style=seGloList]
-%%%Symbole ausgeben
-%%\renewcommand{\seGloLabelwidth}{\seSymbolverzeichnisLabelwidth}
-%%\printglossary[type=symbolslist,style=seGloList]
-%%}
-
 
 % Ausgabe des Glossars
+\newcommand{\seGlossarVerzeichnisname}{Glossar}
 \newcommand{\sePrintGlossary}{%
 % 2011-08-01 clearpage bereitet Probleme mit miktex
 %\clearpage%
 \setglossarysection{chapter}
 \renewcommand{\chaptername}{}\renewcommand{\thechapter}{}
-\printglossary[style=altlist,nonumberlist=false,title=Glossar]
+%
+\printglossary[style=altlist,nonumberlist=false,title=\seGlossarVerzeichnisname,toctitle=\seGlossarVerzeichnisname]
+%\printglossary[style=altlist,nonumberlist=false]
+%
+% Liefert noch keine befriedigende Ausgabe des Glossars
+%\printglossary[style=seGloList,nonumberlist=false,title=Glossar]
 }
 
 % Umschalten auf den Anhang
@@ -801,18 +989,21 @@ zug\"anglich gemacht werden.
 }
 
 
+%
+% Konfiguration des Glossars
+%
+%
+\define@key{seKonfigurationGlo}{verzeichnisname}{\renewcommand{\seGlossarVerzeichnisname}{#1}}
+\define@key{seKonfigurationGlo}{abstandEintrag}{\renewcommand{\seGlossaryItemSkip}{#1}}
 
-
+\newcommand{\seKonfigurationGlo}[1][]{\setkeys{seKonfigurationGlo}{#1}}
 
 
 %
-% Definition von globalen Konfigurationskommandos
+% ACHTUNG: Die folgenden Kommandos sind noch experimenteller Natur 
+%                     und sollten keinesfalls verwendet werden!!!
 %
 %
-%
-
-
-
 
 
 

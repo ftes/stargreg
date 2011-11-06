@@ -1,11 +1,15 @@
 package de.dhbw.stargreg.util;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Vector;
 
 import de.dhbw.stargreg.code.RaumschiffTyp;
+import de.dhbw.stargreg.code.Transaktion;
 import de.dhbw.stargreg.code.Unternehmen;
 import de.dhbw.stargreg.code.Verkauf;
 
@@ -17,6 +21,8 @@ import de.dhbw.stargreg.code.Verkauf;
  * 
  */
 public class Util {
+	private static boolean praesentation = false;
+	
 	/**
 	 * Gruppiert die Elemente im {@code vector} nach einem Merkmal, das durch {@code gruppierung.nach()} definiert wird
 	 * 
@@ -63,10 +69,10 @@ public class Util {
 		return tmp;		
 	}
 	
-	public static double summiereVerkaeufe(Vector<Verkauf> verkaeufe) {
-		return summiereVector(verkaeufe, new Summe<Verkauf>() {
-			public double von(Verkauf verkauf) {
-				return verkauf.getKosten();
+	public static double summiereTransaktionen(Vector<? extends Transaktion<?>> transaktionen) {
+		return summiereVector(transaktionen, new Summe<Transaktion<?>>() {
+			public double von(Transaktion<?> transaktion) {
+				return transaktion.getKosten();
 			}
 		});
 	}
@@ -132,43 +138,35 @@ public class Util {
 		return vector;
 	}
 	
+	public static <T> T finde(Vector<T> vector, Filter<T> filter) {
+		for (T object : vector) {
+			if (filter.nach(object)) return object;
+		}
+		return null;
+	}
+	
 	public static void printSpacer() {
-		System.out.println("----------------------------------------");
+		System.out.println("/////////////////////////////////////////////////////////////");
 	}
 	
-	public static String repeat(String s, int n) {
-		StringBuilder sb = new StringBuilder();
-		for (int i=0; i<n; i++) {
-			sb.append(s);
-		}
-		return sb.toString();
+	public static void printHeading(String heading) {
+		printSpacer();
+		System.out.println(heading);
+		printSpacer();
+		System.out.println();
 	}
 	
-	public static void printTable(Vector<String[]> data) {
-		int[] max = new int[data.get(0).length];
-		for (int i=0; i<max.length; i++) max[i] = Integer.MIN_VALUE;
-		for (String[] row : data) {
-			for (int j=0; j<max.length; j++) {
-				if (row[j].length() > max[j]) {
-					max[j] = row[j].length();
-				}
-			}
+	public static void setPraesentation(boolean status) {
+		praesentation = status;
+	}
+	
+	public static void pause() {
+		if (! praesentation) return;
+		try {
+			if (! new BufferedReader(new InputStreamReader(System.in)).readLine().equals("")) praesentation = false;	
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		String format = "|";
-		int width = 4 + (max.length - 1) * 3;
-		for (int i=0; i<max.length; i++){
-			format += " %" + max[i] + "s |";
-			width += max[i];
-		}
-		format += "\n";
-		
-		System.out.println(repeat("-", width));
-		System.out.printf(format, (Object[]) data.get(0));
-		System.out.println(repeat("-", width));
-		for (int i=1; i<data.size(); i++) {
-			System.out.printf(format, (Object[]) data.get(i));
-		}
-		System.out.println(repeat("-", width));
 	}
 }

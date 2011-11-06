@@ -59,7 +59,11 @@
 %
 %  Konfiguration der verschiedenen Verzeichnisse
 %
+%  abstandEintrag: Wert wird mit \baselineskip multipliziert
 %
+
+%
+%  Abbildungsverzeichnis
 %
 \seKonfigurationAbb[
 %verzeichnisname=Abbildungsverzeichnis,
@@ -75,6 +79,9 @@ labelbreite=1cm,
 %abstandVerzeichnis=-1mm
 ]
 
+%
+% LIstingverzeichnis
+%
 \seKonfigurationPrg[
 %verzeichnisname=Listing-Verzeichnis,
 labeltextLinks=,
@@ -89,6 +96,9 @@ labelbreite=1cm,
 %abstandVerzeichnis=-10mm
 ]
 
+%
+% Tabellenverzeichnis
+%
 \seKonfigurationTab[
 %verzeichnisname=Liste der Tabellen,
 labeltextLinks=,
@@ -103,6 +113,9 @@ labelbreite=1cm,
 %abstandVerzeichnis=-10mm
 ]
 
+%
+% Abk\"urzungsverzeichnis
+%
 \seKonfigurationAbk[
 %verzeichnisname=Liste der Abk\"urzungen,
 %labelbreite=3cm,
@@ -112,6 +125,9 @@ labelbreite=1cm,
 %abstandVerzeichnis=-10mm
 ]
 
+%
+% Symbolverzeichnis
+% 
 \seKonfigurationSym[
 %verzeichnisname=Liste der Symbole,
 %labelbreite=4cm,
@@ -120,6 +136,15 @@ labelbreite=1cm,
 %newpage=ja,
 %abstandVerzeichnis=-10mm
 ]
+
+%
+% Glossar
+%
+\seKonfigurationGlo[
+%verzeichnisname=Glossar,
+%abstandEintrag=0,
+]
+
 
 
 % (eventuelle) Neudefinition f\"ur die Unter-/\"Uberschriften von Abbildungen, Tabellen und Listings

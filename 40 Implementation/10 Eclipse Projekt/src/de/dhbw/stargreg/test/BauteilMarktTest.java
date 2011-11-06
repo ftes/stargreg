@@ -28,9 +28,9 @@ public class BauteilMarktTest {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0);
-		hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0);
-		triebwerk = new BauteilTyp("Triebwerk", 5, 500.00, 200.00);
+		rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0, BauteilTyp.Art.STANDARD);
+		hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0, BauteilTyp.Art.STANDARD);
+		triebwerk = new BauteilTyp("Triebwerk", 5, 500.00, 200.00, BauteilTyp.Art.STANDARD);
 		bauteilMarkt.fuegeTypHinzu(rumpf);
 		bauteilMarkt.fuegeTypHinzu(hitzeschild);
 		bauteilMarkt.fuegeTypHinzu(triebwerk);

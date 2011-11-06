@@ -1,0 +1,193 @@
+\section{Die Definition und Anwendung von zwei neuen Listenumgebungen}
+
+\subsection{Das Layout der Standardlistenumgebung von \LaTeX}
+
+Stichpunktlisten werden in \LaTeX{} mit der \verb+itemize+-Umgebung erzeugt. 
+Die Stichpunktliste 
+
+\begin{itemize}
+\item 1. Stichpunkt der ersten Ebene
+\begin{itemize}
+\item 1. Stichpunkt der zweiten Ebene
+\item 2. Stichpunkt der zweiten Ebene
+\begin{itemize}
+\item 1. Stichpunkt der dritten Ebene
+\item 2. Stichpunkt der dritten Ebene
+\begin{itemize}
+\item 1. Stichpunkt der vierten Ebene
+\item 2. Stichpunkt der vierten Ebene
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item 2. Stichpunkt der ersten Ebene
+\item 3. Stichpunkt der ersten Ebene
+\end{itemize}
+
+wird durch die folgenden Anweisungen erreicht:
+
+\vspace*{-\baselineskip}
+
+\begin{verbatim}
+\begin{itemize}
+\item 1. Stichpunkt der ersten Ebene
+\begin{itemize}
+\item 1. Stichpunkt der zweiten Ebene
+\item 2. Stichpunkt der zweiten Ebene
+\begin{itemize}
+\item 1. Stichpunkt der dritten Ebene
+\item 2. Stichpunkt der dritten Ebene
+\begin{itemize}
+\item 1. Stichpunkt der vierten Ebene
+\item 2. Stichpunkt der vierten Ebene
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\item 2. Stichpunkt der ersten Ebene
+\item 3. Stichpunkt der ersten Ebene
+\end{itemize}
+\end{verbatim}
+
+\subsection{Die neue Listenumgebung \texttt{seList} f\"ur Stichpunktlisten}
+
+Weder die Einr\"uckung der einzelnen Ebenen noch die gro{\ss}en Abst\"ande zwischen den einzelnen Stichpunkten sind bei der \verb+itemize+-Umgebung 
+bez\"uglich des Layouts sonderlich \"uberzeugend. 
+
+Daher wird eine neue \verb+seList+-Umgebung zur Verf\"ugung gestellt. 
+
+\begin{seList}
+\item 1. Stichpunkt der ersten Ebene
+\begin{seList}
+\item 1. Stichpunkt der zweiten Ebene
+\item 2. Stichpunkt der zweiten Ebene
+\begin{seList}
+\item 1. Stichpunkt der dritten Ebene
+\item 2. Stichpunkt der dritten Ebene
+\begin{seList}
+\item 1. Stichpunkt der vierten Ebene
+\item 2. Stichpunkt der vierten Ebene
+\begin{seList}
+\item 1. Stichpunkt der f\"unften Ebene
+\item 2. Stichpunkt der f\"unften Ebene
+\end{seList}
+\end{seList}
+\end{seList}
+\end{seList}
+\item 2. Stichpunkt der ersten Ebene
+\item 3. Stichpunkt der ersten Ebene
+\end{seList}
+
+Der \LaTeX-Quelltext f\"ur diese Liste ist: 
+
+\vspace*{-\baselineskip}
+\begin{verbatim}
+\begin{seList}
+\item 1. Stichpunkt der ersten Ebene
+\begin{seList}
+\item 1. Stichpunkt der zweiten Ebene
+\item 2. Stichpunkt der zweiten Ebene
+\begin{seList}
+\item 1. Stichpunkt der dritten Ebene
+\item 2. Stichpunkt der dritten Ebene
+\begin{seList}
+\item 1. Stichpunkt der vierten Ebene
+\item 2. Stichpunkt der vierten Ebene
+\begin{seList}
+\item 1. Stichpunkt der f\"unften Ebene
+\item 2. Stichpunkt der f\"unften Ebene
+\end{seList}
+\end{seList}
+\end{seList}
+\end{seList}
+\item 2. Stichpunkt der ersten Ebene
+\item 3. Stichpunkt der ersten Ebene
+\end{seList}
+\end{verbatim}
+
+\vspace*{-\baselineskip}
+Neben der Eigenschaft, im Gegensatz zur \verb+itemize+-Umgebung f\"unf Verschachtelungsebenen angeben zu k\"onnen, ist es m\"oglich,
+die Zeilenabst\"ande f\"ur die einzelnen Ebenen zu konfigurieren. 
+
+Mit dem Kommando \newline 
+\hspace*{\fill}\verb+\seSetlistbaselineskip{b1}{b2}{b3}{b4}{b5}+\hspace*{\fill}\newline 
+kann f\"ur die Verschachtelungsebene $i$ der Grundlinienabstand \texttt{b$_{i}$} festgelegt 
+werden. Als Einheit wird der Wert von \verb+\baselineskip+ (Grundlinienabstand des Dokuments) verwendet. Die folgenden Werte sind f\"ur ein Dokument voreingestellt:\newline
+\hspace*{\fill}\verb+\seSetlistbaselineskip{1}{0.75}{0.75}{0.75}{0.75}+\hspace*{\fill}\newline\vspace*{-\baselineskip}
+
+Mit dem Kommando \newline
+\hspace*{\fill}\verb+\seResetlistbaselineskip{}+\hspace*{\fill}\newline
+wird die letzte \"Anderung der Werte r\"uckg\"angig gemacht.
+
+\newpage
+\subsection{Die neue Listenumgebung \texttt{seToplist} f\"ur Listen mit einem Label und Aufz\"ahlungslisten}
+
+Die neue Listenumgebung \verb+seToplist+ erlaubt es, jeden Stichpunkt mit einem Label zu versehen.
+Die Liste\footnote{Die folgenden Werte sind frei erfunden.} 
+
+\begin{seToplist}{Mercedes Benz:}
+\item[Audi:] 400000 Gesamtverk\"aufe
+\begin{seToplist}{3er Reihe:}
+\item[A4:] 200000 Verk\"aufe
+\item[A5:] 50000 Verk\"aufe
+\item[A6:] 150000 Verk\"aufe
+\end{seToplist}
+\item[Mercedes Benz:] 500000 Gesamtverk\"aufe 
+\item[BMW:] 650000 Gesamtverk\"aufe 
+\begin{seToplist}{3er Reihe:}
+\item[1er Reihe:] 100000 Verk\"aufe
+\item[3er Reihe:] 300000 Verk\"aufe
+\item[5er Reihe:] 250000 Verk\"aufe
+\end{seToplist}
+\end{seToplist}
+
+wird durch die folgenden \LaTeX-Anweisungen erzeugt:
+
+\vspace*{-\baselineskip}
+\begin{verbatim}
+\begin{seToplist}{Mercedes Benz:}
+\item[Audi:] 400000 Gesamtverk\"aufe
+\begin{seToplist}{3er Reihe:}
+\item[A4:] 200000 Verk\"aufe
+\item[A5:] 50000 Verk\"aufe
+\item[A6:] 150000 Verk\"aufe
+\end{seToplist}
+\item[Mercedes Benz:] 500000 Gesamtverk\"aufe 
+\item[BMW:] 650000 Gesamtverk\"aufe 
+\begin{seToplist}{3er Reihe:}
+\item[1er Reihe:] 100000 Verk\"aufe
+\item[3er Reihe:] 300000 Verk\"aufe
+\item[5er Reihe:] 250000 Verk\"aufe
+\end{seToplist}
+\end{seToplist}
+\end{verbatim}
+
+\vspace*{-\baselineskip}
+Der Parameter \verb+par+ von \verb+\begin{seToplist}{par}+ definiert die Breite des Labels f\"ur die 
+zugeh\"orige Liste.
+
+F\"ur die \verb+seToplist+-Umgebung k\"onnen ebenfalls f\"unf Verschachtelungsebenen definiert werden. 
+\"Uber die Kommandos \newline
+\hspace*{\fill}\verb+\seSettoplistbaselineskip{b1}{b2}{b3}{b4}{b5}+\hspace*{\fill}\newline 
+bzw. \newline
+\hspace*{\fill}\verb+\seResettoplistbaselineskip{}+\hspace*{\fill}\newline
+lassen sich analog zur \verb+seList+-Umgebung die Grundlinienabst\"ande der einzelnen Verschachtelungsebenen 
+ver\"andern bzw. zur\"ucksetzen. Die folgenden Werte sind f\"ur ein Dokument voreingestellt:\newline
+\hspace*{\fill}\verb+\seSettoplistbaselineskip{1}{0.75}{0.75}{0.75}{0.75}+\hspace*{\fill}\newline\vspace*{-\baselineskip}
+
+Durch eine entsprechende Wahl der Labels k\"onnen Aufz\"ahlungslisten erzeugt werden:
+
+\begin{seToplist}{a)}
+\item[a)] Deutsche Automarken
+\begin{seToplist}{1)}
+\item[1)] Mercedes Benz
+\item[2)] Audi 
+\item[3)] VW
+\item[4)] BMW 
+\end{seToplist}
+\item[b)] Japanische Automarken
+\begin{seToplist}{1)}
+\item[1)] Toyota
+\item[2)] Honda
+\item[3)] Mazda
+\end{seToplist}
+\end{seToplist}
+

@@ -1,0 +1,61 @@
+\section{Abbildungen, Tabellen und Programmlistings\label{gleitobjekte}}
+
+Ein Rechteck besitzt die in \vref{abb1} dargestellte Struktur.
+
+\begin{figure}[htbp]
+\centering
+\setlength{\unitlength}{1mm}
+\begin{picture}(100,30)
+\put(0,0){\framebox(100,30){Ich bin kein Quadrat!}}
+\end{picture}
+\caption[Die Darstellung eines Rechtecks]{Die Darstellung eines Rechtecks\label{abb1}\footnotemark}
+\end{figure}
+\footnotetext{\seCite{Vgl.}{S. 400}{The:WA}. Achtung: Dieser Literaturverweis ist  rein fiktiver Natur, 
+die Seite 400 existiert in \seCite{}{}{The:WA} nicht!}\label{fussnote}
+
+Der optionale Parameter im folgenden \verb+\caption+-Kommando
+
+\vspace*{-\baselineskip}
+\begin{verbatim}
+\caption[Die Darstellung eines Rechtecks]%
+{Die Darstellung eines Rechtecks\label{abb1}\footnotemark}
+\end{verbatim}
+\vspace*{-\baselineskip}
+
+definiert den Eintrag f\"ur das Abbildungsverzeichnis. Dort sollte die Fu{\ss}notennummer nicht auftauchen.
+Nutzt man den optionalen Parameter nicht, ist es notwendig,  vor \verb+\footnotemark+ noch ein \verb+\protect+ 
+einzuf\"ugen, da \LaTeX{} andernfalls die \"Ubersetzung mit einer Fehlermeldung abbricht. 
+
+Eine Notentabelle kann wie in \vref{noten} dargestellt aussehen.
+
+\begin{table}[htbp]%
+\centering%
+\begin{tabular}{| c | c |}
+\hline
+Matrikelnummer & Note \\
+\hline
+\hline
+1234567 & 2,7 \\
+\hline
+2323456 & 3,5 \\
+\hline
+9865783 & 1,0 \\
+\hline
+\end{tabular} 
+\caption{Ergebnisse der Klausur Programmierung I\label{noten}}
+\end{table}
+
+
+Eines der wichtigsten Java-Programme \"uberhaupt ist in \vref{hello} zu sehen.
+
+\begin{programm}[htbp]
+\begin{lstlisting}
+public class HelloDHBW {
+  public static void main ( String[] args ) {
+    System.out.println ( "Hello DHBW" );
+  } // main
+} // HelloDHBW
+\end{lstlisting}
+\caption{Die Klasse \texttt{HelloDHBW}\label{hello}}
+\end{programm}
+

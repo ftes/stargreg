@@ -1,0 +1,197 @@
+%
+% Einlesen der .sty-Dateien
+%
+\input{se-wa-input-styles}
+
+%
+% Individuelle Konfiguration des Dokumentes
+%
+\input{wa-konfiguration}
+
+%
+% Individuelle Definition von Abk\"urzungen, Symbolen und eventuell Glossareintr\"agen
+%
+\input{wa-abkuerzungen} 
+
+\begin{document}
+
+\newcommand{\version}{0.93}
+
+% Erzeugung des Titelblatts
+%
+%
+%
+\seTitelblattSeminararbeit[
+%hilfslinien=ja,
+%dhbwlogoSkalierung=0.5,
+%dhbwlogoDeltaX=2.4,
+%dhbwlogoDeltaY=-10,
+thema=\LaTeX-Layoutvorlage zur Anfertigung einer Seminararbeit\\(Version \version),
+verfasser=J\"org Baumgart,
+firma=Ausbildungsfirma,
+%verfasserin=,
+matrikelnummer=9999999,
+kurs=WWI\,10\,SWM\,A,
+%studiengangsleiterin=,
+studiengangsleiter=Prof. Dr.-Ing. J\"org Baumgart,
+modul=Umsetzung von Methoden der Wirtschaftsinformatik,
+lehrveranstaltung=Fallstudie Systemanalyse,
+%dozentin=,
+dozent=Gregor Tielsch
+]
+
+
+
+% Erzeugung der Kurzfassung; Verfasser, Firma und Thema werden automatisch \"ubernommen
+%
+% Der optionale Parameter kann verwendet werden, um f\"ur das Thema der Arbeit eine 
+% andere Formatierung vorzunehmen; das sollte in der Regel nicht erforderlich sein;
+% ausserdem besteht die Gefahr inkonsistenter Titel auf dem Titelblatt und in der 
+% Kurzfassung
+%
+%\seKurzfassung{} % dieses Kommando sollte standardm\"assig verwendet werden
+\seKurzfassung[\LaTeX-Layoutvorlage zur Anfertigung einer Seminararbeit (Version \version)]{}
+
+% Beispiel f\"ur ein Kapitel, dass vor dem Einleitungskapitel kommt, z. B. ein Vorwort oder eine Danksagung
+\seKapitelVorEinleitung{Vorwort}
+
+\input{se-sem-vorwort}
+
+
+% Ausgabe des Inhaltsverzeichnisses
+%
+%
+\seInhaltsverzeichnis[%
+einrueckung=ja,
+gliederungsebenen=4
+]
+
+
+
+% Ausgabe der verschiedenen Verzeichnisse
+% abk: Abk\"urzungsverzeichnis
+% sym: Symbolverzeichnis
+% abb: Abbildungsverzeichnis
+% tab: Tabellenverzeichnis
+% prg: Listingverzeichnis
+%
+%
+% Achtung: Abk\"urzungs- und Symbolverzeichnis werden nur ausgegeben, wenn mindest ein Symbol bzw. 
+%                mindestens eine Abk\"urzung in der Arbeit verwendet wurden
+%
+%
+% gliederungsebene:
+% -- section: die Verzeichnisse werden einem Kapitel "Verzeichnisse" untergliedert
+% -- chapter: die Verzeichnisse sind jeweils eigene Kapitel
+% imInhaltsverzeichnis: ja/nein -- Sollen die Verzeichnisse im Inhaltsverzeichnis enthalten sein?
+\seVerzeichnisse[gliederungsebene=section,imInhaltsverzeichnis=ja]{abk}{sym}{abb}{tab}{prg}
+
+
+
+
+
+
+% Erstes eigentliches Kapitel der Arbeit; typischerweise das Einleitungskapitel;
+% hier muss wieder auf die Nummierung mit arabischen Seitenzahlen umgestellt werden
+%
+
+ \input{10_Einleitung/chapter.tex}
+
+\input{20_Spielwelt/chapter.tex}
+
+\input{30_Fachkonzept/chapter.tex}
+
+\input{40_UI/chapter.tex}
+
+\input{50_jUnit/chapter.tex}
+
+\input{60_Fazit/chapter.tex}
+
+
+% Mit markright kann eine verk\"urzte Version der \"Uberschrift f\"ur den Seitenkopf generiert werden
+%
+%
+%\markright{Formaler Aufbau}
+
+
+
+
+% Anhang der Arbeit
+% 
+%
+\seAppendix{}
+\chapter{Einige wichtige \LaTeX{}-Kommandos}
+
+
+
+\input{se-test-zitieren}
+
+\input{se-test-abkuerzungen}
+
+\input{se-test-floats}
+
+\input{se-test-listen}
+
+\chapter{Hinweise zur Installation und \"Ubersetzung}
+
+\input{se-hinweise-installation}
+
+%
+%  Erzeugung eines Glossars
+%
+% Achtung: Das Glossar wird nur ausgegeben, wenn mindestens ein Eintrag in der Arbeit 
+%                definiert wurde
+%
+%
+\newpage
+\sePrintGlossary{}
+
+
+%
+% Literaturverzeichnisses
+%
+%\newpage
+\sePrintBibliography{}
+
+\input{se-test-literaturverzeichnis}
+
+
+%
+% Festlegung des grundlegenden Formatierungsstils des Literaturverzeichnis
+%
+\bibliographystyle{jurabib}
+
+% Eigentliche Ausgabe der in der Arbeit verwendeten Quellen
+%
+%
+% Angabe der bib-Dateien, in denen die Quellen beschrieben sind;
+% die Angabe geht davon aus, dass eine wa.bib-Datei in demselben 
+% Verzeichnis liegt, wie se-pa1-vorlage.tex
+%
+\seBibliography{wa}
+
+
+%
+% Erzeugung der ehrenw\"ortlichen Erkl\"arung
+%
+% Der optionale Parameter kann verwendet werden, um f\"ur das Thema der Arbeit eine 
+% andere Formatierung vorzunehmen; das sollte in der Regel nicht erforderlich sein;
+% ausserdem besteht die Gefahr inkonsistenter Titel auf dem Titelblatt und in der 
+% ehrenw\"ortlichen Erkl\"arung
+%
+%\seEhrenwoertlicheErklaerung{} % dieses Kommando sollte standardm\"assig verwendet werden
+\seEhrenwoertlicheErklaerung[\LaTeX-Layoutvorlage zur Anfertigung\\ einer Seminarbeit (Version \version)]{}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+

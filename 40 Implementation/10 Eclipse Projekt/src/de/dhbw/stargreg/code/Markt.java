@@ -44,6 +44,16 @@ public abstract class Markt<T extends Typ, A extends Transaktion<T>> {
 		return transaktionen;
 	}
 	
+	public Vector<A> getTransaktionen(Unternehmen unternehmen) {
+		Vector<A> vector = new Vector<A>();
+		for (A transaktion : transaktionen) {
+			if (transaktion.getUnternehmen() == unternehmen) {
+				vector.add(transaktion);
+			}
+		}
+		return vector;
+	}
+	
 	private void loescheTransaktionen() {
 		transaktionen.clear();
 	}

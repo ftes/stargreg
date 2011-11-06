@@ -1,0 +1,31 @@
+%  Testdatei f\"ur die Erzeugung von Literaturreferenzen, die den Regeln von Rene Theisen 
+%  (Wissenschaftliches Arbeiten, 2009) folgen
+%
+%
+%
+\section{Kommandos f\"ur die Erzeugung von Literaturverweisen}
+
+Das Kommando \verb+\seCite{par1}{par2}{par3}+ erzeugt einen Literaturverweis im Text. 
+
+\begin{seToplist}{\texttt{par1}:}
+\item[\texttt{par1}:] Der erste Parameter  definiert einen optionalen Text, der vor dem eigentlichen Literaturverweis ausgegeben 
+                               wird, typischerweise Vgl. oder vgl.
+\item[\texttt{par2}:] Der zweite Parameter  wird verwendet, um (z.\,B.) zus\"atzliche Seitenangaben f\"ur den Literaturverweis 
+                              vorzunehmen.
+\item[\texttt{par2}:] Der dritte Parameter ist der entsprechende Schl\"ussel in der .bib-Datei, in der die Literaturquellen 
+                              beschrieben sind (vgl. \texttt{wa.bib}).                                                                                       
+\end{seToplist}
+
+Als Beispiel f\"ur die Verwendung des \verb+\seCite+-Befehls dient folgendes Zitat: \glqq{}Die \textbf{Funktion} eines 
+Anhangs einer wissenschaftlichen Arbeit wird sehr h\"aufig \textbf{missdeutet}, der Anhang selbst nicht selten \textbf{mi{\ss}braucht}.\grqq{} 
+(\seCite{}{S. 170}{The:WA}).
+
+Bei der von Theisen vorgeschlagenen Zitierweise erfolgt die Angabe der Literaturverweise in der Regel innerhalb einer Fu{\ss}note. 
+Hierf\"ur kann das Kommando \verb+\seFootcite+ verwendet werden, das dieselben Parameter wie \verb+\seCite+ besitzt. 
+
+Als Beispiel f\"ur ein indirektes Zitat l\"asst sich die Aussage von Theisen anf\"uhren, dass Hauptinhalte eines (berechtigten) Anhangs erg\"anzende 
+Materialien und Dokumente sind, die weitere themenbezogene Informationen liefern k\"onnen.\seFootcite{Vgl.}{S. 171}{The:WA}
+
+Weder das \verb+\seFootcite+- noch das \verb+\footnote+-Kommande k\"onnen bei Gleitobjekten (Verwendung der \verb+figure+-, \verb+table+- oder 
+\verb+programm+-Umgebung) verwendet werden. Ein kleiner Workaround, um \LaTeX{} doch dazu zu bringen, Fu{\ss}noten bei Gleitobjekten 
+zu akzeptieren, ist in \vref{gleitobjekte} zu finden.

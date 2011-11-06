@@ -3,6 +3,7 @@ package de.dhbw.stargreg.code;
 import java.util.HashMap;
 import java.util.Vector;
 
+import de.dhbw.stargreg.util.TableBuilder;
 import de.dhbw.stargreg.util.Util;
 
 
@@ -18,51 +19,68 @@ public class SpielRunde {
 	 * Achtung: zu multiplizieren mit der Anzahl der Unternehmen!
 	 */
 	private final HashMap<RaumschiffTyp, Integer> nachfrage;
-	private final HashMap<PersonalTyp, Double> laufendeKosten;
-	private final HashMap<PersonalTyp, Double> werbungsKosten;
+	private final double personalKonjunkturFaktor;
 	private final String nachricht;
 	private final int nummer;
+	
+	public String getNachricht() {
+		return nachricht;
+	}
 	
 	public SpielRunde(
 			Spiel spiel,
 			HashMap<RaumschiffTyp, Integer> nachfrage,
-			HashMap<PersonalTyp, Double> laufendeKosten,
-			HashMap<PersonalTyp, Double> werbungsKosten,
+			double personalKonjunkturFaktor,
 			String nachricht,
 			int nummer) {
 		this.spiel = spiel;
 		this.nachfrage = nachfrage;
-		this.laufendeKosten = laufendeKosten;
-		this.werbungsKosten = werbungsKosten;
+		this.personalKonjunkturFaktor = personalKonjunkturFaktor;
 		this.nachricht = nachricht;
 		this.nummer = nummer;
 	}
 	
 	public void starteSpielRunde() {
+		Util.printHeading(String.format("Spielrunde %d einrichten", nummer));
+		System.out.println("Nachfrage auf Raumschiffmarkt");
+		TableBuilder tb = new TableBuilder("RaumschiffTyp", "Nachfrage");
 		for (RaumschiffTyp raumschiffTyp : nachfrage.keySet()) {
+			tb.addNewRow(raumschiffTyp,
+					nachfrage.get(raumschiffTyp) * spiel.getAnzahlUnternehmen());
 			raumschiffTyp.setNachfrage(nachfrage.get(raumschiffTyp) * spiel.getAnzahlUnternehmen());
 		}
-		for (PersonalTyp personalTyp : laufendeKosten.keySet()) {
-			personalTyp.setLaufendeKosten(laufendeKosten.get(personalTyp));
-			personalTyp.setWerbungsKosten(werbungsKosten.get(personalTyp));
+		tb.print();
+		System.out.println("Personalkosten");
+		tb = new TableBuilder("PersonalTyp", "Laufende Kosten", "Werbungskosten");
+		for (PersonalTyp personalTyp : spiel.getPersonalMarkt().getTypen()) {
+			personalTyp.setKonjunkturFaktor(personalKonjunkturFaktor);
+			tb.addNewRow(personalTyp,
+					String.format("%.2f", personalTyp.getLaufendeKosten()),
+					String.format("%.2f", personalTyp.getWerbungsKosten()));
 		}
-		System.out.printf("Spielrunde %d gestartet: %s\n", nummer, nachricht);
+		tb.print();
+		Util.pause();
 	}
 	
-	private final Vector<Transaktion> transaktionen = new Vector<Transaktion>();
+	private final Vector<Transaktion<?>> transaktionen = new Vector<Transaktion<?>>();
+	private final Vector<Zahlung> zahlungen = new Vector<Zahlung>();
 	
-	public void fuegeTransaktionHinzu(Transaktion transaktion) {
+	public void fuegeTransaktionHinzu(Transaktion<?> transaktion) {
 		transaktionen.add(transaktion);
 	}
 	
-	public void fuegeTransaktionenHinzu(Vector<? extends Transaktion> transaktionen) {
+	public void fuegeTransaktionenHinzu(Vector<? extends Transaktion<?>> transaktionen) {
 		this.transaktionen.addAll(transaktionen);
 	}
 	
+	public void fuegeZahlungHinzu(Zahlung zahlung) {
+		zahlungen.add(zahlung);
+	}
+	
 	@SuppressWarnings("unchecked")
-	public <T> Vector<T> get(Class<T> clazz) {
+	public <T> Vector<T> getTransaktionen(Class<T> clazz) {
 		Vector<T> transaktionen = new Vector<T>();
-		for (Transaktion transaktion : this.transaktionen) {
+		for (Transaktion<?> transaktion : this.transaktionen) {
 			if (transaktion.getClass() == clazz) {
 				transaktionen.add((T) transaktion);
 			}
@@ -70,10 +88,14 @@ public class SpielRunde {
 		return transaktionen;
 	}
 	
+	public <T extends Transaktion<?>> double getSummeTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
+		return Util.summiereTransaktionen(getTransaktionen(clazz, unternehmen));
+	}
+	
 	@SuppressWarnings("unchecked")
-	public <T> Vector<T> get(Class<T> clazz, Unternehmen unternehmen) {
+	public <T> Vector<T> getTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
 		Vector<T> transaktionen = new Vector<T>();
-		for (Transaktion transaktion : this.transaktionen) {
+		for (Transaktion<?> transaktion : this.transaktionen) {
 			if (transaktion.getClass() == clazz && transaktion.getUnternehmen() == unternehmen) {
 				transaktionen.add((T) transaktion);
 			}
@@ -81,28 +103,11 @@ public class SpielRunde {
 		return transaktionen;
 	}
 	
-	public Vector<Verkauf> getVerkaeufe() {
-		return get(Verkauf.class);
-	}
-	
-	public Vector<Angebot> getAngebote() {
-		return get(Angebot.class);
-	}
-	
-	public Vector<Einkauf> getEinkaeufe() {
-		return get(Einkauf.class);
-	}
-	
-	public Vector<Einstellung> getEinstellungen() {
-		return get(Einstellung.class);
-	}
-	
-	public Vector<Entlassung> getEntlassungen() {
-		return get(Entlassung.class);
-	}
-	
-	public Vector<Schulung> getSchulungen() {
-		return get(Schulung.class);
+	public Zahlung getZahlung(Zahlung.Art art, Unternehmen unternehmen) {
+		for (Zahlung zahlung : zahlungen) {
+			if (zahlung.getArt() == art && zahlung.getUnternehmen() == unternehmen) return zahlung;
+		}
+		return null;
 	}
 	
 	/**
@@ -111,7 +116,7 @@ public class SpielRunde {
 	 * @return Star
 	 */
 	public RaumschiffTyp getStar() {
-		HashMap<RaumschiffTyp, Double> umsaetze = Util.gruppiereUndSummiereVerkaeufeNachRaumschiffTyp(getVerkaeufe());
+		HashMap<RaumschiffTyp, Double> umsaetze = Util.gruppiereUndSummiereVerkaeufeNachRaumschiffTyp(getTransaktionen(Verkauf.class));
 		Vector<RaumschiffTyp> rangfolge = Util.sortiere(umsaetze, false);
 		
 		if (rangfolge.isEmpty()) return null;
