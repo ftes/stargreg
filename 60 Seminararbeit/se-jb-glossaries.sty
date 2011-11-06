@@ -1,6 +1,11 @@
 % J\"org Baumgart  
 % 2011-04-17
 %
+% 2011-08-07: indexspace redifiniert, um bei altlist als Style f\"ur die Glossareintr\"age den Abstand
+%                     zwischen zwei Eintr\"agen ver\"andern zu k\"onnen; hierf\"ur wurde das neue 
+%                     Kommando \seGlossaryItemSkip definiert
+%
+%
 % Konfiguration glossaries.sty, um ein gutes Layout f\"ur die Ausgabe von Abk\"urzungsverzeichnis, 
 % Symbolverzeichnis und Glossar zu erreichen
 %
@@ -28,8 +33,6 @@ acronym,      %ein AbkŸrzungsverzeichnis erstellen; keine Angabe => das Glossar 
 
 \newcommand{\seGlossaryItemsep}{0mm}
 \newcommand{\seGlossaryTitlesep}{0mm}
-%\newcommand{\seAbkuerzungsverzeichnisLabelwidth}{5cm}
-%\newcommand{\seSymbolverzeichnisLabelwidth}{1cm}
 \newcommand{\seGloLabelwidth}{4em}
 \newcommand{\seGloLeftmargin}{0cm}
 \newenvironment{seGloDescription}%
@@ -63,6 +66,7 @@ acronym,      %ein AbkŸrzungsverzeichnis erstellen; keine Angabe => das Glossar 
 \renewcommand*{\glossaryentryfield}[5]{%
 \item[\glstarget{##1}{##2}] ##3\glspostdescription\space ##5}%
 
+
 %% Sub-entries continue on the same line:
 \renewcommand*{\glossarysubentryfield}[6]{%
 \glstarget{##2}{\strut}##4\glspostdescription\space ##6.}%
@@ -74,3 +78,12 @@ acronym,      %ein AbkŸrzungsverzeichnis erstellen; keine Angabe => das Glossar 
 %      Was \indexspace genau ist, ist leider unklar
 \renewcommand*{\glsgroupskip}{}%
 }
+
+%
+%  2011-08-07
+\newcommand{\seGlossaryItemSkip}{0}
+\let\seGloIndexspace=\indexspace
+%\renewcommand{\indexspace}{\vspace{-\baselineskip}}
+%\renewcommand{\indexspace}{\seGloIndexspace\vspace{-\baselineskip}}
+\renewcommand{\indexspace}{\seGloIndexspace\vspace{-\baselineskip}\vspace{\seGlossaryItemSkip\baselineskip}}
+

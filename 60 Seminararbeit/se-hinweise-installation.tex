@@ -1,0 +1,42 @@
+\section{Verwendung von TeXShop (Apple-Welt)}
+
+Unter den ausgelieferten Dateien befinden sich zwei \textbf{engine}-Dateien: 
+
+\begin{seList}
+\item \verb+dhbw-projektarbeit.engine+
+\item \verb+dhbw-projektarbeit-remove-all.engine+ (l\"oscht alle erzeugten \textsl{Hilfsdateien})
+\end{seList}
+
+Mit jeder dieser beiden Dateien kann man die Vorlage \texttt{\seVorlage.tex} 
+\"ubersetzen. Alle Verzeichnisse (insbesondere Abk\"urzungs- und Symbolverzeichnis) 
+sowie das Glossar werden (hoffentlich) korrekt erstellt.  
+
+In den engine-Dateien ist beschrieben, an welcher Stelle sie im Mac OS X Dateisystem 
+installiert werden m\"ussen, damit man sie direkt von TeXShop aus aufrufen kann. 
+
+\section{Verwendung von MiKTeX (Windows-Welt)}
+
+F\"ur die \"Ubersetzung wird eine batch-Datei \verb+make-projektarbeit.bat+ zur Verf\"ugung 
+gestellt, mit der man in der Windows-\textsl{Eingabeaufforderung} (cmd) die Vorlage \"ubersetzen kann. Der Aufruf lautet:
+\texttt{make-projektarbeit.bat \seVorlage}
+%\verb+make-projektarbeit.bat se-pa2-vorlage+
+
+Da MiKTeX eine andere Version von \verb+jurabib+ verwendet, mit der sich die 
+Vorlage nicht korrekt \"ubersetzen l\"asst, werden die beiden Dateien 
+
+\begin{seList}
+\item \verb+jurabib.sty+ und 
+\item \verb+jurabib.bst+
+\end{seList}
+
+aus der TeX Live Version von Mac OS X mitgeliefert. Damit sollte die 
+\"Ubersetzung problemlos funktionieren. 
+
+
+ 
+
+%Dann hoffe ich mal, dass sich mit den Vorlagen etwas anfangen lässt. Sie sind (absichtlich) in 
+%
+%einer Version 0.9, da ich an den zugehörigen sty-Dateien weitere Ergänzungen vornehmen werde,
+%
+%um für zukünftige Arbeiten neue komfortable Kommandos zur Verfügung zu stellen. 
