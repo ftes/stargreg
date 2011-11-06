@@ -46,8 +46,8 @@ public class SpielTest {
 	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.84, 100, 600, 300.0, droideka);
 	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.69, 100, 400, 300.0, kampfDroide);
 
-	private static Unternehmen galactic = spiel.fuegeUnternehmenHinzu("Galactic", startKapital);
 	private static Unternehmen foederation = spiel.fuegeUnternehmenHinzu("Föderation", startKapital);
+	private static Unternehmen imperium = spiel.fuegeUnternehmenHinzu("Imperium", startKapital);
 	private static Unternehmen rebellen = spiel.fuegeUnternehmenHinzu("Rebellen", startKapital);
 
 	@BeforeClass
@@ -195,20 +195,20 @@ public class SpielTest {
 	private void runde1() {
 		//Informieren, Handeln und einchecken
 		//Galactic: wie in Datenbasis
-		galactic.gebeAnfangsInformationenAus();
-		galactic.getPersonal().einstellen(r2d2, 600);
-		galactic.kaufeEinProduziereVerkaufe(xwing, 41, 12000);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 20, 24000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 13, 36000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//Kampfpreise
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().einstellen(r2d2, 1000);
-		foederation.kaufeEinProduziereVerkaufe(xwing, 200, 8000);
+		foederation.getPersonal().einstellen(r2d2, 600);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 41, 12000);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 20, 24000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 13, 36000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//Kampfpreise
+		imperium.gebeAnfangsInformationenAus();
+		imperium.getPersonal().einstellen(r2d2, 1000);
+		imperium.kaufeEinProduziereVerkaufe(xwing, 200, 8000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//Qualitäts-fokussiert
 		rebellen.gebeAnfangsInformationenAus();
@@ -221,21 +221,21 @@ public class SpielTest {
 
 	private void runde2() {
 		//mehr Corvettes, Preise anheben, besseres Personal
-		galactic.gebeAnfangsInformationenAus();
-		galactic.getPersonal().schulen(r2d2, 300);
-		galactic.getPersonal().einstellen(kampfDroide, 250);
-		galactic.kaufeEinProduziereVerkaufe(xwing, 46, 14000);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 38, 28000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 16, 44000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//zu wenig DB und diversifizieren, auch Corvettes
 		foederation.gebeAnfangsInformationenAus();
-		foederation.kaufeEinProduziereVerkaufe(xwing, 60, 10000);
-		foederation.kaufeEinProduziereVerkaufe(corvette, 70, 18000);
+		foederation.getPersonal().schulen(r2d2, 300);
+		foederation.getPersonal().einstellen(kampfDroide, 250);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 46, 14000);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 38, 28000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 16, 44000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//zu wenig DB und diversifizieren, auch Corvettes
+		imperium.gebeAnfangsInformationenAus();
+		imperium.kaufeEinProduziereVerkaufe(xwing, 60, 10000);
+		imperium.kaufeEinProduziereVerkaufe(corvette, 70, 18000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//denkt sich: weiter so, Preise höher
 		rebellen.gebeAnfangsInformationenAus();
@@ -249,22 +249,22 @@ public class SpielTest {
 
 	private void runde3() {
 		//weniger Corvette, mehr Falken, kein Personal einstellen!
-		galactic.gebeAnfangsInformationenAus();
-		galactic.getPersonal().schulen(r2d2, 300);
-		galactic.kaufeEinProduziereVerkaufe(xwing, 55, 16000);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 20, 24000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 25, 44000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//weniger Fehlerkosten, auch Falken
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().schulen(r2d2, 500);
-		foederation.kaufeEinProduziereVerkaufe(xwing, 60, 10000);
-		foederation.kaufeEinProduziereVerkaufe(corvette, 40, 18000);
-		foederation.kaufeEinProduziereVerkaufe(falke, 20, 27000);
+		foederation.getPersonal().schulen(r2d2, 300);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 55, 16000);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 20, 24000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 25, 44000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//weniger Fehlerkosten, auch Falken
+		imperium.gebeAnfangsInformationenAus();
+		imperium.getPersonal().schulen(r2d2, 500);
+		imperium.kaufeEinProduziereVerkaufe(xwing, 60, 10000);
+		imperium.kaufeEinProduziereVerkaufe(corvette, 40, 18000);
+		imperium.kaufeEinProduziereVerkaufe(falke, 20, 27000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//weniger Corvette, mehr Falken, gerade kein Personal einstellen
 		rebellen.gebeAnfangsInformationenAus();
@@ -277,22 +277,22 @@ public class SpielTest {
 
 	private void runde4() {
 		//Corvette günstiger, mehr Xwing, große Schulung
-		galactic.gebeAnfangsInformationenAus();
-		galactic.getPersonal().schulen(kampfDroide, 850);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 5, 20000);
-		galactic.kaufeEinProduziereVerkaufe(xwing, 76, 16000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 28, 44000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//weiter so, Produktion ausweiten, Preise leicht anheben
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().einstellen(kampfDroide, 250);
-		foederation.kaufeEinProduziereVerkaufe(xwing, 78, 11000);
-		foederation.kaufeEinProduziereVerkaufe(corvette, 50, 20000);
-		foederation.kaufeEinProduziereVerkaufe(falke, 24, 30000);
+		foederation.getPersonal().schulen(kampfDroide, 850);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 5, 20000);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 76, 16000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 28, 44000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//weiter so, Produktion ausweiten, Preise leicht anheben
+		imperium.gebeAnfangsInformationenAus();
+		imperium.getPersonal().einstellen(kampfDroide, 250);
+		imperium.kaufeEinProduziereVerkaufe(xwing, 78, 11000);
+		imperium.kaufeEinProduziereVerkaufe(corvette, 50, 20000);
+		imperium.kaufeEinProduziereVerkaufe(falke, 24, 30000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//läuft sehr gut so, mehr Xwings, andere günstiger
 		rebellen.gebeAnfangsInformationenAus();
@@ -305,22 +305,22 @@ public class SpielTest {
 
 	private void runde5() {
 		//weitere so, Produktion ausweiten, Corvette leicht teuerer
-		galactic.gebeAnfangsInformationenAus();
-		galactic.getPersonal().einstellen(droideka, 450);
-		galactic.kaufeEinProduziereVerkaufe(xwing, 80, 16000);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 48, 25000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 28, 44000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//leicht höhere Preise, Produktion ausweiten (-Corvette), Personal schulen
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().schulen(r2d2, 500);
-		foederation.kaufeEinProduziereVerkaufe(xwing, 80, 13000);
-		foederation.kaufeEinProduziereVerkaufe(corvette, 40, 22000);
-		foederation.kaufeEinProduziereVerkaufe(falke, 30, 34000);
+		foederation.getPersonal().einstellen(droideka, 450);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 80, 16000);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 48, 25000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 28, 44000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//leicht höhere Preise, Produktion ausweiten (-Corvette), Personal schulen
+		imperium.gebeAnfangsInformationenAus();
+		imperium.getPersonal().schulen(r2d2, 500);
+		imperium.kaufeEinProduziereVerkaufe(xwing, 80, 13000);
+		imperium.kaufeEinProduziereVerkaufe(corvette, 40, 22000);
+		imperium.kaufeEinProduziereVerkaufe(falke, 30, 34000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//Preise drastisch senken, etwas Personal entlassen
 		rebellen.gebeAnfangsInformationenAus();
@@ -334,21 +334,21 @@ public class SpielTest {
 
 	private void runde6() {
 		//mehr X-Wing, Corvette und Falke leicht günstiger
-		galactic.gebeAnfangsInformationenAus();
-		galactic.kaufeEinProduziereVerkaufe(xwing, 100, 18000);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 44, 22000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 24, 40000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//weniger Corvette, wieder höhere Produktion und niedrigere Preise
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().einstellen(kampfDroide, 500);
-		foederation.kaufeEinProduziereVerkaufe(xwing, 130, 10000);
-		foederation.kaufeEinProduziereVerkaufe(corvette, 41, 18000);
-		foederation.kaufeEinProduziereVerkaufe(falke, 46, 25000);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 100, 18000);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 44, 22000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 24, 40000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//weniger Corvette, wieder höhere Produktion und niedrigere Preise
+		imperium.gebeAnfangsInformationenAus();
+		imperium.getPersonal().einstellen(kampfDroide, 500);
+		imperium.kaufeEinProduziereVerkaufe(xwing, 130, 10000);
+		imperium.kaufeEinProduziereVerkaufe(corvette, 41, 18000);
+		imperium.kaufeEinProduziereVerkaufe(falke, 46, 25000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//X-Wing günstiger, andere etwas teuerer
 		rebellen.gebeAnfangsInformationenAus();
@@ -361,21 +361,21 @@ public class SpielTest {
 
 	private void runde7() {
 		//X-Wings und Corvette günstiger, mehr Corvette produzieren
-		galactic.gebeAnfangsInformationenAus();
-		galactic.kaufeEinProduziereVerkaufe(xwing, 60, 14000);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 61, 19000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 26, 38000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//ist gut gelaufen so, etwas mehr Corvette
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().einstellen(kampfDroide, 200);
-		foederation.kaufeEinProduziereVerkaufe(xwing, 130, 10000);
-		foederation.kaufeEinProduziereVerkaufe(corvette, 61, 18000);
-		foederation.kaufeEinProduziereVerkaufe(falke, 46, 25000);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 60, 14000);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 61, 19000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 26, 38000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//ist gut gelaufen so, etwas mehr Corvette
+		imperium.gebeAnfangsInformationenAus();
+		imperium.getPersonal().einstellen(kampfDroide, 200);
+		imperium.kaufeEinProduziereVerkaufe(xwing, 130, 10000);
+		imperium.kaufeEinProduziereVerkaufe(corvette, 61, 18000);
+		imperium.kaufeEinProduziereVerkaufe(falke, 46, 25000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//so weiter, ein paar mehr Xwings
 		rebellen.gebeAnfangsInformationenAus();
@@ -388,22 +388,22 @@ public class SpielTest {
 
 	private void runde8() {
 		//im Vgl. mehr Falken, Preise senken, etwas Personal entlassen
-		galactic.gebeAnfangsInformationenAus();
-		galactic.getPersonal().entlassen(droideka, 150);
-		galactic.kaufeEinProduziereVerkaufe(xwing, 47, 12000);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 45, 16000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 31, 35000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//weiter so, Produktion ausweiten
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().einstellen(kampfDroide, 400);
-		foederation.kaufeEinProduziereVerkaufe(xwing, 160, 10000);
-		foederation.kaufeEinProduziereVerkaufe(corvette, 74, 18000);
-		foederation.kaufeEinProduziereVerkaufe(falke, 54, 25000);
+		foederation.getPersonal().entlassen(droideka, 150);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 47, 12000);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 45, 16000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 31, 35000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//weiter so, Produktion ausweiten
+		imperium.gebeAnfangsInformationenAus();
+		imperium.getPersonal().einstellen(kampfDroide, 400);
+		imperium.kaufeEinProduziereVerkaufe(xwing, 160, 10000);
+		imperium.kaufeEinProduziereVerkaufe(corvette, 74, 18000);
+		imperium.kaufeEinProduziereVerkaufe(falke, 54, 25000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//genau so weitere, Corvette und Falken ganz leicht günstiger
 		rebellen.gebeAnfangsInformationenAus();
@@ -416,20 +416,20 @@ public class SpielTest {
 
 	private void runde9() {
 		//mehr X-wings, weniger Falken
-		galactic.gebeAnfangsInformationenAus();
-		galactic.kaufeEinProduziereVerkaufe(xwing, 62, 12000);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 45, 16000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 26, 35000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//Corvette Markt mehr überschwemmen, mehr Falken
 		foederation.gebeAnfangsInformationenAus();
-		foederation.kaufeEinProduziereVerkaufe(xwing, 140, 10000);
-		foederation.kaufeEinProduziereVerkaufe(corvette, 81, 14000);
-		foederation.kaufeEinProduziereVerkaufe(falke, 56, 22000);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 62, 12000);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 45, 16000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 26, 35000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//Corvette Markt mehr überschwemmen, mehr Falken
+		imperium.gebeAnfangsInformationenAus();
+		imperium.kaufeEinProduziereVerkaufe(xwing, 140, 10000);
+		imperium.kaufeEinProduziereVerkaufe(corvette, 81, 14000);
+		imperium.kaufeEinProduziereVerkaufe(falke, 56, 22000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//etwas mehr Xwings
 		rebellen.gebeAnfangsInformationenAus();
@@ -442,22 +442,22 @@ public class SpielTest {
 
 	private void runde10() {
 		//mehr X-Wings, Falken KEINE und günstiger, Personal entlassen
-		galactic.gebeAnfangsInformationenAus();
-		galactic.getPersonal().entlassen(droideka, 250);
-		galactic.kaufeEinProduziereVerkaufe(xwing, 90, 12000);
-		galactic.kaufeEinProduziereVerkaufe(corvette, 45, 14000);
-		galactic.kaufeEinProduziereVerkaufe(falke, 0, 30000);
-		galactic.gebeEndInformationenAus();
-		galactic.rundeEinchecken();
-
-		//weniger Corvette, günstiger
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().entlassen(kampfDroide, 200);
-		foederation.kaufeEinProduziereVerkaufe(xwing, 150, 9000);
-		foederation.kaufeEinProduziereVerkaufe(corvette, 41, 13000);
-		foederation.kaufeEinProduziereVerkaufe(falke, 66, 20000);
+		foederation.getPersonal().entlassen(droideka, 250);
+		foederation.kaufeEinProduziereVerkaufe(xwing, 90, 12000);
+		foederation.kaufeEinProduziereVerkaufe(corvette, 45, 14000);
+		foederation.kaufeEinProduziereVerkaufe(falke, 0, 30000);
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
+
+		//weniger Corvette, günstiger
+		imperium.gebeAnfangsInformationenAus();
+		imperium.getPersonal().entlassen(kampfDroide, 200);
+		imperium.kaufeEinProduziereVerkaufe(xwing, 150, 9000);
+		imperium.kaufeEinProduziereVerkaufe(corvette, 41, 13000);
+		imperium.kaufeEinProduziereVerkaufe(falke, 66, 20000);
+		imperium.gebeEndInformationenAus();
+		imperium.rundeEinchecken();
 
 		//Corvette günstiger, mehr XWings
 		rebellen.gebeAnfangsInformationenAus();
