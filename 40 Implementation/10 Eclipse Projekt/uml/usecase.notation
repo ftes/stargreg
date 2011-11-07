@@ -333,7 +333,7 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HRZyY__HEeCiK5ZNQa27mw"/>
         </children>
         <element xmi:type="uml:UseCase" href="usecase.uml#_HQ9GcP_HEeCiK5ZNQa27mw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HRXWIf_HEeCiK5ZNQa27mw" x="566" y="249" width="220" height="29"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HRXWIf_HEeCiK5ZNQa27mw" x="566" y="242" width="220" height="53"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_LbDvYP_HEeCiK5ZNQa27mw" type="3012" fontName="Lucida Grande" fontHeight="16" lineColor="0">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_LbEWcP_HEeCiK5ZNQa27mw" source="ShadowFigure">
@@ -352,7 +352,7 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LbEWev_HEeCiK5ZNQa27mw"/>
         </children>
         <element xmi:type="uml:UseCase" href="usecase.uml#_La_d8P_HEeCiK5ZNQa27mw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LbDvYf_HEeCiK5ZNQa27mw" x="591" y="294" width="202" height="37"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LbDvYf_HEeCiK5ZNQa27mw" x="591" y="294" width="202" height="49"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_4x4i4P_IEeCiK5ZNQa27mw" type="3012" fontName="Lucida Grande" fontHeight="16" lineColor="0">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_4x4i4v_IEeCiK5ZNQa27mw" source="ShadowFigure">
@@ -390,7 +390,7 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g_iSlv_JEeCiK5ZNQa27mw"/>
         </children>
         <element xmi:type="uml:UseCase" href="usecase.uml#_g_eBIP_JEeCiK5ZNQa27mw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g_hrgf_JEeCiK5ZNQa27mw" x="559" y="394" width="181" height="47"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g_hrgf_JEeCiK5ZNQa27mw" x="559" y="394" width="197" height="49"/>
       </children>
       <children xmi:type="notation:Shape" xmi:id="_HejfoAixEeGwd9Yh7DIn0A" type="3012" fontName="Lucida Grande" fontHeight="16" lineColor="0">
         <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_HektwAixEeGwd9Yh7DIn0A" source="ShadowFigure">
