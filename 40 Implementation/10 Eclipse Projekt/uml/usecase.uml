@@ -31,7 +31,7 @@
     <packagedElement xmi:type="uml:UseCase" xmi:id="_pMFZcP2pEeCXTbvytDjrnQ" name="Angebot zum Verkauf abgeben"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_8fRr8P2qEeCXTbvytDjrnQ" name="Namen auswählen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_HQ9GcP_HEeCiK5ZNQa27mw" name="Verkaufte Raumschiffe einsehen"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_La_d8P_HEeCiK5ZNQa27mw" name="Angeheuerte Droiden einsehen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_La_d8P_HEeCiK5ZNQa27mw" name="Eingestelltes Personal einsehen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_4x04gP_IEeCiK5ZNQa27mw" name="vorhandene Bauteile einsehen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_g_eBIP_JEeCiK5ZNQa27mw" name="Raumschiffe auf Lager anzeigen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_Ha1dQAixEeGwd9Yh7DIn0A" name="Unternehmen bewerten"/>
