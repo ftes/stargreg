@@ -11,7 +11,7 @@
 %
 % Individuelle Definition von Abk\"urzungen, Symbolen und eventuell Glossareintr\"agen
 %
-\input{wa-abkuerzungen} 
+\input{wa-abkuerzungen}
 
 \begin{document}
 
@@ -26,7 +26,8 @@
 }
 
 \newcommand{\curr}{\textcolonmonetary}
-\newcommand{\autor}[1]{\textit{Autor: #1}}
+\newcommand{\autorbeginn}[1]{\textit{Beginn: #1} \def \autortmp {#1}}
+\newcommand{\autorende}{\\ \\ \textit{Ende: \autortmp} \\ \\}
 
 % Erzeugung des Titelblatts
 %

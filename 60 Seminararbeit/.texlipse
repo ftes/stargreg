@@ -1,0 +1,13 @@
+#TeXlipse project settings
+#Mon Nov 07 21:37:59 CET 2011
+builderNum=2
+outputDir=
+makeIndSty=
+bibrefDir=
+outputFormat=pdf
+tempDir=tmp
+mainTexFile=80_seminararbeit.tex
+outputFile=80_seminararbeit.pdf
+langSpell=de
+markDer=true
+srcDir=
