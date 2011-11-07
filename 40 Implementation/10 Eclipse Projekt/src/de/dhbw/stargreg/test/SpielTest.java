@@ -3,9 +3,11 @@ package de.dhbw.stargreg.test;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.Vector;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -151,7 +153,7 @@ public class SpielTest {
 	}
 
 	@Test
-	public void testSpiel() {
+	public void testGesamtAblauf() {
 		spiel.starteSpiel();
 
 		runde1();		
@@ -185,16 +187,15 @@ public class SpielTest {
 		spiel.simuliere();
 
 
-		spiel.bewerteUnternehmen();
-
-		//Asserts ganz zum Schluss!
-
-
+		Vector<Unternehmen> rangfolge = spiel.bewerteUnternehmen();
+		
+		Unternehmen[] erwartet = {foederation, rebellen, imperium};
+		Assert.assertArrayEquals(erwartet, rangfolge.toArray(erwartet));
 	}
 
 	private void runde1() {
 		//Informieren, Handeln und einchecken
-		//Galactic: wie in Datenbasis
+		//Foederation: wie in Datenbasis
 		foederation.gebeAnfangsInformationenAus();
 		foederation.getPersonal().einstellen(r2d2, 600);
 		foederation.kaufeEinProduziereVerkaufe(xwing, 41, 12000);
