@@ -83,12 +83,12 @@ public class SpielRunde {
 		return transaktionen;
 	}
 	
-	public <T extends TypTransaktion<? extends Typ>> double getSummeTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
+	public <T extends TypTransaktion<? extends Typ>> double getSummeTypTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
 		return Util.summiereTypTransaktionen(getTransaktionen(clazz, unternehmen));
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T> Vector<T> getTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
+	public <T extends Transaktion> Vector<T> getTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
 		Vector<T> transaktionen = new Vector<T>();
 		for (Transaktion transaktion : this.transaktionen) {
 			if (transaktion.getClass() == clazz && transaktion.getUnternehmen() == unternehmen) {
