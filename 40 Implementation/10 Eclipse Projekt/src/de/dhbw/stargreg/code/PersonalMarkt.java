@@ -11,7 +11,7 @@ import de.dhbw.stargreg.util.TableBuilder;
  * @author fredrik
  *
  */
-public class PersonalMarkt extends Markt<PersonalTyp, PersonalTransaktion> {
+public class PersonalMarkt extends TypMarkt<PersonalTyp, PersonalTransaktion> {
 	public void gebeKostenAus() {
 		System.out.println("Personalmarkt");
 		TableBuilder tb = new TableBuilder("PersonalTyp", "Qualität", "Laufende Kosten", "Werbungskosten", "Schulungskosten");

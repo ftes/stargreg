@@ -19,7 +19,7 @@ import de.dhbw.stargreg.util.Util;
  * @author fredrik
  *
  */
-public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
+public class RaumschiffMarkt extends TypMarkt<RaumschiffTyp, Verkauf> {
 
 	private final Vector<Angebot> angebote = new Vector<Angebot>();
 	
