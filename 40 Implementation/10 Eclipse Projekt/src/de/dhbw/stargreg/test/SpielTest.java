@@ -44,8 +44,8 @@ public class SpielTest {
 	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10, 0.50);
 	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15, 0.50);
 
-	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, 100, 800, null, null);
-	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.84, 100, 600, 300.0, droideka);
+	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, 140, 800, null, null);
+	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.84, 120, 600, 300.0, droideka);
 	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.69, 100, 400, 300.0, kampfDroide);
 
 	private static Unternehmen foederation = spiel.fuegeUnternehmenHinzu("Föderation", startKapital);
