@@ -145,10 +145,7 @@ public class RaumschiffMarkt extends TypMarkt<RaumschiffTyp, Verkauf> {
 	public Vector<Verkauf> getVerkaeufe(final Unternehmen unternehmen) {
 		return Util.filtereVector(verkaeufe, new Filter<Verkauf>() {
 			public boolean nach(Verkauf verkauf) {
-				if (verkauf.getUnternehmen() == unternehmen) {
-					return true;
-				}
-				return false;
+				return verkauf.getUnternehmen() == unternehmen;
 			}
 		});
 	}

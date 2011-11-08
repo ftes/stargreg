@@ -42,8 +42,12 @@ public class EinkaufsAbteilung extends Abteilung {
 
 	@Override
 	public void gebeInformationenAus(boolean aktuelleSpielRunde) {
-		// TODO Auto-generated method stub
-		
+
+	}
+
+	@Override
+	public void simuliere() {
+
 	}
 
 }

@@ -26,5 +26,7 @@ public abstract class Abteilung {
 		if (aktuelleSpielRunde) return unternehmen.getSpiel().getAktuelleSpielRunde();
 		return unternehmen.getSpiel().getVorherigeSpielRunde();
 	}
+	
+	public abstract void simuliere();
 
 }

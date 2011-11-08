@@ -21,7 +21,7 @@ public class ProduktionsAbteilung extends Abteilung {
 		super(unternehmen);
 	}
 
-	public void produziere() {
+	public void simuliere() {
 		for (ProduktionsAuftrag auftrag : auftraege) {
 			int menge = auftrag.getMenge();
 			
@@ -107,5 +107,4 @@ public class ProduktionsAbteilung extends Abteilung {
 	public int getBenoetigtesPersonal() {
 		return benoetigtesPersonal;
 	}
-
 }

@@ -49,8 +49,8 @@ public class Unternehmen {
 		
 //		System.out.printf("Simulation von %s:\n", this);
 		personal.simuliere();
-		produktion.produziere();
-		verkauf.verkaufe(verkaeufe);
+		produktion.simuliere();
+		verkauf.simuliere();
 		lager.simuliere();
 		finanzen.simuliere();
 		
