@@ -84,10 +84,10 @@ public class FinanzAbteilung extends Abteilung {
 				tb.addNewRow("Verkäufe", String.format("%.2f", verkaeufe));
 				tb.addNewRow("Einkäufe", String.format("%.2f", einkaeufe));
 				tb.addNewRow("Personal (einmalig)", String.format("%.2f", personal));
-				tb.addNewRow("Personal (laufend)", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.PERSONAL, unternehmen).getBetrag()));
-				tb.addNewRow("Fehler", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.FEHLER, unternehmen).getBetrag()));
-				tb.addNewRow("Lager", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.LAGER, unternehmen).getBetrag()));
-				tb.addNewRow("Zinsen", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.ZINSEN, unternehmen).getBetrag()));
+				tb.addNewRow("Personal (laufend)", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.PERSONAL, unternehmen).getEinzelBetrag()));
+				tb.addNewRow("Fehler", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.FEHLER, unternehmen).getEinzelBetrag()));
+				tb.addNewRow("Lager", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.LAGER, unternehmen).getEinzelBetrag()));
+				tb.addNewRow("Zinsen", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.ZINSEN, unternehmen).getEinzelBetrag()));
 			}
 		} else {
 			double einkaeufe = -Util.summiereTypTransaktionen(unternehmen.getSpiel().getBauteilMarkt().getTransaktionen(unternehmen));

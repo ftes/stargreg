@@ -12,8 +12,4 @@ public class Zahlung extends Transaktion {
 	public Art getArt() {
 		return art;
 	}
-
-	public double getBetrag() {
-		return einzelBetrag;
-	}
 }
