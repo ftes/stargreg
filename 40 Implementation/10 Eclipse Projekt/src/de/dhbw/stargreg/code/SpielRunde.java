@@ -62,14 +62,14 @@ public class SpielRunde {
 		Util.pause();
 	}
 	
-	private final Vector<TypTransaktion<?>> transaktionen = new Vector<TypTransaktion<?>>();
+	private final Vector<Transaktion> transaktionen = new Vector<Transaktion>();
 	private final Vector<Zahlung> zahlungen = new Vector<Zahlung>();
 	
-	public void fuegeTransaktionHinzu(TypTransaktion<?> transaktion) {
+	public void fuegeTransaktionHinzu(Transaktion transaktion) {
 		transaktionen.add(transaktion);
 	}
 	
-	public void fuegeTransaktionenHinzu(Vector<? extends TypTransaktion<?>> transaktionen) {
+	public void fuegeTransaktionenHinzu(Vector<? extends Transaktion> transaktionen) {
 		this.transaktionen.addAll(transaktionen);
 	}
 	
@@ -80,7 +80,7 @@ public class SpielRunde {
 	@SuppressWarnings("unchecked")
 	public <T> Vector<T> getTransaktionen(Class<T> clazz) {
 		Vector<T> transaktionen = new Vector<T>();
-		for (TypTransaktion<?> transaktion : this.transaktionen) {
+		for (Transaktion transaktion : this.transaktionen) {
 			if (transaktion.getClass() == clazz) {
 				transaktionen.add((T) transaktion);
 			}
@@ -88,14 +88,14 @@ public class SpielRunde {
 		return transaktionen;
 	}
 	
-	public <T extends TypTransaktion<?>> double getSummeTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
-		return Util.summiereTransaktionen(getTransaktionen(clazz, unternehmen));
+	public <T extends TypTransaktion<? extends Typ>> double getSummeTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
+		return Util.summiereTypTransaktionen(getTransaktionen(clazz, unternehmen));
 	}
 	
 	@SuppressWarnings("unchecked")
 	public <T> Vector<T> getTransaktionen(Class<T> clazz, Unternehmen unternehmen) {
 		Vector<T> transaktionen = new Vector<T>();
-		for (TypTransaktion<?> transaktion : this.transaktionen) {
+		for (Transaktion transaktion : this.transaktionen) {
 			if (transaktion.getClass() == clazz && transaktion.getUnternehmen() == unternehmen) {
 				transaktionen.add((T) transaktion);
 			}

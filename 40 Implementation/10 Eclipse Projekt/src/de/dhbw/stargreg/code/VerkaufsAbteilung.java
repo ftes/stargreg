@@ -55,7 +55,7 @@ public class VerkaufsAbteilung extends Abteilung {
 			if (spielRunde == null) return;
 			Vector<Verkauf> verkaeufe = spielRunde.getTransaktionen(Verkauf.class, unternehmen);
 
-			double gesamtUmsatz = Util.summiereTransaktionen(spielRunde.getTransaktionen(Verkauf.class, unternehmen));
+			double gesamtUmsatz = Util.summiereTypTransaktionen(spielRunde.getTransaktionen(Verkauf.class, unternehmen));
 			System.out.printf("Verkäufe (Gesamtumsatz: %.2f)\n", gesamtUmsatz);
 			TableBuilder tb = new TableBuilder("RaumschiffTyp", "Menge", "Preis", "Umsatz");
 			for (Verkauf verkauf : verkaeufe) {

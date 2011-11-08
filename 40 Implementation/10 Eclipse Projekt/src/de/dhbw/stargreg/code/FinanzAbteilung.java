@@ -90,8 +90,8 @@ public class FinanzAbteilung extends Abteilung {
 				tb.addNewRow("Zinsen", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.ZINSEN, unternehmen).getBetrag()));
 			}
 		} else {
-			double einkaeufe = -Util.summiereTransaktionen(unternehmen.getSpiel().getBauteilMarkt().getTransaktionen(unternehmen));
-			double personal = -Util.summiereTransaktionen(unternehmen.getSpiel().getPersonalMarkt().getTransaktionen(unternehmen));
+			double einkaeufe = -Util.summiereTypTransaktionen(unternehmen.getSpiel().getBauteilMarkt().getTransaktionen(unternehmen));
+			double personal = -Util.summiereTypTransaktionen(unternehmen.getSpiel().getPersonalMarkt().getTransaktionen(unternehmen));
 			tb.addNewRow("Einkäufe", String.format("%.2f", einkaeufe));
 			tb.addNewRow("Personal (einmalig)", String.format("%.2f", personal));
 		}
