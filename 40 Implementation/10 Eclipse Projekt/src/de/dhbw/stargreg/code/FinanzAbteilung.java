@@ -62,7 +62,7 @@ public class FinanzAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		abbuchen(getZinskosten());
-		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(getZinskosten(), Zahlung.Art.ZINSEN, unternehmen));
+		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getZinskosten(), Zahlung.Art.ZINSEN, unternehmen));
 //		System.out.printf("%.2f Zinsaufwendungen abgebucht\n", getZinskosten());
 	}
 	

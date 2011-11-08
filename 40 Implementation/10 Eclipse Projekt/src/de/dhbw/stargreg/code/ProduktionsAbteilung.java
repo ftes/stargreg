@@ -28,7 +28,7 @@ public class ProduktionsAbteilung extends Abteilung {
 			int fehlerhaft = berechneFehlerhafteMenge(menge);
 			double fehlerKosten = fehlerhaft * auftrag.getTyp().getFehlerKosten();
 			unternehmen.getFinanzen().abbuchen(fehlerKosten);
-			unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(fehlerKosten, Zahlung.Art.FEHLER, unternehmen));
+			unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(fehlerKosten, Zahlung.Art.FEHLER, unternehmen));
 			
 //			System.out.printf("%d fehlerhafte %s verursachen für %s %.2f Zusatzkosten\n", fehlerhaft, auftrag.getTyp(), unternehmen, fehlerKosten);
 		}

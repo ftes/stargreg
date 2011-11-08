@@ -148,7 +148,7 @@ public class PersonalAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(getLaufendeKosten());
-		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(getLaufendeKosten(), Zahlung.Art.PERSONAL, unternehmen));
+		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getLaufendeKosten(), Zahlung.Art.PERSONAL, unternehmen));
 //		System.out.printf("%.2f laufende Personalkosten abgebucht\n", getLaufendeKosten());
 	}
 

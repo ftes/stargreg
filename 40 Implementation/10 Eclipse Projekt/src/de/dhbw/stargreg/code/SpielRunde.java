@@ -63,7 +63,6 @@ public class SpielRunde {
 	}
 	
 	private final Vector<Transaktion> transaktionen = new Vector<Transaktion>();
-	private final Vector<Zahlung> zahlungen = new Vector<Zahlung>();
 	
 	public void fuegeTransaktionHinzu(Transaktion transaktion) {
 		transaktionen.add(transaktion);
@@ -71,10 +70,6 @@ public class SpielRunde {
 	
 	public void fuegeTransaktionenHinzu(Vector<? extends Transaktion> transaktionen) {
 		this.transaktionen.addAll(transaktionen);
-	}
-	
-	public void fuegeZahlungHinzu(Zahlung zahlung) {
-		zahlungen.add(zahlung);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -104,7 +99,7 @@ public class SpielRunde {
 	}
 	
 	public Zahlung getZahlung(Zahlung.Art art, Unternehmen unternehmen) {
-		for (Zahlung zahlung : zahlungen) {
+		for (Zahlung zahlung : getTransaktionen(Zahlung.class, unternehmen)) {
 			if (zahlung.getArt() == art && zahlung.getUnternehmen() == unternehmen) return zahlung;
 		}
 		return null;
