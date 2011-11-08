@@ -216,11 +216,11 @@ public class Spiel {
 		Util.printHeading("Simulation der Spielrunde");
 		
 		// Verkäufe nach Unternehmen gruppieren
-		HashMap<Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(
+		Util.gruppiereVerkaeufeNachUnternehmen(
 				raumschiffMarkt.berechneGesamtAbsatz());
 		
 		for (Unternehmen unternehmen : this.unternehmen) {
-			unternehmen.simuliere(verkaeufe.get(unternehmen));
+			unternehmen.simuliere();
 		}
 		
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(bauteilMarkt.simuliere());
