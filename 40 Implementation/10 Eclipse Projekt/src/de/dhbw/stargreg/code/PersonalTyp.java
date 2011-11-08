@@ -10,14 +10,14 @@ public class PersonalTyp extends Typ {
 	private final double qualitaet;
 	private final double basisLaufendeKosten;
 	private final double basisWerbungsKosten;
-	private final Double schulungsKosten;
+	private final Double aufruestungsKosten;
 	private final PersonalTyp naechsterPersonalTyp;
 	private double konjunkturFaktor;
 
-	public PersonalTyp(String name, double qualitaet, double basisLaufendeKosten, double basisWerbungsKosten, Double schulungsKosten, PersonalTyp naechsterPersonalTyp) {
+	public PersonalTyp(String name, double qualitaet, double basisLaufendeKosten, double basisWerbungsKosten, Double aufruestungsKosten, PersonalTyp naechsterPersonalTyp) {
 		super(name);
 		this.qualitaet = qualitaet;
-		this.schulungsKosten = schulungsKosten;
+		this.aufruestungsKosten = aufruestungsKosten;
 		this.naechsterPersonalTyp = naechsterPersonalTyp;
 		this.basisLaufendeKosten = basisLaufendeKosten;
 		this.basisWerbungsKosten = basisWerbungsKosten;
@@ -31,8 +31,8 @@ public class PersonalTyp extends Typ {
 		return basisLaufendeKosten * konjunkturFaktor;
 	}
 
-	public Double getSchulungsKosten() {
-		return schulungsKosten;
+	public Double getAufruestungsKosten() {
+		return aufruestungsKosten;
 	}
 
 	public double getWerbungsKosten() {

@@ -80,7 +80,7 @@ public class FinanzAbteilung extends Abteilung {
 				double einkaeufe = -spielRunde.getSummeTransaktionen(Einkauf.class, unternehmen);
 				double verkaeufe = spielRunde.getSummeTransaktionen(Verkauf.class, unternehmen);
 				double personal = -spielRunde.getSummeTransaktionen(Einstellung.class, unternehmen) + 
-						spielRunde.getSummeTransaktionen(Schulung.class, unternehmen);
+						spielRunde.getSummeTransaktionen(Aufruestung.class, unternehmen);
 				tb.addNewRow("Verkäufe", String.format("%.2f", verkaeufe));
 				tb.addNewRow("Einkäufe", String.format("%.2f", einkaeufe));
 				tb.addNewRow("Personal (einmalig)", String.format("%.2f", personal));
