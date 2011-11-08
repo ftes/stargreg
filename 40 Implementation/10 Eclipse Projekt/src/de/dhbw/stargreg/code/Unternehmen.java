@@ -164,7 +164,7 @@ public class Unternehmen {
 	 * Hilfsfunktion, die alle drei Schritte ausführt
 	 * @param raumschiffTyp
 	 * @param menge
-	 * @param einzelBetrag
+	 * @param preis
 	 */
 	public void kaufeEinProduziereVerkaufe(RaumschiffTyp raumschiffTyp, int menge, double preis) {
 		einkauf.kaufeEinFuer(raumschiffTyp, menge);

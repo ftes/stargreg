@@ -20,7 +20,7 @@ public class VerkaufsAbteilung extends Abteilung {
 	/**
 	 * Gibt ein Angebot zu allen Raumschiffen im Lager (also inkl. der zu produzierenden) ab.
 	 * @param raumschiffTyp
-	 * @param einzelBetrag
+	 * @param preis
 	 */
 	public void macheAngebot(RaumschiffTyp raumschiffTyp, double preis) {
 		int menge = unternehmen.getLager().getAnzahl(raumschiffTyp);
