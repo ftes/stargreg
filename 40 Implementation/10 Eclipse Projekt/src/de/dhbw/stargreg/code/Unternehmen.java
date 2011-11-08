@@ -105,7 +105,7 @@ public class Unternehmen {
 		
 		double umsatz = 0;
 		for (Verkauf verkauf : verkaeufe) {
-			if (verkauf.getUnternehmen() == this) umsatz += verkauf.getKosten();
+			if (verkauf.getUnternehmen() == this) umsatz += verkauf.getGesamtBetrag();
 		}
 		
 		return umsatz;
@@ -164,7 +164,7 @@ public class Unternehmen {
 	 * Hilfsfunktion, die alle drei Schritte ausführt
 	 * @param raumschiffTyp
 	 * @param menge
-	 * @param preis
+	 * @param einzelBetrag
 	 */
 	public void kaufeEinProduziereVerkaufe(RaumschiffTyp raumschiffTyp, int menge, double preis) {
 		einkauf.kaufeEinFuer(raumschiffTyp, menge);

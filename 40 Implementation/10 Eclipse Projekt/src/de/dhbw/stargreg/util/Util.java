@@ -73,7 +73,7 @@ public class Util {
 	public static <T extends TypTransaktion<? extends Typ>> double summiereTypTransaktionen(Vector<T> typTransaktionen) {
 		return summiereVector(typTransaktionen, new Summe<T>() {
 			public double von(T typTransaktion) {
-				return typTransaktion.getKosten();
+				return typTransaktion.getGesamtBetrag();
 			}
 		});
 	}
@@ -106,7 +106,7 @@ public class Util {
 				},
 				new Summe<Verkauf>() {
 					public double von(Verkauf verkauf) {
-						return verkauf.getKosten();
+						return verkauf.getGesamtBetrag();
 					}
 				}
 		);
@@ -122,7 +122,7 @@ public class Util {
 				},
 				new Summe<Verkauf>() {
 					public double von(Verkauf verkauf) {
-						return verkauf.getKosten();
+						return verkauf.getGesamtBetrag();
 					}
 				}
 		);

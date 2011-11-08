@@ -14,6 +14,6 @@ public class Zahlung extends Transaktion {
 	}
 
 	public double getBetrag() {
-		return preis;
+		return einzelBetrag;
 	}
 }

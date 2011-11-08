@@ -20,7 +20,7 @@ public class VerkaufsAbteilung extends Abteilung {
 	/**
 	 * Gibt ein Angebot zu allen Raumschiffen im Lager (also inkl. der zu produzierenden) ab.
 	 * @param raumschiffTyp
-	 * @param preis
+	 * @param einzelBetrag
 	 */
 	public void macheAngebot(RaumschiffTyp raumschiffTyp, double preis) {
 		int menge = unternehmen.getLager().getAnzahl(raumschiffTyp);
@@ -41,8 +41,8 @@ public class VerkaufsAbteilung extends Abteilung {
 			for (Verkauf verkauf : verkaeufe) {
 				tb.addNewRow(verkauf.getTyp(),
 						verkauf.getMenge(),
-						String.format("%.2f", verkauf.getPreis()),
-						String.format("%.2f", verkauf.getKosten()));
+						String.format("%.2f", verkauf.getEinzelBetrag()),
+						String.format("%.2f", verkauf.getGesamtBetrag()));
 			}
 			tb.print();
 		} else {
@@ -57,7 +57,7 @@ public class VerkaufsAbteilung extends Abteilung {
 			for (Angebot angebot : angebote) {
 				tb.addNewRow(angebot.getTyp(),
 						angebot.getMenge(),
-						String.format("%.2f", angebot.getPreis()));
+						String.format("%.2f", angebot.getEinzelBetrag()));
 			}
 			tb.print();
 		}
@@ -78,7 +78,7 @@ public class VerkaufsAbteilung extends Abteilung {
 				System.err.printf("Weniger als %d %s vorhanden, Fehler in Verkäufen\n", verkauf.getMenge(), verkauf.getTyp());
 				return;
 			}
-			unternehmen.getFinanzen().einzahlen(verkauf.getKosten());
+			unternehmen.getFinanzen().einzahlen(verkauf.getGesamtBetrag());
 		}
 	}
 
