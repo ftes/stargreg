@@ -10,7 +10,7 @@ import de.dhbw.stargreg.util.Util;
  *
  */
 public class FinanzAbteilung extends Abteilung {
-	private double kapital = 0;
+	private double kontoStand = 0;
 	private final double startKapital;
 
 	public FinanzAbteilung(Unternehmen unternehmen, double startKapital) {
@@ -28,7 +28,7 @@ public class FinanzAbteilung extends Abteilung {
 			System.err.println("Negative Beträge nicht einzahlbar");
 			return;
 		}
-		this.kapital += betrag;
+		this.kontoStand += betrag;
 	}
 
 	/**
@@ -40,17 +40,17 @@ public class FinanzAbteilung extends Abteilung {
 			System.err.println("Negative Beträge nicht abbuchbar");
 			return;
 		}
-		this.kapital -= betrag;
+		this.kontoStand -= betrag;
 	}
 
 	public double getKontostand(){
-		return this.kapital;
+		return this.kontoStand;
 	}
 	
 	public double getZinskosten() {
 		double zinskosten = 0;
-		if (this.kapital < 0) {
-			zinskosten = -this.kapital * unternehmen.getSpiel().getKapitalMarkt().getZinssatz();
+		if (this.kontoStand < 0) {
+			zinskosten = -this.kontoStand * unternehmen.getSpiel().getKapitalMarkt().getZinssatz();
 		}
 		return zinskosten;
 	}
@@ -97,7 +97,7 @@ public class FinanzAbteilung extends Abteilung {
 		}
 		
 		tb.hline();
-		tb.addNewRow("Kontostand", String.format("%.2f", kapital));
+		tb.addNewRow("Kontostand", String.format("%.2f", kontoStand));
 		tb.print();
 	}
 
