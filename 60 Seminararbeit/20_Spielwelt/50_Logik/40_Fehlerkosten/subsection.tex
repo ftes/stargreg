@@ -9,7 +9,8 @@ Mehrkosten in jeder Spielrunde ermittelt.
 Zur Ermittlung der Mehrkosten werden Reparaturkosten, die für die Reparatur eines
 fehlerhaften Raumschiffs anfallen, herangezogen. Das heißt also, wenn ein Unternehmen
 ein fehlerhaftes Raumschiff produziert, wird das Konto des Unternehmens mit Mehrkosten,
-die für die Reparatur oder Behebung des Fehlers anfallen, belastet.
+die für die Reparatur oder Behebung des Fehlers anfallen, belastet. Diese Kosten belaufen sich
+auf 50\% der Produktionskosten.
 
 Andere Überlegungen waren beispielsweise der Ausschuss ganzer Raumschiffe oder der Ausfall
 einzelner Bauteile. Vergleicht man den Ausschuss bei der Raumschiffproduktion beispielsweise
@@ -41,10 +42,10 @@ eingesetzten Personals zu bestimmen:
 \end{equation}
 
 Mit dieser Formel wird die Durchschnittsqualität des Personals als gewichtetes arithmetisches Mittel
-berechnet. Die Durchschnittsqualität eines Unternehmens liegt in jedem Fall im Bereich 0,69 - 0,99.
+berechnet. Die daraus erhaltenen Werte liegen in jedem Fall im Bereich 0,69 - 0,99.
 
 Mit Hilfe dieser Information ist man nun in der Lage, die durch das Personal verursachte fehlerhaft
-produzierte Menge zu berechnen. Zur Berechnung wird die in Java vorgefertigte Math.random()-Funktion
+produzierte Menge zu ermitteln. Zur Berechnung wird die in Java vorgefertigte Math.random()-Funktion
 der Klasse random verwendet. Diese Funktion generiert für jedes in Produktion gegebene Raumschiff eine
 Zufallszahl zwischen 0,0 und 1,0. Sollte die erzeugte Zufallszahl den Wert der Durchschnittsqualität
 des Personals überbieten, so wird dieses Raumschiff als fehlerhaft eingestuft. Ist die Qualität des
@@ -52,11 +53,25 @@ Personals also höher, so erhöht sich die Wahrscheinlichkeit fehlerfreie Raumsc
 Wiederholt man diesen Vorgang für jedes produzierte Raumschiff, so lassen sich auf diese Weise die
 anfallenden Mehrkosten errechnen.
 
-ACHTUNG!!!
+\bigskip
 
-TEXT EINFÜGEN
+An einem vereinfachten Beispiel veranschaulicht, könnte dies wie folgt aussehen:
 
-ACHTUNG!!!
+Das Unternehmen “Weedman Ships” beschäftigt 13 R2D2, 18 Kampfdroiden und 9 Droiden des Typs Droideka.
+Mit diesem Personal will das Unternehmen einen X-Wing , zwei Corellian Corvettes und ein Raumschiff
+des Typs Millenium Falke produzieren.
+
+Mit diesen Angaben lässt sich zunächst die durchschnittliche Personalqualität des Unternehmens ermitteln:
+
+\begin{equation}
+     \frac{13 \cdot 0,69 + 18 \cdot 0,84 + 9 \cdot 0,99}{40} \approx 0,78
+     \label{alg:spielwelt-logik-fehlerkosten-Beispiel}
+\end{equation}
+
+Wie in \ref{tab:spielwelt-logik-fehlerkosten-beispiel} dargestellt, werden nun Zufallszahlen generiert um
+festzustellen, ob bei der Produktion Fehler auftraten.
+
+\medskip
 
 \begin{table}[ht]
      \centering
@@ -73,16 +88,12 @@ ACHTUNG!!!
      \label{tab:spielwelt-logik-fehlerkosten-beispiel}
 \end{table}
 
-Im Beispiel aus \ref{tab:spielwelt-logik-fehlerkosten-beispiel} möchte ich dies genauer aufzeigen.
 Beim ersten Raumschiff erzeugt die Funktion Math.random() die Zufallszahl 0,3. Da diese die Personalqualität
-von 0,772068 nicht überbietet, liegt kein Fehler vor. Dagegen weist eine der Corellian Corvettes einen Fehler auf.
+von 0,78 nicht überbietet, liegt kein Fehler vor. Dagegen weist eine der Corellian Corvettes einen Fehler auf.
 Die zweite Corellian Corvette und der Millenium Falke wurden wieder fehlerfrei produziert.
-Aufgrund der Qualität des Personals liegen bei einem von vier Raumschiffen Fehler vor. Hätte das Unternehmen
-verstärkt in ihr Personal investiert und in Form von Schulungen oder Neueinstellungen die Qualität verbessert,
+Aufgrund der nur mittelmäßigen Qualität des Personals liegen bei einem von vier Raumschiffen Fehler vor. Hätte das
+Unternehmen verstärkt in ihr Personal investiert und in Form von Aufrüstung oder Neueinstellungen die Qualität verbessert,
 so hätte dieser Fehler möglicherweise vermieden werden können.
 
-ACHTUNG!!!
-
-TEXT EINFÜGEN
-
-ACHTUNG!!!
+Um in diesem Beispiel den Fehler bei der Corellian Corvette zu beheben, würden bei Produktionskosten von 6000\curr{}
+Reparaturkosten von 3000\curr{} anfallen.
