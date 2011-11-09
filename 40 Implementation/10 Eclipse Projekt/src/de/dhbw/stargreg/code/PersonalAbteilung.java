@@ -48,7 +48,7 @@ public class PersonalAbteilung extends Abteilung {
 			return false;
 		}
 		Aufruestung aufruestung = new Aufruestung(von, unternehmen, anzahl, von.getAufruestungsKosten());
-		unternehmen.getFinanzen().abbuchen(aufruestung.getKosten());
+		unternehmen.getFinanzen().abbuchen(aufruestung.getGesamtBetrag());
 		
 		personal.subtract(von, anzahl);
 		personal.add(nach, anzahl);
@@ -99,7 +99,7 @@ public class PersonalAbteilung extends Abteilung {
 	public void einstellen (PersonalTyp personalTyp, int anzahl){
 		Einstellung einstellung = new Einstellung(personalTyp, unternehmen, anzahl, personalTyp.getWerbungsKosten());
 		
-		unternehmen.getFinanzen().abbuchen(einstellung.getKosten());
+		unternehmen.getFinanzen().abbuchen(einstellung.getGesamtBetrag());
 		
 		personal.add (personalTyp, anzahl);
 		anzahlPersonal += anzahl;
@@ -148,7 +148,7 @@ public class PersonalAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(getLaufendeKosten());
-		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(getLaufendeKosten(), Zahlung.Art.PERSONAL, unternehmen));
+		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getLaufendeKosten(), Zahlung.Art.PERSONAL, unternehmen));
 //		System.out.printf("%.2f laufende Personalkosten abgebucht\n", getLaufendeKosten());
 	}
 

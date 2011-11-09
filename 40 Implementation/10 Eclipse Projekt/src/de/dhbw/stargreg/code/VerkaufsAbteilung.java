@@ -16,26 +16,6 @@ public class VerkaufsAbteilung extends Abteilung {
 	public VerkaufsAbteilung(Unternehmen unternehmen) {
 		super(unternehmen);
 	}
-
-	/**
-	 * Verkauft Raumschiffe in den übergebenen Mengen. Dabei werden die Raumschiffe aus dem Lager
-	 * entnommen und der Ertrag wird dem Konto gutgeschrieben.
-	 * @param verkaeufe {@code Vector} mit den zu tätigenden Verkäufen.
-	 */
-	public void verkaufe(Vector<Verkauf> verkaeufe) {
-		if (verkaeufe == null) return;
-		for (Verkauf verkauf : verkaeufe) {
-			if (verkauf.getUnternehmen() != unternehmen) {
-				System.err.printf("Nicht für %s bestimmte Verkäufe zum verkaufen erhalten\n", unternehmen);
-				return;
-			}
-			if (! unternehmen.getLager().entnehmen(verkauf.getTyp(), verkauf.getMenge())) {
-				System.err.printf("Weniger als %d %s vorhanden, Fehler in Verkäufen\n", verkauf.getMenge(), verkauf.getTyp());
-				return;
-			}
-			unternehmen.getFinanzen().einzahlen(verkauf.getKosten());
-		}
-	}
 	
 	/**
 	 * Gibt ein Angebot zu allen Raumschiffen im Lager (also inkl. der zu produzierenden) ab.
@@ -61,8 +41,8 @@ public class VerkaufsAbteilung extends Abteilung {
 			for (Verkauf verkauf : verkaeufe) {
 				tb.addNewRow(verkauf.getTyp(),
 						verkauf.getMenge(),
-						String.format("%.2f", verkauf.getPreis()),
-						String.format("%.2f", verkauf.getKosten()));
+						String.format("%.2f", verkauf.getEinzelBetrag()),
+						String.format("%.2f", verkauf.getGesamtBetrag()));
 			}
 			tb.print();
 		} else {
@@ -77,9 +57,28 @@ public class VerkaufsAbteilung extends Abteilung {
 			for (Angebot angebot : angebote) {
 				tb.addNewRow(angebot.getTyp(),
 						angebot.getMenge(),
-						String.format("%.2f", angebot.getPreis()));
+						String.format("%.2f", angebot.getEinzelBetrag()));
 			}
 			tb.print();
+		}
+	}
+
+	/**
+	 * Verkauft Raumschiffe in den übergebenen Mengen. Dabei werden die Raumschiffe aus dem Lager
+	 * entnommen und der Ertrag wird dem Konto gutgeschrieben.
+	 */
+	public void simuliere() {
+		Vector<Verkauf> verkaeufe = unternehmen.getSpiel().getRaumschiffMarkt().getVerkaeufe(unternehmen);
+		for (Verkauf verkauf : verkaeufe) {
+			if (verkauf.getUnternehmen() != unternehmen) {
+				System.err.printf("Nicht für %s bestimmte Verkäufe zum verkaufen erhalten\n", unternehmen);
+				return;
+			}
+			if (! unternehmen.getLager().entnehmen(verkauf.getTyp(), verkauf.getMenge())) {
+				System.err.printf("Weniger als %d %s vorhanden, Fehler in Verkäufen\n", verkauf.getMenge(), verkauf.getTyp());
+				return;
+			}
+			unternehmen.getFinanzen().einzahlen(verkauf.getGesamtBetrag());
 		}
 	}
 

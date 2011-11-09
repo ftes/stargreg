@@ -10,7 +10,7 @@ import de.dhbw.stargreg.util.Util;
  *
  */
 public class FinanzAbteilung extends Abteilung {
-	private double kapital = 0;
+	private double kontoStand = 0;
 	private final double startKapital;
 
 	public FinanzAbteilung(Unternehmen unternehmen, double startKapital) {
@@ -28,7 +28,7 @@ public class FinanzAbteilung extends Abteilung {
 			System.err.println("Negative Beträge nicht einzahlbar");
 			return;
 		}
-		this.kapital += betrag;
+		this.kontoStand += betrag;
 	}
 
 	/**
@@ -40,17 +40,17 @@ public class FinanzAbteilung extends Abteilung {
 			System.err.println("Negative Beträge nicht abbuchbar");
 			return;
 		}
-		this.kapital -= betrag;
+		this.kontoStand -= betrag;
 	}
 
 	public double getKontostand(){
-		return this.kapital;
+		return this.kontoStand;
 	}
 	
 	public double getZinskosten() {
 		double zinskosten = 0;
-		if (this.kapital < 0) {
-			zinskosten = -this.kapital * unternehmen.getSpiel().getKapitalMarkt().getZinssatz();
+		if (this.kontoStand < 0) {
+			zinskosten = -this.kontoStand * unternehmen.getSpiel().getKapitalMarkt().getZinssatz();
 		}
 		return zinskosten;
 	}
@@ -62,7 +62,7 @@ public class FinanzAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		abbuchen(getZinskosten());
-		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(getZinskosten(), Zahlung.Art.ZINSEN, unternehmen));
+		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getZinskosten(), Zahlung.Art.ZINSEN, unternehmen));
 //		System.out.printf("%.2f Zinsaufwendungen abgebucht\n", getZinskosten());
 	}
 	
@@ -77,17 +77,17 @@ public class FinanzAbteilung extends Abteilung {
 		TableBuilder tb = new TableBuilder("Art", "Betrag");
 		if (! aktuelleSpielRunde) {
 			if (spielRunde != null) {
-				double einkaeufe = -spielRunde.getSummeTransaktionen(Einkauf.class, unternehmen);
-				double verkaeufe = spielRunde.getSummeTransaktionen(Verkauf.class, unternehmen);
-				double personal = -spielRunde.getSummeTransaktionen(Einstellung.class, unternehmen) + 
-						spielRunde.getSummeTransaktionen(Aufruestung.class, unternehmen);
+				double einkaeufe = -spielRunde.getSummeTypTransaktionen(Einkauf.class, unternehmen);
+				double verkaeufe = spielRunde.getSummeTypTransaktionen(Verkauf.class, unternehmen);
+				double personal = -spielRunde.getSummeTypTransaktionen(Einstellung.class, unternehmen) + 
+						spielRunde.getSummeTypTransaktionen(Aufruestung.class, unternehmen);
 				tb.addNewRow("Verkäufe", String.format("%.2f", verkaeufe));
 				tb.addNewRow("Einkäufe", String.format("%.2f", einkaeufe));
 				tb.addNewRow("Personal (einmalig)", String.format("%.2f", personal));
-				tb.addNewRow("Personal (laufend)", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.PERSONAL, unternehmen).getBetrag()));
-				tb.addNewRow("Fehler", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.FEHLER, unternehmen).getBetrag()));
-				tb.addNewRow("Lager", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.LAGER, unternehmen).getBetrag()));
-				tb.addNewRow("Zinsen", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.ZINSEN, unternehmen).getBetrag()));
+				tb.addNewRow("Personal (laufend)", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.PERSONAL, unternehmen).getEinzelBetrag()));
+				tb.addNewRow("Fehler", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.FEHLER, unternehmen).getEinzelBetrag()));
+				tb.addNewRow("Lager", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.LAGER, unternehmen).getEinzelBetrag()));
+				tb.addNewRow("Zinsen", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.ZINSEN, unternehmen).getEinzelBetrag()));
 			}
 		} else {
 			double einkaeufe = -Util.summiereTypTransaktionen(unternehmen.getSpiel().getBauteilMarkt().getTransaktionen(unternehmen));
@@ -97,7 +97,7 @@ public class FinanzAbteilung extends Abteilung {
 		}
 		
 		tb.hline();
-		tb.addNewRow("Kontostand", String.format("%.2f", kapital));
+		tb.addNewRow("Kontostand", String.format("%.2f", kontoStand));
 		tb.print();
 	}
 
