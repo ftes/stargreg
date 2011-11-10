@@ -215,29 +215,34 @@
         <text>Insgesamt%3A%2010.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="59" controlTypeID="com.balsamiq.mockups::TitleWindow" x="413" y="160" w="461" h="319" measuredW="450" measuredH="400" zOrder="38" locked="false" isInGroup="-1">
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::TitleWindow" x="413" y="160" w="461" h="319" measuredW="450" measuredH="400" zOrder="40" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Einkauf</text>
       </controlProperties>
     </control>
-    <control controlID="60" controlTypeID="com.balsamiq.mockups::SubTitle" x="442" y="208" w="-1" h="-1" measuredW="402" measuredH="37" zOrder="39" locked="false" isInGroup="-1">
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::SubTitle" x="442" y="208" w="-1" h="-1" measuredW="402" measuredH="37" zOrder="42" locked="false" isInGroup="-1">
       <controlProperties>
         <color>40463</color>
         <text>Einkauf%20erfolgreich%20abgeschlossen%20%21%21%21</text>
       </controlProperties>
     </control>
-    <control controlID="61" controlTypeID="com.balsamiq.mockups::Button" x="528" y="374" w="217" h="37" measuredW="145" measuredH="28" zOrder="40" locked="false" isInGroup="-1">
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::Button" x="528" y="374" w="217" h="37" measuredW="145" measuredH="28" zOrder="41" locked="false" isInGroup="-1">
       <controlProperties>
         <href>Einkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml</href>
         <state>up</state>
         <text>Zur%FCck%20zum%20Einkauf</text>
       </controlProperties>
     </control>
-    <control controlID="62" controlTypeID="com.balsamiq.mockups::Button" x="778" y="655" w="295" h="58" measuredW="136" measuredH="28" zOrder="41" locked="false" isInGroup="-1">
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Button" x="778" y="655" w="295" h="58" measuredW="136" measuredH="28" zOrder="38" locked="false" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
         <href>EinkaufBest%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml</href>
         <text>Einkauf%20Best%E4tigen</text>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Canvas" x="70" y="0" w="1024" h="768" measuredW="100" measuredH="70" zOrder="39" locked="true" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
       </controlProperties>
     </control>
   </controls>

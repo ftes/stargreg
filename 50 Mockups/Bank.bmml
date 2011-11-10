@@ -9,7 +9,7 @@
       <controlProperties>
         <borderStyle>none</borderStyle>
         <hrefs>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%2CBank%26bm%3BBank.bmml%26bm%3BBank.bmml%26bm%3BBank.bmml%2CPersonalwesen%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%26bm%3BPersonalwesen.bmml%2CEinkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%2CProduktion%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%26bm%3BProduktion.bmml%2CVerkauf%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml%26bm%3BVerkauf.bmml</hrefs>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%221_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%221_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%221_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%221_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%221_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%221_5%22/%3E%0A</map>
+        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C40%2C100%2C71%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%221_0%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C71%2C100%2C102%22%20href%3D%22Bank.bmml%22%20alt%3D%22Bank%22%20id%3D%221_1%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C102%2C100%2C133%22%20href%3D%22Personalwesen.bmml%22%20alt%3D%22Personalwesen%22%20id%3D%221_2%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C133%2C100%2C164%22%20href%3D%22Einkauf.bmml%22%20alt%3D%22Einkauf%22%20id%3D%221_3%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C164%2C100%2C195%22%20href%3D%22Produktion.bmml%22%20alt%3D%22Produktion%22%20id%3D%221_4%22/%3E%0A%3Carea%20shape%3D%22rect%22%20coords%3D%220%2C195%2C100%2C226%22%20href%3D%22Verkauf.bmml%22%20alt%3D%22Verkauf%22%20id%3D%221_5%22/%3E%0A</map>
         <selectedIndex>1</selectedIndex>
         <text>%DCbersicht%0ABank%0APersonalwesen%0AEinkauf%0AProduktion%0AVerkauf</text>
       </controlProperties>
@@ -58,29 +58,29 @@
         <text>404.000%2C00%20</text>
       </controlProperties>
     </control>
-    <control controlID="12" controlTypeID="com.balsamiq.mockups::List" x="677" y="139" w="145" h="117" measuredW="100" measuredH="126" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::List" x="677" y="139" w="145" h="142" measuredW="100" measuredH="126" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <hasHeader>true</hasHeader>
         <selectedIndex>-1</selectedIndex>
-        <text>Produktion%0ATriebwerke%0AHitzeschilder%0ARumpfbauteile%0ASonderteile</text>
+        <text>Produktion%0ATriebwerke%0AHitzeschilder%0ARumpfbauteile%0ASonderteile%0AZusatzkosten</text>
       </controlProperties>
     </control>
-    <control controlID="14" controlTypeID="com.balsamiq.mockups::List" x="837" y="139" w="195" h="117" measuredW="100" measuredH="126" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::List" x="837" y="139" w="195" h="143" measuredW="100" measuredH="126" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <alternateRowColor>12303802</alternateRowColor>
         <hasHeader>true</hasHeader>
         <selectedIndex>-1</selectedIndex>
-        <text>%20%0A10.000%2C00%0A8.000%2C00%0A5.000%2C00%0A3.000%2C00%20</text>
+        <text>%20%0A10.000%2C00%0A8.000%2C00%0A5.000%2C00%0A3.000%2C00%20%0A2.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="15" controlTypeID="com.balsamiq.mockups::List" x="677" y="267" w="145" h="98" measuredW="100" measuredH="126" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::List" x="677" y="282" w="145" h="98" measuredW="100" measuredH="126" zOrder="11" locked="false" isInGroup="-1">
       <controlProperties>
         <hasHeader>true</hasHeader>
         <selectedIndex>-1</selectedIndex>
         <text>Personal%0AWartungskosten%0AWerbungskosten%0AAusbaukosten</text>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::List" x="837" y="267" w="195" h="98" measuredW="100" measuredH="126" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::List" x="838" y="282" w="195" h="98" measuredW="100" measuredH="126" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <alternateRowColor>12303802</alternateRowColor>
         <hasHeader>true</hasHeader>
@@ -88,14 +88,14 @@
         <text>%20%0A8.800%2C00%0A2.200%2C00%0A3.500%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::List" x="677" y="373" w="145" h="60" measuredW="100" measuredH="126" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::List" x="677" y="387" w="145" h="60" measuredW="100" measuredH="126" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <hasHeader>true</hasHeader>
         <selectedIndex>-1</selectedIndex>
         <text>Lager%0AStellplatzkosten</text>
       </controlProperties>
     </control>
-    <control controlID="18" controlTypeID="com.balsamiq.mockups::List" x="837" y="373" w="195" h="60" measuredW="100" measuredH="126" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::List" x="837" y="387" w="195" h="60" measuredW="100" measuredH="126" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <alternateRowColor>12303802</alternateRowColor>
         <hasHeader>true</hasHeader>
@@ -116,7 +116,7 @@
         <align>center</align>
         <color>13576743</color>
         <size>24</size>
-        <text>41.500%2C00%20</text>
+        <text>43.500%2C00%20</text>
       </controlProperties>
     </control>
     <control controlID="23" controlTypeID="com.balsamiq.mockups::List" x="369" y="592" w="215" h="98" measuredW="100" measuredH="126" zOrder="17" locked="false" isInGroup="-1">
