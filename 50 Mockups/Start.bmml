@@ -30,10 +30,10 @@
         <text>StarGreg%20starten</text>
       </controlProperties>
     </control>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::Title" x="77" y="49" w="1011" h="-1" measuredW="491" measuredH="56" zOrder="5" locked="true" isInGroup="-1">
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Title" x="77" y="49" w="1011" h="-1" measuredW="473" measuredH="56" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <color>40463</color>
-        <text>Willkommen%20bei%20StrarGreg</text>
+        <text>Willkommen%20bei%20StarGreg</text>
       </controlProperties>
     </control>
     <control controlID="8" controlTypeID="com.balsamiq.mockups::TextInput" x="418" y="221" w="328" h="-1" measuredW="202" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
