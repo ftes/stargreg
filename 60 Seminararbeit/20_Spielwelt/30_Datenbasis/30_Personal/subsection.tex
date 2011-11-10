@@ -1,0 +1,46 @@
+\subsection{Personal}
+\label{sub:Personal}
+\autorbeginn{Marcel}
+\subsubsection{Einleitung}
+In dem Unternehmensplanspiel StarGreg werden zur Produktion von Raumschiffen sogenannte Droiden benötigt.   Abhängig von der laufenden Produktion  werden somit unterschiedlich viele Droiden benötigt, die selbst wiederum in 3 verschiedene Qualitätsstufen untergliedert sind.
+
+\subsubsection{Qualität und Quantität des Personals}
+Die drei unterschiedlichen Qualitätsstufen werden in Form verschiedener Droiden dargestellt. Es handelt sich hierbei um den einfachen R2D2, den höherwertigen Kampfdroiden und den Permiumdroiden Droideka.Der Droide R2D2 besitzt die niedrigste Qualitätsstufe mit einer Qualität von 69 Prozent. Dies bedeutet, dass die in die Produktion gegebenen Raumschiffe mit einer Wahrscheinlichkeit von 69 Prozent fehlerfrei produziert werden können. In diesem Beispiel wird  jedoch vorausgesetzt, dass in der Produktion ausschließlich R2D2 Droiden tätig sind.  Eine Qualitätsstufe höher ist der Kampfdroide angesiedelt. Ein Kampfdroide produziert mit einer 84 prozentigen Wahrscheinlichkeit fehlerfreie Raumschiffe. In dem Unternehmensplanspiel StarGreg können Droiden unterschiedlicher Qualitätsstufen zur selben Zeit in der Produktion aktiv sein. Die Qualitätsstufe des gesamten Personals wird in diesem Fall anhand eines Algorithmus berechnet, der in dem Kapitel „Algorithmus-Personal“ beschrieben wird.Der Droide mit der höchsten Qualitätsstufe heißt Droideka. Er zeichnet sich durch seinen hohen fehlerfreien Durchsatz in der Produktion aus. Ein Raumschiff, das ausschließlich von Droidekas produziert wurde ist zu 99 Prozent fehlerfrei. Durch umfassende Umbaumaßnahmen eines Droiden, die mit Schulungen vergleichbar sind, können Droiden ihre Qualitätsstufe verbessern. Der Droide R2D2 kann somit durch zwei Umbaumaßnahmen bis hin zu einem Droideka aufsteigen.  Kampfdroiden benötigen lediglich eine weitere Umbaumaßnahme, bis sie zu einem Droideka werden. Der Droideka besitzt bereits die höchste Qualitätsstufe und kann nicht umgebaut werden.Unabhängig von der Qualität der verschiedenen Droiden haben die Qualitätsstufen keinen Einfluss auf die maximale Produktionsmenge. Dies bedeutet, dass die Kapazitätsgrenze in der Produktion lediglich über die Anzahl der verfügbaren Droiden gesteuert werden kann und nicht durch Umbaumaßnahmen zur Erhöhung der Qualitätsstufe. Man geht davon aus, dass die drei verschiedenen Droiden für die gleiche Aufgabe gleich viel Zeit benötigen. Der einzige Unterschied besteht darin, dass die unterschiedlichen Droiden in dieser Zeitspanne mit einer unterschiedlichen Sorgfalt ihre Arbeit erledigen. Wie bereits in den vorherigen Kapitel näher erläutert, können in dem Unternehmensplanspiel drei unterschiedliche Raumschiffe produziert werden. Diese unterscheiden sich in Ihrer Größe ( der Anzahl der benötigten Bauteile). Das hat zur Folge, dass pro Raumschiff unterschiedlich viele Droiden benötigt werden. Zur Produktion eines X-Wings werden fünf Droiden benötigt. Eine Correlian Corvette kann von 10  Droiden und ein Millenium Falke von 15 Droiden produziert werden. Aus der Mindestmenge der Raumschiffe, die in der ersten Runde produziert werden müssen und der Zuordnung der Droiden pro Raumschiff ergibt sich so eine Mindestmenge von insgesamt 900 Droiden, die zu beginn des Unternehmensplanspiels benötigt werden. ( 5 Droiden * 60 X-Wings + 10 Droiden * 30 C.Corvettes + 15 Droiden * 20 M.Falken = 900 Droiden)
+
+\subsubsection{Personalkosten}
+
+Bei der Einstellung eines neuen Droiden fallen Werbungskosten an. Diese richten sich nach der jeweiligen Qualitätsstufe und sind wie in \ref{tab:spielwelt-datenbasis-personal1} abgestuft.
+
+
+\begin{table}[ht]
+     \centering
+     \begin{tabular}{ | l | l | }
+          \hline
+          Droide & Werbungskosten \\
+          \hline \hline
+          R2D2 & 400,00\curr \\ \hline
+          Kampfdroide & 600,00\curr \\ \hline
+          Droideka & 800,00\curr \\
+          \hline
+     \end{tabular}
+     \caption{Werbungskosten des Personals}
+     \label{tab:spielwelt-datenbasis-personal1}
+\end{table}
+Zusätzlich zu den Werbungskosten fallen pro Spielrunde für die Droiden laufende Kosten an. Diese sind mit einem Jahresgehalt vergleichbar und ebenso wie die Werbungskosten abgestuft. (\ref{tab:spielwelt-datenbasis-personal2}) 
+\begin{table}[ht]
+     \centering
+     \begin{tabular}{ | l | l | }
+          \hline
+          Droide & Laufende Kosten \\
+          \hline \hline
+          R2D2 & 100,00\curr \\ \hline
+          Kampfdroide & 110,00\curr \\ \hline
+          Droideka & 120,00\curr \\
+          \hline
+     \end{tabular}
+     \caption{Laufende Kosten  des Personals}
+     \label{tab:spielwelt-datenbasis-personal2}
+\end{table}Wie bereits in dem Kapitel „Qualität und Quantität des Personals“ beschrieben, können Droiden durch Umbaumaßnahmen zu einer höheren Qualitätsstufe aufsteigen. Hierbei wurde beachtet, dass ein Droide  der mit einer niedrigen Qualitätsstufe eingestellt wird und durch spätere Umbaumaßnahmen geupgradet wird mehr kostet, als ein Droide der direkt mit einer höheren Qualitätsstufe eingestellt wird. Die Kosten für den Umbau eines R2D2’s zu einem Kampfdroiden belaufen sich auf 300 \curr{}. Der Umbau eines Kampfdroiden zu einem Droideka kostet den Unternehmer ebenfalls 300 \curr{}. Stellt man demnach einen R2D2 Droiden ein und baut ihn zu einem Kampfdroiden um, so belaufen sich die Gesamtkosten auf 700\curr{} (400 \curr{} Werbungskosten + 300 \curr{} Umbaumaßnahmen). Stellt man einen Kampfdroiden direkt ein, so kostet dies insgesamt 600 \curr{} (600 \curr{} Werbungskosten).
+
+\autorende{}
+
