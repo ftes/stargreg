@@ -15,7 +15,7 @@ import de.dhbw.stargreg.util.Util;
  * @author fredrik
  *
  */
-public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
+public class BauteilMarkt extends TypMarkt<BauteilTyp, Einkauf> {
 
 	/**
 	 * Kosten pro LagerplatzEinheit
@@ -55,7 +55,7 @@ public class BauteilMarkt extends Markt<BauteilTyp, Einkauf> {
 				double umsatz = 0;
 				if (einkaeufe.containsKey(bauteilTyp)) {
 					for (Einkauf einkauf : einkaeufe.get(bauteilTyp)) {
-						umsatz += einkauf.getPreis() * einkauf.getMenge();
+						umsatz += einkauf.getEinzelBetrag() * einkauf.getMenge();
 					}
 				}
 				umsaetze.put(bauteilTyp, umsatz);

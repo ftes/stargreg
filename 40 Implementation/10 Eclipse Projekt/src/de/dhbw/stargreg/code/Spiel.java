@@ -124,24 +124,74 @@ public class Spiel {
 	}
 	
 	/**
-	 * Bewertet die Unternehmen
+	 * Bewertet die Unternehmen durch folgende Schritte:
+	 * Ermittelt die Rangfolge der Unternehmen in der Endbewertung.
+	 * Der ROI (Gewinn / Investition) wird zu 70% gewichtet, der
+	 * Marktanteil gemessen am Absatzwert des Unternehmens wird zu 30%
+	 * gewichtet.
+	 * Zum Gewinn zählt dabei im vollen Umfang dsa Kapital, zu 67%
+	 * fertige Raumschiffe im Lager und zu 33% Bauteile im Lager.
+	 * @return Unternehmen, sortiert nach Ergebnissen (bestes zuerst).
 	 */
-	public void bewerteUnternehmen() {
+	public Vector<Unternehmen> bewerteUnternehmen() {
 		if (status != Status.AUSWERTEN) {
 			System.err.println("Keine Bewertung möglich, da Spiel noch nicht beendet wurde");
-			return;
+			return null;
 		}
 		
 		Util.printHeading("Bewertung der Unternehmen");
-		Vector<Unternehmen> rangfolge = ermittleRangfolge();
+		
+		//Achtung: Problem bei negativen ROI -> wenn summeROI negativ ist, dann wird bei Division ein negativer ROI gut
+		//Lösung: rechts-verschiebung bei Vorhandensein eines negativen ROI
+		double minROI = Double.MAX_VALUE;
+		for (Unternehmen unternehmen : this.unternehmen) {
+			if (unternehmen.getROI() < minROI) minROI = unternehmen.getROI();
+		}
+		
+		double rechtsVerschiebung = 0;
+		if (minROI < 0) {
+			rechtsVerschiebung = -minROI;
+		}
+		
+		double summeROI = 0;
+		double summeAbsatzWert = 0;
+		for (Unternehmen unternehmen : this.unternehmen) {
+			summeROI += unternehmen.getROI() + rechtsVerschiebung;
+			summeAbsatzWert += unternehmen.getAbsatzWert();
+		}
+		
+		System.out.println("Punkteverteilung");
+		TableBuilder tb = new TableBuilder("Unternehmen", "ROI", "Marktanteil", "Bewertung");
+		for (Unternehmen unternehmen : this.unternehmen) {
+			double punkte = (unternehmen.getROI() + rechtsVerschiebung) / summeROI * 70;
+			punkte += unternehmen.getAbsatzWert() / summeAbsatzWert * 30;
+			unternehmen.setBewertung(punkte);
+			tb.addNewRow(unternehmen, 
+					String.format("%.1f", unternehmen.getROI() * 100) + " %",
+					String.format("%.1f", unternehmen.getAbsatzWert() / summeAbsatzWert * 100) + " %",
+					String.format("%.0f", punkte));
+		}
+		tb.print();
+		
+		// Bewertung sortieren um Rangfolge zu erhalten
+		@SuppressWarnings("unchecked")
+		Vector<Unternehmen> rangfolge = (Vector<Unternehmen>) unternehmen.clone();
+		Collections.sort(rangfolge, new Comparator<Unternehmen>() {
+			public int compare(Unternehmen u1, Unternehmen u2) {
+				return ((Double) u2.getBewertung()).compareTo(u1.getBewertung());
+			}
+		});
+		
 		System.out.println("Ergebnis");
-		TableBuilder tb = new TableBuilder("Rang", "Unternehmen", "Punkte");
+		tb = new TableBuilder("Rang", "Unternehmen", "Punkte");
 		for (int i=0; i<rangfolge.size(); i++) {
 			tb.addNewRow(i + 1 + ".",
 					rangfolge.elementAt(i),
 					String.format("%.0f", rangfolge.elementAt(i).getBewertung()));
 		}
 		tb.print();
+		
+		return rangfolge;
 	}
 
 	/**
@@ -166,11 +216,11 @@ public class Spiel {
 		Util.printHeading("Simulation der Spielrunde");
 		
 		// Verkäufe nach Unternehmen gruppieren
-		HashMap<Unternehmen, Vector<Verkauf>> verkaeufe = Util.gruppiereVerkaeufeNachUnternehmen(
+		Util.gruppiereVerkaeufeNachUnternehmen(
 				raumschiffMarkt.berechneGesamtAbsatz());
 		
 		for (Unternehmen unternehmen : this.unternehmen) {
-			unternehmen.simuliere(verkaeufe.get(unternehmen));
+			unternehmen.simuliere();
 		}
 		
 		aktuelleSpielRunde.fuegeTransaktionenHinzu(bauteilMarkt.simuliere());
@@ -226,59 +276,7 @@ public class Spiel {
 		if (vorherige == -1) return null;
 		return spielRunden.elementAt(vorherige).getStar();
 	}
-	
-	/**
-	 * Ermittelt die Rangfolge der Unternehmen in der Endbewertung.
-	 * Der ROI (Gewinn / Investition) wird zu 70% gewichtet, der
-	 * Marktanteil gemessen am Absatzwert des Unternehmens wird zu 30%
-	 * gewichtet.
-	 * Zum Gewinn zählt dabei im vollen Umfang dsa Kapital, zu 67%
-	 * fertige Raumschiffe im Lager und zu 33% Bauteile im Lager.
-	 * @return Unternehmen, sortiert nach Ergebnissen (bestes zuerst).
-	 */
-	private Vector<Unternehmen> ermittleRangfolge() {
-		//Achtung: Problem bei negativen ROI -> wenn summeROI negativ ist, dann wird bei Division ein negativer ROI gut
-		//Lösung: rechts-verschiebung bei Vorhandensein eines negativen ROI
-		double minROI = Double.MAX_VALUE;
-		for (Unternehmen unternehmen : this.unternehmen) {
-			if (unternehmen.getROI() < minROI) minROI = unternehmen.getROI();
-		}
-		
-		double rechtsVerschiebung = 0;
-		if (minROI < 0) {
-			rechtsVerschiebung = -minROI;
-		}
-		
-		double summeROI = 0;
-		double summeAbsatzWert = 0;
-		for (Unternehmen unternehmen : this.unternehmen) {
-			summeROI += unternehmen.getROI() + rechtsVerschiebung;
-			summeAbsatzWert += unternehmen.getAbsatzWert();
-		}
-		
-		System.out.println("Punkteverteilung");
-		TableBuilder tb = new TableBuilder("Unternehmen", "ROI", "Marktanteil", "Bewertung");
-		for (Unternehmen unternehmen : this.unternehmen) {
-			double punkte = (unternehmen.getROI() + rechtsVerschiebung) / summeROI * 70;
-			punkte += unternehmen.getAbsatzWert() / summeAbsatzWert * 30;
-			unternehmen.setBewertung(punkte);
-			tb.addNewRow(unternehmen, 
-					String.format("%.1f", unternehmen.getROI() * 100) + " %",
-					String.format("%.1f", unternehmen.getAbsatzWert() / summeAbsatzWert * 100) + " %",
-					String.format("%.0f", punkte));
-		}
-		tb.print();
-		
-		// Bewertung sortieren um Rangfolge zu erhalten
-		@SuppressWarnings("unchecked")
-		Vector<Unternehmen> rangfolge = (Vector<Unternehmen>) unternehmen.clone();
-		Collections.sort(rangfolge, new Comparator<Unternehmen>() {
-			public int compare(Unternehmen u1, Unternehmen u2) {
-				return ((Double) u2.getBewertung()).compareTo(u1.getBewertung());
-			}
-		});
-		return rangfolge;
-	}
+
 	
 	public Vector<SpielRunde> getSpielRunden() {
 		return spielRunden;

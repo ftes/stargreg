@@ -8,45 +8,29 @@ import java.util.Vector;
  * @author fredrik
  *
  */
-public abstract class Markt<T extends Typ, A extends TypTransaktion<T>> {
-	
-	/**
-	 * Verwaltung der Typen dieses Marktes.
-	 */
-	protected final Vector<T> typen = new Vector<T>();
+public abstract class Markt<T extends Transaktion> {
+
 	
 	/**
 	 * Verwaltung der Transaktionen dieser Runde dieses Marktes.
 	 */
-	protected final Vector<A> transaktionen = new Vector<A>();
-	
-	/**
-	 * Fügt den Typ zur Liste der Typen hinzu.
-	 * @param typ Anzufügender Typ.
-	 */
-	public void fuegeTypHinzu (T typ) {
-		typen.add(typ);
-	}
-	
-	public Vector<T> getTypen() {
-		return typen;
-	}
+	protected final Vector<T> transaktionen = new Vector<T>();
 	
 	/**
 	 * Fügt die TypTransaktion zur Liste der Transaktionen hinzu.
 	 * @param transaktion Anzufügende TypTransaktion.
 	 */
-	public void fuegeTransaktionHinzu(A transaktion) {
+	public void fuegeTransaktionHinzu(T transaktion) {
 		transaktionen.add(transaktion);
 	}
 	
-	public Vector<A> getTransaktionen() {
+	public Vector<T> getTransaktionen() {
 		return transaktionen;
 	}
 	
-	public Vector<A> getTransaktionen(Unternehmen unternehmen) {
-		Vector<A> vector = new Vector<A>();
-		for (A transaktion : transaktionen) {
+	public Vector<T> getTransaktionen(Unternehmen unternehmen) {
+		Vector<T> vector = new Vector<T>();
+		for (T transaktion : transaktionen) {
 			if (transaktion.getUnternehmen() == unternehmen) {
 				vector.add(transaktion);
 			}
@@ -64,9 +48,9 @@ public abstract class Markt<T extends Typ, A extends TypTransaktion<T>> {
 	 * gelöscht.
 	 * @return Transaktionen
 	 */
-	public Vector<A> simuliere() {
+	public Vector<T> simuliere() {
 		//Transaktionen vielleicht nicht wie Instanzattribut nennen, da dies verwirrend ist
-		Vector<A> transaktionen = new Vector<A>(); 
+		Vector<T> transaktionen = new Vector<T>(); 
 		transaktionen.addAll(this.transaktionen);
 		loescheTransaktionen();
 		return transaktionen;

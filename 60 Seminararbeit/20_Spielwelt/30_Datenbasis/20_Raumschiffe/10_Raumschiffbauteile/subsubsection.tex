@@ -1,0 +1,61 @@
+\subsubsection{Raumschiffbauteile}
+\label{subsub:spielwelt-datenbasis-raumschiffe-raumschiffbauteile}
+
+Die Raumschiffbauteile werden im Unternehmensplanspiel StarGreg auf dem Bauteilmarkt gekauft und bilden für die beteiligten Unternehmen die Grundlage für die Produktion der verschiedenen Raumschifftypen. Sie lassen sich in Grund- und Sonderbauteile gliedern. Da die JUnit Tests nachvollziehbar bleiben sollten und die Komplexität des Spiels nicht zu hoch werden durfte, fiel die Wahl auf drei verschiedene Grund- und drei verschiedene Sonderbauteile. 
+\\
+\\
+Zunächst wollen wir die Grundbauteile näher betrachten. Zu ihnen gehören das Rumpfbauteil, das Hitzeschild und das Triebwerk, wobei jedes der Bauteile einen Grund-, einen Minimal- und einen Maximalpreis hat. Desweiteren beansprucht jedes Bauteil einen bestimmten Platz im Lager, sofern es nicht verbaut wurde bzw. sofern das Raumschiff, in dem es verbaut ist, nicht abgesetzt wurde. Die Staffelung der Werte ist in Abbildung \ref{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile} dargestellt.
+
+\begin{table}[ht]
+     \centering
+     \begin{tabular}{ | l | l | l | l | l   }
+          \hline
+          Bauteiltyp & Grundpreis (in \curr{}) & Minimalpreis (in \curr{}) & Maximalpreis (in \curr{}) & Lagerpltzeinheiten \\
+          \hline \hline
+          Rumpfbauteil & 100,00 & 60,00 & 140,00 & 1\curr \\ \hline
+          Hitzeschild & 200,00 & 120,00 & 280,00 & 2\curr \\ \hline
+          Triebwerk & 500,00 & 300,00 & 700,00 & 5\curr \\
+          \hline
+     \end{tabular}
+     \caption{Preise der Grundbauteile}
+     \label{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile}
+\end{table}
+
+Der Gedanke hinter der Preisstaffelung der Grundpreise liegt darin, dass das billigste Bauteil mengenmäßig am meisten und das teuerste Bauteil mengenmäßig am wenigsten für die spätere Produktion der verschiedenen Raumschifftypen benötigt wird. Zudem sollte ein Unternehmensplanspiel betriebswirtschaftliche Aspekte möglichst realitätsnahe in einem Modell wiederspiegeln und eine Preisgleichheit von Produkten wäre eher realitätsfern. 
+\\
+\\
+Aus der Tabelle geht hervor, dass sich der Minimal- und der Maximalpreis aus dem Grundpreis wie folgt ableiten: 
+
+\begin{itemize}
+\item[] Minimalpreis = Grundpreis des Bauteils - 40\% vom Grundpreis des Bauteils
+\item[] Maximalpreis = Grundpreis des Bauteils + 40\% vom Grundpreis des Bauteils
+\end{itemize}
+
+Die Grenzen sind für jedes Teil separat gewählt, da das teure Triebwerk beispielsweise nie so günstig werden soll wie das oft verwendete Rumpfbauteil. Die Begrenzung selbst ist zudem wichtig für die Berechnung der neuen Bauteilpreise (siehe 2.e.ii Berechnung der Bauteilpreise ). 
+\\
+\\
+Die benötigten Lagerplatzeinheiten für die Bauteiltypen ergeben sich direkt aus dem Grundpreis und werden nicht vom Konjunkturverlauf beeinflusst. Sie ergeben sich, wenn man den jeweiligen Grundpreis des Bauteils durch 100 teilt. Die Lagerplatzkosten je Lagerplatzeinheit sind ebenfalls konstant und haben den Faktor 10, was bedeutet, das die Lagerung eines Rumpfbauteils über eine Runde beispielsweise 1 Lagerplatzeinheit * 10  \curr{}/Lagerplatzeinheit kostet.
+\\
+\\ 
+Als nächstes betrachten wir die Sonderbauteile. Auch sie besitzen Grund-, Minimal und Maximalpreis und benötigen jeweilige Lagerplatzeinheiten bei der Lagerung. Die Werte sind in Abbildung \ref{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile-1} festgehalten.
+
+\begin{table}[ht]
+     \centering
+     \begin{tabular}{ | l | l | l | l | l   }
+          \hline
+          Sonderbauteiltyp & Grundpreis (in \curr{}) & Minimalpreis (in \curr{}) & Maximalpreis (in \curr{}) & Lagerpltzeinheiten \\
+          \hline \hline
+          Rumpfbauteil & 1000,00 & 600,00 & 1400,00 & 10\curr \\ \hline
+          Geschütz & 2000,00 & 1200,00 & 2800,00 & 20\curr \\ \hline
+          Forschungsausrüstung & 3000,00 & 1800,00 & 4200,00 & 30\curr \\
+          \hline
+     \end{tabular}
+     \caption{Preise der Sonderbauteile}
+     \label{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile-1}
+\end{table}
+
+Ein Sonderbauteiltyp gehört jeweils zu einem bestimmten Raumschifftyp. Die Staffelung der Preise ist eine Andere als bei den normalen Grundbauteilen, da die Sonderbauteile pro jeweiligen Raumschifftyp nur einmal verbaut werden und sie der Staffelung der Raumschiffpreise zu Beginn des Spiels entsprechen soll (siehe Kapitel Raumschiffe). Auch bei den Sonderbauteilen werden die Preise pro Runde neu berechnet, wobei dies separat zu den Grundbauteilen geschieht, da immer weniger Sonderbauteile als Grundbauteile benötigt werden.
+
+
+
+

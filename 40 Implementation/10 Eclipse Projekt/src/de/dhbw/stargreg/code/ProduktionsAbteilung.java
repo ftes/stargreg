@@ -21,14 +21,14 @@ public class ProduktionsAbteilung extends Abteilung {
 		super(unternehmen);
 	}
 
-	public void produziere() {
+	public void simuliere() {
 		for (ProduktionsAuftrag auftrag : auftraege) {
 			int menge = auftrag.getMenge();
 			
 			int fehlerhaft = berechneFehlerhafteMenge(menge);
 			double fehlerKosten = fehlerhaft * auftrag.getTyp().getFehlerKosten();
 			unternehmen.getFinanzen().abbuchen(fehlerKosten);
-			unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(fehlerKosten, Zahlung.Art.FEHLER, unternehmen));
+			unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(fehlerKosten, Zahlung.Art.FEHLER, unternehmen));
 			
 //			System.out.printf("%d fehlerhafte %s verursachen für %s %.2f Zusatzkosten\n", fehlerhaft, auftrag.getTyp(), unternehmen, fehlerKosten);
 		}
@@ -107,5 +107,4 @@ public class ProduktionsAbteilung extends Abteilung {
 	public int getBenoetigtesPersonal() {
 		return benoetigtesPersonal;
 	}
-
 }

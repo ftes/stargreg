@@ -19,7 +19,7 @@ import de.dhbw.stargreg.util.Util;
  * @author fredrik
  *
  */
-public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
+public class RaumschiffMarkt extends TypMarkt<RaumschiffTyp, Verkauf> {
 
 	private final Vector<Angebot> angebote = new Vector<Angebot>();
 	
@@ -53,7 +53,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 		//Angebote nach aufsteigendem Preis sortieren
 		Collections.sort(angebote, new Comparator<Angebot>() {
 			public int compare(Angebot a1, Angebot a2) {	//1: a1<a2, 0: a1=a2, -1: a1>a2
-				return ((Double) a1.getPreis()).compareTo(a2.getPreis());
+				return ((Double) a1.getEinzelBetrag()).compareTo(a2.getEinzelBetrag());
 			}
 		});
 		
@@ -63,11 +63,11 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 		
 		//Niedrigsten Preis finden und Anteile berechnen
 		for (Angebot angebot : angebote) {
-			double anteil = 1.0 / Math.pow(angebot.getPreis(), 3);
+			double anteil = 1.0 / Math.pow(angebot.getEinzelBetrag(), 3);
 			angebot.setAnteil(anteil);
 			anteilSumme += anteil;
-			if (angebot.getPreis() < niedrigsterPreis) {
-				niedrigsterPreis = angebot.getPreis();
+			if (angebot.getEinzelBetrag() < niedrigsterPreis) {
+				niedrigsterPreis = angebot.getEinzelBetrag();
 			}
 		}
 		
@@ -125,7 +125,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 						verkauf.getUnternehmen(),
 						angebot.getMenge(),
 						verkauf.getMenge(),
-						String.format("%.2f", verkauf.getPreis()));
+						String.format("%.2f", verkauf.getEinzelBetrag()));
 			}
 			tb.hline();
 		}
@@ -145,10 +145,7 @@ public class RaumschiffMarkt extends Markt<RaumschiffTyp, Verkauf> {
 	public Vector<Verkauf> getVerkaeufe(final Unternehmen unternehmen) {
 		return Util.filtereVector(verkaeufe, new Filter<Verkauf>() {
 			public boolean nach(Verkauf verkauf) {
-				if (verkauf.getUnternehmen() == unternehmen) {
-					return true;
-				}
-				return false;
+				return verkauf.getUnternehmen() == unternehmen;
 			}
 		});
 	}

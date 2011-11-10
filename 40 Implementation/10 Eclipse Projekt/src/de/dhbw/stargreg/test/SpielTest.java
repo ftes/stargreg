@@ -3,9 +3,11 @@ package de.dhbw.stargreg.test;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.HashMap;
+import java.util.Vector;
 
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -42,8 +44,8 @@ public class SpielTest {
 	private static RaumschiffTyp corvette = new RaumschiffTyp ("Correllian Corvette", 10, 0.50);
 	private static RaumschiffTyp falke = new RaumschiffTyp("Millenium Falke", 15, 0.50);
 
-	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, 100, 800, null, null);
-	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.84, 100, 600, 300.0, droideka);
+	private static PersonalTyp droideka = new PersonalTyp("Droideka", 0.99, 140, 800, null, null);
+	private static PersonalTyp kampfDroide = new PersonalTyp("Kampf-Droide", 0.84, 120, 600, 300.0, droideka);
 	private static PersonalTyp r2d2 = new PersonalTyp("R2D2", 0.69, 100, 400, 300.0, kampfDroide);
 
 	private static Unternehmen foederation = spiel.fuegeUnternehmenHinzu("Föderation", startKapital);
@@ -151,7 +153,7 @@ public class SpielTest {
 	}
 
 	@Test
-	public void testSpiel() {
+	public void testGesamtAblauf() {
 		spiel.starteSpiel();
 
 		runde1();		
@@ -185,16 +187,15 @@ public class SpielTest {
 		spiel.simuliere();
 
 
-		spiel.bewerteUnternehmen();
-
-		//Asserts ganz zum Schluss!
-
-
+		Vector<Unternehmen> rangfolge = spiel.bewerteUnternehmen();
+		
+		Unternehmen[] erwartet = {foederation, rebellen, imperium};
+		Assert.assertArrayEquals(erwartet, rangfolge.toArray(erwartet));
 	}
 
 	private void runde1() {
 		//Informieren, Handeln und einchecken
-		//Galactic: wie in Datenbasis
+		//Foederation: wie in Datenbasis
 		foederation.gebeAnfangsInformationenAus();
 		foederation.getPersonal().einstellen(r2d2, 600);
 		foederation.kaufeEinProduziereVerkaufe(xwing, 41, 12000);
@@ -222,7 +223,7 @@ public class SpielTest {
 	private void runde2() {
 		//mehr Corvettes, Preise anheben, besseres Personal
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().schulen(r2d2, 300);
+		foederation.getPersonal().aufruesten(r2d2, 300);
 		foederation.getPersonal().einstellen(kampfDroide, 250);
 		foederation.kaufeEinProduziereVerkaufe(xwing, 46, 14000);
 		foederation.kaufeEinProduziereVerkaufe(corvette, 38, 28000);
@@ -250,7 +251,7 @@ public class SpielTest {
 	private void runde3() {
 		//weniger Corvette, mehr Falken, kein Personal einstellen!
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().schulen(r2d2, 300);
+		foederation.getPersonal().aufruesten(r2d2, 300);
 		foederation.kaufeEinProduziereVerkaufe(xwing, 55, 16000);
 		foederation.kaufeEinProduziereVerkaufe(corvette, 20, 24000);
 		foederation.kaufeEinProduziereVerkaufe(falke, 25, 44000);
@@ -259,7 +260,7 @@ public class SpielTest {
 
 		//weniger Fehlerkosten, auch Falken
 		imperium.gebeAnfangsInformationenAus();
-		imperium.getPersonal().schulen(r2d2, 500);
+		imperium.getPersonal().aufruesten(r2d2, 500);
 		imperium.kaufeEinProduziereVerkaufe(xwing, 60, 10000);
 		imperium.kaufeEinProduziereVerkaufe(corvette, 40, 18000);
 		imperium.kaufeEinProduziereVerkaufe(falke, 20, 27000);
@@ -276,9 +277,9 @@ public class SpielTest {
 	}
 
 	private void runde4() {
-		//Corvette günstiger, mehr Xwing, große Schulung
+		//Corvette günstiger, mehr Xwing, große Aufruestung
 		foederation.gebeAnfangsInformationenAus();
-		foederation.getPersonal().schulen(kampfDroide, 850);
+		foederation.getPersonal().aufruesten(kampfDroide, 850);
 		foederation.kaufeEinProduziereVerkaufe(corvette, 5, 20000);
 		foederation.kaufeEinProduziereVerkaufe(xwing, 76, 16000);
 		foederation.kaufeEinProduziereVerkaufe(falke, 28, 44000);
@@ -313,9 +314,9 @@ public class SpielTest {
 		foederation.gebeEndInformationenAus();
 		foederation.rundeEinchecken();
 
-		//leicht höhere Preise, Produktion ausweiten (-Corvette), Personal schulen
+		//leicht höhere Preise, Produktion ausweiten (-Corvette), Personal aufrüsten
 		imperium.gebeAnfangsInformationenAus();
-		imperium.getPersonal().schulen(r2d2, 500);
+		imperium.getPersonal().aufruesten(r2d2, 500);
 		imperium.kaufeEinProduziereVerkaufe(xwing, 80, 13000);
 		imperium.kaufeEinProduziereVerkaufe(corvette, 40, 22000);
 		imperium.kaufeEinProduziereVerkaufe(falke, 30, 34000);

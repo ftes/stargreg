@@ -5,7 +5,7 @@ package de.dhbw.stargreg.code;
  * @author fredrik
  *
  */
-public class KapitalMarkt extends Markt<Typ, TypTransaktion<Typ>> {
+public class KapitalMarkt extends Markt<Zahlung> {
 
 	private Double zinssatz = null;
 	

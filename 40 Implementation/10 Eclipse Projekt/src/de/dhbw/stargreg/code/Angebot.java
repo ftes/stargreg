@@ -22,7 +22,7 @@ public class Angebot extends ProduktTransaktion<RaumschiffTyp> {
 	 * @return Zum Angebot passender Verkauf.
 	 */
 	public Verkauf kloneVerkauf(int menge) {
-		return new Verkauf(getTyp(), this.unternehmen, menge, this.preis);
+		return new Verkauf(getTyp(), this.unternehmen, menge, this.einzelBetrag);
 	}
 
 	public double getAnteil() {

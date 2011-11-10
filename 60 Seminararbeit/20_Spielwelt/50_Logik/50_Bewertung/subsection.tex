@@ -1,2 +1,59 @@
 \subsection{Bewertung}
 \label{sub:spielwelt-logik-bewertung}
+
+Eine Bewertung der einzelnen Spieler findet am Ende des Planspiels statt. Sie errechnet sich zu 70\% aus dem
+ROI der Unternehmen und zu 30\% aus dem Marktanteil. Der ROI war für uns hierbei die wichtigste Kennzahl um die
+erfolgreiche Geschäftsführung und damit den Erfolg der Unternehmen zu messen. Da es für ein Unternehmen allerdings
+auch wichtig ist, sich am Markt zu etablieren und ein gutes Image aufzubauen, haben wir uns dafür entschieden den
+Marktanteil mit in die Endauswertung einfließen zu lassen.
+
+Der ROI ist eine Gegenüberstellung von Gewinn und eingesetztem Kapital:
+
+\begin{equation}
+     ROI = \frac{Gewinn}{eingesetztes Kapital}
+     \label{alg:spielwelt-logik-bewertung-ROI}
+\end{equation}
+
+Der Gewinn berechnet sich wie folgt:
+\begin{equation}
+     Gewinn = Endkapital - Startkapital + FE_{im Lager} \cdot 0,75 + Bauteile_{im Lager} \cdot 0,5
+     \label{alg:spielwelt-logik-bewertung-Gewinn}
+\end{equation}
+
+Um das Ergebnis nicht zu verzerren, werden Raumschiffe und Bauteile im Lager mit berücksichtigt und dem Gewinn hinzuaddiert.
+Produzierte Raumschiffe, die sich im Lager befinden, werden zu 75\% und gekaufte Bauteile zu 50\% ihres Wertes mit eingerechnet.
+Das eingesetzte Kapitel ist im Planspiel in Form des Startkapitals fest vorgegeben und für jeden Spieler gleich.
+
+Jedoch ist zu Berücksichtigen, dass nur mit positiven ROI-Werten gerechnet werden darf. Aus diesem Grund ist es notwendig
+beim Auftreten einer oder mehrerer negativen ROI-Werten alle ROI's in soweit zu erhöhen, dass sich der niedrigste ROI bei
+0 befindet. Auf diese Weise lässt sich nun der ROI anteilig berechnen:
+
+\begin{equation}
+     ROI_{rel.} = \frac{ROI_{korrigiert}}{\sum ROI_{korrigiert}}
+     \label{alg:spielwelt-logik-bewertung-rel. ROI}
+\end{equation}
+
+Beim Marktanteil handelt es sich um eine Gegenüberstellung des Umsatzes eines Unternehmen und der Umsätze aller Unternehmen:
+
+\begin{equation}
+     Marktanteil = \frac{Umsatz}{\sum Umsatz}
+     \label{alg:spielwelt-logik-bewertung-Marktanteil}
+\end{equation}
+
+Mit Hilfe des anteiligen ROI's und des Marktanteils können nun Punkte berechnet werden:
+
+\begin{equation}
+     Punkte = ROI_{rel.} \cdot 70 + Marktanteil \cdot 30
+     \label{alg:spielwelt-logik-bewertung-Punkte}
+\end{equation}
+
+Anhand dieser Punkte wird eine Rangfolge der Unternehmen aufgestellt. Das Unternehmen mit den meisten Punkten gewinnt das
+Spiel.
+
+\bigskip
+
+Für die Bewertung hätte es noch andere Möglichkeiten gegeben. So wurde in der Gruppe zu Beginn des Projekts diskutiert,
+ob man die Endauswertung nicht anhand von Medaillen umsetzt, die die Spieler in jeder Spielrunde “gewinnen” können. Auf
+diese Weise hätte es beispielsweise eine Medaille für den größten Marktanteil oder den besten ROI der Runde gegeben. Mit
+dieser Variante hätte man die Spieler anhand von Zwischenbewertungen mit zusätzlichen Informationen zur momentanen
+Unternehmenslage versorgen können.

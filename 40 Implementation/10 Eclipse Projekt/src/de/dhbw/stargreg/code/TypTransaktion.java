@@ -16,14 +16,14 @@ public abstract class TypTransaktion<T extends Typ> extends Transaktion {
 	}
 	
 	public String toString() {
-		return String.format("%d %s zu %.2f Credits", menge, typ, preis);
+		return String.format("%d %s zu %.2f Credits", menge, typ, einzelBetrag);
 	}
 	
 	public T getTyp() {
 		return typ;
 	}
 	
-	public double getKosten() {
-		return menge * preis;
+	public double getGesamtBetrag() {
+		return menge * einzelBetrag;
 	}
 }
