@@ -55,7 +55,7 @@ public class BauteilMarkt extends TypMarkt<BauteilTyp, Einkauf> {
 				double umsatz = 0;
 				if (einkaeufe.containsKey(bauteilTyp)) {
 					for (Einkauf einkauf : einkaeufe.get(bauteilTyp)) {
-						umsatz += einkauf.getPreis() * einkauf.getMenge();
+						umsatz += einkauf.getEinzelBetrag() * einkauf.getMenge();
 					}
 				}
 				umsaetze.put(bauteilTyp, umsatz);

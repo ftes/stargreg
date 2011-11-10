@@ -42,15 +42,15 @@ public class Unternehmen {
 		rundeEingecheckt = true;
 	}
 	
-	public void simuliere(Vector<Verkauf> verkaeufe) {
+	public void simuliere() {
 		if (! rundeEingecheckt) {
 			System.out.printf("In %s wurde Runde noch nicht eingecheckt\n", this);
 		}
 		
 //		System.out.printf("Simulation von %s:\n", this);
 		personal.simuliere();
-		produktion.produziere();
-		verkauf.verkaufe(verkaeufe);
+		produktion.simuliere();
+		verkauf.simuliere();
 		lager.simuliere();
 		finanzen.simuliere();
 		
@@ -105,7 +105,7 @@ public class Unternehmen {
 		
 		double umsatz = 0;
 		for (Verkauf verkauf : verkaeufe) {
-			if (verkauf.getUnternehmen() == this) umsatz += verkauf.getKosten();
+			if (verkauf.getUnternehmen() == this) umsatz += verkauf.getGesamtBetrag();
 		}
 		
 		return umsatz;

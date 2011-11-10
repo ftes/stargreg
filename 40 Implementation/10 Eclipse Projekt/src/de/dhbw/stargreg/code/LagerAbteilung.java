@@ -76,7 +76,7 @@ public class LagerAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(getLagerKosten());
-		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(getLagerKosten(), Zahlung.Art.LAGER, unternehmen));
+		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getLagerKosten(), Zahlung.Art.LAGER, unternehmen));
 //		System.out.printf("%.2f Lagerkosten abgebucht\n", getLagerKosten());
 	}
 

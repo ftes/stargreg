@@ -105,41 +105,50 @@
         <text/>
       </controlProperties>
     </control>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::Paragraph" x="193" y="350" w="848" h="238" measuredW="200" measuredH="140" zOrder="14" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Anzahl%20Spieler%20+%20Startkapital%0AProduktion%20%28was%2C%20wie%2C%20Ausschuss%3F%29%0APersonal%0AInformationsphase%0ABewertungskriterien%0A...</text>
-      </controlProperties>
-    </control>
-    <control controlID="34" controlTypeID="com.balsamiq.mockups::Button" x="927" y="600" w="94" h="28" measuredW="83" measuredH="28" zOrder="13" locked="false" isInGroup="-1">
-      <controlProperties>
-        <href>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml</href>
-        <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22857%2C600%2C951%2C628%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%2234%22/%3E</map>
-        <text>Schlie%DFen</text>
-      </controlProperties>
-    </control>
-    <control controlID="35" controlTypeID="com.balsamiq.mockups::TitleWindow" x="184" y="316" w="857" h="346" measuredW="450" measuredH="400" zOrder="12" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Spielregeln</text>
-      </controlProperties>
-    </control>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextInput" x="344" y="86" w="-1" h="-1" measuredW="495" measuredH="50" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::TextInput" x="344" y="86" w="-1" h="-1" measuredW="495" measuredH="50" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <size>32</size>
         <text>Tantive%20Engineering%20Corporation</text>
       </controlProperties>
     </control>
-    <control controlID="37" controlTypeID="com.balsamiq.mockups::MultilineButton" x="447" y="166" w="153" h="71" measuredW="120" measuredH="58" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::MultilineButton" x="447" y="166" w="153" h="71" measuredW="120" measuredH="58" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <color>15843890</color>
         <text>Runde%202/10</text>
       </controlProperties>
     </control>
-    <control controlID="38" controlTypeID="com.balsamiq.mockups::Button" x="557" y="696" w="164" h="28" measuredW="147" measuredH="28" zOrder="17" locked="false" isInGroup="-1">
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Button" x="557" y="696" w="164" h="28" measuredW="147" measuredH="28" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <color>16767334</color>
         <href>Endauswertung%26bm%3BEndauswertung.bmml%26bm%3BEndauswertung.bmml%26bm%3BEndauswertung.bmml</href>
         <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22487%2C696%2C651%2C724%22%20href%3D%22Endauswertung.bmml%22%20alt%3D%22Endauswertung%22%20id%3D%2238%22/%3E</map>
         <text>Bewertung%20einsehen</text>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="__group__" x="184" y="316" w="857" h="346" measuredW="857" measuredH="346" zOrder="16" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="0" y="0" w="857" h="346" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="39">
+          <controlProperties>
+            <text>Spielregeln</text>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::Button" x="743" y="284" w="94" h="28" measuredW="83" measuredH="28" zOrder="1" locked="false" isInGroup="39">
+          <controlProperties>
+            <href>Uebersicht%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml%26bm%3BUebersicht.bmml</href>
+            <map>%3Carea%20shape%3D%22rect%22%20coords%3D%22857%2C600%2C951%2C628%22%20href%3D%22Uebersicht.bmml%22%20alt%3D%22Uebersicht%22%20id%3D%221%22/%3E</map>
+            <text>Schlie%DFen</text>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Paragraph" x="9" y="34" w="848" h="238" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="39">
+          <controlProperties>
+            <text>Anzahl%20Spieler%20+%20Startkapital%0AProduktion%20%28was%2C%20wie%2C%20Ausschuss%3F%29%0APersonal%0AInformationsphase%0ABewertungskriterien%0A...</text>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Canvas" x="70" y="0" w="1024" h="768" measuredW="100" measuredH="70" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
       </controlProperties>
     </control>
   </controls>

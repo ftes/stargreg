@@ -1,13 +1,13 @@
 package de.dhbw.stargreg.code;
 
 /**
- * Schulung von Personal, von PersonalTyp x zu PersonalTyp y
+ * Aufruestung von Personal, von PersonalTyp x zu PersonalTyp y
  * @author fredrik
  *
  */
-public class Schulung extends PersonalTransaktion {
+public class Aufruestung extends PersonalTransaktion {
 	
-	public Schulung(PersonalTyp von, Unternehmen unternehmen, int menge, double preis) {
+	public Aufruestung(PersonalTyp von, Unternehmen unternehmen, int menge, double preis) {
 		super(von, unternehmen, menge, preis);
 	}
 	

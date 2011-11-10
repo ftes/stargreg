@@ -1,6 +1,6 @@
 <mockup version="1.0" skin="sketch" measuredW="1094" measuredH="768" mockupW="1024" mockupH="768">
   <controls>
-    <control controlID="73" controlTypeID="__group__" x="451" y="269" w="345" h="230" measuredW="345" measuredH="230" zOrder="37" locked="false" isInGroup="-1">
+    <control controlID="73" controlTypeID="__group__" x="451" y="269" w="345" h="230" measuredW="345" measuredH="230" zOrder="38" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
         <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="0" y="0" w="345" h="230" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="73">
           <controlProperties>
@@ -300,6 +300,11 @@
           </controlProperties>
         </control>
       </groupChildrenDescriptors>
+    </control>
+    <control controlID="154" controlTypeID="com.balsamiq.mockups::Canvas" x="70" y="0" w="1024" h="768" measuredW="100" measuredH="70" zOrder="37" locked="false" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
+      </controlProperties>
     </control>
   </controls>
 </mockup>

@@ -5,7 +5,7 @@ import de.dhbw.stargreg.util.TableBuilder;
 
 /**
  * Hier werden die Personal der drei Qualitätsstufen über den gemeinsamen Obertyp 'Personaltyp' 
- * verwaltet. Das Personal kann erworben bzw. eingestellt, entlassen und geschult werden.  
+ * verwaltet. Das Personal kann erworben bzw. eingestellt, entlassen und aufgerüstet werden.  
  * @author Britta
  *
  */
@@ -29,35 +29,34 @@ public class PersonalAbteilung extends Abteilung {
 	}
 	
 	/**
-	 * Schult Personal, d.h. eine Anzahl an Personal wird aus ihrer aktuellen Qualitätsstufe
+	 * Rüstet das Personal auf, d.h. eine Anzahl an Personal wird aus ihrer aktuellen Qualitätsstufe
 	 * entnommen und der nächsten Stufe hinzugefügt. Dabei kann die Qualität immer nur um eine 
 	 * Stufe erhöht werden. Die Änderungen der laufenden Kosten durch die neuen Kosten werden 
-	 * gespeichert; Schulungskosten werden abgebucht.
+	 * gespeichert; Aufrüstungskosten werden abgebucht.
 	 * @param von Ist-Qualitätsstufe
-	 * @param anzahl Anzahl der zu schulenden Personal
+	 * @param anzahl Anzahl des aufzurüstenden Personals
 	 */
-	public boolean schulen (PersonalTyp von, int anzahl) {
+	public boolean aufruesten (PersonalTyp von, int anzahl) {
 		if (personal.get(von) < anzahl) {
-			System.err.printf("Weniger als %d %s zum schulen vorhanden\n", anzahl, von);
+			System.err.printf("Weniger als %d %s zum aufrüsten vorhanden\n", anzahl, von);
 			return false;
 		}
 		
 		PersonalTyp nach = von.getNaechsterPersonalTyp();
 		if (nach == null) {
-			System.err.printf("%s kann nicht weiter geschult werden\n", von);
+			System.err.printf("%s kann nicht weiter aufgerüstet werden\n", von);
 			return false;
 		}
-		Schulung schulung = new Schulung(von, unternehmen, anzahl, von.getSchulungsKosten());
-		unternehmen.getFinanzen().abbuchen(schulung.getKosten());
+		Aufruestung aufruestung = new Aufruestung(von, unternehmen, anzahl, von.getAufruestungsKosten());
+		unternehmen.getFinanzen().abbuchen(aufruestung.getGesamtBetrag());
 		
 		personal.subtract(von, anzahl);
 		personal.add(nach, anzahl);
 		
-		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(schulung);
+		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(aufruestung);
 		
 		if (personal.get(von) == 0) personal.remove(von);
 		
-//		System.out.printf("%s hat %d %s zu %s geschult\n", unternehmen, anzahl, von, nach);
 		return true;
 	}
 	
@@ -100,7 +99,7 @@ public class PersonalAbteilung extends Abteilung {
 	public void einstellen (PersonalTyp personalTyp, int anzahl){
 		Einstellung einstellung = new Einstellung(personalTyp, unternehmen, anzahl, personalTyp.getWerbungsKosten());
 		
-		unternehmen.getFinanzen().abbuchen(einstellung.getKosten());
+		unternehmen.getFinanzen().abbuchen(einstellung.getGesamtBetrag());
 		
 		personal.add (personalTyp, anzahl);
 		anzahlPersonal += anzahl;
@@ -149,7 +148,7 @@ public class PersonalAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(getLaufendeKosten());
-		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeZahlungHinzu(new Zahlung(getLaufendeKosten(), Zahlung.Art.PERSONAL, unternehmen));
+		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getLaufendeKosten(), Zahlung.Art.PERSONAL, unternehmen));
 //		System.out.printf("%.2f laufende Personalkosten abgebucht\n", getLaufendeKosten());
 	}
 

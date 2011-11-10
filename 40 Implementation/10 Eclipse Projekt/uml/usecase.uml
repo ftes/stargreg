@@ -4,7 +4,7 @@
   <packagedElement xmi:type="uml:Actor" xmi:id="_V5-sEP2oEeCXTbvytDjrnQ" name="Spieler"/>
   <packagedElement xmi:type="uml:Package" xmi:id="_a4TnQP2oEeCXTbvytDjrnQ" name="Stargreg">
     <packagedElement xmi:type="uml:UseCase" xmi:id="_fSTtYP2oEeCXTbvytDjrnQ" name="Prüfen, ob alle Spieler eingecheckt haben"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_ma45oP2oEeCXTbvytDjrnQ" name="Spielrunde simulieren">
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_ma45oP2oEeCXTbvytDjrnQ" name="Simulation einleiten">
       <include xmi:id="_sYAHAf_GEeCiK5ZNQa27mw" addition="_fSTtYP2oEeCXTbvytDjrnQ"/>
       <include xmi:id="_FRGJkQixEeGwd9Yh7DIn0A" addition="_s6FxsP2oEeCXTbvytDjrnQ"/>
     </packagedElement>
@@ -12,9 +12,7 @@
     <packagedElement xmi:type="uml:UseCase" xmi:id="_s6FxsP2oEeCXTbvytDjrnQ" name="Neue Runde einleiten">
       <include xmi:id="_-mDL0P_GEeCiK5ZNQa27mw" addition="_pJ3oYP2oEeCXTbvytDjrnQ"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_BulUUP2pEeCXTbvytDjrnQ" name="Unternehmen einrichten">
-      <include xmi:id="_Cf5xoP2rEeCXTbvytDjrnQ" addition="_8fRr8P2qEeCXTbvytDjrnQ"/>
-    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_BulUUP2pEeCXTbvytDjrnQ" name="Unternehmen einrichten"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_GbdTIP2pEeCXTbvytDjrnQ" name="Informationen zur Spielrunde anschauen">
       <include xmi:id="_GLAyEP_HEeCiK5ZNQa27mw" addition="_IyZ8YP2pEeCXTbvytDjrnQ"/>
       <include xmi:id="_r1ngwP_IEeCiK5ZNQa27mw" addition="_HQ9GcP_HEeCiK5ZNQa27mw"/>
@@ -27,15 +25,24 @@
     <packagedElement xmi:type="uml:UseCase" xmi:id="_fKLPoP2pEeCXTbvytDjrnQ" name="Personal weiterbilden"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_kGrl4P2pEeCXTbvytDjrnQ" name="Personal entlassen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_mdMxUP2pEeCXTbvytDjrnQ" name="Bauteile einkaufen"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_nhHscP2pEeCXTbvytDjrnQ" name="Raumschiffe produzieren"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_nhHscP2pEeCXTbvytDjrnQ" name="Produktionsaufträge anlegen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_pMFZcP2pEeCXTbvytDjrnQ" name="Angebot zum Verkauf abgeben"/>
-    <packagedElement xmi:type="uml:UseCase" xmi:id="_8fRr8P2qEeCXTbvytDjrnQ" name="Namen auswählen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_HQ9GcP_HEeCiK5ZNQa27mw" name="Verkaufte Raumschiffe einsehen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_La_d8P_HEeCiK5ZNQa27mw" name="Eingestelltes Personal einsehen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_4x04gP_IEeCiK5ZNQa27mw" name="vorhandene Bauteile einsehen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_g_eBIP_JEeCiK5ZNQa27mw" name="Raumschiffe auf Lager anzeigen"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="_Ha1dQAixEeGwd9Yh7DIn0A" name="Unternehmen bewerten"/>
     <packagedElement xmi:type="uml:UseCase" xmi:id="__LwLMP2oEeCXTbvytDjrnQ" name="Spielrunde einchecken"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_WTtqAApGEeGVMrgANigI-A" name="Spieldaten anlegen">
+      <include xmi:id="_LHq9cApIEeGVMrgANigI-A" addition="_F3hScApIEeGVMrgANigI-A"/>
+      <include xmi:id="_LunosApIEeGVMrgANigI-A" addition="_H0XPEApHEeGVMrgANigI-A"/>
+      <include xmi:id="_MWN0MApIEeGVMrgANigI-A" addition="_VxvI4ApHEeGVMrgANigI-A"/>
+      <include xmi:id="_M66csApIEeGVMrgANigI-A" addition="_5zRdcApHEeGVMrgANigI-A"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_H0XPEApHEeGVMrgANigI-A" name="Bauteiltypen anlegen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_VxvI4ApHEeGVMrgANigI-A" name="Personaltypen anlegen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_5zRdcApHEeGVMrgANigI-A" name="Raumschifftypen anlegen"/>
+    <packagedElement xmi:type="uml:UseCase" xmi:id="_F3hScApIEeGVMrgANigI-A" name="Spielrunden anlegen"/>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_24sv4P2oEeCXTbvytDjrnQ" name="A_spielleiter_spielrunde simulieren" memberEnd="_24sv4f2oEeCXTbvytDjrnQ _24sv5P2oEeCXTbvytDjrnQ">
     <ownedEnd xmi:id="_24sv4f2oEeCXTbvytDjrnQ" name="spielleiter" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_24sv4P2oEeCXTbvytDjrnQ">
@@ -48,7 +55,7 @@
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Association" xmi:id="_Qm8PsP2pEeCXTbvytDjrnQ" name="A_spieler_unternehmen einrichten" memberEnd="_Qm8Psf2pEeCXTbvytDjrnQ _Qm8PtP2pEeCXTbvytDjrnQ">
-    <ownedEnd xmi:id="_Qm8Psf2pEeCXTbvytDjrnQ" name="spieler" type="_V5-sEP2oEeCXTbvytDjrnQ" association="_Qm8PsP2pEeCXTbvytDjrnQ">
+    <ownedEnd xmi:id="_Qm8Psf2pEeCXTbvytDjrnQ" name="spieler" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_Qm8PsP2pEeCXTbvytDjrnQ">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Qm8Psv2pEeCXTbvytDjrnQ" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Qm8Ps_2pEeCXTbvytDjrnQ" value="1"/>
     </ownedEnd>
@@ -145,6 +152,16 @@
     <ownedEnd xmi:id="_JaiEJAixEeGwd9Yh7DIn0A" name="unternehmen bewerten" type="_Ha1dQAixEeGwd9Yh7DIn0A" association="_JaiEIAixEeGwd9Yh7DIn0A">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JaiEJQixEeGwd9Yh7DIn0A" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JaiEJgixEeGwd9Yh7DIn0A" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_a_bLMApGEeGVMrgANigI-A" name="A_spielleiter_speildaten anlegen" memberEnd="_a_bLMQpGEeGVMrgANigI-A _a_bLNApGEeGVMrgANigI-A">
+    <ownedEnd xmi:id="_a_bLMQpGEeGVMrgANigI-A" name="spielleiter" type="_Nl2SsP2oEeCXTbvytDjrnQ" association="_a_bLMApGEeGVMrgANigI-A">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a_bLMgpGEeGVMrgANigI-A" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a_bLMwpGEeGVMrgANigI-A" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="_a_bLNApGEeGVMrgANigI-A" name="speildaten anlegen" type="_WTtqAApGEeGVMrgANigI-A" association="_a_bLMApGEeGVMrgANigI-A">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_a_bLNQpGEeGVMrgANigI-A" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_a_bLNgpGEeGVMrgANigI-A" value="1"/>
     </ownedEnd>
   </packagedElement>
 </uml:Model>
