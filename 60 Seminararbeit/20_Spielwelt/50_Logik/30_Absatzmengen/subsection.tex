@@ -1,2 +1,62 @@
 \subsection{Absatzmengen}
 \label{sub:spielwelt-logik-absatzmengen}
+
+Nachdem alle Unternehmen die aktuelle Spielrunde eingecheckt haben, wird das Spiel simuliert. In der Simulationsphase
+wird unter anderem der Absatz berechnet, der jedem Unternehmen zusteht. So soll der günstigste Anbieter eine höhere
+Anzahl an Raumschiffen absetzen können, als der mit dem höchsten Preis.
+
+Um diese Vorgabe umzusetzen gibt es verschiedene Herangehensweisen. So kann man einerseits die Angebote der Höhe nach
+anordnen und den einzelnen Rängen konstante Prozentsätze zuordnen. Beispielsweise würde man dem günstigsten Anbieter
+einen Absatz von 40\% seiner produzierten Raumschiffe zusichern, dem Zweitgünstigsten 25\%, dem Drittgrünstigsten 17,5\%,
+dem Viertgünstigsten 12,5\%, und so weiter. Diese Methode bringt jedoch fast nur Nachteile mit sich. So würde der günstigste
+Anbieter verglichen mit dem Zweitgünstigsten in jedem Fall 15\% mehr Raumschiffe absetzen können, auch wenn sich der Preis
+nur geringfügig unterscheidet. Angenommen man würde dem teuersten Anbieter einen Absatz von 2\% zusichern, so wär es möglich
+den Verkaufspreis viel zu hoch anzusetzen und trotzdem einen Absatz und somit einen hohen Gewinn zu erzielen. Aus diesen
+Gründen haben wir uns dafür entschieden, den Absatz anhand einer Potenzfunktion darzustellen.
+
+Da die einzelnen Raumschifftypen verschiedene Nachfrager ansprechen und das Unternehmen verschieden hohe Preise für die
+verschiedenen Raumschifftypen festlegen kann, wird dies für jeden der 3 Raumschifftypen abgebildet.
+
+\begin{equation}
+     a_i = \frac{1}{p_i^3}
+     \label{alg:spielwelt-logik-absatzmengen-1}
+\end{equation}
+
+Diese Potenzfunktion zeigt welche Unternehmen wie viele Raumschiffe zu welchem Preis abgesetzen können. Der asymptotische
+Verlauf der Kurve sorgt dafür, dass Anbietern mit niedrigen Preisen mehr Absatz zusteht, als Anbietern mit hohen Preisen.
+
+Um für jeden Anbieter den prozentualen Absatz zu bestimmen, wird der individuelle Absatz relativ zum Gesamtabsatz berechnet:
+
+\begin{equation}
+     a_{rel. i} = \frac{a_i}{\sum a_i}
+     \label{alg:spielwelt-logik-absatzmengen-2}
+\end{equation}
+
+Dadurch, dass man durch die Berechnung des relativen Absatzes die verschiedenen Preise der Unternehmen mit einbezieht, hat
+diese Variante den Vorteil, dass geringe Preisunterschiede auch nur geringe Abweichungen beim Absatz zulassen. Außerdem hat
+ein Unternehmen, das einen unverhältnismäßig hohen Preis festgelegt hat, keine Chance Raumschiffe abzusetzen. Daher spiegelt
+diese Variante einen sehr realistischen Absatzmarkt wider.
+
+Die Nachfrage bestimmt sich wie folgt:
+
+\begin{equation}
+     N{neu} = N{alt} \cdot (1 - (\frac{p_{günstigster}}{kosten \cdot 3,5})^4)
+     \label{alg:spielwelt-logik-absatzmengen-3}
+\end{equation}
+
+Über diese Formel wird unter Berücksichtigung der Bauteilkosten die Nachfrage bestimmt. Auch diese Funktion wurde implementiert
+um eine möglichst realistische Situation herzustellen. Würden in der Realität die Preise aller Anbieter eine bestimmte Grenze
+überschreiten, so wäre niemand mehr bereit ein Raumschiff zu kaufen. Diese Grenze wurde im Planspiel auf das 3,5-fache der Kosten
+gesetzt. Das heißt, dass ein Raumschiff, das mit Kosten von 6000\curr{} produziert wurde, ab einem Preis von 21.000\curr{} keine
+Nachfrage mehr erzielt.
+
+Mit Hilfe dieser Funktionen wurde der Absatzalgorithmus implementiert. Er kümmert sich darum, dass der Spieler mit dem niedrigsten
+Preis die Anzahl an Raumschiffen bis zu seinem errechneten relativen Absatz verkaufen darf. Nach aufsteigendem Preis wird auf
+diese Weise weiter vorgegangen. Hat ein Unternehmen jedoch nicht ausreichend Raumschiffe produziert, kann es also dem ihm eigentlich
+zustehenden Absatz nicht nachkommen, so geht die übrige nicht befriedigte Nachfrage auf den nächst günstigeren Anbieter über.
+
+\bigskip
+
+Anhand eines Beispiels soll die Funktionsweise des Absatzalgorithmus verdeutlicht werden:
+
+BEISPIEL inkl. FUNKTIONSGRAPH
