@@ -1,0 +1,17 @@
+\subsection{Entscheidungsfindung der Unternehmen}
+\label{sub:fachkonzept-implementierung-entscheidungsfindung}
+
+Zur Entscheidungsfindung der Unternehmen trägt die Informationsphase bei. Die Methode gebeAnfangsInformationenAus()
+der Klasse Unternehmen wird zu Beginn jeder Spielrunde ausgeführt und versorgt den Spieler auf einer Übersichtsseite
+mit Informationen bezüglich seines Absatzes, seiner Finanzen, der angefallenen Lagerkosten und des aktuellen Preisniveaus.
+Diese Informationen dienen Ihm für weitere Entscheidungen.
+
+Wenn beispielsweise der Preis für ein Bauteil gerade sehr niedrig ist, so könnte er in dieser Spielrunde besonders viele
+Bauteile dieses Typs kaufen. Dies bringt zum einen Kosteneinsparungen mit sich, zum anderen steigen die Preise in der nächsten
+Spielrunde und die Konkurrenzunternehmen müssen die zuvor günstigen Bauteile zu hohen Preisen kaufen. Desweiteren erscheint
+beim Eintreten eines Events, das fest in unserer Storyline vorgegeben ist, eine Nachricht. Wird in dieser Nachricht
+beispielsweise ein Nachfragerückgang bei X-Wings vorhergesagt, so sollte der Spieler die Preise für X-Wings senken
+um diese absetzen zu können.
+
+Mit Hilfe der Methode gebeEndInformationenAus() kann der Spieler jederzeit einsehen welche Änderungen er im Laufe der
+Spielrunde vorgenommen hat und wie sich diese auswirken.
