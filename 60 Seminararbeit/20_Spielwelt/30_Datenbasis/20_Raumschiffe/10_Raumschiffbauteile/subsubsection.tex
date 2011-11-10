@@ -4,22 +4,24 @@
 Die Raumschiffbauteile werden im Unternehmensplanspiel StarGreg auf dem Bauteilmarkt gekauft und bilden für die beteiligten Unternehmen die Grundlage für die Produktion der verschiedenen Raumschifftypen. Sie lassen sich in Grund- und Sonderbauteile gliedern. Da die JUnit Tests nachvollziehbar bleiben sollten und die Komplexität des Spiels nicht zu hoch werden durfte, fiel die Wahl auf drei verschiedene Grund- und drei verschiedene Sonderbauteile. 
 \\
 \\
-Zunächst wollen wir die Grundbauteile näher betrachten. Zu ihnen gehören das Rumpfbauteil, das Hitzeschild und das Triebwerk, wobei jedes der Bauteile einen Grund-, einen Minimal- und einen Maximalpreis hat. Desweiteren beansprucht jedes Bauteil einen bestimmten Platz im Lager, sofern es nicht verbaut wurde bzw. sofern das Raumschiff, in dem es verbaut ist, nicht abgesetzt wurde. Die Staffelung der Werte ist in Abbildung \ref{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile} dargestellt.
+Zunächst wollen wir die Grundbauteile näher betrachten. Zu ihnen gehören das Rumpfbauteil, das Hitzeschild und das Triebwerk, wobei jedes der Bauteile einen Grund-, einen Minimal- und einen Maximalpreis hat. Desweiteren beansprucht jedes Bauteil einen bestimmten Platz im Lager, sofern es nicht verbaut wurde bzw. sofern das Raumschiff, in dem es verbaut ist, nicht abgesetzt wurde. Die Staffelung der Werte ist in \ref{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile} dargestellt.
 
-\begin{table}[ht]
+{\footnotesize
+\begin{table}[ht]\small
      \centering
-     \begin{tabular}{ | l | l | l | l | l   }
+     \begin{tabular}{ | l | c | c | c | c |  }
           \hline
-          Bauteiltyp & Grundpreis (in \curr{}) & Minimalpreis (in \curr{}) & Maximalpreis (in \curr{}) & Lagerpltzeinheiten \\
+          Bauteiltyp & Grundpreis & Minimalpreis & Maximalpreis & Lagereinheiten \\
           \hline \hline
-          Rumpfbauteil & 100,00 & 60,00 & 140,00 & 1\curr \\ \hline
-          Hitzeschild & 200,00 & 120,00 & 280,00 & 2\curr \\ \hline
-          Triebwerk & 500,00 & 300,00 & 700,00 & 5\curr \\
+          Rumpfbauteil & 100,00\curr{} & 60,00\curr{} & 140,00\curr{} & 1 \\ \hline
+          Hitzeschild & 200,00\curr{} & 120,00\curr{} & 280,00\curr{} & 2 \\ \hline
+          Triebwerk & 500,00\curr{} & 300,00\curr{} & 700,00\curr{} & 5 \\
           \hline
      \end{tabular}
      \caption{Preise der Grundbauteile}
      \label{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile}
 \end{table}
+}
 
 Der Gedanke hinter der Preisstaffelung der Grundpreise liegt darin, dass das billigste Bauteil mengenmäßig am meisten und das teuerste Bauteil mengenmäßig am wenigsten für die spätere Produktion der verschiedenen Raumschifftypen benötigt wird. Zudem sollte ein Unternehmensplanspiel betriebswirtschaftliche Aspekte möglichst realitätsnahe in einem Modell wiederspiegeln und eine Preisgleichheit von Produkten wäre eher realitätsfern. 
 \\
@@ -37,17 +39,17 @@ Die Grenzen sind für jedes Teil separat gewählt, da das teure Triebwerk beispi
 Die benötigten Lagerplatzeinheiten für die Bauteiltypen ergeben sich direkt aus dem Grundpreis und werden nicht vom Konjunkturverlauf beeinflusst. Sie ergeben sich, wenn man den jeweiligen Grundpreis des Bauteils durch 100 teilt. Die Lagerplatzkosten je Lagerplatzeinheit sind ebenfalls konstant und haben den Faktor 10, was bedeutet, das die Lagerung eines Rumpfbauteils über eine Runde beispielsweise 1 Lagerplatzeinheit * 10  \curr{}/Lagerplatzeinheit kostet.
 \\
 \\ 
-Als nächstes betrachten wir die Sonderbauteile. Auch sie besitzen Grund-, Minimal und Maximalpreis und benötigen jeweilige Lagerplatzeinheiten bei der Lagerung. Die Werte sind in Abbildung \ref{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile-1} festgehalten.
+Als nächstes betrachten wir die Sonderbauteile. Auch sie besitzen Grund-, Minimal und Maximalpreis und benötigen jeweilige Lagerplatzeinheiten bei der Lagerung. Die Werte sind in \ref{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile-1} festgehalten.
 
-\begin{table}[ht]
+\begin{table}[ht]\small
      \centering
-     \begin{tabular}{ | l | l | l | l | l   }
+     \begin{tabular}{ | l | c | c | c | c |   }
           \hline
-          Sonderbauteiltyp & Grundpreis (in \curr{}) & Minimalpreis (in \curr{}) & Maximalpreis (in \curr{}) & Lagerpltzeinheiten \\
+          Sonderbauteiltyp & Grundpreis & Minimalpreis & Maximalpreis & Lagereinheiten \\
           \hline \hline
-          Rumpfbauteil & 1000,00 & 600,00 & 1400,00 & 10\curr \\ \hline
-          Geschütz & 2000,00 & 1200,00 & 2800,00 & 20\curr \\ \hline
-          Forschungsausrüstung & 3000,00 & 1800,00 & 4200,00 & 30\curr \\
+          Rumpfbauteil & 1000,00\curr{} & 600,00\curr{} & 1400,00\curr{} & 10 \\ \hline
+          Geschütz & 2000,00\curr{} & 1200,00\curr{} & 2800,00\curr{} & 20 \\ \hline
+          Forschungsausrüstung & 3000,00\curr{} & 1800,00\curr{} & 4200,00\curr{} & 30 \\
           \hline
      \end{tabular}
      \caption{Preise der Sonderbauteile}
