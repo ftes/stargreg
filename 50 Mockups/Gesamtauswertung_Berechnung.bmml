@@ -41,12 +41,12 @@
         <text>Berechnung%20der%20Punktzahl</text>
       </controlProperties>
     </control>
-    <control controlID="85" controlTypeID="com.balsamiq.mockups::TitleWindow" x="222" y="163" w="683" h="481" measuredW="450" measuredH="400" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="85" controlTypeID="com.balsamiq.mockups::TitleWindow" x="222" y="163" w="683" h="481" measuredW="450" measuredH="400" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Berechnung%20der%20Punktzahl</text>
       </controlProperties>
     </control>
-    <control controlID="87" controlTypeID="com.balsamiq.mockups::TextArea" x="222" y="187" w="683" h="383" measuredW="200" measuredH="140" zOrder="7" locked="false" isInGroup="-1">
+    <control controlID="87" controlTypeID="com.balsamiq.mockups::TextArea" x="222" y="187" w="683" h="383" measuredW="200" measuredH="140" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
         <backgroundAlpha>1</backgroundAlpha>
         <bold>false</bold>
@@ -59,6 +59,11 @@
         <color>16767334</color>
         <href>Gesamtauswertung%26bm%3BGesamtauswertung.bmml%26bm%3BGesamtauswertung.bmml%26bm%3BGesamtauswertung.bmml</href>
         <text>Zur%FCck</text>
+      </controlProperties>
+    </control>
+    <control controlID="89" controlTypeID="com.balsamiq.mockups::Canvas" x="70" y="0" w="1024" h="768" measuredW="100" measuredH="70" zOrder="6" locked="true" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
       </controlProperties>
     </control>
   </controls>

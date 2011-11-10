@@ -215,28 +215,33 @@
         <text>Insgesamt%3A%2010.000%2C00</text>
       </controlProperties>
     </control>
-    <control controlID="59" controlTypeID="com.balsamiq.mockups::TitleWindow" x="372" y="184" w="-1" h="-1" measuredW="450" measuredH="400" zOrder="38" locked="false" isInGroup="-1">
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::TitleWindow" x="372" y="184" w="-1" h="-1" measuredW="450" measuredH="400" zOrder="40" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Hilfe%3A%20Triebwerke</text>
         <verticalScrollbar>false</verticalScrollbar>
       </controlProperties>
     </control>
-    <control controlID="60" controlTypeID="com.balsamiq.mockups::Button" x="666" y="519" w="134" h="28" measuredW="67" measuredH="28" zOrder="39" locked="false" isInGroup="-1">
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Button" x="666" y="519" w="134" h="28" measuredW="67" measuredH="28" zOrder="42" locked="false" isInGroup="-1">
       <controlProperties>
         <href>Einkauf%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml%26bm%3BEinkauf.bmml</href>
         <text>Zur%FCck</text>
       </controlProperties>
     </control>
-    <control controlID="61" controlTypeID="com.balsamiq.mockups::List" x="388" y="225" w="412" h="286" measuredW="100" measuredH="126" zOrder="40" locked="false" isInGroup="-1">
+    <control controlID="61" controlTypeID="com.balsamiq.mockups::List" x="388" y="225" w="412" h="286" measuredW="100" measuredH="126" zOrder="41" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Anzahl%20der%20Triebwerke%20pro%20Raumschiff%0A4%09St%FCck%20pro%20X-Wing%0A6%09St%FCck%20pro%20Correlian%20Corvette%0A10%09St%FCck%20pro%20Millenium%20Falke</text>
       </controlProperties>
     </control>
-    <control controlID="62" controlTypeID="com.balsamiq.mockups::Button" x="778" y="655" w="295" h="58" measuredW="136" measuredH="28" zOrder="41" locked="false" isInGroup="-1">
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::Button" x="778" y="655" w="295" h="58" measuredW="136" measuredH="28" zOrder="38" locked="false" isInGroup="-1">
       <controlProperties>
         <color>9684093</color>
         <href>EinkaufBest%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml%26bm%3BEinkaufBest.bmml</href>
         <text>Einkauf%20Best%E4tigen</text>
+      </controlProperties>
+    </control>
+    <control controlID="63" controlTypeID="com.balsamiq.mockups::Canvas" x="70" y="0" w="1024" h="768" measuredW="100" measuredH="70" zOrder="39" locked="true" isInGroup="-1">
+      <controlProperties>
+        <backgroundAlpha>0.5</backgroundAlpha>
       </controlProperties>
     </control>
   </controls>
