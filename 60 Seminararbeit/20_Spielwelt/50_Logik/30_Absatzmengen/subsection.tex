@@ -1,4 +1,6 @@
+%###
 \subsection{Absatzmengen}
+%###
 \label{sub:spielwelt-logik-absatzmengen}
 
 Nachdem alle Unternehmen die aktuelle Spielrunde eingecheckt haben, wird das Spiel simuliert. In der Simulationsphase
@@ -39,8 +41,9 @@ diese Variante einen sehr realistischen Absatzmarkt wider.
 
 Die Nachfrage bestimmt sich wie folgt:
 
+% Achtung: Umlaute in Equation gehen nicht, entweder mit \textit{} oder garnicht
 \begin{equation}
-     N{neu} = N{alt} \cdot (1 - (\frac{p_{günstigster}}{kosten \cdot 3,5})^4)
+     N{neu} = N{alt} \cdot (1 - (\frac{p_{guenstigster}}{kosten \cdot 3,5})^4)
      \label{alg:spielwelt-logik-absatzmengen-3}
 \end{equation}
 
