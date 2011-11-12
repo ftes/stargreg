@@ -4,25 +4,27 @@
 \label{sub:spielwelt-logik-absatzmengen}
 
 Nachdem alle Unternehmen die aktuelle Spielrunde eingecheckt haben, wird das Spiel simuliert. In der Simulationsphase
-wird unter anderem der Absatz berechnet, der jedem Unternehmen zusteht. So soll der günstigste Anbieter eine höhere
+wird unter anderem der Absatz berechnet, der jedem Unternehmen zusteht. Derer günstigste Anbieter soll eine höhere
 Anzahl an Raumschiffen absetzen können, als der mit dem höchsten Preis.
 
-Um diese Vorgabe umzusetzen gibt es verschiedene Herangehensweisen. So kann man einerseits die Angebote der Höhe nach
+Um diese Vorgabe umzusetzen gibt es verschiedene Herangehensweisen. So könnte man einerseits die Angebote der Höhe nach
 anordnen und den einzelnen Rängen konstante Prozentsätze zuordnen. Beispielsweise würde man dem günstigsten Anbieter
 einen Absatz von 40\% seiner produzierten Raumschiffe zusichern, dem Zweitgünstigsten 25\%, dem Drittgrünstigsten 17,5\%,
 dem Viertgünstigsten 12,5\%, und so weiter. Diese Methode bringt jedoch fast nur Nachteile mit sich. So würde der günstigste
 Anbieter verglichen mit dem Zweitgünstigsten in jedem Fall 15\% mehr Raumschiffe absetzen können, auch wenn sich der Preis
-nur geringfügig unterscheidet. Angenommen man würde dem teuersten Anbieter einen Absatz von 2\% zusichern, so wär es möglich
+nur geringfügig unterscheidet. Angenommen man würde dem teuersten Anbieter einen Absatz von 2\% zusichern, dann wär es möglich
 den Verkaufspreis viel zu hoch anzusetzen und trotzdem einen Absatz und somit einen hohen Gewinn zu erzielen. Aus diesen
-Gründen haben wir uns dafür entschieden, den Absatz anhand einer Potenzfunktion darzustellen.
-
-Da die einzelnen Raumschifftypen verschiedene Nachfrager ansprechen und das Unternehmen verschieden hohe Preise für die
-verschiedenen Raumschifftypen festlegen kann, wird dies für jeden der 3 Raumschifftypen abgebildet.
+Gründen haben wir uns dafür entschieden, den Absatz anhand einer Potenzfunktion darzustellen:
 
 \begin{equation}
      a_i = \frac{1}{p_i^3}
      \label{alg:spielwelt-logik-absatzmengen-1}
 \end{equation}
+
+Da die einzelnen Raumschifftypen verschiedene Nachfrager ansprechen und das Unternehmen verschieden hohe Preise für die
+verschiedenen Raumschifftypen festlegen kann, wird dies für jeden der 3 Raumschifftypen abgebildet.
+
+SCHAUBILD
 
 Diese Potenzfunktion zeigt welche Unternehmen wie viele Raumschiffe zu welchem Preis abgesetzen können. Der asymptotische
 Verlauf der Kurve sorgt dafür, dass Anbietern mit niedrigen Preisen mehr Absatz zusteht, als Anbietern mit hohen Preisen.
