@@ -8,7 +8,7 @@ Um das Spiel dynamisch zu gestalten, wird ein Konjunkturverlauf über die angeda
 \begin{itemize}
 \item intergalaktischer Streik der Droiden
 \item Entdeckung des neuen Planeten Alpha Centauri VI
-\item Kriegserklärung der Vulkanier
+\item Kriegserklärung der Klingonen
 \end{itemize}
 
 Zu Beginn des Planspiels, also in Periode 1, wird folgende Nachfragesituation angenommen. Die Kriegsraumschiffe werden mit 60 Einheiten nachgefragt, Handelsraumschiffe dagegen nur mit 30 Einheiten und Forschungsraumschiffe sogar nur mit 20 Einheiten. In der zweiten Periode steigt die Nachfrage nach Kriegs- und Forschungsraumschiffen, die Nachfrage nach Handelsraumschiffen bleibt gleich. Dabei bleiben die Personalkosten konstant bei 100\% der festgelegten Werte. Das erste Ereignis wird in der dritten Periode ausgelöst. Der intergalaktische Streik der Droiden führt zu steigenden Personalkosten für die Unternehmen. Während diesem Streik steigen die Personalkosten auf 150\% der Anfangswerte.
@@ -17,8 +17,36 @@ Von Periode 4 bis Periode 6 steigt die Nachfrage nach allen drei Raumschifftypen
 
 Das zweite Ereignis wird in Periode 7 mit der Entdeckung des neuen Planeten Alpha Centauri VI ausgelöst. Dies ist auf vermehrte Forschungsaktivitäten der letzten Perioden zurück zu führen. Die Nachfrage nach Kriegs- und Handelsraumschiffen ist in dieser Periode, im Gegensatz zu den Handelsraumschiffen, noch einmal stark gestiegen. Durch die Entdeckung des neuen Planeten herrscht ein erhöhtes Angebot auf dem Personalmarkt wodurch die Personalkosten auf 80\% der Anfangswerte sinken. In der folgenden Periode stagniert die Nachfrage nach allen drei Raumschifftypen. In dieser Periode erholen sich die Personalkosten zu Ungunsten der Unternehmen und steigen auf 90\% der Anfangswerte. 
 
-Das letzte Ereignis findet in Periode 9 statt. Zu diesem Zeitpunkt haben die Vulkanier den Kriegszustand ausgerufen wodurch die Nachfrage nach Kriegsraumschiffen erheblich angestiegen ist. Die Nachfrage nach Handels- und Forschungsraumschiffen ist jedoch stark zurück gegangen, da diese Bereiche unter diesen Umständen vernachlässigt werden. Der starke Anstieg der produzierten Raumschiffe führt zu einem erhöhten Personalbedarf. Dieser fällt zu Ungunsten der Unternehmen aus, da ein Anreiz in dem Unternehmen anzufangen geschaffen werden muss. Dies bedeutet für die Unternehmen, dass die Personalkosten auf 120\% der Anfangswerte steigen. 
+Das letzte Ereignis findet in Periode 9 statt. Zu diesem Zeitpunkt haben die Klingonen den Kriegszustand ausgerufen wodurch die Nachfrage nach Kriegsraumschiffen erheblich angestiegen ist. Die Nachfrage nach Handels- und Forschungsraumschiffen ist jedoch stark zurück gegangen, da diese Bereiche unter diesen Umständen vernachlässigt werden. Der starke Anstieg der produzierten Raumschiffe führt zu einem erhöhten Personalbedarf. Dieser fällt zu Ungunsten der Unternehmen aus, da ein Anreiz in dem Unternehmen anzufangen geschaffen werden muss. Dies bedeutet für die Unternehmen, dass die Personalkosten auf 120\% der Anfangswerte steigen. 
 
-In der letzten Periode geht die Nachfrage nach Kriegsraumschiffen etwas zurück da ein Waffenstillstandsabkommen getroffen wurde. Forschungsraumschiffe erfahren in der letzten Periode noch einen kurzen Aufschwung, die Nachfrage nach Handelsraumschiffen bleibt jedoch gleich. Während der letzten Periode belaufen sich die Personalkosten wieder auf die gleiche Höhe wie in der ersten Periode des Unternehmensplanspiels. 
+In der letzten Periode geht die Nachfrage nach Kriegsraumschiffen etwas zurück da ein Waffenstillstandsabkommen getroffen wurde. Forschungsraumschiffe erfahren in der letzten Periode noch einen kurzen Aufschwung, die Nachfrage nach Handelsraumschiffen bleibt jedoch gleich. Während der letzten Periode belaufen sich die Personalkosten wieder auf die gleiche Höhe wie in der ersten Periode des Unternehmensplanspiels.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[x=0.8cm,y=0.08cm,domain=0:10]
+	     \definecolor{darkgreen}{rgb}{0,0.5,0}
+
+		% Achsen
+		\draw[-triangle 45] (0,0) -- (11,0) node[right] {$Periode$};
+		\draw[-triangle 45] (0,0) -- (0,100) node[above] {$Nachfrage$};
+          
+		%ticks
+		\foreach \x in {0,...,10}
+			\draw (\x,1pt) -- (\x,-3pt)
+			node[below] {\x};
+		\foreach \y in {0,20,...,80}
+			\draw (1pt,\y) -- (-3pt,\y) 
+			node[left] {\y};
+		\foreach \x/\ereignis in {3/Streik,5/Warp,7/Planet,9/Krieg}
+			\node[yshift=-0.5cm,left,rotate=60] at (\x,0) {\ereignis};
+          
+		\draw[red] plot[mark=square*,mark color=red] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/xwing.data} node[right] {\small{X-Wing}};
+		\draw[blue] plot[blue,mark=*,mark color=blue] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/corvette.data} node[right] {\small{Corvette}};
+		\draw[darkgreen] plot[green,mark=triangle*,mark color=darkgreen] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/falke.data} node[right] {\small{Falke}};
+
+	\end{tikzpicture}
+	\caption{}
+	\label{}
+\end{figure}
 
 \autorende{}
