@@ -38,11 +38,11 @@ In der letzten Periode geht die Nachfrage nach Kriegsraumschiffen etwas zurück 
 			\draw (1pt,\y) -- (-3pt,\y) 
 			node[left] {\y};
 		\foreach \x/\ereignis in {3/Streik,5/Warp,7/Planet,9/Krieg}
-			\node[yshift=-0.5cm,left,rotate=60] at (\x,0) {\ereignis};
+			\node[yshift=-0.7cm,left,rotate=60] at (\x,0) {\ereignis};
           
-		\draw[red] plot[mark=square*,mark color=red] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/xwing.data} node[right] {\small{X-Wing}};
-		\draw[blue] plot[blue,mark=*,mark color=blue] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/corvette.data} node[right] {\small{Corvette}};
-		\draw[darkgreen] plot[green,mark=triangle*,mark color=darkgreen] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/falke.data} node[right] {\small{Falke}};
+		\draw[red] plot[mark=square*,mark color=red] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/xwing.data} node[right,xshift=0.1cm] {\small{X-Wing}};
+		\draw[blue] plot[blue,mark=*,mark color=blue] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/corvette.data} node[right,xshift=0.1cm] {\small{Corvette}};
+		\draw[darkgreen] plot[green,mark=triangle*,mark color=darkgreen] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/falke.data} node[right,xshift=0.1cm] {\small{Falke}};
 
 	\end{tikzpicture}
 	\caption{}
