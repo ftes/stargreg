@@ -23,7 +23,7 @@ public class EinkaufsAbteilung extends Abteilung {
 		Einkauf einkauf = new Einkauf(bauteilTyp, unternehmen, menge, bauteilTyp.getPreis());
 		double kosten = einkauf.getGesamtBetrag();
 		unternehmen.getFinanzen().abbuchen(kosten);
-		unternehmen.getSpiel().getBauteilMarkt().fuegeTransaktionHinzu(einkauf);
+		unternehmen.getSpielWelt().getBauteilMarkt().fuegeTransaktionHinzu(einkauf);
 		unternehmen.getLager().einlagern(bauteilTyp, menge);
 //		System.out.printf("%s hat %d %s zu je %.2f eingekauft\n", unternehmen, menge, bauteilTyp, bauteilTyp.getPreis());
 	}

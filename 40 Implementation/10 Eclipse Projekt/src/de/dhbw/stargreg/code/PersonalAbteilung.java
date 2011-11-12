@@ -53,7 +53,7 @@ public class PersonalAbteilung extends Abteilung {
 		personal.subtract(von, anzahl);
 		personal.add(nach, anzahl);
 		
-		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(aufruestung);
+		unternehmen.getSpielWelt().getPersonalMarkt().fuegeTransaktionHinzu(aufruestung);
 		
 		if (personal.get(von) == 0) personal.remove(von);
 		
@@ -81,7 +81,7 @@ public class PersonalAbteilung extends Abteilung {
 		anzahlPersonal -= anzahl;
 		
 		Entlassung entlassung = new Entlassung(personalTyp, unternehmen, anzahl);
-		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(entlassung);
+		unternehmen.getSpielWelt().getPersonalMarkt().fuegeTransaktionHinzu(entlassung);
 		
 		if (personal.get(personalTyp) == 0) personal.remove(personalTyp);
 		
@@ -104,7 +104,7 @@ public class PersonalAbteilung extends Abteilung {
 		personal.add (personalTyp, anzahl);
 		anzahlPersonal += anzahl;
 		
-		unternehmen.getSpiel().getPersonalMarkt().fuegeTransaktionHinzu(einstellung);
+		unternehmen.getSpielWelt().getPersonalMarkt().fuegeTransaktionHinzu(einstellung);
 //		System.out.printf("%s hat %d %s eingestellt\n", unternehmen, anzahl, personalTyp);
 	}
 	
@@ -148,7 +148,7 @@ public class PersonalAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(getLaufendeKosten());
-		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getLaufendeKosten(), Zahlung.Art.PERSONAL, unternehmen));
+		unternehmen.getSpielWelt().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getLaufendeKosten(), Zahlung.Art.PERSONAL, unternehmen));
 //		System.out.printf("%.2f laufende Personalkosten abgebucht\n", getLaufendeKosten());
 	}
 

@@ -2,7 +2,7 @@ package de.dhbw.stargreg.code;
 
 import java.util.Vector;
 
-public class TypMarkt<T extends Typ, A extends TypTransaktion<T>> extends Markt<A>{
+public abstract class TypMarkt<T extends Typ, A extends TypTransaktion<T>> extends Markt<A>{
 	
 	/**
 	 * Verwaltung der Typen dieses Marktes.

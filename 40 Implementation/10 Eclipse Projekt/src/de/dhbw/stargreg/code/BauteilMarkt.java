@@ -83,9 +83,8 @@ public class BauteilMarkt extends TypMarkt<BauteilTyp, Einkauf> {
 	 * Simuliert den Markt, um ihn auf die nächste Runde vorzubereiten.
 	 * Dabei müssen die Bauteilpreise neu berechnet werden.
 	 */
-	public Vector<Einkauf> simuliere() {
+	public void simuliere() {
 		berechnePreise();
-		return super.simuliere();
 	}
 	
 	public void gebePreiseAus() {

@@ -25,7 +25,7 @@ public class VerkaufsAbteilung extends Abteilung {
 	public void macheAngebot(RaumschiffTyp raumschiffTyp, double preis) {
 		int menge = unternehmen.getLager().getAnzahl(raumschiffTyp);
 		Angebot angebot = new Angebot(raumschiffTyp, unternehmen, menge, preis);
-		unternehmen.getSpiel().getRaumschiffMarkt().fuegeAngebotHinzu(angebot);
+		unternehmen.getSpielWelt().getRaumschiffMarkt().fuegeAngebotHinzu(angebot);
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class VerkaufsAbteilung extends Abteilung {
 			tb.print();
 		} else {
 			System.out.println("Verkaufsangebote");
-			Vector<Angebot> angebote = Util.filtereVector(unternehmen.getSpiel().getRaumschiffMarkt().getAngebote(), new Filter<Angebot>() {
+			Vector<Angebot> angebote = Util.filtereVector(unternehmen.getSpielWelt().getRaumschiffMarkt().getAngebote(), new Filter<Angebot>() {
 				public boolean nach(Angebot object) {
 					if (object.getUnternehmen() == unternehmen) return true;
 					return false;
@@ -68,7 +68,7 @@ public class VerkaufsAbteilung extends Abteilung {
 	 * entnommen und der Ertrag wird dem Konto gutgeschrieben.
 	 */
 	public void simuliere() {
-		Vector<Verkauf> verkaeufe = unternehmen.getSpiel().getRaumschiffMarkt().getVerkaeufe(unternehmen);
+		Vector<Verkauf> verkaeufe = unternehmen.getSpielWelt().getRaumschiffMarkt().getVerkaeufe(unternehmen);
 		for (Verkauf verkauf : verkaeufe) {
 			if (verkauf.getUnternehmen() != unternehmen) {
 				System.err.printf("Nicht für %s bestimmte Verkäufe zum verkaufen erhalten\n", unternehmen);

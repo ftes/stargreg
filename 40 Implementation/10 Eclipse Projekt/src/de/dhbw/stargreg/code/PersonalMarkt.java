@@ -24,4 +24,8 @@ public class PersonalMarkt extends TypMarkt<PersonalTyp, PersonalTransaktion> {
 		}
 		tb.print();
 	}
+
+	public void simuliere() {
+		
+	}
 }

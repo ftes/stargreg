@@ -60,11 +60,11 @@ public class LagerAbteilung extends Abteilung {
 	}//getLagerstand
 	
 	public double getLagerKosten() {
-		return unternehmen.getSpiel().getBauteilMarkt().getLagerplatzEinheitKosten() * lagerstand;
+		return unternehmen.getSpielWelt().getBauteilMarkt().getLagerplatzEinheitKosten() * lagerstand;
 	}//getLagerkosten
 	
 	public double getLagerKosten(ProduktTyp produktTyp) {
-		return unternehmen.getSpiel().getBauteilMarkt().getLagerplatzEinheitKosten() * bestand.get(produktTyp) * produktTyp.getLagerplatzEinheiten();
+		return unternehmen.getSpielWelt().getBauteilMarkt().getLagerplatzEinheitKosten() * bestand.get(produktTyp) * produktTyp.getLagerplatzEinheiten();
 	}//getLagerkosten
 	
 	public int getAnzahl(ProduktTyp produktTyp) {
@@ -76,7 +76,7 @@ public class LagerAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		unternehmen.getFinanzen().abbuchen(getLagerKosten());
-		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getLagerKosten(), Zahlung.Art.LAGER, unternehmen));
+		unternehmen.getSpielWelt().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getLagerKosten(), Zahlung.Art.LAGER, unternehmen));
 //		System.out.printf("%.2f Lagerkosten abgebucht\n", getLagerKosten());
 	}
 

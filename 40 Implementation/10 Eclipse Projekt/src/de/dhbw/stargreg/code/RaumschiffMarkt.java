@@ -101,7 +101,7 @@ public class RaumschiffMarkt extends TypMarkt<RaumschiffTyp, Verkauf> {
 	 * jeweiligen Unternehmen und gibt alle Verkäufe in einem {@code Vector} zuräck
 	 * @return {@code Vector} mit allen Verkäufen
 	 */
-	public Vector<Verkauf> berechneGesamtAbsatz() {
+	public void berechneGesamtAbsatz() {
 		HashMap<RaumschiffTyp, Vector<Angebot>> angebote = Util.gruppiereVector(this.angebote, new Gruppierung<RaumschiffTyp, Angebot>() {
 			public RaumschiffTyp nach(Angebot angebot) {
 				return angebot.getTyp();
@@ -130,16 +130,18 @@ public class RaumschiffMarkt extends TypMarkt<RaumschiffTyp, Verkauf> {
 			tb.hline();
 		}
 		tb.print();
-		return verkaeufe;
 	}
 	
 	public Vector<Angebot> getAngebote() {
 		return angebote;
 	}
 	
-	public Vector<Verkauf> simuliere() {
-		angebote.clear();
-		return super.simuliere();
+	public Vector<Verkauf> getVerkaeufe() {
+		return getTransaktionen();
+	}
+	
+	public void simuliere() {
+		berechneGesamtAbsatz();
 	}
 	
 	public Vector<Verkauf> getVerkaeufe(final Unternehmen unternehmen) {
@@ -148,5 +150,9 @@ public class RaumschiffMarkt extends TypMarkt<RaumschiffTyp, Verkauf> {
 				return verkauf.getUnternehmen() == unternehmen;
 			}
 		});
+	}
+	
+	public void loescheAngebote() {
+		angebote.clear();
 	}
 }

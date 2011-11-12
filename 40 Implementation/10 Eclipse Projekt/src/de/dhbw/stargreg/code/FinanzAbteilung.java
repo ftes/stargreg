@@ -50,7 +50,7 @@ public class FinanzAbteilung extends Abteilung {
 	public double getZinskosten() {
 		double zinskosten = 0;
 		if (this.kontoStand < 0) {
-			zinskosten = -this.kontoStand * unternehmen.getSpiel().getKapitalMarkt().getZinssatz();
+			zinskosten = -this.kontoStand * unternehmen.getSpielWelt().getKapitalMarkt().getZinssatz();
 		}
 		return zinskosten;
 	}
@@ -62,7 +62,7 @@ public class FinanzAbteilung extends Abteilung {
 	 */
 	public void simuliere() {
 		abbuchen(getZinskosten());
-		unternehmen.getSpiel().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getZinskosten(), Zahlung.Art.ZINSEN, unternehmen));
+		unternehmen.getSpielWelt().getAktuelleSpielRunde().fuegeTransaktionHinzu(new Zahlung(getZinskosten(), Zahlung.Art.ZINSEN, unternehmen));
 //		System.out.printf("%.2f Zinsaufwendungen abgebucht\n", getZinskosten());
 	}
 	
@@ -90,8 +90,8 @@ public class FinanzAbteilung extends Abteilung {
 				tb.addNewRow("Zinsen", String.format("%.2f", -spielRunde.getZahlung(Zahlung.Art.ZINSEN, unternehmen).getEinzelBetrag()));
 			}
 		} else {
-			double einkaeufe = -Util.summiereTypTransaktionen(unternehmen.getSpiel().getBauteilMarkt().getTransaktionen(unternehmen));
-			double personal = -Util.summiereTypTransaktionen(unternehmen.getSpiel().getPersonalMarkt().getTransaktionen(unternehmen));
+			double einkaeufe = -Util.summiereTypTransaktionen(unternehmen.getSpielWelt().getBauteilMarkt().getTransaktionen(unternehmen));
+			double personal = -Util.summiereTypTransaktionen(unternehmen.getSpielWelt().getPersonalMarkt().getTransaktionen(unternehmen));
 			tb.addNewRow("Einkäufe", String.format("%.2f", einkaeufe));
 			tb.addNewRow("Personal (einmalig)", String.format("%.2f", personal));
 		}

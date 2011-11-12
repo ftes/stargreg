@@ -14,7 +14,7 @@ import de.dhbw.stargreg.util.Util;
  *
  */
 public class SpielRunde {
-	private final Spiel spiel;
+	private final SpielWelt spielWelt;
 	/**
 	 * Achtung: zu multiplizieren mit der Anzahl der Unternehmen!
 	 */
@@ -28,12 +28,12 @@ public class SpielRunde {
 	}
 	
 	public SpielRunde(
-			Spiel spiel,
+			SpielWelt spielWelt,
 			HashMap<RaumschiffTyp, Integer> nachfrage,
 			double personalKonjunkturFaktor,
 			String nachricht,
 			int nummer) {
-		this.spiel = spiel;
+		this.spielWelt = spielWelt;
 		this.nachfrage = nachfrage;
 		this.personalKonjunkturFaktor = personalKonjunkturFaktor;
 		this.nachricht = nachricht;
@@ -46,13 +46,13 @@ public class SpielRunde {
 		TableBuilder tb = new TableBuilder("RaumschiffTyp", "Nachfrage");
 		for (RaumschiffTyp raumschiffTyp : nachfrage.keySet()) {
 			tb.addNewRow(raumschiffTyp,
-					nachfrage.get(raumschiffTyp) * spiel.getAnzahlUnternehmen());
-			raumschiffTyp.setNachfrage(nachfrage.get(raumschiffTyp) * spiel.getAnzahlUnternehmen());
+					nachfrage.get(raumschiffTyp) * spielWelt.getAnzahlUnternehmen());
+			raumschiffTyp.setNachfrage(nachfrage.get(raumschiffTyp) * spielWelt.getAnzahlUnternehmen());
 		}
 		tb.print();
 		System.out.println("Personalkosten");
 		tb = new TableBuilder("PersonalTyp", "Laufende Kosten", "Werbungskosten");
-		for (PersonalTyp personalTyp : spiel.getPersonalMarkt().getTypen()) {
+		for (PersonalTyp personalTyp : spielWelt.getPersonalMarkt().getTypen()) {
 			personalTyp.setKonjunkturFaktor(personalKonjunkturFaktor);
 			tb.addNewRow(personalTyp,
 					String.format("%.2f", personalTyp.getLaufendeKosten()),

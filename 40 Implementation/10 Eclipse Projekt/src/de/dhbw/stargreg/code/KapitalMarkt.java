@@ -21,4 +21,8 @@ public class KapitalMarkt extends Markt<Zahlung> {
 		return zinssatz;
 	}
 
+	public void simuliere() {
+	
+	}
+
 }

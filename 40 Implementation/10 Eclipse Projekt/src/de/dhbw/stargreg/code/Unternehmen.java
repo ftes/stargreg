@@ -11,7 +11,7 @@ import de.dhbw.stargreg.util.Util;
  */
 public class Unternehmen {
 	private final String name;
-	private final Spiel spiel;
+	private final SpielWelt spielWelt;
 	private final EinkaufsAbteilung einkauf = new EinkaufsAbteilung(this);
 	private final ProduktionsAbteilung produktion = new ProduktionsAbteilung(this);
 	private final VerkaufsAbteilung verkauf = new VerkaufsAbteilung(this);
@@ -23,8 +23,8 @@ public class Unternehmen {
 	
 	private boolean rundeEingecheckt = false;
 	
-	public Unternehmen(Spiel spiel, String name, double startKapital) {
-		this.spiel = spiel;
+	public Unternehmen(SpielWelt spielWelt, String name, double startKapital) {
+		this.spielWelt = spielWelt;
 		this.name = name;
 		this.finanzen = new FinanzAbteilung(this, startKapital);
 	}
@@ -81,34 +81,20 @@ public class Unternehmen {
 		return lager;
 	}
 	
-	public Spiel getSpiel() {
-		return spiel;
+	public SpielWelt getSpielWelt() {
+		return spielWelt;
 	}
 	
 	public double getROI() {
 		double rOI = finanzen.getKontostand();
-		for (BauteilTyp bauteilTyp : spiel.getBauteilMarkt().getTypen()) {
+		for (BauteilTyp bauteilTyp : spielWelt.getBauteilMarkt().getTypen()) {
 			rOI += lager.getAnzahl(bauteilTyp) * bauteilTyp.getPreis() * 0.5;
 		}
-		for (RaumschiffTyp raumschiffTyp : spiel.getRaumschiffMarkt().getTypen()) {
+		for (RaumschiffTyp raumschiffTyp : spielWelt.getRaumschiffMarkt().getTypen()) {
 			rOI += lager.getAnzahl(raumschiffTyp) * raumschiffTyp.getKosten() * 0.75;
 		}
 		rOI = (rOI - finanzen.getStartKapital()) / finanzen.getStartKapital();
 		return rOI;
-	}
-	
-	public double getUmsatz() {
-		Vector<Verkauf> verkaeufe = new Vector<Verkauf>();
-		for (SpielRunde spielRunde : spiel.getSpielRunden()) {
-			verkaeufe.addAll(spielRunde.getTransaktionen(Verkauf.class));
-		}
-		
-		double umsatz = 0;
-		for (Verkauf verkauf : verkaeufe) {
-			if (verkauf.getUnternehmen() == this) umsatz += verkauf.getGesamtBetrag();
-		}
-		
-		return umsatz;
 	}
 	
 	/**
@@ -117,13 +103,13 @@ public class Unternehmen {
 	 */
 	public double getAbsatzWert() {
 		Vector<Verkauf> verkaeufe = new Vector<Verkauf>();
-		for (SpielRunde spielRunde : spiel.getSpielRunden()) {
-			verkaeufe.addAll(spielRunde.getTransaktionen(Verkauf.class));
+		for (SpielRunde spielRunde : spielWelt.getSpielRunden()) {
+			verkaeufe.addAll(spielRunde.getTransaktionen(Verkauf.class, this));
 		}
 		
 		double absatzWert = 0;
 		for (Verkauf verkauf : verkaeufe) {
-			if (verkauf.getUnternehmen() == this) absatzWert += verkauf.getGesamtWert();
+			absatzWert += verkauf.getGesamtWert();
 		}
 		
 		return absatzWert;
@@ -139,10 +125,10 @@ public class Unternehmen {
 	
 	public void gebeAnfangsInformationenAus() {
 		Util.printHeading(this.toString() + ": Informationsphase");
-		System.out.println(spiel.getAktuelleSpielRunde().getNachricht() + "\n");
-		if (spiel.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n\n", spiel.getStarDerLetztenRunde());
-		spiel.getBauteilMarkt().gebePreiseAus();
-		spiel.getPersonalMarkt().gebeKostenAus();
+		System.out.println(spielWelt.getAktuelleSpielRunde().getNachricht() + "\n");
+		if (spielWelt.getStarDerLetztenRunde() != null) System.out.printf("Star der letzten Runde: %s\n\n", spielWelt.getStarDerLetztenRunde());
+		spielWelt.getBauteilMarkt().gebePreiseAus();
+		spielWelt.getPersonalMarkt().gebeKostenAus();
 		finanzen.gebeInformationenAus(false);
 		verkauf.gebeInformationenAus(false);
 		lager.gebeInformationenAus(true);

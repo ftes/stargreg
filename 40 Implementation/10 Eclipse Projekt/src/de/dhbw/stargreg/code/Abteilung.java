@@ -23,8 +23,8 @@ public abstract class Abteilung {
 	public abstract void gebeInformationenAus(boolean aktuelleSpielRunde);
 	
 	public SpielRunde getSpielRunde(boolean aktuelleSpielRunde) {
-		if (aktuelleSpielRunde) return unternehmen.getSpiel().getAktuelleSpielRunde();
-		return unternehmen.getSpiel().getVorherigeSpielRunde();
+		if (aktuelleSpielRunde) return unternehmen.getSpielWelt().getAktuelleSpielRunde();
+		return unternehmen.getSpielWelt().getVorherigeSpielRunde();
 	}
 	
 	public abstract void simuliere();

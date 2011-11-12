@@ -13,7 +13,7 @@ import org.junit.Test;
 import de.dhbw.stargreg.code.Angebot;
 import de.dhbw.stargreg.code.RaumschiffMarkt;
 import de.dhbw.stargreg.code.RaumschiffTyp;
-import de.dhbw.stargreg.code.Spiel;
+import de.dhbw.stargreg.code.SpielWelt;
 import de.dhbw.stargreg.code.Unternehmen;
 import de.dhbw.stargreg.code.Verkauf;
 import de.dhbw.stargreg.util.Gruppierung;
@@ -21,8 +21,8 @@ import de.dhbw.stargreg.util.Util;
 
 public class RaumschiffMarktTest {
 	
-	private static Spiel spiel = new Spiel();
-	private static RaumschiffMarkt raumschiffMarkt = spiel.getRaumschiffMarkt();
+	private static SpielWelt spielWelt = new SpielWelt(null);
+	private static RaumschiffMarkt raumschiffMarkt = spielWelt.getRaumschiffMarkt();
 	private static RaumschiffTyp xwing;
 	private static RaumschiffTyp corvette;
 	private static int nachfrageXwing = 5;
@@ -48,9 +48,9 @@ public class RaumschiffMarktTest {
 		};		
 		raumschiffMarkt.fuegeTypHinzu(xwing);
 		raumschiffMarkt.fuegeTypHinzu(corvette);
-		spiel.fuegeUnternehmenHinzu(null, 1);
-		spiel.fuegeUnternehmenHinzu(null, 1);
-		spiel.fuegeUnternehmenHinzu(null, 1);
+		spielWelt.fuegeUnternehmenHinzu(null);
+		spielWelt.fuegeUnternehmenHinzu(null);
+		spielWelt.fuegeUnternehmenHinzu(null);
 	}
 
 	@AfterClass
@@ -83,7 +83,7 @@ public class RaumschiffMarktTest {
 			gesamtMenge += menge;
 		}
 		
-		Assert.assertTrue(gesamtMenge <= nachfrageXwing * spiel.getAnzahlUnternehmen());
+		Assert.assertTrue(gesamtMenge <= nachfrageXwing * spielWelt.getAnzahlUnternehmen());
 	}
 	
 	@Test
@@ -95,7 +95,9 @@ public class RaumschiffMarktTest {
 		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, unternehmen, 5, 18.0));
 		raumschiffMarkt.fuegeAngebotHinzu(new Angebot(corvette, unternehmen, 2, 27.0));
 		
-		Vector<Verkauf> verkaeufe = raumschiffMarkt.berechneGesamtAbsatz();
+		raumschiffMarkt.simuliere();
+		
+		Vector<Verkauf> verkaeufe = raumschiffMarkt.getVerkaeufe();
 		HashMap<RaumschiffTyp, Vector<Verkauf>> map = Util.gruppiereVector(verkaeufe, new Gruppierung<RaumschiffTyp, Verkauf>() {
 			@Override
 			public RaumschiffTyp nach(Verkauf verkauf) {

@@ -14,12 +14,8 @@ import de.dhbw.stargreg.util.Util;
  * 
  */
 public class Spiel {
-	//INSTANCE;
 	
-	/**
-	 * Liste aller Unternehmen
-	 */
-	private final Vector<Unternehmen> unternehmen = new Vector<Unternehmen>();
+	private SpielWelt spielWelt = new SpielWelt(this);
 	
 	/**
 	 * Liste aller Spielrunden
@@ -30,14 +26,6 @@ public class Spiel {
 	 * aktuelle Spielrunde
 	 */
 	private SpielRunde aktuelleSpielRunde;
-	
-	private RaumschiffMarkt raumschiffMarkt = new RaumschiffMarkt();
-	
-	private PersonalMarkt personalMarkt = new PersonalMarkt();
-	
-	private BauteilMarkt bauteilMarkt = new BauteilMarkt();
-	
-	private KapitalMarkt kapitalMarkt = new KapitalMarkt();
 	
 	/**
 	 * aktueller Spielstatus
@@ -67,12 +55,8 @@ public class Spiel {
 			System.err.println("Spielrunde nicht hinzugefügt: nur in der Phase 'Spielen' möglich");
 			return;
 		}
-		this.spielRunden.add(new SpielRunde(this, nachfrage, personalKonjunkturFaktor, nachricht, spielRunden.size() + 1));
+		this.spielRunden.add(new SpielRunde(spielWelt, nachfrage, personalKonjunkturFaktor, nachricht, spielRunden.size() + 1));
 //		System.out.printf("Spielrunde %d hinzugefügt\n", this.spielRunden.size());
-	}
-	
-	public int getAnzahlUnternehmen() {
-		return unternehmen.size();
 	}
 	
 	/**
@@ -87,9 +71,8 @@ public class Spiel {
 			System.err.println("Unternehmen nicht hinzugefügt: nur in der Phase 'Einrichten' möglich");
 			return null;
 		}
-		Unternehmen unternehmen = new Unternehmen(this, name, startKapital);
-		this.unternehmen.add(unternehmen);
-//		System.out.printf("Unternehmen %s hinzugefügt\n", unternehmen);
+		Unternehmen unternehmen = new Unternehmen(spielWelt, name, startKapital);
+		spielWelt.fuegeUnternehmenHinzu(unternehmen);
 		return unternehmen;
 	}
 	
@@ -101,7 +84,7 @@ public class Spiel {
 			System.err.println("Spiel nicht gestartet: wurde bereits gestartet");
 			return;
 		}
-		if (unternehmen.size() < 2) {
+		if (spielWelt.getAnzahlUnternehmen() < 2) {
 			System.err.println("Spiel nicht gestartet: weniger als zwei Unternehmen registriert");
 			return;
 		}
@@ -144,7 +127,7 @@ public class Spiel {
 		//Achtung: Problem bei negativen ROI -> wenn summeROI negativ ist, dann wird bei Division ein negativer ROI gut
 		//Lösung: rechts-verschiebung bei Vorhandensein eines negativen ROI
 		double minROI = Double.MAX_VALUE;
-		for (Unternehmen unternehmen : this.unternehmen) {
+		for (Unternehmen unternehmen : spielWelt.getUnternehmen()) {
 			if (unternehmen.getROI() < minROI) minROI = unternehmen.getROI();
 		}
 		
@@ -155,14 +138,14 @@ public class Spiel {
 		
 		double summeROI = 0;
 		double summeAbsatzWert = 0;
-		for (Unternehmen unternehmen : this.unternehmen) {
+		for (Unternehmen unternehmen : spielWelt.getUnternehmen()) {
 			summeROI += unternehmen.getROI() + rechtsVerschiebung;
 			summeAbsatzWert += unternehmen.getAbsatzWert();
 		}
 		
 		System.out.println("Punkteverteilung");
 		TableBuilder tb = new TableBuilder("Unternehmen", "ROI", "Marktanteil", "Bewertung");
-		for (Unternehmen unternehmen : this.unternehmen) {
+		for (Unternehmen unternehmen : spielWelt.getUnternehmen()) {
 			double punkte = (unternehmen.getROI() + rechtsVerschiebung) / summeROI * 70;
 			punkte += unternehmen.getAbsatzWert() / summeAbsatzWert * 30;
 			unternehmen.setBewertung(punkte);
@@ -175,7 +158,7 @@ public class Spiel {
 		
 		// Bewertung sortieren um Rangfolge zu erhalten
 		@SuppressWarnings("unchecked")
-		Vector<Unternehmen> rangfolge = (Vector<Unternehmen>) unternehmen.clone();
+		Vector<Unternehmen> rangfolge = (Vector<Unternehmen>) spielWelt.getUnternehmen().clone();
 		Collections.sort(rangfolge, new Comparator<Unternehmen>() {
 			public int compare(Unternehmen u1, Unternehmen u2) {
 				return ((Double) u2.getBewertung()).compareTo(u1.getBewertung());
@@ -206,29 +189,14 @@ public class Spiel {
 		}
 		
 		// Prüfen, ob alle schon eingecheckt haben. Sonst abbrechen
-		for (Unternehmen unternehmen : this.unternehmen) {
+		for (Unternehmen unternehmen : spielWelt.getUnternehmen()) {
 			if (! unternehmen.getRundeEingecheckt()) {
 				System.err.printf("%s hat die Runde noch nicht eingecheckt\n", unternehmen);
 				return;
 			}
 		}
 		
-		Util.printHeading("Simulation der Spielrunde");
-		
-		// Verkäufe nach Unternehmen gruppieren
-		Util.gruppiereVerkaeufeNachUnternehmen(
-				raumschiffMarkt.berechneGesamtAbsatz());
-		
-		for (Unternehmen unternehmen : this.unternehmen) {
-			unternehmen.simuliere();
-		}
-		
-		aktuelleSpielRunde.fuegeTransaktionenHinzu(bauteilMarkt.simuliere());
-		aktuelleSpielRunde.fuegeTransaktionenHinzu(personalMarkt.simuliere());
-		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.getAngebote());
-		aktuelleSpielRunde.fuegeTransaktionenHinzu(raumschiffMarkt.simuliere());
-		
-		Util.pause();
+		aktuelleSpielRunde.fuegeTransaktionenHinzu(spielWelt.simuliere());
 		
 		aktuelleSpielRunde = getNaechsteSpielRunde();
 		if (aktuelleSpielRunde == null) {
@@ -241,22 +209,6 @@ public class Spiel {
 
 	public SpielRunde getAktuelleSpielRunde() {
 		return aktuelleSpielRunde;
-	}
-	
-	public RaumschiffMarkt getRaumschiffMarkt() {
-		return raumschiffMarkt;
-	}
-	
-	public BauteilMarkt getBauteilMarkt() {
-		return bauteilMarkt;
-	}
-	
-	public PersonalMarkt getPersonalMarkt() {
-		return personalMarkt;
-	}
-	
-	public KapitalMarkt getKapitalMarkt() {
-		return kapitalMarkt;
 	}
 	
 	private SpielRunde getNaechsteSpielRunde() {
@@ -280,5 +232,9 @@ public class Spiel {
 	
 	public Vector<SpielRunde> getSpielRunden() {
 		return spielRunden;
+	}
+	
+	public SpielWelt getSpielWelt() {
+		return spielWelt;
 	}
 }

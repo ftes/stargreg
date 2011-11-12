@@ -28,10 +28,10 @@ public class SpielTest {
 	private static final double startKapital = 1000000;
 
 	private static Spiel spiel = new Spiel();
-	private static BauteilMarkt bauteilMarkt = spiel.getBauteilMarkt();
-	private static PersonalMarkt personalMarkt = spiel.getPersonalMarkt();
-	private static RaumschiffMarkt raumschiffMarkt = spiel.getRaumschiffMarkt();
-	private static KapitalMarkt kapitalMarkt = spiel.getKapitalMarkt();
+	private static BauteilMarkt bauteilMarkt = spiel.getSpielWelt().getBauteilMarkt();
+	private static PersonalMarkt personalMarkt = spiel.getSpielWelt().getPersonalMarkt();
+	private static RaumschiffMarkt raumschiffMarkt = spiel.getSpielWelt().getRaumschiffMarkt();
+	private static KapitalMarkt kapitalMarkt = spiel.getSpielWelt().getKapitalMarkt();
 
 	private static BauteilTyp rumpf = new BauteilTyp("Rumpfbauteil", 1, 100.0, 40.0, BauteilTyp.Art.STANDARD);
 	private static BauteilTyp hitzeschild = new BauteilTyp("Hitzeschild", 2, 200.0, 80.0, BauteilTyp.Art.STANDARD);

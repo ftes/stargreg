@@ -38,21 +38,12 @@ public abstract class Markt<T extends Transaktion> {
 		return vector;
 	}
 	
-	private void loescheTransaktionen() {
+	public void loescheTransaktionen() {
 		transaktionen.clear();
 	}
 	
 	/**
-	 * Führt alle nötigen Simulationen auf dem Markt durch und liefert zur weiteren Verarbeitung
-	 * den {@code Vector} mit den Transaktionen zurück. Die Transaktionen der alten Runde werden dann
-	 * gelöscht.
-	 * @return Transaktionen
+	 * Führt alle nötigen Simulationen auf dem Markt durch.
 	 */
-	public Vector<T> simuliere() {
-		//Transaktionen vielleicht nicht wie Instanzattribut nennen, da dies verwirrend ist
-		Vector<T> transaktionen = new Vector<T>(); 
-		transaktionen.addAll(this.transaktionen);
-		loescheTransaktionen();
-		return transaktionen;
-	}
+	public abstract void simuliere();
 }
