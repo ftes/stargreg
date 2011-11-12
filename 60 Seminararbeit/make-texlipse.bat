@@ -15,8 +15,6 @@ pdflatex %name%.tex
 pdflatex %name%.tex
 pdflatex -synctex=-1 %name%.tex -interaction=nonstopmode --src-specials -shell-escape %name%.tex
 
-REM ren %name%.tex tmp%name%.tex
-REM ren %name%.pdf tmp%name%.pdf
-REM del %name%.*
-REM ren tmp%name%.tex %name%.tex
-REM ren tmp%name%.pdf %name%.pdf
+
+del %name%.a.*
+del %name%.p.*
