@@ -24,7 +24,20 @@ Gründen haben wir uns dafür entschieden, den Absatz anhand einer Potenzfunktio
 Da die einzelnen Raumschifftypen verschiedene Nachfrager ansprechen und das Unternehmen verschieden hohe Preise für die
 verschiedenen Raumschifftypen festlegen kann, wird dies für jeden der 3 Raumschifftypen abgebildet.
 
-SCHAUBILD
+\begin{figure}[ht]
+     \centering
+     \begin{tikzpicture}[xscale=1,yscale=7,domain=1:7]
+
+          % Achsen
+          \draw[-triangle 45] (0,0) -- (7,0) node[right] {};
+          \draw[-triangle 45] (0,0) -- (0,1) node[below left] {};
+
+          \draw plot[id=p,samples=50] function{1/(x**3)};
+
+     \end{tikzpicture}
+     \caption{Preis-Absatz-Funktion}
+     \label{img:spielwelt-logik-absatzmengen-preisabsatzfunktion}
+\end{figure}
 
 Diese Potenzfunktion zeigt welche Unternehmen wie viele Raumschiffe zu welchem Preis abgesetzen können. Der asymptotische
 Verlauf der Kurve sorgt dafür, dass Anbietern mit niedrigen Preisen mehr Absatz zusteht, als Anbietern mit hohen Preisen.
