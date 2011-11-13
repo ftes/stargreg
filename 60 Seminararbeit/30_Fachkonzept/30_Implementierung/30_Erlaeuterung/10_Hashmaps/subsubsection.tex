@@ -1,0 +1,23 @@
+\subsubsection{Hashmaps}
+\label{subsub:fachkonzept-implementierung-erläuterung-hashmaps}
+
+Hashmaps bzw. Hashtabellen bieten in Java die Möglichkeit Datenelemente mit Hilfe einer indexierten Tabelle zu speichern und gewährleisten einen schnellen Zugriff auf die abgespeicherten Datenelemente. In StarGreg kommen sie vor allem bei der Realisierung der assoziativen Klassen zum Einsatz. Beispielsweise wird in der Klasse LagerAbteilung eine Hashmap eingesetzt, um die Lagerung verschiedener Produktypen mit ihren jeweiligen Mengen zu gewährleisten (siehe \ref{lis:fachkonzept-implementierung-erläuterung-hashmaps}).
+
+\begin{programm}[htbp]
+\begin{lstlisting}[breaklines=true]
+private final IntegerHashMap<ProduktTyp> bestand = new IntegerHashMap<ProduktTyp>();
+\end{lstlisting}
+\caption{Hashmap zur Lagerung von verschiedenen Produkttypen\label{lis:fachkonzept-implementierung-erläuterung-hashmaps}}
+\end{programm}
+
+Im Lager können zum einen Bauteile, zum anderen Raumschiffe eingelagert werden. Da die Klassen BauteilTyp und RaumschiffTyp beides Unterklassen von ProduktTyp sind, können von beiden Klassen auch die jeweiligen Objekte in der Hashmap unter Verwendung der Methode einlagern() (siehe \ref{lis:fachkonzept-implementierung-erläuterung-hashmaps-1}) gespeichert werden, welche in LagerAbteilung implementiert ist.
+
+\begin{programm}[htbp]
+\begin{lstlisting}[breaklines=true]
+public void einlagern (ProduktTyp produktTyp, int anzahl) {
+  bestand.add(produktTyp, anzahl);
+  this.lagerstand += produktTyp.getLagerplatzEinheiten() * anzahl;
+}
+\end{lstlisting}
+\caption{Methode einlagern() der Klasse LagerAbteilung\label{lis:fachkonzept-implementierung-erläuterung-hashmaps-1}}
+\end{programm}
