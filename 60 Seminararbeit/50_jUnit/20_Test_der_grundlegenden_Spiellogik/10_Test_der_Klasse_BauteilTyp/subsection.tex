@@ -1,0 +1,18 @@
+\subsection{Test der Klasse BauteilTyp}
+\label{sub:junit-spiellogik-bauteiltyp}  
+
+\autorbeginn{Jan}
+
+Es gibt in der Klasse BauteilTyp muss die Methode \textit{berechnePreis()} getestet werden, um sicherzustellen, dass das die richtige Preisberechnung nach einer Spielrunde auch gewährleistet ist.
+\\
+In der Klasse BauteilTypTest wird hierfür zunächst der Bauteiltyp Rumpfbauteil deklariert, der anschließend in der Methode \textit{setUpBeforeClass()} mit den Werten der Datenbasis initialisiert. In der Testmethode \textit{testBerechnePreis()} wird dann auf dem Rumpfbauteil die zu testende Methode berechnePreise() ausgeführt. D die Methode \textit{berechnePreis()} und ein Vergleich mit dem erwarteten Wert folgt (siehe \ref{sub:junit-spiellogik-bauteiltyp}).
+
+\begin{programm}[htbp]
+\begin{lstlisting}[breaklines=true]
+public void testBerechnePreis() {
+  rumpfbauteil.berechnePreis(.5);
+  Assert.assertTrue(Math.round(rumpfbauteil.getPreis()) == 130);
+}
+\end{lstlisting}
+\caption{\textit{testBerechnePreis()} der Klasse BauteilTypTest\label{sub:junit-spiellogik-bauteiltyp}}
+\end{programm}

@@ -1,0 +1,43 @@
+\subsection{Test der Klasse RaumschiffMarkt}
+\label{sub:junit-spiellogik-raumschiffmarkt}  
+
+In der Klasse RaumschiffMarkt muss getestet werden, ob die erwartete Nachfrage nach den Raumschiffen und die erwartete Absatzzuteilung den Istwerten nach einer Spielrunde entspricht.
+\\
+Getestet werden müssen also die Methoden \textit{berechneTypAbsatz()} und \textit{berechneGesamtabsatz()}. Zunächst werden hierfür ein Raumschiffmarkt und mehrere Raumschiffe mit voreingestellten Nachfragewerten deklariert. Auch eine Unternehmensreferenz muss erzeugt werden, da sich der spätere Gesamtabsatz auf mehrere Unternehmen bezieht und die Referenz in der Methode \textit{setUpBeforeClass()} mehreren Unternehmensobjekten zugeordnet wird. Hier wird des Weiteren die Methode \textit{getKosten()} für die einzelnen Raumschiffe überschrieben, da eine Kostenschwankung bei dem Test des Raumschiffmarktes nocht notwendig ist. Es findet ein Hinzufügen der Raumschiffe zu dem Raumschiffmarkt statt. Vor jeder neuen Testmethode werden die Nachfragewerte auf die Anfangswerte gesetzt. Jede Testmethode für sich bezieht sich zudem nur auf die Angebote, die ihn ihr erzeugt werden, da am Ende jeder Testmethode die Methode \textit{simuliere()} auf den Raumschiffmarkt angewendet wird.
+\\
+Als erstes betrachten wir die Methode \textit{testBerechneAbsatzTyp()} (siehe \ref{lis:junit-spiellogik-raumschiffmarkt}). Hier werden Angebote für ein Raumschiff abgegeben, wonach dazugehörigen Verkäufe mit Hilfe der Methode \textit{berechneTypAbsatz()} ermittelt werden.
+
+\begin{programm}[htbp]
+\begin{lstlisting}[breaklines=true]
+public void testBerechneTypAbsatz() {
+  [..]
+  Vector<Verkauf> verkaeufe = raumschiffMarkt.berechneTypAbsatz(xwing, angebote);
+    for (Verkauf verkauf : verkaeufe) {
+	  int menge = verkauf.getMenge();
+	  Assert.assertTrue(menge >= 0);
+	  gesamtMenge += menge;
+    }
+  Assert.assertTrue(gesamtMenge <= nachfrageXwing * spielWelt.getAnzahlUnternehmen());
+}
+\end{lstlisting}
+\caption{testGetKosten() der Klasse RaumschiffTypTest\label{lis:junit-spiellogik-raumschiffmarkt}}
+\end{programm}
+
+Es wird getestet, ob keine Verkaufsmenge kleiner als 0 ist. Aufgrund der Tatsache, dass die Gesamtmenge der abgesetzten Raumschiffe nicht größer sein darf als die Nachfrage nach den Raumschiffen gemessen an der Unternehmensanzahl, findet am Schluss der Methode ein letzter Vergleich statt.
+\\
+In der zweiten Testmethode \textit{testBerechneGesamtAbsatz()} (siehe \ref{lis:junit-spiellogik-raumschifftyp-1}) werden ebenfalls zuerst Angebotsobjekte erstellt. Im Gegensatz zu \textit{testBerechneTypAbsatz()} geschieht dies allerdings für mehrere Raumschiffe, da hier nicht nur der Absatz eines Raumschiffes relevant ist. Die Angebotstransaktionen werden zum Raumschiffmarkt hinzugefügt und die Methode \textit{simuliere()} wird darauf aufgerufen, die selbst die Methode \textit{berechneGesamtAbsatz()} aufruft. Eine Hashmap \textit{map} bekommt zu jedem Raumschifftyp die entsprechenden Verkaufsvektoren mit den Raumschiffverkäufen zugeordnet. Am Ende kann somit überprüft werden, ob alle Raumschiffe in der Hashmap enthalten sind und mindestens einmal abgesetzt wurden.
+
+\begin{programm}[htbp]
+\begin{lstlisting}[breaklines=true]
+public void testBerechneGesamtAbsatz(){
+  [..]
+  Assert.assertTrue(map.containsKey(xwing));
+  Assert.assertTrue(map.get(xwing).size() > 0);
+  Assert.assertTrue(map.containsKey(corvette));
+  Assert.assertTrue(map.get(corvette).size() > 0);
+}
+\end{lstlisting}
+\caption{testGetLagerkosten() der Klasse RaumschiffTypTest\label{lis:junit-spiellogik-raumschifftyp-1}}
+\end{programm}
+
+\autorende

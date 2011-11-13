@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 \subsubsection{Datenhaltung}
 \label{subsub:fachkonzept-implementierung-erläuterung-datenhaltung}
 
@@ -7,7 +6,7 @@ Um die Datenhaltung im Spiel besser zu verstehen, wird nachfolgend auf die Klass
 Zuerst wird ein Spielobjekt angelegt, welchem dann die verschiedenen Märkte (Bauteilmarkt, Raumschiffmarkt, Personalmarkt und Kapitalmarkt) zugeordnet werden, in denen die Datenhaltung letztendlich realisiert wird. Danach werden dem Spiel die verschiedenen Unternehmensobjekte beigefügt, wobei zu jedem Objekt automatisch die zugehörigen Abteilungsobjekte erzeugt werden. Die Arten der Datenhaltung lassen sich bei StarGreg in zwei Kategorien einteilen - die Datenhaltung, die sich auf immer nur auf die derzeitigen Werte der Unternehmen beziehen, und die Datenhaltung, die mehrere Spielrunden betrifft. Erstere bezieht sich beispielsweise auf die Kontostände und die Lagerstände der Unternehmen. Diese Datenhaltung ist so realisiert, dass die einzelnen Unternehmensobjekte und deren Abteilungsobjekte Attribute besitzen (z.B. Kontostand in einer Finanzabteilung), die die aktuellen Werte für das Unternehmen beinhalten.
 \\
 \\
-Die Umsetzung der zweiten Art der Datenhaltung wurde mit Hilfe der Transaktionen der Unternehmen umgesetzt. Transaktionen beeinflussen sowohl Größen der einzelnen Unternehmen, als auch Größen, die für die gesamte Spielwelt (also alle Unternehmen) eine Rolle spielen, wie die Bauteilpreise und die Nachfrage nach den Raumschiffen. Zudem ist mit den Transaktionen die Wertrückverfolgung von Daten gewährleistet. Um diese Art der Datenhaltung noch transparenter zu machen, wird an dieser Stelle auf die Beispiel einer Einkaufstransaktion von Bauteilen eingegangen. Ein Unternehmen tätigt seine Transaktionen mit Hilfe seiner Abteilungen, in unserem Beispiel also mit Hilfe seiner Einkaufsabteilung. Hier ist die Methode kaufeEin() realisiert (siehe \ref{lis:fachkonzept-implementierung-erläuterung-datenhaltung}).
+Die Umsetzung der zweiten Art der Datenhaltung wurde mit Hilfe der Transaktionen der Unternehmen umgesetzt. Transaktionen beeinflussen sowohl Größen der einzelnen Unternehmen, als auch Größen, die für die gesamte Spielwelt (also alle Unternehmen) eine Rolle spielen, wie die Bauteilpreise und die Nachfrage nach den Raumschiffen. Zudem ist mit den Transaktionen die Wertrückverfolgung von Daten gewährleistet. Um diese Art der Datenhaltung noch transparenter zu machen, wird an dieser Stelle auf die Beispiel einer Einkaufstransaktion von Bauteilen eingegangen. Ein Unternehmen tätigt seine Transaktionen mit Hilfe seiner Abteilungen, in unserem Beispiel also mit Hilfe seiner Einkaufsabteilung. Hier ist die Methode \textit{kaufeEin()} realisiert (siehe \ref{lis:fachkonzept-implementierung-erläuterung-datenhaltung}).
 
 \begin{programm}[htbp]
 \begin{lstlisting}[breaklines=true]
@@ -46,52 +45,3 @@ In \ref{tab:fachkonzept-implementierung-erläuterung-datenhaltung} ist dargestel
      \label{tab:fachkonzept-implementierung-erläuterung-datenhaltung}
 \end{table}
 
-=======
-\subsubsection{Datenhaltung}
-\label{subsub:fachkonzept-implementierung-erläuterung-datenhaltung}
-
-Um die Datenhaltung im Spiel besser zu verstehen, wird nachfolgend auf die Klassen bzw. deren Objekte eingegangen, die an der Speicherung von Daten beteiligt sind.
-\\
-Zuerst wird ein Spielobjekt angelegt, welchem dann die verschiedenen Märkte (Bauteilmarkt, Raumschiffmarkt, Personalmarkt und Kapitalmarkt) zugeordnet werden, in denen die Datenhaltung letztendlich realisiert wird. Danach werden dem Spiel die verschiedenen Unternehmensobjekte beigefügt, wobei zu jedem Objekt automatisch die zugehörigen Abteilungsobjekte erzeugt werden. Die Arten der Datenhaltung lassen sich bei StarGreg in zwei Kategorien einteilen - die Datenhaltung, die sich auf immer nur auf die derzeitigen Werte der Unternehmen beziehen, und die Datenhaltung, die mehrere Spielrunden betrifft. Erstere bezieht sich beispielsweise auf die Kontostände und die Lagerstände der Unternehmen. Diese Datenhaltung ist so realisiert, dass die einzelnen Unternehmensobjekte und deren Abteilungsobjekte Attribute besitzen (z.B. Kontostand in einer Finanzabteilung), die die aktuellen Werte für das Unternehmen beinhalten.
-\\
-\\
-Die Umsetzung der zweiten Art der Datenhaltung wurde mit Hilfe der Transaktionen der Unternehmen umgesetzt. Transaktionen beeinflussen sowohl Größen der einzelnen Unternehmen, als auch Größen, die für die gesamte Spielwelt (also alle Unternehmen) eine Rolle spielen, wie die Bauteilpreise und die Nachfrage nach den Raumschiffen. Zudem ist mit den Transaktionen die Wertrückverfolgung von Daten gewährleistet. Um diese Art der Datenhaltung noch transparenter zu machen, wird an dieser Stelle auf die Beispiel einer Einkaufstransaktion von Bauteilen eingegangen. Ein Unternehmen tätigt seine Transaktionen mit Hilfe seiner Abteilungen, in unserem Beispiel also mit Hilfe seiner Einkaufsabteilung. Hier ist die Methode kaufeEin() realisiert (siehe \ref{lis:fachkonzept-implementierung-erläuterung-datenhaltung}).
-
-\begin{programm}[htb]
-\begin{lstlisting}[breaklines=true]
-public void kaufeEin(BauteilTyp bauteilTyp, int menge) {
-  Einkauf einkauf = new Einkauf(bauteilTyp, unternehmen, menge, bauteilTyp.getPreis());
-  double kosten = einkauf.getGesamtBetrag();
-  unternehmen.getFinanzen().abbuchen(kosten);
-  unternehmen.getLager().einlagern(bauteilTyp, menge);
-  unternehmen.getSpielWelt().getBauteilMarkt().fuegeTransaktionHinzu(einkauf);
-}
-\end{lstlisting}
-\caption{Die Methode kaufeEin() der Klasse EinkaufsAbteilung\label{lis:fachkonzept-implementierung-erläuterung-datenhaltung}}
-\end{programm}
-
-Bei dem Einkauf müssen der Bauteiltyp und die Menge des Bauteiltyps mitgegeben werden. In der Methode selbst wird zunächst ein Objekt der Klasse Einkauf erzeugt, welche eine Unterklasse von Transaktion ist. Jede Transaktion wiederum besitzt ein Attribut unternehmen, wodurch sie sich den verschiedenen Unternehmen eindeutig zuordnen lässt. Als nächstes folgt die entsprechende Kostenabbuchung im Finanzabteilungsobjekt und die Einlagerung im Lagerabteilungsobjekt des Unternehmens. Die letzte Zeile des Codes stellt den entscheidenden Schritt der Datenhaltung in unserem Beispiel dar. Da jedes Unternehmen einer Spielwelt zugeordnet ist, wird als erstes der Bezug auf die Spielwelt hergestellt. Mit Hilfe der Spielwelt wird dann der zugehörige Bauteilmarkt angesprochen, wobei jeder Markt besitzt einen Vektor, in denen Transaktionen verwaltet werden können. Der Bauteilmarkt sammelt somit alle Einkaufstransaktionen der Unternehmen, die am Ende einer Runde in dem jeweiligen Spielrundenobjekt abgespeichert werden. Da es in jeder Spielwelt über den gesamten Spielverlauf nur ein Objekt jedes Marktes geben soll, werden in der Simulationsphase die Transaktionen dann aus den jeweiligen Märkten entfernt, wodurch gewährleistet ist, dass keine redundanten Daten vorliegen und nur neue Transaktionen für die Berechnung schwankender Werte dienen.
-\\
-\\
-In \ref{tab:fachkonzept-implementierung-erläuterung-datenhaltung} ist dargestellt, welche Daten in den jeweiligen Abteilungen und Märkten gespeichert werden, wobei nicht alle Abteilungen und Märkte aufgelistet sind, da nicht in allen die Speicherung von sich verändernden Daten vorkommt (z.B. Verkaufsabteilung und Kapitalmarkt).
-
-\begin{table}[htb]\small
-     \centering
-     \begin{tabular}{| p{4cm} |p{\textwidth -5cm} |}
-          \hline
-          Klasse & Speicherung von \\
-          \hline \hline
-          Finanzabteilung & Kontostand \\ \hline
-          Lagerabteilung & Lagerkosten und Lagerstand  \\ \hline
-          Personalabteilung & Anzahl des Personals, die durchschnittliche Qualität des Personals und die 			  laufenden Kosten des Personals \\ \hline
-          Produktionsabteilung & Benötigtes Personal für die Raumschiffproduktion \\ \hline
-          Bauteilmarkt & Einkaufstransaktionen für Bauteile \\ \hline
-          Personalmarkt & Personaltransaktionen (z.B. Einstellung von Personal) \\ \hline
-          Raumschiffmarkt & Angebote und Verkäufe von Raumschiffen \\ 
-          \hline    
-     \end{tabular}
-     \caption{Bauteilmengen der Raumschiffe}
-     \label{tab:fachkonzept-implementierung-erläuterung-datenhaltung}
-\end{table}
-
->>>>>>> 0b913f1ca8dd7783b6123b28ecfe8dab72dcdb04

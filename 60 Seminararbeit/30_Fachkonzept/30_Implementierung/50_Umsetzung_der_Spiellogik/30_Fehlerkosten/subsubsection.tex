@@ -1,7 +1,7 @@
 \subsubsection{Fehlerkosten}
 \label{subsub:fachkonzept-implementierung-spiellogik-fehlerkosten}
 
-In der Klasse ProduktionsAbteilung ist die Berechnung der Fehlerkosten implementiert. Hierfür dient die Methode berechneFehlerhafteMenge() (siehe \ref{lis:fachkonzept-implementierung-spiellogik-fehlerkosten}), worin zufällige Zahlen von 0 bis <1 mit der durchschnittlichen Qualität des Personals verglichen werden. Eine durchschnittliche Qualität von 80\% entspricht dabei beispielsweise einem Wert von 0,8. 
+In der Klasse ProduktionsAbteilung ist die Berechnung der Fehlerkosten implementiert. Hierfür dient die Methode \textit{berechneFehlerhafteMenge()} (siehe \ref{lis:fachkonzept-implementierung-spiellogik-fehlerkosten}), worin zufällige Zahlen von 0 bis <1 mit der durchschnittlichen Qualität des Personals verglichen werden. Eine durchschnittliche Qualität von 80\% entspricht dabei beispielsweise einem Wert von 0,8. 
 
 \begin{programm}[htbp]
 \begin{lstlisting}[breaklines=true]
@@ -15,10 +15,10 @@ private int berechneFehlerhafteMenge(int menge) {
   return fehlerhafteMenge;
 }
 \end{lstlisting}
-\caption{Die Methode berechneFehlerhafteMenge() der Klasse ProduktionsAbteilug\label{lis:fachkonzept-implementierung-spiellogik-fehlerkosten}}
+\caption{\textit{berechneFehlerhafteMenge()} der Klasse ProduktionsAbteilug\label{lis:fachkonzept-implementierung-spiellogik-fehlerkosten}}
 \end{programm}
 
-In der Methode simuliere() der Klasse ProduktionsAbteilung wird für jeden Produktionsauftrag die entsprechende fehlerhafte Menge mit den dazugehörigen Fehlerkosten verrechnet. 
+In der Methode \textit{simuliere()} der Klasse ProduktionsAbteilung wird für jeden Produktionsauftrag die entsprechende fehlerhafte Menge mit den dazugehörigen Fehlerkosten verrechnet. 
 
 
 

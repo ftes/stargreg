@@ -1,0 +1,30 @@
+\subsection{Test der Klasse RaumschiffTyp}
+\label{sub:junit-spiellogik-raumschifftyp}  
+
+In der Klasse RaumschiffTyp muss getestet werden, ob die Kosten und die Lagerplatzeinheiten eines Raumschiffs richtig berechnet werden, da diese sich aus den Kosten der einzelnen Bauteiltypmengen der Raumschiffe ergeben.
+\\
+Für die Testmethoden werden verschiedene Bauteiltypen und Raumschifftypen deklariert. Anschließend folgt eine Initialisierung in der \textit{setUpBeforeClass()} Methode für beide Typen nach den Werten der Datenbasis.
+\\
+Die mengenmäßige Zuteilung der Bauteile erfolgt in den Testmethoden selbst. In der Testmethode \textit{testGetKosten()} folgt nach der Zuteilung ein Vergleich der erwarteten und der tatsächlichen Kosten (siehe \ref{sub:junit-spiellogik-raumschifftyp}).
+
+\begin{programm}[ht]
+\begin{lstlisting}[breaklines=true]
+public void testGetKosten(){
+  [..]
+  Assert.assertTrue(corellian_corvette.getKosten() == (rumpf.getPreis()*38 + hitzeschild.getPreis()*16 + triebwerk.getPreis()*6));
+}
+\end{lstlisting}
+\caption{testGetKosten() der Klasse RaumschiffTypTest\label{sub:junit-spiellogik-raumschifftyp}}
+\end{programm}
+
+In der zweiten Testmethode wird getestet, ob die Raumschifflagerkosten den summierten Lagerkosten der zugehörigen Bauteile entsprechen (siehe \ref{sub:junit-spiellogik-raumschifftyp-1}).
+ 
+\begin{programm}[ht]
+\begin{lstlisting}[breaklines=true]
+public void testGetLagerplatzEinheiten() {
+  [..]
+  Assert.assertTrue(millenium_falke.getLagerplatzEinheiten() == (rumpf.getLagerplatzEinheiten()*40 + hitzeschild.getLagerplatzEinheiten()*30 + triebwerk.getLagerplatzEinheiten()*10));
+}
+\end{lstlisting}
+\caption{testGetLagerkosten() der Klasse RaumschiffTypTest\label{sub:junit-spiellogik-raumschifftyp-1}}
+\end{programm}

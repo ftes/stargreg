@@ -1,0 +1,22 @@
+\subsection{Test der Klasse BauteilMarkt}
+\label{sub:junit-spiellogik-bauteilmarkt}  
+
+Mit Hilfe der Klasse BauteilMarkt können die Abweichungen der einzelnen Bauteiltypumsätze vom Durchschnittsumsatz errechnet werden. Dies ist notwendig, damit die BauteilTyp-Methode \textit{berechnePreis()} die richtigen Werte nach einer Spielrunde erhält. Die Berechnung des Durchschnittsumsatzes, der Abweichung vom Durchschnittsumsatz und der Aufruf der Methode \textit{berechnePreis()} für jeden Bauteiltyp findet in der Methode \textit{berechnePreise()} statt, die in der Klasse BauteilMarktTest getestet wird.
+\\
+Zunächst wird ein Objekt des Typs Bauteilmarkt deklariert. Anschließend werden Bauteiltypen deklariert und in der Methode \textit{setUpBeforeClass()} initialisiert. Im Gegensatz zur Klasse BauteilTypTest werden hier allerdings drei verschiedene Bauteiltypen erzeugt, da sonst die oben genannte Abweichung 0 betragen würde. Dem Bauteilmarkt werden die Bauteile in seinem Vektor \textit{typen} hinzugefügt.
+\\
+In der Testmethode \textit{testBerechnePreise()} werden nun Einkaufstransaktionen hinzugefügt. Anschließend wird die Methode \textit{simuliere()} auf dem Bauteilmarkt ausgeführt, die wiederum selbst darauf die Methode \textit{berechnePreise()} aufruft. Abschließend werden die erwarteten Werte der neu berechneten Bauteilpreise mit den tatsächlichen Werten abgeglichen.
+
+\begin{programm}[ht]
+\begin{lstlisting}[breaklines=true]
+public void TestBerechnePreise() {
+  [..]
+  bauteilMarkt.simuliere();
+  Assert.assertTrue(Math.round(rumpf.getPreis())==63.00);
+  Assert.assertTrue(Math.round(hitzeschild.getPreis())==170.00);
+  Assert.assertTrue(Math.round(triebwerk.getPreis())==693.00);
+}
+\end{lstlisting}
+\caption{testBerechnePreise() der Klasse BauteilMarktTest\label{sub:junit-spiellogik-bauteilmarkt}}
+\end{programm}
+ 
