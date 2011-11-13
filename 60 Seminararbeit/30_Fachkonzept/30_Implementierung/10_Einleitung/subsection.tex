@@ -1,0 +1,22 @@
+\subsection{Einleitung}
+\label{sub:fachkonzept-implementierung-einleitung}
+
+\autorbeginn{Britta}
+\\
+\\
+Im Rahmen der objektorientierten Softwareentwicklungsmethodik sind wir nun in diesem Teilkapitel bei der objektorientierten Implementierung angelangt. Bevor die Umsetzung der Entwurfsmodelle und -entscheidungen näher beschrieben wird, werden im Grunde zwei grundlegende Fragen geklärt. Welche Programmiersprache wird verwendet? Mit Hilfe welches Versionsverwaltungsprogramms wird das Implementieren im Team realisiert?
+\\
+\\
+Was die Programmiersprache angeht, so stand von Anfang an fest, dass es sich um Java handeln würde, da laut Aufgabenstellung jUnit Tests gefordert sind. Die sehr moderne und mächtige Programmiersprache bietet viele Vorteile. So stehen neben einer umfangreichen Funktionsbibliothek auch eine breite Palette an Funktionen und Typen für den direkten Einsatz bereit, wie z.B. Hashmaps, Vektoren und Strings. Insbesondere Hashmaps, die in Java die Möglichkeit bieten Datenelemente mit Hilfe einer indexierten Tabelle zu speichern und so einen schnellen Zugriff gewährleisten, haben sich an vielen Stellen als sehr hilfreich erwiesen (vgl. 3.5.1). 
+\\
+Nicht zuletzt ist Java das Paradebeispiel für eine objektorientierte Sprache. Um die Spielwelt Schritt für Schritt aufzubauen, bedarf es in der Objektorientierung zunächst einer ausführlichen, modellierenden Entwurfsphase, wie sie in Kapitel 3 mit UML beschrieben wurde. Diese kann mit Java sehr gut übernommen und realisiert werden; notwendige Abweichungen werden zu einem späteren Zeitpunkt dieses Unterkapitels behandelt. 
+Um im Team effizient arbeiten und vor allen Dingen gemeinsam implementieren zu können, müssen Informationen und Coding schnell, aktuell und jedem zugänglich ausgetauscht und parallel bearbeitet werden können. Zur Fehlervermeidung und schnellen -behebung, sowie zur Vereinfachung der Kommunikation unter den Projektmitgliedern ist es außerdem hilfreich, nachvollziehen zu können, von wem wann etwas geändert wurde. Außerdem stellen dabei Protokollierung, Wiederherstellung alter Dateizustände und die damit verbundene Archivierung der alten Zustände wichtige Anforderungen an ein Versionsverwaltungssystem dar. 
+\\
+\\
+Für das Projekt Star Greg wurde sich für das zentrale Versionsverwaltungssystem Git entschieden. Zentral bedeutet hierbei, dass es sich bei dem Aufbau von Git um ein Client-Server-System handelt. Der Zugriff auf das Repository erfolgt über Netzwerk. Der ausschlaggebende Grund für diese Wahl war die Tatsache, dass Git als Open Source Projekt kostenlos zur Verfügung steht und einfach für alle Teammitglieder installiert werden kann, da es sowohl auf UNIX- als auch auf Windowssystemen lauffähig ist. Sicherheit bietet die Rechteverwaltung, die es nur berechtigten Personen ermöglicht, neue Versionen hochzuladen. 
+
+Git unterscheidet sich in einigen Punkten von traditionellen Versionskontrollsystemen. Entscheidender Unterschied ist die Tatsache, dass kein zentraler Projektserver zur Verfügung steht, sondern jedes Teammitglied sich über den Befehl pull eine lokale Kopie des Repositories inklusiver History zieht. Wenn er diese bearbeitet hat und teilen möchte, findet lokal ein Merging  statt und die geänderten Dateien werden per commit und push hochgeladen. So kann weitgehend offline gearbeitet werden. 
+
+
+%\\
+\autorende{}
