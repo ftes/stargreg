@@ -1,0 +1,89 @@
+\section{Aktivitätsdiagramm}
+\label{sec:fachkonzept-aktivitaetsdiagramm}
+
+\autorbeginn{Fredrik, Julia}
+
+Das Aktivitätsdiagramm auf \vref{img:fachkonzept-aktivitaetsdiagramm-uebersicht} soll den Spielablauf aus Sicht des Spielers verdeutlichen.  
+
+Um das Spiel zu starten muss der Spieler einen Namen für sein Unternehmen festlegen. Dies stellt die erste Aktion dar. Danach analysiert der Spieler die ihm zur Verfügung stehenden Informationen. Ist dies abgeschlossen, so gelangt er zu einem Entscheidungsknoten. Hierbei kann sich der Spieler zwischen folgenden Aktivitäten entscheiden: Personal verwalten, Einkäufe tätigen, Produktionsaufträge anlegen oder Verkaufsangebot abgeben. Diese einzelnen Vorgänge werden im Laufe dieses Kapitels genauer erläutert. Er kann sich aber auch dazu entscheiden, keine Transaktion zu tätigen. 
+
+Diese verschiedenen Aktivitäten werden in einem Entscheidungsknoten zusammengeführt. Hat der Spieler weiteren Informationsbedarf, so gelangt er zur Aktivität “Auswirkungen analysieren” und kann sich die Veränderungen anschauen, die seine Transaktion mit sich geführt hat. Besteht kein Informationsbedarf, kann er diese Aktivität überspringen. 
+
+Möchte der Spieler nun weitere Transaktionen tätigen, so kann er wieder zum Entscheidungsknoten nach oben springen und hat wieder die Wahl zwischen Personal verwalten, Einkäufe tätigen, Produktionsaufträge anlegen oder ein Verkaufsangebot abgeben. Entscheidet sich der Spieler gegen eine weitere Transaktion, so folgt die Aktivität “Runde einchecken”. Anschließend folgt wieder ein Entscheidungsknoten. Existiert noch eine weitere Spielrunde, so gelangt der Spieler wieder zur Aktivität “Informationen analysieren”. War dies die letzte Spielrunde, so wird dem Spieler die Endbewertung angezeigt. Danach ist das Spiel beendet.
+
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[width=0.9\textwidth]{30_Fachkonzept/15_aktivitaetsdiagramm/activity1.pdf}
+  }
+  \caption{Aktivitätsdiagramm}
+  \label{img:fachkonzept-aktivitaetsdiagramm-uebersicht}
+\end{figure}
+
+\medskip
+
+\textbf{Personal verwalten}
+
+Zur genaueren Betrachtung der Aktion “Personal verwalten” dient folgendes Aktivitätsdiagramm auf \vref{img:fachkonzept-aktivitaetsdiagramm-personal}. Entscheidet sich der Spieler für diese Aktion, so hat er die Möglichkeit Personal einzustellen, aufzurüsten oder zu entlassen. 
+
+Um neues Personal einzustellen, muss der Spieler zuerst den Personaltyp auswählen, welchen er einstellen möchte. Danach folgt die Aktivität “Anzahl festlegen”. Anschließend trifft der Spieler auf einen Entscheidungsknoten. Ist genügend Geld vorhanden, muss der Spieler die Auswahl bestätigen. Reicht das verfügbare Geld jedoch nicht aus, gelangt der Spieler wieder zur Aktivität “einzustellender Typ auswählen” und durchläuft den Prozess noch ein mal. 
+
+Möchte der Spieler sein vorhandenes Personal aufrüsten, muss er zunächst den Personaltyp auswählen. Anschließend gelangt er zur Aktivität “Anzahl festlegen”. Ähnlich wie beim Einstellen von neuem Personal wird auch nun geprüft, ob genügend Geld vorhanden ist. Ist dies der Fall, wird die Auswahl bestätigt. Fehlt Geld, befindet sich der Spieler wieder bei der Aktivität “aufzurüstender Typ auswählen”.
+
+Zum Entlassen von Personal ist ebenfalls der Personaltyp und die Anzahl festzulegen. Anschließend wird die Auswahl Bestätigt und die Transaktion ist abgeschlossen. 
+
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[width=0.9\textwidth]{30_Fachkonzept/15_aktivitaetsdiagramm/activity2.pdf}
+  }
+  \caption{Aktivitätsdiagramm zur Personalverwaltung}
+  \label{img:fachkonzept-aktivitaetsdiagramm-personal}
+\end{figure}
+
+\medskip
+
+\textbf{Bauteile einkaufen}
+
+Entscheidet sich der Spieler für das Einkaufen von Bauteilen, muss er zunächst den Bauteiltyp wählen und anschließend die einzukaufende Anzahl festlegen. Im Anschluss daran wird wieder die Liquidität des Spielers geprüft. Ist das Geld ausreichend, muss die Auswahl bestätigt werden. Fällt die Prüfung negativ aus, gelangt der Spieler wieder zur Aktivität “Bauteiltyp auswählen”. Dies wird in \vref{img:fachkonzept-aktivitaetsdiagramm-bauteile} verdeutlicht.
+
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[width=0.4\textwidth]{30_Fachkonzept/15_aktivitaetsdiagramm/activity3.pdf}
+  }
+  \caption{Aktivitätsdiagramm zum Bauteileinkauf}
+  \label{img:fachkonzept-aktivitaetsdiagramm-bauteile}
+\end{figure}
+
+\medskip
+
+\textbf{Produktionsauftrag anlegen}
+
+Beim Anlegen eines Produktionsauftrages, wie in \vref{img:fachkonzept-aktivitaetsdiagramm-produktion} dargestellt, ist zuerst das zu produzierende Raumschiff auszuwählen. Anschließend legt der Spieler die Anzahl fest. Nun muss geprüft werden, ob zum einen genügend Bauteile für die Produktion vorhanden sind und zum anderen ob das eingestellte Personal die Anzahl an Raumschiffen in einer Periode produzieren kann. Fällt die Prüfung positiv aus, so muss der Spieler seine Auswahl bestätigen. Sind die Kapazitäten jedoch nicht ausreichend, befindet sich der Spieler wieder bei der Aktivität “Raumschifftyp auswählen”.
+
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[width=0.7\textwidth]{30_Fachkonzept/15_aktivitaetsdiagramm/activity4.pdf}
+  }
+  \caption{Aktivitätsdiagramm zur Produktion}
+  \label{img:fachkonzept-aktivitaetsdiagramm-produktion}
+\end{figure}
+
+\medskip
+
+\textbf{Verkaufsangebot abgeben}
+
+Die letzte Transaktion kann im Bereich Verkauf getätigt werden. Dies ist auf \vref{img:fachkonzept-aktivitaetsdiagramm-verkauf} zu sehen. Zuerst wird der zu verkaufende Raumschifftyp ausgewählt. Danach entscheidet sich der Spieler für einen Preis, zu dem er die Raumschiffe verkaufen möchte. War bereits zuvor ein Angebot vorhanden, so wird dieses hiermit zurück genommen und danach bestätigt. War dies das erste Angebot, so gelangt der Spieler direkt zur Aktivität “Bestätigen”.
+
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[width=0.7\textwidth]{30_Fachkonzept/15_aktivitaetsdiagramm/activity5.pdf}
+  }
+  \caption{Aktivitätsdiagramm zum Verkauf}
+  \label{img:fachkonzept-aktivitaetsdiagramm-verkauf}
+\end{figure}
+
+\autorende{}

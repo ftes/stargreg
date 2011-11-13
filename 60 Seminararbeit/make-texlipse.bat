@@ -6,13 +6,13 @@ SET tex=%1
 SET name=%tex:~0,-4%
 
 
-pdflatex %name%.tex
+REM pdflatex %name%.tex
 bibtex %name%
 makeindex -s %name%.ist -t %name%.alg -o %name%.acr %name%.acn
-makeindex -s %name%.ist -t %name%.glg -o %name%.gls %name%.glo
-makeindex -s %name%.ist -t %name%.slg -o %name%.syi %name%.syg
-pdflatex %name%.tex
-pdflatex %name%.tex
+REM makeindex -s %name%.ist -t %name%.glg -o %name%.gls %name%.glo
+REM makeindex -s %name%.ist -t %name%.slg -o %name%.syi %name%.syg
+REM pdflatex %name%.tex
+REM pdflatex %name%.tex
 pdflatex -synctex=-1 %name%.tex -interaction=nonstopmode --src-specials -shell-escape %name%.tex
 
 
