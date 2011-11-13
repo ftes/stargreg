@@ -1,0 +1,37 @@
+\subsubsection{Bauteilpreise}
+\label{subsub:fachkonzept-implementierung-spiellogik-bauteilreise}
+
+Die neuen Bauteilpreise werden in der Klasse BauteilTyp mit Hilfe der Methode berechnePreis() (siehe \ref{lis:fachkonzept-implementierung-spiellogik-bauteilpreise}) ermittelt, wobei die Logik genau der Formel \ref{alg:spielwelt-logik-bauteilpreise-3} aus dem \ref{sec:spielwelt-logik} entspricht.
+
+\begin{programm}[htbp]
+\begin{lstlisting}[breaklines=true]
+public void berechnePreis(double abweichung) {
+  preis = grundPreis - maxPreisDelta
+    + 2 * Math.pow(maxPreisDelta, 2)
+    / (maxPreisDelta
+	  + maxPreisDelta 
+	    / (Math.pow(2 /maxPreisDelta + 1,
+	      2 * abweichung * maxPreisDelta)));
+}	
+\end{lstlisting}
+\caption{Die Methode berechnePreis() der Klasse BauteilTyp\label{lis:fachkonzept-implementierung-spiellogik-bauteilpreise}}
+\end{programm}
+
+Die Methode berechnePreis() wird am Ende jeder Spielrunde in der Klasse BauteilMarkt in der Methode berechnePreise (siehe \ref{lis:fachkonzept-implementierung-spiellogik-bauteilpreise-1}) aufgerufen, nachdem die Umsätze der einzelnen Bauteiltypen, der Durchschnittsumsatz und die Abweichung der Bauteiltypumsätze vom Durchschnittsumsatz berechnet wurden. Dies ist im BauteilMarkt möglich, da hier die Einkauftransaktionen der Unternehmen einer Spielrunde gespeichert sind.
+
+\begin{programm}[htbp]
+\begin{lstlisting}[breaklines=true]
+private void berechnePreise() {
+  [..]
+  for(BauteilTyp bauteilTyp : typen) {
+    [..]
+    double abweichung = (umsaetze.get(bauteilTyp) - durchschnittsUmsatz) / durchschnittsUmsatz;
+	[..]
+	bauteilTyp.berechnePreis(abweichung);
+	[..]
+  }
+[..]
+}
+\end{lstlisting}
+\caption{Auszug der Methode berechnePreise() der Klasse BauteilMarkt\label{lis:fachkonzept-implementierung-spiellogik-bauteilpreise-1}}
+\end{programm}

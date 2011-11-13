@@ -74,7 +74,8 @@ Die einzelnen Bauteilgruppen müssen hierbei getrennt betrachtet werden, da die 
 einen relativ geringen Anteil am Wert eines Raumschiffes haben, und die durchschnittliche Nachfrage
 zwischen den Gruppen somit nicht vergleichbar ist. Die Nachfrage wird am Umsatz gemessen, da
 beispielsweise von den teuren Triebwerken nur wenig, von den günstigen Rumpfbauteilen aber viele für
-ein Raumschiff benötigt werden.
+ein Raumschiff benötigt werden.
+
 
 \begin{equation}
      \Delta{}N_{rel} = \frac{x_i \cdot p_i - \overline{N}}{\overline{N}}
@@ -87,7 +88,8 @@ von der durchschnittlichen Nachfrage gebildet. Diese Abweichung kommt zu Stande,
 der benötigten Bauteile auf die verschiedenen Raumschifftypen in unterschiedlichen Verhältnissen
 verteilen. So führt eine überdurchschnittlich hohe Produktion von Millenium Falken bespielsweise zu
 einer überdurchschnittlich hohen Nachfrage nach Hitzeschilden, wie im \ref{sec:spielwelt-datenbasis}
-ersichtlich wird.
+ersichtlich wird.
+
 
 \begin{equation}
      p_{neu} = p_{basis} -\pd + \cfrac{2 \cdot \pd^2}{\pd + \cfrac{\pd}{({\cfrac{2}{\pd} + 1)}^{2 \cdot \pd \cdot \Delta{}N_{rel}}}}
@@ -103,7 +105,8 @@ diesem Preis nach oben und unten. Entwickelt wurde diese kompliziert anmutende F
 aus der Funktion des logistischen Wachstums, die dann dahingehend parametisiert wurde, dass der
 Schnittpunkt mit der $x$-Achse als Basispreis und die maximale Preisabweichung frei gewählt werden
 können. Hierdurch entsteht für den einfachen Sachverhalt eine sehr verschachtelte Funktion, die
-jedoch nur eine Abwandlung einer einfachen Funktion ist.
+jedoch nur eine Abwandlung einer einfachen Funktion ist.
+
 
 \newcommand{\pbasis}{3.5}
 \newcommand{\pdelta}{2.5}
@@ -175,4 +178,4 @@ Die negative relative Abweichung sagt aus, dass im Vergleich zu den anderen Baut
 \end{equation}
 \end{large}
 
-Aufgrund der vergleichsweise niedrigen Nachfrage ergibt sich also in der nächsten Spielrunde ein niedrigerer Preis für Hitzeschilder, nämlich statt 200,00\curr{} nur noch 169,94\curr{}, was die Simulation des Zusammenhangs zwischen Angebot und Nachfrage in \ref{img:spielwelt-logik-bauteilpreise-preismengendiagramm} ausdrückt. Geschickte Spieler können sogar auf besonders niedrige Bauteilpreise reagieren, indem sie diese in Massen auf Vorrat einkaufen und so einerseits selbst Geld sparen, andererseits den Preis der Bauteile in der Folgerunde für die anderen Spieler in die Höhe treiben.
+Aufgrund der vergleichsweise niedrigen Nachfrage ergibt sich also in der nächsten Spielrunde ein niedrigerer Preis für Hitzeschilder, nämlich statt 200,00\curr{} nur noch 169,94\curr{}, was die Simulation des Zusammenhangs zwischen Angebot und Nachfrage in \ref{img:spielwelt-logik-bauteilpreise-preismengendiagramm} ausdrückt. Geschickte Spieler können sogar auf besonders niedrige Bauteilpreise reagieren, indem sie diese in Massen auf Vorrat einkaufen und so einerseits selbst Geld sparen, andererseits den Preis der Bauteile in der Folgerunde für die anderen Spieler in die Höhe treiben.

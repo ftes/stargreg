@@ -1,0 +1,40 @@
+\subsubsection{Absatzmengen}
+\label{subsub:fachkonzept-implementierung-spiellogik-absatzmengen}
+
+Die Umsetzung der Nachfrage nach den Raumschiffen und der daraus resultierenden Absatzmengen ist in der Klasse RaumschiffMarkt realisiert, also in der Klasse, in der auch die Angebote der Unternehmen verwaltet werden. Der RaumschiffMarkt enthält die Methode berechneTypAbsatz() (siehe \ref{lis:fachkonzept-implementierung-spiellogik-absatzmengen}), welche als Ergebnis die Verkäufe für die einzelnen Angebote bezogen auf einen RaumschiffTyp wiedergibt. 
+Zunächst werden die Anteile nach der \ref{alg:spielwelt-logik-absatzmengen-1} aus \ref{sub:spielwelt-logik-absatzmengen} berechnet.
+
+\begin{programm}[htbp]
+\begin{lstlisting}[breaklines=true]
+public Vector<Verkauf> berechneTypAbsatz(RaumschiffTyp raumschiffTyp, Vector<Angebot> angebote) {
+  [..]
+  for (Angebot angebot : angebote) {
+    double anteil = 1.0 / Math.pow(angebot.getEinzelBetrag(), 3);
+	angebot.setAnteil(anteil);
+	[..]
+  }
+  [..]
+}
+\end{lstlisting}
+\caption{Auszug der Methode berechneTypAbsatz der Klasse RaumschiffMarkt\label{lis:fachkonzept-implementierung-spiellogik-absatzmengen}}
+\end{programm}
+
+Hierbei wird auch der kleinste Preis der Angebote bestimmt. Als nächste folgt die Berechnung der neuen Nachfrage nach dem jeweiligen Raumschifftyp (siehe \ref{lis:fachkonzept-implementierung-spiellogik-absatzmengen-1}), basierend auf der \ref{alg:spielwelt-logik-absatzmengen-3} aus \ref{sub:spielwelt-logik-absatzmengen}.
+
+\begin{programm}[htbp]
+\begin{lstlisting}[breaklines=true]
+  int nachfrage = raumschiffTyp.getNachfrage();
+  nachfrage = (int) Math.floor(
+  		nachfrage * (
+          	  1 - Math.pow(
+           	    niedrigsterPreis / (
+              	      raumschiffTyp.getKosten() * 3.5), 4)));
+\end{lstlisting}
+\caption{2. Auszug der Methode berechneTypAbsatz der Klasse RaumschiffMarkt\label{lis:fachkonzept-implementierung-spiellogik-absatzmengen-1}}
+\end{programm}
+
+Zum Schluss folgt die letztliche Berechnung der Verkaufsmengen, wobei der relative Absatz aus der \ref{alg:spielwelt-logik-absatzmengen-2} aus \ref{sub:spielwelt-logik-absatzmengen} mit der berechneten Nachfrage multipliziert wird. 
+
+
+
+
