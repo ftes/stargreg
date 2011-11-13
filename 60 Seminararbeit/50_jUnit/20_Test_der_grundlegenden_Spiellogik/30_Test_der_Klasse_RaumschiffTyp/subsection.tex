@@ -14,7 +14,7 @@ public void testGetKosten(){
   Assert.assertTrue(corellian_corvette.getKosten() == (rumpf.getPreis()*38 + hitzeschild.getPreis()*16 + triebwerk.getPreis()*6));
 }
 \end{lstlisting}
-\caption{testGetKosten() der Klasse RaumschiffTypTest\label{sub:junit-spiellogik-raumschifftyp}}
+\caption{\textit{testGetKosten()} der Klasse RaumschiffTypTest\label{sub:junit-spiellogik-raumschifftyp}}
 \end{programm}
 
 In der zweiten Testmethode wird getestet, ob die Raumschifflagerkosten den summierten Lagerkosten der zugehörigen Bauteile entsprechen (siehe \ref{sub:junit-spiellogik-raumschifftyp-1}).
@@ -26,5 +26,5 @@ public void testGetLagerplatzEinheiten() {
   Assert.assertTrue(millenium_falke.getLagerplatzEinheiten() == (rumpf.getLagerplatzEinheiten()*40 + hitzeschild.getLagerplatzEinheiten()*30 + triebwerk.getLagerplatzEinheiten()*10));
 }
 \end{lstlisting}
-\caption{testGetLagerkosten() der Klasse RaumschiffTypTest\label{sub:junit-spiellogik-raumschifftyp-1}}
+\caption{\textit{testGetLagerkosten()} der Klasse RaumschiffTypTest\label{sub:junit-spiellogik-raumschifftyp-1}}
 \end{programm}
