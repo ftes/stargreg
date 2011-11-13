@@ -10,13 +10,13 @@ Marktanteil mit in die Endauswertung einfließen zu lassen.
 Der ROI ist eine Gegenüberstellung von Gewinn und eingesetztem Kapital:
 
 \begin{equation}
-     ROI = \frac{Gewinn}{eingesetztes Kapital}
+     ROI = \frac{Gewinn}{K_{eingesetzt}}
      \label{alg:spielwelt-logik-bewertung-ROI}
 \end{equation}
 
 Der Gewinn berechnet sich wie folgt:
 \begin{equation}
-     Gewinn = Endkapital - Startkapital + FE_{im Lager} \cdot 0,75 + Bauteile_{im Lager} \cdot 0,5
+     Gewinn = K_{End} - K_{Start} + FE_{Lager} \cdot 0,75 + Bauteile_{Lager} \cdot 0,5
      \label{alg:spielwelt-logik-bewertung-Gewinn}
 \end{equation}
 
