@@ -3,7 +3,7 @@
 
 \autorbeginn{Fredrik}
 
-Für die Realisierung des Planspiels wurde an einigen Stellen wiederkehrbare, abstrakte Funktionalität benötigt. Um diese Anfornderungen mit möglichst geringem Aufwand zu lösen und die Möglichkeit der Wiederverwendbarkeit für andere Projekte aufzugreifen, wurden die hierfür entwickelten Elemente in das Paket \textit{util} ausgelagert. Dazu zählen Methoden zum Umgang mit den Java Datentypen \textit{Vector} und \textit{HashMap}, sowie eine Klasse zur Ausgabe von Tabellen.
+Für die Realisierung des Planspiels wurde an einigen Stellen wiederkehrbare, abstrakte Funktionalität benötigt. Um diese Anforderungen mit möglichst geringem Aufwand zu lösen und die Möglichkeit der Wiederverwendbarkeit für andere Projekte aufzugreifen, wurden die hierfür entwickelten Elemente in das Paket \textit{util} ausgelagert. Dazu zählen Methoden zum Umgang mit den Java Datentypen \textit{Vector} und \textit{HashMap}, sowie eine Klasse zur Ausgabe von Tabellen.
 
 \subsubsection{Umgang mit \textit{Vector} und \textit{HashMap}}
 Augrund der fehlenden Datenbank-Anbindung wurde die Speicherung von Daten vollständig über Klassen und Objekte realisiert. Allerdings stellt sich hier zuweilen der Zugriff auf einzelne Daten und das Aggregieren von Werten umständlicher da, als gewollt. Für diesen Zweck gibt es bereits mächtige Bibliotheken, wie beispielsweise die \textit{Google Collections Library}. Auch diese hätte für den benötigten Zweck eingesetzt werden können, allerdings würde nur ein Bruchteil der Funktionalität benötigt, wozu aber die ganze Bibliothek integriert werden müsste.
@@ -19,7 +19,7 @@ Stattdessen wurden eigene generische Methoden implementiert, die die folgende Fu
 Aufbauend auf diesen allgemeinen Hilfsfunktionen wurden dann einige speziellere, häufig benötigte Funktionen wie \textit{gruppiereVerkaeufeNachUnternehmen()} erstellt.
 
 \subsubsection{Die Klasse \textit{TableBuilder}}
-Mit zunehmender Komplexität des Planspiels wurde es nötig, verschiedenste Daten für den Spieler möglichst übersichtlich über die Textausgabe darzustellen. Orientierung bot dabei die Standardklasse \textit{StringBuilder}. So ist es möglich einen TableBuilder zu instanziieren um anschließend verschiedene Elemente, Spaltenenden, gleich ganze Zeilen oder eine zusätzliche horizontale Linie einzufügen. Abschließend kann der gesamte Inhalt mit Hilfe der \textit{print()}-Funktion ausgegeben werden, wobei die erste Zeile wahlweise als Kopfzeile gekennzeichnet werden kann.
+Mit zunehmender Komplexität des Planspiels wurde es nötig, verschiedenste Daten für den Spieler möglichst übersichtlich über die Textausgabe darzustellen. Orientierung bot dabei die Standardklasse \textit{StringBuilder}. So ist es möglich einen TableBuilder zu instanziieren um anschließend verschiedene Elemente, Spaltenenden, gleich ganze Zeilen oder zusätzliche horizontale Linien einzufügen. Abschließend kann der gesamte Inhalt mit Hilfe der \textit{print()}-Funktion ausgegeben werden, wobei die erste Zeile wahlweise als Kopfzeile gekennzeichnet werden kann.
 
 Diese Klasse wird durchgängig für die Ausgabe von Daten der Raumschiffmärkte und Abteilungen verwendet, und hat sich durch die zentrale Modifizierbarkeit der Darstellung der Ausgabe sowie der einfachen Verwendung zur Reduktion des benötigten Ausgabecodes bewährt.
 

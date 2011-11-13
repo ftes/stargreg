@@ -6,16 +6,14 @@
 \subsection{Einleitung}
 Zur Erstellung eines Unternehmensplanspiels bedarf es - wie in jedem Prozess der Software-Erstellung - nach einer anfänglichen Analyse der benötigten Funktionalität, deren Ergebnisse in \ref{sec:fachkonzept-usecase} anhand eines Use Case Diagramms verkürzt dargestellt wurden, Entscheidungen zum grundlegenden Entwurf der Software. Diese Phase grenzt sich klar ab von den Entscheidungen zur Implementierung des Projekts, die in \ref{sec:fachkonzept-implementierung} erläutert werden, da sie sich auf einem höheren Abstraktionsniveau bewegt. Es geht hierbei nicht darum, die Lösung auf eine bestimmte Umsetzung hin zu optimieren, sondern die erkannten Anforderungen weitestgehend zu ermöglichen. Diese Entscheidungen sollen strukturiert werden mit Hilfe der Notation des UML Klassendiagramms.
 
-Konkret bedeutet der höhere Abstraktionsgrad, dass Eigenheiten wie die System-Architektur (z.B. Client-Server-Architektur), die Persistierung von Daten oder die Benutzeroberfläche an dieser Stelle weder behandelt noch berücksichtigt werden sollen. Im Vordergrund stehen stattdessen die SpielWelt und alle Elemente, die den Ablauf des Spiels ermöglichen. Um eine gewisse Übersichtlichkeit zu gewährleisten, wurde auf die Aufführung von \textit{get()}- und \textit{set()}-Methoden verzichtet, solange diese als trivial einzustufen sind. Ebenso gilt für alle Assoziationen die Annahme, dass diese mit der Kardinalität 1:1 zu verstehen sind, außer es sind abweichende Kardinalitäten eingetragen.
+Konkret bedeutet der höhere Abstraktionsgrad, dass Eigenheiten wie die System-Architektur (z.B. Client-Server-Architektur), die Persistierung von Daten oder die Benutzeroberfläche an dieser Stelle weder behandelt noch berücksichtigt werden sollen. Im Vordergrund stehen stattdessen die Spielwelt und alle Elemente, die den Ablauf des Spiels ermöglichen. Um eine gewisse Übersichtlichkeit zu gewährleisten, wurde auf die Aufführung von \textit{get()}- und \textit{set()}-Methoden verzichtet, solange diese als trivial einzustufen sind. Ebenso gilt für alle Assoziationen die Annahme, dass diese mit der Kardinalität 1:1 zu verstehen sind, außer es sind abweichende Kardinalitäten eingetragen.
 
 Aufgrund der Größe des Klassendiagramms ist dies erst in \vref{sec:anhang-klassendiagramm} vollständig dargestellt. Im Folgenden sollen einige Bereiche aus diesem Modell getrennt voneinander betrachtet werden. Nach einer Vorstellung des Modellkerns werden zunächst die sogenannten Typen, die Beschreibungen von konkreten Gegenständen der Spielwelt wie z.B. den Raumschifftypen darstellen, betrachtet. Daran schließt sich eine Erläuterung der Märkte an, gefolgt von einer Betrachtung der Abteilungen. Zuletzt werden die zur Erfassung der Vorgänge in der Spielwelt und deren Speicherung dienenden Transaktions-Klassen erörtert.
 
 \subsection{Die Kernelemente}
 \begin{figure}[htb]
      \centering
-     \fbox{
      \includegraphics[width=\textwidth]{30_Fachkonzept/20_Entwurf/kern}
-     }
      \caption{Klassendiagramm - Kernelemente}
      \label{img:fachkonzept-entwurf-kern}
 \end{figure}
@@ -27,9 +25,7 @@ An dieser Stelle soll hervorgehoben werden, dass die Ablauflogik des Spiels von 
 \subsection{Die Typen}
 \begin{figure}[htb]
      \centering
-     \fbox{
      \includegraphics[width=\textwidth]{30_Fachkonzept/20_Entwurf/typ}
-     }
      \caption{Klassendiagramm - Typen}
      \label{img:fachkonzept-entwurf-typ}
 \end{figure}
@@ -40,7 +36,7 @@ Erkannt und umgesetzt wurde dabei die folgenden Typen, die ihrerseits von der Kl
 \begin{seList}
 \item \textbf{PersonalTyp:} Die für das Spiel notwendigen Personaltypen zeichnen sich einerseits durch ihren Qualitätsgrad, der die entstehenden Fehlerkosten beeinflusst, und andererseits durch die mit ihnen verbundenen Kosten aus. Hierzu gehören die Werbungskosten, die laufenden Kosten sowie die Aufrüstungskosten, wobei die ersten zwei abhängig von der Konjunktur auf dem Personalmarkt variieren können. Zusätzlich wird derjenige Personaltyp, auf den eine Aufrüstung erfolgen kann, gespeichert.
 \item \textbf{BauteilTyp:} In der Spielwelt des Planspiels können Bauteiltypen entweder die Rolle von Standard- oder Sonderbauteilen annehmen, wobei erstere für jeden Raumschifftyp benötigt werden. Da dies in der Berechnung der neuen Bauteilpreise berücksichtigt werden muss, wird diese Eigenschaft abgespeichert. Zudem kann der Preis eines Bauteiltypen variieren, sodass neben dem Grundpreis auch die maximale Abweichung von diesem und der aktuelle Preis gespeichert werden müssen.
-\item \textbf{RaumschiffTyp:} Diese setzen sich aus verschiedenen Bauteilen zusammen, wobei Bauteile mehrfach benötigt werden können. Daher wurde die assoziative Klasse \textit{Menge} eingeführt. Zudem benötigt ein Raumschifftyp eine gewissen Menge Personal in einer Runde zur Herstellung, und verursacht bei fehlerhaften Herstellung einen gewissen Prozentsatz an Fehlerkosten, gemessen an dem aktuellen Preis der Bauteile, aus denen er sich zusammensetzt.
+\item \textbf{RaumschiffTyp:} Diese setzen sich aus verschiedenen Bauteilen zusammen, wobei Bauteile mehrfach benötigt werden können. Daher wurde die assoziative Klasse \textit{Menge} eingeführt. Zudem benötigt ein Raumschifftyp eine gewisse Menge Personal in einer Runde zur Herstellung, und verursacht bei fehlerhaften Herstellung einen gewissen Prozentsatz an Fehlerkosten, gemessen an dem aktuellen Preis der Bauteile, aus denen er sich zusammensetzt.
 \end{seList}
 
 Da sowohl Raumschifftypen als auch Bauteiltypen im Unternehmen gelagert werden können und für die Berechnung der hierdurch anfallenden Kosten der hierfür benötigte Platz Beachtung findet, erben beide von der abstrakten Klasse \textit{ProduktTyp}. Ein Raumschiff verbraucht dabei so viel Platz wie die Summe seiner Bauteile.
@@ -48,9 +44,7 @@ Da sowohl Raumschifftypen als auch Bauteiltypen im Unternehmen gelagert werden k
 \subsection{Die Märkte}
 \begin{figure}[htb]
      \centering
-     \fbox{
      \includegraphics[width=0.7\textwidth]{30_Fachkonzept/20_Entwurf/markt}
-     }
      \caption{Klassendiagramm - Märkte}
      \label{img:fachkonzept-entwurf-markt}
 \end{figure}
@@ -66,9 +60,7 @@ Im Planspiel gibt es verschiedene Märkte, die alle die zu ihnen gehörenden akt
 \subsection{Die Abteilungen}
 \begin{figure}[htb]
      \centering
-     \fbox{
      \includegraphics[width=\textwidth]{30_Fachkonzept/20_Entwurf/abteilung}
-     }
      \caption{Klassendiagramm - Abteilungen}
      \label{img:fachkonzept-entwurf-abteilung}
 \end{figure}
@@ -87,9 +79,7 @@ Ein produzierendes Unternehmen besteht aus verschiedenen Abteilungen, zu denen k
 \subsection{Die Transaktionen}
 \begin{figure}[htb]
      \centering
-     \fbox{
      \includegraphics[width=\textwidth]{30_Fachkonzept/20_Entwurf/transaktion}
-     }
      \caption{Klassendiagramm - Abteilungen}
      \label{img:fachkonzept-entwurf-abteilung}
 \end{figure}
