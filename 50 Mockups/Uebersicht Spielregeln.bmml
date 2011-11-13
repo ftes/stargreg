@@ -125,9 +125,9 @@
         <text>Bewertung%20einsehen</text>
       </controlProperties>
     </control>
-    <control controlID="39" controlTypeID="__group__" x="184" y="316" w="857" h="346" measuredW="857" measuredH="346" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="39" controlTypeID="__group__" x="184" y="316" w="857" h="353" measuredW="857" measuredH="353" zOrder="16" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
-        <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="0" y="0" w="857" h="346" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="39">
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="0" y="0" w="857" h="353" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="39">
           <controlProperties>
             <text>Spielregeln</text>
           </controlProperties>
@@ -139,9 +139,9 @@
             <text>Schlie%DFen</text>
           </controlProperties>
         </control>
-        <control controlID="2" controlTypeID="com.balsamiq.mockups::Paragraph" x="9" y="34" w="848" h="238" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="39">
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::Paragraph" x="9" y="34" w="848" h="293" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="39">
           <controlProperties>
-            <text>Anzahl%20Spieler%20+%20Startkapital%0AProduktion%20%28was%2C%20wie%2C%20Ausschuss%3F%29%0APersonal%0AInformationsphase%0ABewertungskriterien%0A...</text>
+            <text>Star%20Greg%20-%20das%20Unternehmensplanspiel%21%0A%20%0ADu%20bist%20Commander%20eines%20Raumschiffherstellerst%20und%20befindest%20dich%20auf%20einem%20Oligopolmarkt%20mit%20X%20Mitstreitern.%0ADein%20Startkapital%20betr%E4gt%20XX%20klingonische%20Credits.%0AF%FCr%20n%E4here%20Infos%20schau%20in%20der%20Bank%20vorbei%21%0A%20%0ADu%20kannst%203%20verschiedene%20Raumschifftypen%20herstellen%2C%20den%20X%20Wing%2C%20den%20Millenium%20Falken%20und%20die%20Corellian%20Corvette.%20%0AF%FCr%20n%E4here%20Infos%20schau%20in%20der%20Abteilung%20Produktion%20vorbei%21%0A%20%0ADein%20Unternehmen%20kann%20ohne%20Droiden%20nicht%20produzieren.%20Hierf%FCr%20stehen%20dir%203%20verscheidene%20Droiden%20zur%20Verf%FCgung.%0AUm%20mehr%20zu%20erfahren%20schau%20in%20der%20Abteilung%20Personalwesen%20vorbei%21%0A%20%0AInformationen%20zur%20neuen%20Spielrunde%20findest%20du%20in%20der%20%DCbersicht.%0A%20%0ALeite%20dein%20eigenes%20Unternehmen%2C%20verkaufe%20deine%20eigenen%20Raumschiffe%20und%20werde%20vielleicht%20Commander%20des%20Jahres%21</text>
           </controlProperties>
         </control>
       </groupChildrenDescriptors>

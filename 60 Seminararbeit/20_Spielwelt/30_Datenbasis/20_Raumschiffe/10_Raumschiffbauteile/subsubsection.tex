@@ -9,13 +9,13 @@ Die Raumschiffbauteile werden im Unternehmensplanspiel StarGreg auf dem Bauteilm
 Zunächst wollen wir die Grundbauteile näher betrachten. Zu ihnen gehören das Rumpfbauteil, das Hitzeschild und das Triebwerk, wobei jedes der Bauteile einen Grund-, einen Minimal- und einen Maximalpreis hat. Desweiteren beansprucht jedes Bauteil einen bestimmten Platz im Lager, sofern es nicht verbaut wurde bzw. sofern das Raumschiff, in dem es verbaut ist, nicht abgesetzt wurde. Die Staffelung der Werte ist in \ref{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile} dargestellt.
 
 {\footnotesize
-\begin{table}[ht]\small
+\begin{table}[htb]\small
      \centering
      \begin{tabular}{ | l | c | c | c | c |  }
           \hline
           Bauteiltyp & Grundpreis & Minimalpreis & Maximalpreis & Lagereinheiten \\
           \hline \hline
-          Rumpfbauteil & 100,00\curr{} & 60,00\curr{} & 140,00\curr{} & 1 \\ \hline
+          Rumpfbauteil & 100,00\curr{} & \ 60,00\curr{} & 140,00\curr{} & 1 \\ \hline
           Hitzeschild & 200,00\curr{} & 120,00\curr{} & 280,00\curr{} & 2 \\ \hline
           Triebwerk & 500,00\curr{} & 300,00\curr{} & 700,00\curr{} & 5 \\
           \hline
@@ -43,13 +43,13 @@ Die benötigten Lagerplatzeinheiten für die Bauteiltypen ergeben sich direkt au
 \\ 
 Als nächstes betrachten wir die Sonderbauteile. Auch sie besitzen Grund-, Minimal und Maximalpreis und benötigen jeweilige Lagerplatzeinheiten bei der Lagerung. Die Werte sind in \ref{tab:spielwelt-datenbasis-raumschiffe-raumschiffbauteile-1} festgehalten.
 
-\begin{table}[ht]\small
+\begin{table}[htb]\small
      \centering
      \begin{tabular}{ | l | c | c | c | c |   }
           \hline
           Sonderbauteiltyp & Grundpreis & Minimalpreis & Maximalpreis & Lagereinheiten \\
           \hline \hline
-          Rumpfbauteil & 1000,00\curr{} & 600,00\curr{} & 1400,00\curr{} & 10 \\ \hline
+          Rumpfbauteil & 1000,00\curr{} & \ 600,00\curr{} & 1400,00\curr{} & 10 \\ \hline
           Geschütz & 2000,00\curr{} & 1200,00\curr{} & 2800,00\curr{} & 20 \\ \hline
           Forschungsausrüstung & 3000,00\curr{} & 1800,00\curr{} & 4200,00\curr{} & 30 \\
           \hline

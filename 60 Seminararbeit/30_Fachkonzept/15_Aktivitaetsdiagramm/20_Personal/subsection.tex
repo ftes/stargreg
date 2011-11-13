@@ -1,0 +1,19 @@
+\subsection{Personal verwalten}
+\label{sec:fachkonzept-aktivitaetsdiagramm}
+
+Zur genaueren Betrachtung der Aktion “Personal verwalten” dient folgendes Aktivitätsdiagramm auf \vref{img:fachkonzept-aktivitaetsdiagramm-personal}. Entscheidet sich der Spieler für diese Aktion, so hat er die Möglichkeit Personal einzustellen, aufzurüsten oder zu entlassen. 
+
+Um neues Personal einzustellen, muss der Spieler zuerst den Personaltyp auswählen, welchen er einstellen möchte. Danach folgt die Aktivität “Anzahl festlegen”. Anschließend trifft der Spieler auf einen Entscheidungsknoten. Ist genügend Geld vorhanden, muss der Spieler die Auswahl bestätigen. Reicht das verfügbare Geld jedoch nicht aus, gelangt der Spieler wieder zur Aktivität “einzustellender Typ auswählen” und durchläuft den Prozess noch ein mal. 
+
+Möchte der Spieler sein vorhandenes Personal aufrüsten, muss er zunächst den Personaltyp auswählen. Anschließend gelangt er zur Aktivität “Anzahl festlegen”. Ähnlich wie beim Einstellen von neuem Personal wird auch nun geprüft, ob genügend Geld vorhanden ist. Ist dies der Fall, wird die Auswahl bestätigt. Fehlt Geld, befindet sich der Spieler wieder bei der Aktivität “aufzurüstender Typ auswählen”.
+
+Zum Entlassen von Personal ist ebenfalls der Personaltyp und die Anzahl festzulegen. Anschließend wird die Auswahl Bestätigt und die Transaktion ist abgeschlossen. 
+
+\begin{figure}[h]
+  \centering
+  \fbox{
+    \includegraphics[width=0.9\textwidth]{30_Fachkonzept/15_aktivitaetsdiagramm/activity2.pdf}
+  }
+  \caption{Aktivitätsdiagramm zur Personalverwaltung}
+  \label{img:fachkonzept-aktivitaetsdiagramm-personal}
+\end{figure}
