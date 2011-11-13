@@ -3,6 +3,8 @@
 %###
 \label{sub:spielwelt-logik-absatzmengen}
 
+\autorbeginn{Philipp}
+
 Nachdem alle Unternehmen die aktuelle Spielrunde eingecheckt haben, wird das Spiel simuliert. In der Simulationsphase
 wird unter anderem der Absatz berechnet, der jedem Unternehmen zusteht. Derer günstigste Anbieter soll eine höhere
 Anzahl an Raumschiffen absetzen können, als der mit dem höchsten Preis.
@@ -109,15 +111,15 @@ Im Folgenden wird zunächst der Absatz anhand \ref{alg:spielwelt-logik-absatzmen
           \hline
           Unternehmen & Raumschifftyp & Absatz \\
           \hline \hline
-%          A & X-Wing & $\frac{1}{12000^3}$ = 57,8 \cdot $10^{ - 14 }$  \\
-%            & Corellian Corvette & $\frac{1}{24000^3}$ = 7,23 \cdot $10^{ - 14 }$ \\
-%            & Millenium Falke & $\frac{1}{36000^3}$ = 2,14 \cdot $10^{ - 14 }$ \\ \hline
-%          B & X-Wing & $\frac{1}{10000^3}$ = 75,1 \cdot $10^{ - 14 }$ \\
-%            & Corellian Corvette & $\frac{1}{22000^3}$ = 9,39 \cdot $10^{ - 14 }$ \\
-%            & Millenium Falke & $\frac{1}{47000^3}$ = 0,963 \cdot $10^{ - 14 }$ \\ \hline
-%          C & X-Wing & $\frac{1}{23000^3}$ = 8,22 \cdot $10^{ - 14 }$ \\
-%            & Corellian Corvette & $\frac{1}{38000^3}$ = 1,82 \cdot $10^{ - 14 }$ \\
-%            & Millenium Falke & $\frac{1}{33000^3}$ = 2,78 \cdot $10^{ - 14 }$ \\ \hline          
+         A & X-Wing & $\frac{1}{12000^3} = 57,8 \cdot 10^{-14}$  \\
+           & Corellian Corvette & $\frac{1}{24000^3} = 7,23 \cdot 10^{-14}$ \\
+           & Millenium Falke & $\frac{1}{36000^3} = 2,14 \cdot 10^{-14}$ \\ \hline
+         B & X-Wing & $\frac{1}{10000^3} = 75,1 \cdot 10^{-14}$ \\
+           & Corellian Corvette & $\frac{1}{22000^3} = 9,39 \cdot 10^{-14}$ \\
+           & Millenium Falke & $\frac{1}{47000^3} = 0,963 \cdot 10^{-14}$ \\ \hline
+         C & X-Wing & $\frac{1}{23000^3} = 8,22 \cdot 10^{-14}$ \\
+           & Corellian Corvette & $\frac{1}{38000^3} = 1,82 \cdot 10^{-14}$ \\
+           & Millenium Falke & $\frac{1}{33000^3} = 2,78 \cdot 10^{-14}$ \\ \hline
      \end{tabular}
      \caption{Beispiel zur Berechnung des Absatzes - 2}
      \label{tab:spielwelt-logik-absatzmengen-beispiel2}
