@@ -1,6 +1,8 @@
 \subsection{Das Hilfspaket \textit{util}}
 \label{sub:fachkonzept-implementierung-util}
 
+\autorbeginn{Fredrik}
+
 Für die Realisierung des Planspiels wurde an einigen Stellen wiederkehrbare, abstrakte Funktionalität benötigt. Um diese Anfornderungen mit möglichst geringem Aufwand zu lösen und die Möglichkeit der Wiederverwendbarkeit für andere Projekte aufzugreifen, wurden die hierfür entwickelten Elemente in das Paket \textit{util} ausgelagert. Dazu zählen Methoden zum Umgang mit den Java Datentypen \textit{Vector} und \textit{HashMap}, sowie eine Klasse zur Ausgabe von Tabellen.
 
 \subsubsection{Umgang mit \textit{Vector} und \textit{HashMap}}
@@ -20,3 +22,5 @@ Aufbauend auf diesen allgemeinen Hilfsfunktionen wurden dann einige speziellere,
 Mit zunehmender Komplexität des Planspiels wurde es nötig, verschiedenste Daten für den Spieler möglichst übersichtlich über die Textausgabe darzustellen. Orientierung bot dabei die Standardklasse \textit{StringBuilder}. So ist es möglich einen TableBuilder zu instanziieren um anschließend verschiedene Elemente, Spaltenenden, gleich ganze Zeilen oder eine zusätzliche horizontale Linie einzufügen. Abschließend kann der gesamte Inhalt mit Hilfe der \textit{print()}-Funktion ausgegeben werden, wobei die erste Zeile wahlweise als Kopfzeile gekennzeichnet werden kann.
 
 Diese Klasse wird durchgängig für die Ausgabe von Daten der Raumschiffmärkte und Abteilungen verwendet, und hat sich durch die zentrale Modifizierbarkeit der Darstellung der Ausgabe sowie der einfachen Verwendung zur Reduktion des benötigten Ausgabecodes bewährt.
+
+\autorende{}
