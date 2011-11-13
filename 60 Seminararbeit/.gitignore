@@ -7,3 +7,4 @@ tmp/
 *.log
 
 !80_seminararbeit.tex
+!80_seminararbeit.pdf
