@@ -61,14 +61,14 @@ Die Nachfrage bestimmt sich wie folgt:
 
 % Achtung: Umlaute in Equation gehen nicht, entweder mit \textit{} oder garnicht
 \begin{equation}
-     N_{neu} = N_{alt} \cdot (1 - (\frac{p_{guenstigster}}{kosten \cdot 3,5})^4)
+     N_{neu} = N_{alt} \cdot (1 - (\frac{p_{guenstigster}}{Kosten \cdot 3,5})^4)
      \label{alg:spielwelt-logik-absatzmengen-3}
 \end{equation}
 
 Über diese Formel wird unter Berücksichtigung der Bauteilkosten die Nachfrage bestimmt. Auch diese Funktion wurde implementiert
 um eine möglichst realistische Situation herzustellen. Würden in der Realität die Preise aller Anbieter eine bestimmte Grenze
 überschreiten, so wäre niemand mehr bereit ein Raumschiff zu kaufen. Diese Grenze wurde im Planspiel auf das 3,5-fache der Kosten
-gesetzt. Das heißt, dass ein Raumschiff, das mit Kosten von 6000\curr{} produziert wurde, ab einem Preis von 21.000\curr{} keine
+gesetzt. Das heißt, dass ein Raumschiff, das mit Kosten von 6000\curr{} produziert wurde, ab einem Preis von 21000\curr{} keine
 Nachfrage mehr erzielt.
 
 Mit Hilfe dieser Funktionen wurde der Absatzalgorithmus implementiert. Er kümmert sich darum, dass der Spieler mit dem niedrigsten
@@ -129,12 +129,11 @@ Im Folgenden wird zunächst der Absatz anhand \ref{alg:spielwelt-logik-absatzmen
  
 \begin{table}[htb]
      \centering
-     \begin{tabular}{ | l | l | l | }
+     \begin{tabular}{ | l | l | }
           \hline
-          X-Wing & Corellian Corvette & Millenium Falke \\
-          \hline \hline
-          $141,12 \cdot 10^{-14}$ & $18,44 \cdot 10^{-14}$ &  $5,88 \cdot 10^{-14}$ \\ \hline
-          
+          X-Wing & $141,12 \cdot 10^{-14}$ \\ \hline
+          Corellian Corvette & $18,44 \cdot 10^{-14}$ \\ \hline
+          Millenium Falke & $5,88 \cdot 10^{-14}$ \\ \hline         
      \end{tabular}
      \caption{Beispiel zur Berechnung des Absatzes - 3}
      \label{tab:spielwelt-logik-absatzmengen-beispiel3}
