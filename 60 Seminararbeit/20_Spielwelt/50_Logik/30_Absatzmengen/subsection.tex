@@ -27,7 +27,7 @@ Gründen haben wir uns dafür entschieden, den Absatz anhand einer Potenzfunktio
 Da die einzelnen Raumschifftypen verschiedene Nachfrager ansprechen und das Unternehmen verschieden hohe Preise für die
 verschiedenen Raumschifftypen festlegen kann, wird dies für jeden der 3 Raumschifftypen abgebildet.
 
-\begin{figure}[ht]
+\begin{figure}[htb]
      \centering
      \begin{tikzpicture}[xscale=1,yscale=7,domain=1:7]
 
@@ -83,7 +83,7 @@ Anhand eines Beispiels soll die Funktionsweise des Absatzalgorithmus verdeutlich
 Es gibt 3 Unternehmen A, B und C, die ihre Raumschiffe auf dem Raumschiffmarkt anbieten. In
 \ref{tab:spielwelt-logik-absatzmengen-beispiel1} sehen sie die aktuellen Preise der einzelnen Unternehmen.
 
-\begin{table}[ht]
+\begin{table}[htb]
      \centering
      \begin{tabular}{ | l | l | l | }
           \hline
@@ -105,7 +105,7 @@ Es gibt 3 Unternehmen A, B und C, die ihre Raumschiffe auf dem Raumschiffmarkt a
 
 Im Folgenden wird zunächst der Absatz anhand \ref{alg:spielwelt-logik-absatzmengen-1} berechnet:
 
-\begin{table}[ht]
+\begin{table}[htb]
      \centering
      \begin{tabular}{ | l | l | l | }
           \hline
@@ -127,13 +127,13 @@ Im Folgenden wird zunächst der Absatz anhand \ref{alg:spielwelt-logik-absatzmen
  
  Hieraus ergeben sich folgende Summen:
  
-\begin{table}[ht]
+\begin{table}[htb]
      \centering
      \begin{tabular}{ | l | l | l | }
           \hline
           X-Wing & Corellian Corvette & Millenium Falke \\
           \hline \hline
- %         141,12 \cdot $10^{ - 14 }$ & 18,44 \cdot $10^{ - 14 }$ &  5,88 \cdot $10^{ - 14 }$ \\ \hline
+          $141,12 \cdot 10^{-14}$ & $18,44 \cdot 10^{-14}$ &  $5,88 \cdot 10^{-14}$ \\ \hline
           
      \end{tabular}
      \caption{Beispiel zur Berechnung des Absatzes - 3}
@@ -142,7 +142,7 @@ Im Folgenden wird zunächst der Absatz anhand \ref{alg:spielwelt-logik-absatzmen
 
 Anhand der erhaltenen Werte ergeben sich folgende relative Absätze:
 
-\begin{table}[ht]
+\begin{table}[htb]
      \centering
      \begin{tabular}{ | l | l | l | }
           \hline

@@ -5,7 +5,7 @@
 
 Aus den eingekauften Bauteilen können die Unternehmen Raumschiffe fertigen lassen, wobei jedes Raumschiff dabei eine fest vorgeschriebenen Anzahl von Bauteilen hat. Aufgrund der schwankenden Bauteilpreise schwanken auch die Kosten für die Produktion der Raumschiffe, sofern man keine Bauteile besitzt, die in der letzten Runde eingelagert wurden. In Abbildung \ref{tab:spielwelt-datenbasis-raumschiffe-zusammensetzung} ist die sind die Werte für die einzelnen Typen aufgelistet.
 
-\begin{table}[ht]\small
+\begin{table}[htb]\small
      \centering
      \begin{tabular}{ | l | c | c | c | c |  }
           \hline
@@ -33,7 +33,7 @@ An der Rechnung lässt sich erkennen, dass die jeweiligen Raumschifftypen zu Beg
 \\
 Die Lagerkosten für die Raumschiffe ergeben sich aus den Lagerkosten der jeweils verwendeten Bauteile multipliziert mit deren Menge. Da die Lagerplatzpreise/Lagerplatzeinheit am Anfang des Spiels einem Zehntel des jeweilgen Grundbauteils entsprechen, sind die Lagerpreise für die Raumschiffe hier auch noch gestaffelt wie die Raumschiffpreise (siehe \ref{tab:spielwelt-datenbasis-raumschiffe-zusammensetzung-1}). Ein Spieler muss also sehr genau abwägen, ob er seine Raumschiffe wirklich am Raumschiffmarkt verkaufen kann, da die anfallenden Lagerkosten sein Kapital bei Nichtverkauf erheblich schmälern können.
 
-\begin{table}[ht]\small
+\begin{table}[htb]\small
      \centering
      \begin{tabular}{ | l | c | c | }
           \hline
@@ -50,7 +50,7 @@ Die Lagerkosten für die Raumschiffe ergeben sich aus den Lagerkosten der jeweil
 
 Desweiteren können in der Raumschiffproduktion können durch den Einsatz von qualitativ minderwertigem Personal Zusatzkosten für die Produktion entstehen (siehe 2.3.3 Personal). Diese Zusatzkosten errechnen sich ebenfalls aus den Werten der derzeitigen Bauteilpreise. Dabei wird jedes Bauteil mit dem festen Werten 50\% verrechnet, sodass die Zusatzkosten eines Bauteils meist der Hälfte des Einkaufspreises des Bauteils selbst entspricht (siehe \ref{tab:spielwelt-datenbasis-raumschiffe-zusammensetzung-2}). Auch hier muss der Spieler seine Entscheidungen genau durchdenken, da die Einstellung von minderwertigem Personal zu sehr hohen Zusatzkosten führen kann.
 
-\begin{table}[ht]\small
+\begin{table}[htb]\small
      \centering
      \begin{tabular}{ | l | c | c | }
           \hline
