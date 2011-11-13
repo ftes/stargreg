@@ -1,0 +1,44 @@
+\section{Test des Spielablaufs}
+\label{sec:junit-spielablauf}
+
+\autorbeginn{Fredrik}
+
+Um beispielhaft einen vollständigen Spielablauf nachvollziehen zu können, wurde in der Klasse \textit{SpielTest} die Methode \textit{testGesamtAblauf()} angelegt.
+Zuerst werden sämtliche Spieldaten mittels \textit{setUpBeforeClass()} erzeugt, um die Basis für den Spielablauf zu schaffen. In der Test-Methode selbst lässt sich der Ablauf der Runden mitsamt der Phasen, die alle Spieler in diesen durchlaufen, erkennen. Abschließend wird die Bewertung der Unternehmen vorgenommen und ausgegeben.
+
+\subsection{Unternehmens-Archetypen}
+Um zu überprüfen, ob die Algorithmen zur Berechnung der Absatzmengen und Bauteilpreise, sowie die Bewertung der Unternehmen sich wie geplant auswirken, wurden verschiedene Archetypen von Unternehmen modelliert, um mit Hilfe dieser ein Testspiel durchzuführen:
+
+\begin{seList}
+\item \textbf{Föderation:} Dieser Archetyp kennzeichnet sich dadurch aus, dass ihn eigentlich nichts besonders kennzeichnet. Er hält sich an die etablierten Marktstandards, die in der Planung der Datenbasis geschaffen wurden. Hierbei geht er keine besonderen Risiken ein, sondern wählt eine kontrollierte und wohl durchdachte Vorgehensweise. Hierzu zählen die graduelle Aufrüstung seines Personals, um Fehlerkosten zu minimieren und keine punktuelle Belastung durch Aufrüstungs- und Werbungskosten zu erfahren, und eine angemessene Produktion in allen Segmenten des Raumschiffmarkts.
+\item \textbf{Imperium:} Das Imperium hingegen verfolgt eine gänzlich andere Strategie. Durch eine Überproduktion und ein daraus resultierendes Überangebot sollen Konkurrenten vom Markt gedrängt werden. Die Verkaufspreise sollen minimiert werden, sodass andere Unternehmen mit höheren Preisen keinen Absatz mehr finden, während alle Ausgaben auf einem Minimum gehalten werden sollen. Problematisch gestaltet sich für diesen Archetypen vor allem die Wahl desjenigen Preises, der seine Dumping-Strategie optimal unterstützt, ihm aber dennoch ausreichend Gewinn beschert.
+\item \textbf{Rebellen:} Dieser dritte Archetyp macht wiederum alles anders. Statt den Markt zu überschwemmen, sollen tendenziell weniger Raumschiffe produziert werden, die zu einem hohen Preis verkauft werden. Dadurch soll auch eine frühe Personalaufrüstung finanziert werden, die zu minimalen Fehlerkosten beiträgt.
+\end{seList}
+
+\subsection{Spielablauf}
+Der bekannte Spielablauf zieht sich durch den gesamten Test. So wird zunächst das Spiel gestartet, wodurch indirekt die Daten der ersten Spielrunde geladen werden. Nun dürfen die Unternehmen die ihnen zur Verfügung stehenden Informationen analysieren und Entscheidungen treffen, um abschließend die Runde einzuchecken. Haben dies alle Unternehmen erledigt, so kann die Spielrunde simuliert werden. Dabei stellen die drei oben definierten Unternehmenstypen die Grundlage für die Entscheidungsfindung in den konkreten Spielsituationen dar. Konfrontiert mit einer gegebenen Informationslage wurden aufbauend auf die Strategie des jeweiligen Unternehmens Entscheidungen getroffen. Diese Vorgehensweise wurde für sämtliche Spielrunden wiederholt.
+
+\subsection{Spielergebnis}
+Nachdem die zehnte Runde simuliert wurde, wird das Spielergebnis berechnet. Dies manifestiert sich in einer Rangfolge der Unternehmen, die auf einer Bewertung mit Punkten basiert. Dabei ergibt sich die in \ref{tab:junit-spielablauf-ergebnis} dargestellte Ergebnistabelle, wobei die genaue Anzahl an Punkten im Detail aufgrund der zufällig ausgewerteten Fehlerkosten variieren kann.
+
+\begin{table}[htb]
+     \centering
+     \begin{tabular}{ | l | l | l | }
+          \hline
+          Rang & Unternehmen & Punkte \\
+          \hline \hline
+          1. & Föderation & 39 \\ \hline
+          2. & Rebellen & 33 \\ \hline
+          3. & Imperium & 27 \\ \hline
+     \end{tabular}
+     \caption{Rangfolge als Spielergebnis}
+     \label{tab:junit-spielablauf-ergebnis}
+\end{table}
+
+Hier ist klar zu erkennen, dass der Unternehmens-Archetyp, der durch das Unternehmen Föderation symbolisiert wird, mit einigem Abstand in Führung liegt, gefolgt von den strategisch hochpreisig situierten Rebellen mit dem Imperium, welches versuchte durch Dumping-Preise zu gewinnen, auf dem letzten Rang. Nun ist es fraglich, ob diese Rangfolge auch dem gewünschten Ergebnis entspricht.
+
+Hierbei ist es sicherlich ein gutes Zeichen, dass dasjenige Unternehmen, welches die für die Spielwelt durch uns empfohlene Strategie umsetzte, gewinnen kann, ohne dass dabei der Grundansatz der Simulation oder der Bewerung angepasst werden musste. Auch im Bezug zur Realität dürfte das Ergebnis als valide erscheinen. Fraglich bleibt lediglich, ob nicht doch ein Spieler mit einer innovativen, vielleicht risikofreudigen Strategie, die Möglichkeit haben sollte, das Feld anzuführen. Gewinnt nämlich lediglich das Unternehmen, welches sich strikt an die Empfehlungen hält, so ist der Lerneffekt des Planspiels als nicht besonders hoch zu bewerten.
+
+Allerdings sollte, nur weil dies das Ergebnis bei den drei willkürlich gewählten Unternehmenstypen ist, nicht sofort angenommen werden, dass eine alternative Strategie nicht auch zum Sieg führen kann. Dies müsste sich im realen Test mit mehreren Spielern zeigen, die wirklich intensiv ihre Strategie durchdenken können, und mit mehr Zeit zur Entscheidung an vielen Stellen sicherlich auch besser fundierte Entscheidungen fällen könnten als hier im Test geschehen. Somit verifizert auch dieser Test grundsätzlich die Implementierung des Planspiels, ganz davon abgesehen, dass er sicherstellt, dass das gesamte Spiel überhaupt erst fehlerfrei abgeschlossen werden kann.
+
+\autorende{}

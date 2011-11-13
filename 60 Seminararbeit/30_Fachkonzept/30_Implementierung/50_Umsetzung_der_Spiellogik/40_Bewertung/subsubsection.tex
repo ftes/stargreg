@@ -1,0 +1,21 @@
+\subsubsection{Bewertung}
+\label{subsub:fachkonzept-implementierung-spiellogik-bewertung}
+
+Die Bewertung der Unternehmen ist in den Unternehmensobjekten selbst realisiert. In der Klasse Unternehmen gibt es die Methode getROI(), die den relativen ROI für das Unternehmen gemäß \ref{lis:fachkonzept-implementierung-spiellogik-fehlerkosten} von \ref{sub:spielwelt-logik-bewertung}.
+
+\begin{programm}[ht]
+\begin{lstlisting}[breaklines=true]
+public double getROI() {
+  double rOI = finanzen.getKontostand();
+  for (BauteilTyp bauteilTyp : spielWelt.getBauteilMarkt().getTypen()) {
+    rOI += lager.getAnzahl(bauteilTyp) * bauteilTyp.getPreis() * 0.5;
+  }
+  for (RaumschiffTyp raumschiffTyp : spielWelt.getRaumschiffMarkt().getTypen()) {
+    rOI += lager.getAnzahl(raumschiffTyp) * raumschiffTyp.getKosten() * 0.75;
+  }
+  rOI = (rOI - finanzen.getStartKapital()) / finanzen.getStartKapital();
+    return rOI;
+  }
+\end{lstlisting}
+\caption{Die Methode berechneFehlerhafteMenge() der Klasse ProduktionsAbteilug\label{lis:fachkonzept-implementierung-spiellogik-fehlerkosten}}
+\end{programm}

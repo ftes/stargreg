@@ -17,7 +17,7 @@
 
 %Insert Image: file, label, caption
 \newcommand{\img}[3]{
-	\begin{figure}[h]
+	\begin{figure}[htb]
 	\centering
 	\fbox{\includegraphics[width=0.9\textwidth]{#1}}
 	\caption[#3]
@@ -62,19 +62,13 @@ dozent=Gregor Tielsch
 % Kurzfassung
 %
 %\seKurzfassung{} % dieses Kommando sollte standardm\"assig verwendet werden
-\seKurzfassung[Star Greg - Das Unternehmensplanspiel]{}
+%\seKurzfassung[Star Greg - Das Unternehmensplanspiel]{}
 
 % Beispiel f\"ur ein Kapitel, dass vor dem Einleitungskapitel kommt, z. B. ein Vorwort oder eine Danksagung
 
 
 \seKapitelVorEinleitung{Vorwort}
-\autorbeginn{Britta}
-\\
-\\
 \input{se-sem-vorwort}
-\\
-\\
-\autorende{}
 
 
 % Ausgabe des Inhaltsverzeichnisses
@@ -205,14 +199,3 @@ gliederungsebenen=3
 
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-

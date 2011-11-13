@@ -1,4 +1,3 @@
-%###
 \subsubsection{Zusammensetzung der Raumschiffe}
 %###
 \label{subsub:spielwelt-datenbasis-raumschiffe-zusammensetzung}
@@ -22,11 +21,14 @@ Aus den eingekauften Bauteilen können die Unternehmen Raumschiffe fertigen lass
 
 Die Preise zur für die Raumschifftypen am Beginn eines Spiels gemessen an den Grundpreisen der Bauteile berechnen sich daher wie folgt:
 
-\begin{itemize}
-\item[] X-Wing \qquad\             = 18 * 100,00\curr{} +  6 * 200,00\curr{} +  4 * 500,00\curr{} + 1000,00\curr{} =  6000,00\curr{}
-\item[] Corellian Corvette = 38 * 100,00\curr{} + 16 * 200,00\curr{} +  6 * 500,00\curr{} + 2000,00\curr{} = 12000,00\curr{}
-\item[] Millenium Falke \quad    = 40 * 100,00\curr{} + 30 * 200,00\curr{} + 10 * 500,00\curr{} + 3000,00\curr{} = 18000,00\curr{}
-\end{itemize}
+\begin{align}
+          X-Wing\ &\text{= 18 * 100,00\curr{} +  6 * 200,00\curr{} +  4 * 500,00\curr{} + 1000,00\curr{}}\nonumber \\
+          \ & \text{=  6000,00\curr{}}\nonumber \\
+          Corellian Corvette\ &\text{= 38 * 100,00\curr{} + 16 * 200,00\curr{} +  6 * 500,00\curr{} + 2000,00\curr{}}\nonumber \\
+          \ & \text{= 12000,00\curr{}}\nonumber \\
+          Millenium Falke\ &\text{= 40 * 100,00\curr{} + 30 * 200,00\curr{} + 10 * 500,00\curr{} + 3000,00\curr{}}\nonumber \\
+          \ & \text{= 18000,00\curr{}}\nonumber \\
+\end{align}
 
 An der Rechnung lässt sich erkennen, dass die jeweiligen Raumschifftypen zu Beginn des Spiels eine Staffelung in ihrem Gesamtpreis aufweisen. Wichtig war es ein Schema zu finden, bei dem jedes der Raumschiffe ein bestimmten Grundbauteiltyp hat, für den der Spieler bei dem jeweiligen Raumschiff am meisten investieren muss. So bezahlt man beim X-Wing anfangs am meisten für Triebwerke (2000,00\curr{}), bei der Corellian Corvette für die Rumpfbauteile (3800,00\curr{}) und beim Millenium Falken für die Hitzeschilde (6000,00\curr{}). Somit ist gewährleistet, dass alle Bauteile preislich gesehen steigen und schwanken können (vgl. Algorithmen). 
 \\
@@ -65,8 +67,4 @@ Desweiteren können in der Raumschiffproduktion können durch den Einsatz von qu
      \label{tab:spielwelt-datenbasis-raumschiffe-zusammensetzung-2}
 \end{table}
 
-Anfallende Zusatzkosten sollten von den Spielern tendenziell eher bezahlt als nicht bezahlt werden, weil ansonsten die Gesamtkosten der verwendeten Bauteile und der Personalaufwand für das entsprechende Raumschiff keine Einnahmen generiert haben. Aufgrund dieser Tatsache fiel auch die Entscheidung, dass die Konten in StarGreg von dem jeweiligen Spieler überzogen werden können. So hat ein Spieler, der durch seine Produktion bereits an seiner Kapitalgrenze angelangt ist, trotzdem noch die Möglichkeit, seine reparaturbedürftigen Raumschiffe zum Verkauf bereit zu machen und sie abzusetzen. Der Zinssatz bei Überziehung des Kontos von 25\% ist dabei über die verschiedenen Spielrunden immer der Gleiche.
-
-
-
-
+Anfallende Zusatzkosten sollten von den Spielern tendenziell eher bezahlt als nicht bezahlt werden, weil ansonsten die Gesamtkosten der verwendeten Bauteile und der Personalaufwand für das entsprechende Raumschiff keine Einnahmen generiert haben. Aufgrund dieser Tatsache fiel auch die Entscheidung, dass die Konten in Star Greg von dem jeweiligen Spieler überzogen werden können. So hat ein Spieler, der durch seine Produktion bereits an seiner Kapitalgrenze angelangt ist, trotzdem noch die Möglichkeit, seine reparaturbedürftigen Raumschiffe zum Verkauf bereit zu machen und sie abzusetzen. Der Zinssatz bei Überziehung des Kontos von 25\% ist dabei über die verschiedenen Spielrunden immer der Gleiche.

@@ -11,9 +11,11 @@ Konkret bedeutet der höhere Abstraktionsgrad, dass Eigenheiten wie die System-A
 Aufgrund der Größe des Klassendiagramms ist dies erst in \vref{sec:anhang-klassendiagramm} vollständig dargestellt. Im Folgenden sollen einige Bereiche aus diesem Modell getrennt voneinander betrachtet werden. Nach einer Vorstellung des Modellkerns werden zunächst die sogenannten Typen, die Beschreibungen von konkreten Gegenständen der Spielwelt wie z.B. den Raumschifftypen darstellen, betrachtet. Daran schließt sich eine Erläuterung der Märkte an, gefolgt von einer Betrachtung der Abteilungen. Zuletzt werden die zur Erfassung der Vorgänge in der Spielwelt und deren Speicherung dienenden Transaktions-Klassen erörtert.
 
 \subsection{Die Kernelemente}
-\begin{figure}[ht]
+\begin{figure}[htb]
      \centering
+     \fbox{
      \includegraphics[width=\textwidth]{30_Fachkonzept/20_Entwurf/kern}
+     }
      \caption{Klassendiagramm - Kernelemente}
      \label{img:fachkonzept-entwurf-kern}
 \end{figure}
@@ -23,9 +25,11 @@ In \ref{img:fachkonzept-entwurf-kern} sind die Kernelemente des Entwurfsmodells 
 An dieser Stelle soll hervorgehoben werden, dass die Ablauflogik des Spiels von der Methode \textit{simuliere()} in der Klasse \textit{Spiel} ausgeht, die einerseits die Simulation der SpielWelt vorantreibt, in der dann Absatzmengen und Bauteilpreise berechnet werden, und andererseits alle alten Transaktionen abspeichert um eine neue SpielRunde einzuleiten, wobei sich Auswirkungen auf die SpielWelt ergeben.
 
 \subsection{Die Typen}
-\begin{figure}[ht]
+\begin{figure}[htb]
      \centering
+     \fbox{
      \includegraphics[width=\textwidth]{30_Fachkonzept/20_Entwurf/typ}
+     }
      \caption{Klassendiagramm - Typen}
      \label{img:fachkonzept-entwurf-typ}
 \end{figure}
@@ -36,15 +40,17 @@ Erkannt und umgesetzt wurde dabei die folgenden Typen, die ihrerseits von der Kl
 \begin{seList}
 \item \textbf{PersonalTyp:} Die für das Spiel notwendigen Personaltypen zeichnen sich einerseits durch ihren Qualitätsgrad, der die entstehenden Fehlerkosten beeinflusst, und andererseits durch die mit ihnen verbundenen Kosten aus. Hierzu gehören die Werbungskosten, die laufenden Kosten sowie die Aufrüstungskosten, wobei die ersten zwei abhängig von der Konjunktur auf dem Personalmarkt variieren können. Zusätzlich wird derjenige Personaltyp, auf den eine Aufrüstung erfolgen kann, gespeichert.
 \item \textbf{BauteilTyp:} In der Spielwelt des Planspiels können Bauteiltypen entweder die Rolle von Standard- oder Sonderbauteilen annehmen, wobei erstere für jeden Raumschifftyp benötigt werden. Da dies in der Berechnung der neuen Bauteilpreise berücksichtigt werden muss, wird diese Eigenschaft abgespeichert. Zudem kann der Preis eines Bauteiltypen variieren, sodass neben dem Grundpreis auch die maximale Abweichung von diesem und der aktuelle Preis gespeichert werden müssen.
-\item \textbf{RaumschiffTyp:} Diese setzen sich aus verschiedenen Bauteilen zusammen, wobei Bauteile mehrfach benötigt werden können. Daher wurde die assoziative Klasse \textit{Menge} eingeführt, die an anderen Stellen ebenfalls Verwendung findet. Zudem benötigt ein Raumschifftyp eine gewissen Menge Personal in einer Runde zur Herstellung, und verursacht bei fehlerhaften Herstellung einen gewissen Prozentsatz an Fehlerkosten, gemessen an dem aktuellen Preis der Bauteile, aus denen er sich zusammensetzt.
+\item \textbf{RaumschiffTyp:} Diese setzen sich aus verschiedenen Bauteilen zusammen, wobei Bauteile mehrfach benötigt werden können. Daher wurde die assoziative Klasse \textit{Menge} eingeführt. Zudem benötigt ein Raumschifftyp eine gewissen Menge Personal in einer Runde zur Herstellung, und verursacht bei fehlerhaften Herstellung einen gewissen Prozentsatz an Fehlerkosten, gemessen an dem aktuellen Preis der Bauteile, aus denen er sich zusammensetzt.
 \end{seList}
 
 Da sowohl Raumschifftypen als auch Bauteiltypen im Unternehmen gelagert werden können und für die Berechnung der hierdurch anfallenden Kosten der hierfür benötigte Platz Beachtung findet, erben beide von der abstrakten Klasse \textit{ProduktTyp}. Ein Raumschiff verbraucht dabei so viel Platz wie die Summe seiner Bauteile.
 
 \subsection{Die Märkte}
-\begin{figure}[ht]
+\begin{figure}[htb]
      \centering
+     \fbox{
      \includegraphics[width=0.7\textwidth]{30_Fachkonzept/20_Entwurf/markt}
+     }
      \caption{Klassendiagramm - Märkte}
      \label{img:fachkonzept-entwurf-markt}
 \end{figure}
@@ -58,9 +64,11 @@ Im Planspiel gibt es verschiedene Märkte, die alle die zu ihnen gehörenden akt
 \end{seList}
 
 \subsection{Die Abteilungen}
-\begin{figure}[ht]
+\begin{figure}[htb]
      \centering
+     \fbox{
      \includegraphics[width=\textwidth]{30_Fachkonzept/20_Entwurf/abteilung}
+     }
      \caption{Klassendiagramm - Abteilungen}
      \label{img:fachkonzept-entwurf-abteilung}
 \end{figure}
@@ -77,9 +85,11 @@ Ein produzierendes Unternehmen besteht aus verschiedenen Abteilungen, zu denen k
 \end{seList}
 
 \subsection{Die Transaktionen}
-\begin{figure}[ht]
+\begin{figure}[htb]
      \centering
+     \fbox{
      \includegraphics[width=\textwidth]{30_Fachkonzept/20_Entwurf/transaktion}
+     }
      \caption{Klassendiagramm - Abteilungen}
      \label{img:fachkonzept-entwurf-abteilung}
 \end{figure}
