@@ -3,7 +3,7 @@
 
 \autorbeginn{Marcel, Julia}
 
-Um das Spiel dynamisch zu gestalten, wird ein Konjunkturverlauf über die angedachten zehn Spielrunden fest vorgegeben. Dies soll zum einen das Spiel für die Teilnehmer spannend gestalten und diese durch eine vorgegebene Storyline motivieren. Zum anderen soll der Konjunkturverlauf die Gesamtnachfrage nach jedem Raumschifftyp sowie die Personalkosten steuern. Die Storyline zieht sich über die kompletten zehn Runden und wird als Ereignisse den Teilnehmern mitgeteilt. Diese Ereignisse beeinflussen sowohl die Nachfrage nach jedem einzelnen Raumschifftyp als auch die Kosten für das Personal. Folgende Ereignisse wurden für die Storyline festgelegt:
+Um das Spiel dynamisch zu gestalten, wird ein Konjunkturverlauf, welcher auf \vref{img:spielwelt-szenario-konjunkturverlauf} zu sehen ist, über die angedachten zehn Spielrunden fest vorgegeben. Dies soll zum einen das Spiel für die Teilnehmer spannend gestalten und diese durch eine vorgegebene Storyline motivieren. Zum anderen soll der Konjunkturverlauf die Gesamtnachfrage nach jedem Raumschifftyp sowie die Personalkosten steuern. Die Storyline zieht sich über die kompletten zehn Runden und wird als Ereignisse den Teilnehmern mitgeteilt. Diese Ereignisse beeinflussen sowohl die Nachfrage nach jedem einzelnen Raumschifftyp als auch die Kosten für das Personal. Folgende Ereignisse wurden für die Storyline festgelegt:
 
 \begin{itemize}
 \item intergalaktischer Streik der Droiden
@@ -21,7 +21,7 @@ Das letzte Ereignis findet in Periode 9 statt. Zu diesem Zeitpunkt haben die Kli
 
 In der letzten Periode geht die Nachfrage nach Kriegsraumschiffen etwas zurück da ein Waffenstillstandsabkommen getroffen wurde. Forschungsraumschiffe erfahren in der letzten Periode noch einen kurzen Aufschwung, die Nachfrage nach Handelsraumschiffen bleibt jedoch gleich. Während der letzten Periode belaufen sich die Personalkosten wieder auf die gleiche Höhe wie in der ersten Periode des Unternehmensplanspiels.
 
-\begin{figure}[ht]
+\begin{figure}[htb]
 	\centering
 	\begin{tikzpicture}[x=0.8cm,y=0.08cm,domain=0:10]
 	     \definecolor{darkgreen}{rgb}{0,0.5,0}
@@ -45,8 +45,8 @@ In der letzten Periode geht die Nachfrage nach Kriegsraumschiffen etwas zurück 
 		\draw[darkgreen] plot[green,mark=triangle*,mark color=darkgreen] file {20_Spielwelt/10_Szenario/20_Konjunkturverlauf/falke.data} node[right,xshift=0.1cm] {\small{Falke}};
 
 	\end{tikzpicture}
-	\caption{}
-	\label{}
+	\caption{Konjunkturverlauf}
+	\label{img:spielwelt-szenario-konjunkturverlauf}
 \end{figure}
 
 \autorende{}

@@ -3,6 +3,8 @@
 %###
 \label{sub:spielwelt-logik-absatzmengen}
 
+\autorbeginn{Philipp}
+
 Nachdem alle Unternehmen die aktuelle Spielrunde eingecheckt haben, wird das Spiel simuliert. In der Simulationsphase
 wird unter anderem der Absatz berechnet, der jedem Unternehmen zusteht. Derer günstigste Anbieter soll eine höhere
 Anzahl an Raumschiffen absetzen können, als der mit dem höchsten Preis.
@@ -14,7 +16,8 @@ dem Viertgünstigsten 12,5\%, und so weiter. Diese Methode bringt jedoch fast nu
 Anbieter verglichen mit dem Zweitgünstigsten in jedem Fall 15\% mehr Raumschiffe absetzen können, auch wenn sich der Preis
 nur geringfügig unterscheidet. Angenommen man würde dem teuersten Anbieter einen Absatz von 2\% zusichern, dann wär es möglich
 den Verkaufspreis viel zu hoch anzusetzen und trotzdem einen Absatz und somit einen hohen Gewinn zu erzielen. Aus diesen
-Gründen haben wir uns dafür entschieden, den Absatz anhand einer Potenzfunktion darzustellen:
+Gründen haben wir uns dafür entschieden, den Absatz anhand einer Potenzfunktion, wie in
+\ref{img:spielwelt-logik-absatzmengen-preisabsatzfunktion} abgebildet, darzustellen.
 
 \begin{equation}
      a_i = \frac{1}{p_i^3}
@@ -24,15 +27,15 @@ Gründen haben wir uns dafür entschieden, den Absatz anhand einer Potenzfunktio
 Da die einzelnen Raumschifftypen verschiedene Nachfrager ansprechen und das Unternehmen verschieden hohe Preise für die
 verschiedenen Raumschifftypen festlegen kann, wird dies für jeden der 3 Raumschifftypen abgebildet.
 
-\begin{figure}[ht]
+\begin{figure}[htb]
      \centering
      \begin{tikzpicture}[xscale=1,yscale=7,domain=1:7]
 
           % Achsen
-          \draw[-triangle 45] (0,0) -- (7,0) node[right] {};
-          \draw[-triangle 45] (0,0) -- (0,1) node[below left] {};
+          \draw[-triangle 45] (0,0) -- (7,0) node[right] {Preis};
+          \draw[-triangle 45] (0,0) -- (0,1) node[below left] {Absatz};
 
-          \draw plot[id=p,samples=50] function{1/(x**3)};
+          \draw plot[id=a,samples=50] function{1/(x**3)};	 
 
      \end{tikzpicture}
      \caption{Preis-Absatz-Funktion}
@@ -58,7 +61,7 @@ Die Nachfrage bestimmt sich wie folgt:
 
 % Achtung: Umlaute in Equation gehen nicht, entweder mit \textit{} oder garnicht
 \begin{equation}
-     N{neu} = N{alt} \cdot (1 - (\frac{p_{guenstigster}}{kosten \cdot 3,5})^4)
+     N_{neu} = N_{alt} \cdot (1 - (\frac{p_{guenstigster}}{kosten \cdot 3,5})^4)
      \label{alg:spielwelt-logik-absatzmengen-3}
 \end{equation}
 
@@ -77,4 +80,88 @@ zustehenden Absatz nicht nachkommen, so geht die übrige nicht befriedigte Nachf
 
 Anhand eines Beispiels soll die Funktionsweise des Absatzalgorithmus verdeutlicht werden:
 
-BEISPIEL inkl. FUNKTIONSGRAPH
+Es gibt 3 Unternehmen A, B und C, die ihre Raumschiffe auf dem Raumschiffmarkt anbieten. In
+\ref{tab:spielwelt-logik-absatzmengen-beispiel1} sehen sie die aktuellen Preise der einzelnen Unternehmen.
+
+\begin{table}[htb]
+     \centering
+     \begin{tabular}{ | l | l | l | }
+          \hline
+          Unternehmen & Raumschifftyp & Preis \\
+          \hline \hline
+          A & X-Wing & 12000\curr \\
+            & Corellian Corvette & 24000\curr \\
+            & Millenium Falke & 36000\curr \\ \hline
+          B & X-Wing & 10000\curr \\
+            & Corellian Corvette & 22000\curr \\
+            & Millenium Falke & 47000\curr \\ \hline
+          C & X-Wing & 23000\curr \\
+            & Corellian Corvette & 38000\curr \\
+            & Millenium Falke & 33000\curr \\ \hline
+     \end{tabular}
+     \caption{Beispiel zur Berechnung des Absatzes - 1}
+     \label{tab:spielwelt-logik-absatzmengen-beispiel1}
+\end{table}
+
+Im Folgenden wird zunächst der Absatz anhand \ref{alg:spielwelt-logik-absatzmengen-1} berechnet:
+
+\begin{table}[htb]
+     \centering
+     \begin{tabular}{ | l | l | l | }
+          \hline
+          Unternehmen & Raumschifftyp & Absatz \\
+          \hline \hline
+         A & X-Wing & $\frac{1}{12000^3} = 57,8 \cdot 10^{-14}$  \\
+           & Corellian Corvette & $\frac{1}{24000^3} = 7,23 \cdot 10^{-14}$ \\
+           & Millenium Falke & $\frac{1}{36000^3} = 2,14 \cdot 10^{-14}$ \\ \hline
+         B & X-Wing & $\frac{1}{10000^3} = 75,1 \cdot 10^{-14}$ \\
+           & Corellian Corvette & $\frac{1}{22000^3} = 9,39 \cdot 10^{-14}$ \\
+           & Millenium Falke & $\frac{1}{47000^3} = 0,963 \cdot 10^{-14}$ \\ \hline
+         C & X-Wing & $\frac{1}{23000^3} = 8,22 \cdot 10^{-14}$ \\
+           & Corellian Corvette & $\frac{1}{38000^3} = 1,82 \cdot 10^{-14}$ \\
+           & Millenium Falke & $\frac{1}{33000^3} = 2,78 \cdot 10^{-14}$ \\ \hline
+     \end{tabular}
+     \caption{Beispiel zur Berechnung des Absatzes - 2}
+     \label{tab:spielwelt-logik-absatzmengen-beispiel2}
+\end{table}
+ 
+ Hieraus ergeben sich folgende Summen:
+ 
+\begin{table}[htb]
+     \centering
+     \begin{tabular}{ | l | l | l | }
+          \hline
+          X-Wing & Corellian Corvette & Millenium Falke \\
+          \hline \hline
+          $141,12 \cdot 10^{-14}$ & $18,44 \cdot 10^{-14}$ &  $5,88 \cdot 10^{-14}$ \\ \hline
+          
+     \end{tabular}
+     \caption{Beispiel zur Berechnung des Absatzes - 3}
+     \label{tab:spielwelt-logik-absatzmengen-beispiel3}
+\end{table} 
+
+Anhand der erhaltenen Werte ergeben sich folgende relative Absätze:
+
+\begin{table}[htb]
+     \centering
+     \begin{tabular}{ | l | l | l | }
+          \hline
+          Raumschifftyp & Unternehmen & rel. Absatz \\
+          \hline \hline
+          X-Wing & A & 40,94\%  \\
+                 & B & 53,22\% \\
+                 & C & 5,82\% \\ \hline
+          Corellian Corvette & A & 39,21\% \\
+                             & B & 50,92\% \\
+                             & C & 9,87\% \\ \hline
+          Millenium Falke & A & 36,39\% \\
+                          & B & 16,38\% \\
+                          & C & 47,28\% \\ \hline
+     \end{tabular}
+     \caption{Beispiel zur Berechnung des Absatzes - 4}
+     \label{tab:spielwelt-logik-absatzmengen-beispiel4}
+\end{table}
+
+Die Werte aus \ref{tab:spielwelt-logik-absatzmengen-beispiel4} geben an, wie viel Prozent der nachgefragten Raumschiffe die einzelnen
+Unternehmen absetzen dürfen. Vor allem bei den Raumschiffen X-Wing und Corellian Corvette des Unternehmens C wird deutlich, dass
+ein zu hoher Preis kaum Nachfrage schafft.

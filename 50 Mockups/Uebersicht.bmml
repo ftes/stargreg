@@ -38,14 +38,14 @@
         <text>Informationen%20zur%20aktuellen%20Runde</text>
       </controlProperties>
     </control>
-    <control controlID="25" controlTypeID="com.balsamiq.mockups::Image" x="641" y="58" w="402" h="247" measuredW="1351" measuredH="897" zOrder="14" locked="false" isInGroup="-1">
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Image" x="641" y="58" w="402" h="247" measuredW="1351" measuredH="897" zOrder="13" locked="false" isInGroup="-1">
       <controlProperties>
         <borderStyle>square</borderStyle>
         <src>./Startseite_Podracer.jpg</src>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="30" controlTypeID="com.balsamiq.mockups::TextInput" x="344" y="86" w="-1" h="-1" measuredW="495" measuredH="50" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::TextInput" x="344" y="86" w="-1" h="-1" measuredW="495" measuredH="50" zOrder="14" locked="false" isInGroup="-1">
       <controlProperties>
         <size>32</size>
         <text>Tantive%20Engineering%20Corporation</text>
@@ -97,7 +97,7 @@
       </controlProperties>
     </control>
     <control controlID="58" controlTypeID="com.balsamiq.mockups::PieChart" x="544" y="424" w="230" h="218" measuredW="180" measuredH="180" zOrder="3" locked="false" isInGroup="-1"/>
-    <control controlID="60" controlTypeID="com.balsamiq.mockups::Label" x="647" y="556" w="105" h="21" measuredW="87" measuredH="23" zOrder="16" locked="false" isInGroup="-1">
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Label" x="647" y="556" w="105" h="21" measuredW="87" measuredH="23" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
         <text>XX%25%20Branche</text>
       </controlProperties>
@@ -108,16 +108,10 @@
         <text>XX%25%0ATantive%20%0AEngineering%0ACorporation</text>
       </controlProperties>
     </control>
-    <control controlID="64" controlTypeID="com.balsamiq.mockups::Label" x="866" y="358" w="-1" h="-1" measuredW="183" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+    <control controlID="64" controlTypeID="com.balsamiq.mockups::Label" x="866" y="358" w="-1" h="-1" measuredW="183" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
         <size>16</size>
         <text>Star%20der%20letzten%20Runde</text>
-      </controlProperties>
-    </control>
-    <control controlID="66" controlTypeID="com.balsamiq.mockups::Label" x="866" y="529" w="-1" h="-1" measuredW="180" measuredH="27" zOrder="17" locked="false" isInGroup="-1">
-      <controlProperties>
-        <size>16</size>
-        <text>ROI%20der%20letzten%20Runde</text>
       </controlProperties>
     </control>
     <control controlID="67" controlTypeID="com.balsamiq.mockups::MultilineButton" x="904" y="396" w="139" h="62" measuredW="149" measuredH="58" zOrder="10" locked="false" isInGroup="-1">
@@ -133,19 +127,13 @@
         <icon>StarIcon%7Clarge</icon>
       </controlProperties>
     </control>
-    <control controlID="69" controlTypeID="com.balsamiq.mockups::MultilineButton" x="866" y="561" w="170" h="58" measuredW="89" measuredH="58" zOrder="12" locked="false" isInGroup="-1">
-      <controlProperties>
-        <color>15843890</color>
-        <text>20%2C83%25</text>
-      </controlProperties>
-    </control>
-    <control controlID="70" controlTypeID="com.balsamiq.mockups::MultilineButton" x="447" y="166" w="153" h="71" measuredW="120" measuredH="58" zOrder="18" locked="false" isInGroup="-1">
+    <control controlID="70" controlTypeID="com.balsamiq.mockups::MultilineButton" x="447" y="166" w="153" h="71" measuredW="120" measuredH="58" zOrder="16" locked="false" isInGroup="-1">
       <controlProperties>
         <color>15843890</color>
         <text>Runde%202/10</text>
       </controlProperties>
     </control>
-    <control controlID="71" controlTypeID="com.balsamiq.mockups::Button" x="557" y="696" w="164" h="28" measuredW="147" measuredH="28" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="71" controlTypeID="com.balsamiq.mockups::Button" x="557" y="696" w="164" h="28" measuredW="147" measuredH="28" zOrder="17" locked="false" isInGroup="-1">
       <controlProperties>
         <color>16767334</color>
         <href>Endauswertung%26bm%3BEndauswertung.bmml%26bm%3BEndauswertung.bmml%26bm%3BEndauswertung.bmml</href>

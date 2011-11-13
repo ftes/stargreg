@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 %###
 \subsection{Bauteilpreise}
 %###
@@ -179,3 +180,185 @@ Die negative relative Abweichung sagt aus, dass im Vergleich zu den anderen Baut
 \end{large}
 
 Aufgrund der vergleichsweise niedrigen Nachfrage ergibt sich also in der nächsten Spielrunde ein niedrigerer Preis für Hitzeschilder, nämlich statt 200,00\curr{} nur noch 169,94\curr{}, was die Simulation des Zusammenhangs zwischen Angebot und Nachfrage in \ref{img:spielwelt-logik-bauteilpreise-preismengendiagramm} ausdrückt. Geschickte Spieler können sogar auf besonders niedrige Bauteilpreise reagieren, indem sie diese in Massen auf Vorrat einkaufen und so einerseits selbst Geld sparen, andererseits den Preis der Bauteile in der Folgerunde für die anderen Spieler in die Höhe treiben.
+=======
+%###
+\subsection{Bauteilpreise}
+%###
+\label{sub:spielwelt-logik-bauteilpreise}
+
+Die Bauteile dienen den Unternehmen in dem Planspiel zur Herstellung von Raumschiffen. Für die
+Preisfindung der Unternehmen sind vor allem die variablen Stückkosten maßgeblich, die sich in der
+vereinfachten Darstellung des Planspiels lediglich aus der Summe der Bauteilpreise zusammensetzen.
+Hierbei schwanken die Bauteilpreise, was zunächst der Dynamik des Spiels zu Gute kommt, weil
+erreicht wird, dass Spieler auf die geänderten Bedingungen reagieren müssen, indem sie erkennen,
+dass gewissen Bauteilpreise gesunken sind.
+
+\begin{figure}[htb]
+     \centering
+     \begin{tikzpicture}[x=5cm,y=5cm]
+          \tikzset{fn/.style={}}
+          \tikzset{hl/.style={loosely dashed}}
+          \tikzset{n'/.style={}}
+          \tikzset{xl/.style={above,yshift=-0.7cm}}
+
+          % Achsen
+          \draw[-triangle 45] (0,0) -- (1.7,0) node[right] {$Menge$};
+          \draw[-triangle 45] (0,0) -- (0,1.2) node[above] {$Preis$};
+
+          \path [draw,name path=angebot][fn] (0.1,0.1) -- (0.9,0.9) node[above right,xshift=-0.5cm] {$Angebot$};
+          \path [draw,name path=nachfrage][fn] (0.9,0.1) -- (0.1,0.9) node[above right,xshift=-0.5cm] {$Nachfrage$};
+          \path [draw,name path=nachfrage',n'][fn] (0.6,0.9) -- (1.4,0.1) node[above right] {$Nachfrage'$};
+          \draw[-triangle 45] (0.85,0.2) -- (1.25,0.2);
+
+          \draw [name intersections={of=angebot and nachfrage,by=x}] [hl] (x) -- (x|-0,0) node[xl]{$x$};
+          \draw [name intersections={of=angebot and nachfrage,by=x}] [hl] (x) -- (x-|0,0) node[left]{$p$};
+
+          \draw [name intersections={of=angebot and nachfrage',by=x}] [hl,n'] (x) -- (x|-0,0)
+          node[xl]{$x'$}; \draw [name intersections={of=angebot and nachfrage',by=x}] [hl,n'] (x)
+          -- (x -| 0,0) node[left]{$p'$};
+     \end{tikzpicture}
+     \caption{Die Beziehung zwischen Angebot und Nachfrage}
+     \label{img:spielwelt-logik-bauteilpreise-preismengendiagramm}
+\end{figure}
+
+Die Grundidee zur Veränderung der Bauteilpreise stammt aus der Betrachtung von Angebot und Nachfrage
+in der Makroökonomie. Wie in
+\ref{img:spielwelt-logik-bauteilpreise-preismengendiagramm}
+zu erkennen ist, führt die Erhöhung der Nachfrage bei gleich bleibendem Angebot zu einem neuen
+Marktgleichgewicht bei höheren Preisen. Ausgehend hiervon wurde der Algorithmus entwickelt, der
+durch \ref{alg:spielwelt-logik-bauteilpreise-1}, \ref{alg:spielwelt-logik-bauteilpreise-2} und
+\ref{alg:spielwelt-logik-bauteilpreise-3}
+beschrieben wird. Die Bedeutung der Bezeichner ist \ref{alg:spielwelt-logik-bauteilpreise-legende}
+zu entnehmen.
+
+\newcommand{\pd}{\Delta{}p_{max}}
+\begin{figure}[htb]
+     \begin{align}
+          \overline{N} &\text{: durchschnittliche Nachfrage}\nonumber \\
+          x_i &\text{: von Bauteil $i$ in zurückliegender Runde abgesetzte Menge}\nonumber \\
+          p_i &\text{: Preis des Bauteils $i$ in der zurückliegenden Runde}\nonumber \\
+          \Delta{}N_{rel} &\text{: relative Nachfrageabweichung eines Produkts von $\overline{N}$}\nonumber \\
+          p_{neu} &\text{: neuer Preis des Bauteils}\nonumber \\
+          p_{basis} &\text{: Grundpreis des Bauteils}\nonumber \\
+          \Delta{}p_{max} &\text{: maximal erlaubte Abweichung vom Grundpreis}\nonumber
+     \end{align}
+     \caption{Legende zum Algorithmus}
+     \label{alg:spielwelt-logik-bauteilpreise-legende}
+\end{figure}
+
+\begin{equation}
+     \overline{N} = \frac{1}{n} \cdot \sum\limits_{i=1}^n {x_i \cdot p_i}
+     \label{alg:spielwelt-logik-bauteilpreise-1}
+\end{equation}
+
+Mit \ref{alg:spielwelt-logik-bauteilpreise-1} wird für jede einzelne Bauteilgruppe (Standard- und
+Sonderbauteile) zunächst die durchschnittliche Nachfrage in der zurückliegenden Periode berechnet.
+Die einzelnen Bauteilgruppen müssen hierbei getrennt betrachtet werden, da die Sonderbauteile nur
+einen relativ geringen Anteil am Wert eines Raumschiffes haben, und die durchschnittliche Nachfrage
+zwischen den Gruppen somit nicht vergleichbar ist. Die Nachfrage wird am Umsatz gemessen, da
+beispielsweise von den teuren Triebwerken nur wenig, von den günstigen Rumpfbauteilen aber viele für
+ein Raumschiff benötigt werden.
+
+\begin{equation}
+     \Delta{}N_{rel} = \frac{x_i \cdot p_i - \overline{N}}{\overline{N}}
+     \label{alg:spielwelt-logik-bauteilpreise-2}
+\end{equation}
+
+In einem zweiten Schritt wird dann für jedes einzelne Bauteil der betrachteten Gruppe mit
+\ref{alg:spielwelt-logik-bauteilpreise-2} die relative Abweichung der Nachfrage für dieses Bauteil
+von der durchschnittlichen Nachfrage gebildet. Diese Abweichung kommt zu Stande, da sich die Mengen
+der benötigten Bauteile auf die verschiedenen Raumschifftypen in unterschiedlichen Verhältnissen
+verteilen. So führt eine überdurchschnittlich hohe Produktion von Millenium Falken bespielsweise zu
+einer überdurchschnittlich hohen Nachfrage nach Hitzeschilden, wie im \ref{sec:spielwelt-datenbasis}
+ersichtlich wird.
+
+\begin{equation}
+     p_{neu} = p_{basis} -\pd + \cfrac{2 \cdot \pd^2}{\pd + \cfrac{\pd}{({\cfrac{2}{\pd} + 1)}^{2 \cdot \pd \cdot \Delta{}N_{rel}}}}
+     \label{alg:spielwelt-logik-bauteilpreise-3}
+\end{equation}
+
+Zu guter letzt wird dann, ausgehend von der errechneten relative Abweichung zur durchschnittlichen
+Nachfrage, der neue Preis des Bauteils anhand von \ref{alg:spielwelt-logik-bauteilpreise-3}
+berechnet. Lag eine überdurchschnittlich hohe Nachfrage vor, ist also die relative Abweichung
+positiv, so steigt der Bauteilpreis; entsprechendes gilt auch umgekehrt. Wie sich der Preis genau
+verhält, ist abhängig von dem Grundpreis des Bauteils und der maximal erlaubten Abweichung von
+diesem Preis nach oben und unten. Entwickelt wurde diese kompliziert anmutende Funktionsvorschrift
+aus der Funktion des logistischen Wachstums, die dann dahingehend parametisiert wurde, dass der
+Schnittpunkt mit der $x$-Achse als Basispreis und die maximale Preisabweichung frei gewählt werden
+können. Hierdurch entsteht für den einfachen Sachverhalt eine sehr verschachtelte Funktion, die
+jedoch nur eine Abwandlung einer einfachen Funktion ist.
+
+\newcommand{\pbasis}{3.5}
+\newcommand{\pdelta}{2.5}
+\begin{figure}[htb]
+     \centering
+     \begin{tikzpicture}[x=5cm,y=1cm,domain=-1.2:1.2]
+          \tikzset{d/.style={loosely dashed}}
+
+          % Achsen
+          \draw[triangle 45-triangle 45] (-1.2,0) -- (1.2,0) node[right] {$\Delta{}N_{rel}$};
+          \draw[-triangle 45] (0,0) -- (0,7) node[above]{$p_{neu}$};
+
+          % Ticks
+          \draw (1,1pt) -- (1,-3pt) node[below] {$100\%{}$};
+          \draw (0,1pt) -- (0,-3pt) node[below] {$0\%{}$};
+          \draw (-1,1pt) -- (-1,-3pt) node[below] {$-100\%{}$};
+          \draw plot[id=p,samples=50] function{\pbasis-\pdelta+2*\pdelta**2/(\pdelta+\pdelta/((2/\pdelta+1)**(2*x*\pdelta)))};
+
+          \draw [d] (-1.2,\pbasis-\pdelta) -- (0,\pbasis-\pdelta);
+          \draw [d] (1.2,\pbasis+\pdelta) -- (0,\pbasis+\pdelta);
+          \draw[decorate,decoration={brace},thick] (5pt,\pbasis) to
+          node[midway,right,xshift=2] (bracket) {$\Delta{}p_{max}$}
+          (5pt,\pbasis-\pdelta);
+          \draw[decorate,decoration={brace},thick] (-5pt,\pbasis) to
+          node[left,xshift=-2] (bracket) {$\Delta{}p_{max}$}
+          (-5pt,\pbasis+\pdelta);
+          \draw (-3pt,\pbasis) -- (3pt,\pbasis) node[left,xshift=-10] {$p_{basis}$};
+
+     \end{tikzpicture}
+     \caption{Die Berechnung des Bauteilpreises}
+     \label{img:spielwelt-logik-bauteilpreise-graph}
+\end{figure}
+
+Zur Verdeutlichung der Berechnung des letzten Schritts ist in \ref{img:spielwelt-logik-bauteilpreise-graph} der Funktionsgraph der Gleichung dargestellt. In diesem wird ersichtlich, wie sich der Preis eines Bauteils bei einer gegebenen Abweichung von der durchschnittlichen Nachfrage verhält. Zu erkennen sind ebenfalls die oben erwähnten Parameter, nämlich der Grundpreis $p_{basis}$ und die maximale Abweichung $\Delta{}p_{max}$.
+
+\begin{table}[htb]
+     \centering
+     \begin{tabular}{ | l | l | l | }
+          \hline
+          Bauteiltyp & Absatzmenge & Preis \\
+          \hline \hline
+          Rumpfbauteil & 130 Stück & 100,00\curr \\ \hline
+          Hitzeschild & 60 Stück & 200,00\curr \\ \hline
+          Triebwerk & 40 Stück & 500,00\curr \\
+          \hline
+     \end{tabular}
+     \caption{Beispielwerte für die Berechnung neuer Bauteilpreise}
+     \label{tab:spielwelt-logik-bauteilpreise-beispiel}
+\end{table}
+
+Anhand eines Beispiels soll die Berechnung der Bauteilpreise abschließend betrachtet werden. Zu diesem Zweck nehme man die Werte in \ref{tab:spielwelt-logik-bauteilpreise-beispiel} als die Werte für die zurückliegende Spielrunde an. Folgt man nun der Berechnungsvorschrift, so muss zunächst mit Hilfe von \ref{alg:spielwelt-logik-bauteilpreise-1} die durchschnittliche Nachfrage berechnet werden.
+
+\newcommand{\tc}{\text{\curr}}
+\begin{equation}
+     \overline{N} = \frac{1}{3} \cdot {(130 \cdot 100 \tc + 60 \cdot 200 \tc + 40 \cdot 500 \tc)} = 15000 \tc \nonumber
+\end{equation}
+
+Im Durchschnitt wurde in der vergangengen Spielrunde also für jedes Standardbauteil insgesamt 15000\curr{} ausgegeben. Diese durchschnittliche Nachfrage, gemessen am Umsatz, wird dann verglichen mit der Nachfrage nach einem bestimmten Bauteil, beispielsweise dem Hitzeschild. Hierzu wird \ref{alg:spielwelt-logik-bauteilpreise-2} angewendet.
+
+\begin{equation}
+     \Delta{}N_{rel} = \frac{60 \cdot 200 \tc - 15000 \tc}{15000 \tc} = -0.2 \mathop{\widehat{=}} -20\% \nonumber
+\end{equation}
+
+Die negative relative Abweichung sagt aus, dass im Vergleich zu den anderen Bauteilen, weniger Hitzeschilder eingekauft wurden, die Nachfrage nach diesen war also vergleichsweise gering. Wie sich dies auf den Preis für Hitzeschilder in der nächsten Runde auswirkt, ergibt sich aus \ref{alg:spielwelt-logik-bauteilpreise-3}. Dazu müssen der Datenbasis in \ref{sec:spielwelt-datenbasis} noch die Werte für den Basispreis $p_{basis} = 200,00\tc$ und die maximal erlaubte Abweichung von diesem $\Delta{}p_{max} = 80,00\tc$ entnommen werden.
+
+\begin{large}
+\begin{equation}
+     p_{neu} = 200 \tc -80 \tc + \cfrac{2 \cdot 80 \tc^2}{80 \tc + \cfrac{80 \tc}{({\cfrac{2}{80 \tc} + 1)}^{2 \cdot 80 \tc \cdot (-0.2)}}} \approx 169.94 \tc \nonumber
+\end{equation}
+\end{large}
+
+Aufgrund der vergleichsweise niedrigen Nachfrage ergibt sich also in der nächsten Spielrunde ein niedrigerer Preis für Hitzeschilder, nämlich statt 200,00\curr{} nur noch 169,94\curr{}, was die Simulation des Zusammenhangs zwischen Angebot und Nachfrage in \ref{img:spielwelt-logik-bauteilpreise-preismengendiagramm} ausdrückt. Geschickte Spieler können sogar auf besonders niedrige Bauteilpreise reagieren, indem sie diese in Massen auf Vorrat einkaufen und so einerseits selbst Geld sparen, andererseits den Preis der Bauteile in der Folgerunde für die anderen Spieler in die Höhe treiben.
+
+\autorende{}
+>>>>>>> 0b913f1ca8dd7783b6123b28ecfe8dab72dcdb04

@@ -17,7 +17,7 @@
 
 %Insert Image: file, label, caption
 \newcommand{\img}[3]{
-	\begin{figure}[h]
+	\begin{figure}[htb]
 	\centering
 	\fbox{\includegraphics[width=0.9\textwidth]{#1}}
 	\caption[#3]
@@ -68,9 +68,7 @@ dozent=Gregor Tielsch
 
 
 \seKapitelVorEinleitung{Vorwort}
-\autorbeginn{Britta}
 \input{se-sem-vorwort}
-\autorende{}
 
 
 % Ausgabe des Inhaltsverzeichnisses
@@ -110,7 +108,7 @@ gliederungsebenen=3
 % hier muss wieder auf die Nummierung mit arabischen Seitenzahlen umgestellt werden
 %
 
- \input{10_Einleitung/chapter.tex}
+\input{10_Einleitung/chapter.tex}
 
 \input{20_Spielwelt/chapter.tex}
 
@@ -134,8 +132,10 @@ gliederungsebenen=3
 % Anhang der Arbeit
 % 
 %
-% \seAppendix{}
-% \chapter{Einige wichtige \LaTeX{}-Kommandos}
+\seAppendix{}
+\chapter{Anhang}
+
+\input{70_Anhang/10_klassendiagramm.tex}
 % 
 % 
 % 
@@ -165,8 +165,8 @@ gliederungsebenen=3
 %
 % Literaturverzeichnisses
 %
-%\newpage
-% \sePrintBibliography{}
+\newpage
+\sePrintBibliography{}
 
 % \input{se-test-literaturverzeichnis}
 
@@ -174,7 +174,7 @@ gliederungsebenen=3
 %
 % Festlegung des grundlegenden Formatierungsstils des Literaturverzeichnis
 %
-% \bibliographystyle{jurabib}
+\bibliographystyle{jurabib}
 
 % Eigentliche Ausgabe der in der Arbeit verwendeten Quellen
 %
@@ -183,7 +183,7 @@ gliederungsebenen=3
 % die Angabe geht davon aus, dass eine wa.bib-Datei in demselben 
 % Verzeichnis liegt, wie se-pa1-vorlage.tex
 %
-% \seBibliography{wa}
+\seBibliography{wa}
 
 
 %
@@ -195,18 +195,7 @@ gliederungsebenen=3
 % ehrenw\"ortlichen Erkl\"arung
 %
 %\seEhrenwoertlicheErklaerung{} % dieses Kommando sollte standardm\"assig verwendet werden
-% \seEhrenwoertlicheErklaerung[Star Greg\\Das Unternehmensplanspiel]{}
+\seEhrenwoertlicheErklaerung[Star Greg\\Das Unternehmensplanspiel]{}
 
 
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
