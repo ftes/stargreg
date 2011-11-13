@@ -8,7 +8,7 @@ Zuerst wird ein Spielobjekt angelegt, welchem dann die verschiedenen Märkte (Ba
 \\
 Die Umsetzung der zweiten Art der Datenhaltung wurde mit Hilfe der Transaktionen der Unternehmen umgesetzt. Transaktionen beeinflussen sowohl Größen der einzelnen Unternehmen, als auch Größen, die für die gesamte Spielwelt (also alle Unternehmen) eine Rolle spielen, wie die Bauteilpreise und die Nachfrage nach den Raumschiffen. Zudem ist mit den Transaktionen die Wertrückverfolgung von Daten gewährleistet. Um diese Art der Datenhaltung noch transparenter zu machen, wird an dieser Stelle auf die Beispiel einer Einkaufstransaktion von Bauteilen eingegangen. Ein Unternehmen tätigt seine Transaktionen mit Hilfe seiner Abteilungen, in unserem Beispiel also mit Hilfe seiner Einkaufsabteilung. Hier ist die Methode kaufeEin() realisiert (siehe \ref{lis:fachkonzept-implementierung-erläuterung-datenhaltung}).
 
-\begin{programm}[htbp]
+\begin{programm}[htb]
 \begin{lstlisting}[breaklines=true]
 public void kaufeEin(BauteilTyp bauteilTyp, int menge) {
   Einkauf einkauf = new Einkauf(bauteilTyp, unternehmen, menge, bauteilTyp.getPreis());
@@ -26,7 +26,7 @@ Bei dem Einkauf müssen der Bauteiltyp und die Menge des Bauteiltyps mitgegeben 
 \\
 In \ref{tab:fachkonzept-implementierung-erläuterung-datenhaltung} ist dargestellt, welche Daten in den jeweiligen Abteilungen und Märkten gespeichert werden, wobei nicht alle Abteilungen und Märkte aufgelistet sind, da nicht in allen die Speicherung von sich verändernden Daten vorkommt (z.B. Verkaufsabteilung und Kapitalmarkt).
 
-\begin{table}[ht]\small
+\begin{table}[htb]\small
      \centering
      \begin{tabular}{| p{4cm} |p{\textwidth -5cm} |}
           \hline
